@@ -3,7 +3,7 @@
 # Reads the compiled binary only: no job, no GPU, no profiling permissions.
 #
 # Run it directly on the login node:
-#   cd nicola && ./res_usage.sh                       # binary in the ASML case dir
+#   cd nicola && ./res_usage.sh                       # install_v100 build of this repo
 #   cd nicola && ./res_usage.sh /path/to/spa  label   # any other build
 #
 # Output under nicola/results/res_usage[_label]/:
@@ -12,8 +12,7 @@
 
 NICOLA="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
-CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
-SPARTA_EXE="${1:-${SPARTA_EXE:-$CASE_DIR/spa_kokkos_cuda_volta}}"
+SPARTA_EXE="${1:-${SPARTA_EXE:-$REPO_ROOT/install_v100/bin/spa_kokkos_cuda}}"
 OUT="$NICOLA/results/res_usage${2:+_$2}"
 
 if [ ! -e "$SPARTA_EXE" ]; then

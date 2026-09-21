@@ -20,13 +20,18 @@
 NICOLA="${PBS_O_WORKDIR:-$PWD}"
 REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 
-# The binary and the files the deck reads (species, collision model, geometry)
-# live in the ASML case directory, a sibling checkout of this repository.
-# The deck itself is versioned here, in nicola/input/. Override if it moved:
+# Only the files the deck reads (species, collision model, geometry) come from
+# the ASML case directory, a sibling checkout that cannot be published. The
+# deck is versioned in nicola/input/, and the binary is built inside this
+# repository by nicola/compile/compile_sparta_cuda.sh. Override if it moved:
 #   qsub -v CASE_DIR=/path/to/case submit_gpu_nsys.sh
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 
-SPARTA_EXE="${SPARTA_EXE:-$CASE_DIR/spa_kokkos_cuda_volta}"
+# Binary built from this checkout. For the H200 build, ask PBS for an H200 too:
+#   qsub -v GPU_ARCH=h200 -l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:gpu_type=h200 submit_gpu_nsys.sh
+GPU_ARCH="${GPU_ARCH:-v100}"
+SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
+BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
 # Deck knobs, forwarded with -var. Defaults match the deck.
@@ -51,6 +56,12 @@ NSYS_DURATION="${NSYS_DURATION:-0}"
 RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}_np${NPART}_ro${REORDER}${LABEL:+_$LABEL}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
+
+if [ ! -x "$SPARTA_EXE" ]; then
+    echo "MISSING binary: $SPARTA_EXE" >&2
+    echo "build it first:  nicola/compile/compile_sparta_cuda.sh $GPU_ARCH" >&2
+    exit 1
+fi
 
 for p in "$CASE_DIR" "$SPARTA_EXE" "$INPUT_FILE"; do
     if [ ! -e "$p" ]; then
@@ -94,6 +105,8 @@ export OMP_PLACES=threads
     echo "date       $(date -Is)"
     echo "commit     $COMMIT"
     echo "exe        $SPARTA_EXE"
+    echo "build      $(tr '
+' ' ' < "$BUILD_INFO" 2>/dev/null)"
     echo "input      $INPUT_FILE"
     echo "ranks      $NRANKS"
     echo "gpus       $NGPUS"

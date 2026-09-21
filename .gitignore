@@ -42,3 +42,7 @@ Thumbs.db
 /spa
 
 doc/PDFgen.sh
+
+# per-architecture build and install trees made by nicola/compile/
+/build_*/
+/install_*/
