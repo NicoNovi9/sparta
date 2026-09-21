@@ -1,261 +1,0 @@
-Loading hpcx/2.17.1-gcc-8.5.0
-  Loading requirement: zlib-ng/2.1.4-gcc-8.5.0 zstd/1.5.5-gcc-8.5.0
-    binutils/2.41-gcc-8.5.0
-job        1209335.pbs60
-host       an5024
-date       2026-09-21T13:57:39+02:00
-commit     7500b1a4363c613543cde6c6ea98e52527cdc56b
-exe        /hpc/data/cfd-students/nnoventa/sparta/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest/spa_kokkos_cuda_volta
-input      /hpc/data/cfd-students/nnoventa/sparta/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest/GPU_files/in.sparta.gpu
-ranks      1
-gpus       1
-nsys delay 0  duration 0
-GPU 0: Tesla V100-SXM2-32GB (UUID: GPU-3d8ddf84-5699-2de1-55d7-fce3c5ba8aeb)
-NVIDIA Nsight Systems version 2024.6.2.225-246235244400v0
-Collecting data...
-SPARTA (27 Aug 2026)
-KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta-dsmc-asml/sparta/src/KOKKOS/kokkos.cpp:50)
-  requested 1 GPU(s) per node
-  requested 1 thread(s) per MPI task
-WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta-dsmc-asml/sparta/src/KOKKOS/kokkos.cpp:148)
-Running on 1 MPI task(s)
-Created orthogonal box = (-0.002001 -1e-06 -1e-06) to (0.02801 0.003001 0.087501)
-Created 864000 child grid cells
-  CPU time = 0.500773 secs
-  create/ghost percent = 23.7524 76.2476
-Balance grid migrated 0 cells
-  CPU time = 0.375508 secs
-  reassign/sort/migrate/ghost percent = 15.8758 2.18651 5.61645 76.3212
-Reading surface file ...
-  80998 triangles
-  clipped to 80998 tris
-  -0.002 0.028 xlo xhi
-  0 0.003 ylo yhi
-  0 0.0875 zlo zhi
-  0.000245331 min triangle edge length
-  3.15715e-08 min triangle area
-  43848 0 = cells overlapping surfs, overlap cells with unmarked corner pts
-  25 tiny edges removed
-  269352 550800 43848 = cells outside/inside/overlapping surfs
-  43848 = surf cells with 1,2,etc splits
-  2.72343749998582e-06 2.7234375e-06 = cell-wise and global flow volume
-  CPU time = 1.81554 secs
-  read/check/sort/surf2grid/ghost/inout/particle percent = 3.10112 5.22514 3.61388 49.4116 38.6482 11.3198 8.63657e-05
-  surf2grid time = 0.897086 secs
-  map/comm1/comm2/comm3/comm4/split percent = 17.0686 1.71726 8.1619 2.42382 4.07328 63.2436
-0 = initial surface count in group inlet
-382 = final surface count in group inlet
-0 = initial surface count in group outlet
-690 = final surface count in group outlet
-0 = initial surface count in group yminus
-41336 = final surface count in group yminus
-0 = initial surface count in group yplus
-33810 = final surface count in group yplus
-0 = initial surface count in group yplus_inlet
-382 = final surface count in group yplus_inlet
-0 = initial surface count in group yplus_inlet_wall
-1314 = final surface count in group yplus_inlet_wall
-0 = initial surface count in group yplus_outlet
-718 = final surface count in group yplus_outlet
-0 = initial surface count in group yplus_outlet_wall
-1598 = final surface count in group yplus_outlet_wall
-0 = initial surface count in group zminus
-393 = final surface count in group zminus
-0 = initial surface count in group zplus
-375 = final surface count in group zplus
-Creating particles ...
-WARNING: Created unexpected # of particles: 119999532 versus 120000000 (/hpc/data/cfd-students/nnoventa/sparta-dsmc-asml/sparta/src/create_particles.cpp:445)
-Created 119999532 particles
-  CPU time = 102.867 secs
-Memory usage per proc in Mbytes:
-  particles (ave,min,max) = 24185.5 24185.5 24185.5
-  grid      (ave,min,max) = 360.833 360.833 360.833
-  surf      (ave,min,max) = 20.309 20.309 20.309
-  modify    (ave,min,max) = 224.121 224.121 224.121
-  total     (ave,min,max) = 24790.8 24790.8 24790.8
-Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
-       0            0            0            0        3e-09 119999532        0        0        0        0    300.03038 
-     100    29.034736 1.033245e-08      3.44415        3e-09 117874661  1755521   934106        0        0    297.74529 
-     200    58.219585 1.0279306e-08    3.4264354        3e-09 115498682  1744883   900143        0        0    295.79026 
-Loop time of 58.2199 on 1 procs for 200 steps with 115498682 particles
-Performance: 3.435 timesteps/s, 396.767 Mparticle-step/s
-
-MPI task timing breakdown:
-Section |  min time  |  avg time  |  max time  |%varavg| %total
----------------------------------------------------------------
-Move    | 43.517     | 43.517     | 43.517     |   0.0 | 74.75
-Coll    | 5.1249     | 5.1249     | 5.1249     |   0.0 |  8.80
-Sort    | 4.1897     | 4.1897     | 4.1897     |   0.0 |  7.20
-Comm    | 0.079314   | 0.079314   | 0.079314   |   0.0 |  0.14
-Modify  | 0.53352    | 0.53352    | 0.53352    |   0.0 |  0.92
-Output  | 4.7643     | 4.7643     | 4.7643     |   0.0 |  8.18
-MPI Sync| 0.010751   | 0.010751   | 0.010751   |   0.0 |  0.02
-Other   |            | 4.686e-05  |            |       |  0.00
-
-Particle moves    = 23571307185 (23.6B)
-Cells touched     = 26359337662 (26.4B)
-Particle comms    = 0 (0K)
-Boundary collides = 0 (0K)
-Boundary exits    = 0 (0K)
-SurfColl checks   = 17651430204 (17.7B)
-SurfColl occurs   = 70742499 (70.7M)
-Surf reactions    = 0 (0K)
-Collide attempts  = 343850515 (344M)
-Collide occurs    = 186431801 (186M)
-Gas reactions     = 0 (0K)
-Particles stuck   = 0
-Axisymm bad moves = 0
-
-Particle-moves/CPUsec/proc: 4.04867e+08
-Particle-moves/step: 1.17857e+08
-Cell-touches/particle/step: 1.11828
-Particle comm iterations/step: 1
-Particle fraction communicated: 0
-Particle fraction colliding with boundary: 0
-Particle fraction exiting boundary: 0
-Surface-checks/particle/step: 0.748852
-Surface-collisions/particle/step: 0.00300121
-Surface-reactions/particle/step: 0
-Collision-attempts/particle/step: 0.0145877
-Collisions/particle/step: 0.00790927
-Gas-reactions/particle/step: 0
-
-Particles: 1.15499e+08 ave 1.15499e+08 max 1.15499e+08 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Cells:     864000 ave 864000 max 864000 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-GhostCell: 0 ave 0 max 0 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-EmptyCell: 0 ave 0 max 0 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Surfs:     80998 ave 80998 max 80998 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-GhostSurf: 0 ave 0 max 0 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Generating '/var/tmp/pbs.1209335.pbs60/nsys-report-f91f.qdstrm'
-[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [7%                          ] nsys_rank0.nsys-rep[1/1] [8%                          ] nsys_rank0.nsys-rep[1/1] [9%                          ] nsys_rank0.nsys-rep[1/1] [10%                         ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [12%                         ] nsys_rank0.nsys-rep[1/1] [13%                         ] nsys_rank0.nsys-rep[1/1] [14%                         ] nsys_rank0.nsys-rep[1/1] [=15%                        ] nsys_rank0.nsys-rep[1/1] [=16%                        ] nsys_rank0.nsys-rep[1/1] [=17%                        ] nsys_rank0.nsys-rep[1/1] [==18%                       ] nsys_rank0.nsys-rep[1/1] [==19%                       ] nsys_rank0.nsys-rep[1/1] [==20%                       ] nsys_rank0.nsys-rep[1/1] [==21%                       ] nsys_rank0.nsys-rep[1/1] [===22%                      ] nsys_rank0.nsys-rep[1/1] [===23%                      ] nsys_rank0.nsys-rep[1/1] [===24%                      ] nsys_rank0.nsys-rep[1/1] [====25%                     ] nsys_rank0.nsys-rep[1/1] [====26%                     ] nsys_rank0.nsys-rep[1/1] [====27%                     ] nsys_rank0.nsys-rep[1/1] [====28%                     ] nsys_rank0.nsys-rep[1/1] [=====29%                    ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [========42%                 ] nsys_rank0.nsys-rep[1/1] [=====32%                    ] nsys_rank0.nsys-rep[1/1] [===23%                      ] nsys_rank0.nsys-rep[1/1] [==18%                       ] nsys_rank0.nsys-rep[1/1] [=15%                        ] nsys_rank0.nsys-rep[1/1] [13%                         ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [10%                         ] nsys_rank0.nsys-rep[1/1] [9%                          ] nsys_rank0.nsys-rep[1/1] [8%                          ] nsys_rank0.nsys-rep[1/1] [13%                         ] nsys_rank0.nsys-rep[1/1] [12%                         ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [10%                         ] nsys_rank0.nsys-rep[1/1] [14%                         ] nsys_rank0.nsys-rep[1/1] [==18%                       ] nsys_rank0.nsys-rep[1/1] [==21%                       ] nsys_rank0.nsys-rep[1/1] [====25%                     ] nsys_rank0.nsys-rep[1/1] [====28%                     ] nsys_rank0.nsys-rep[1/1] [=====31%                    ] nsys_rank0.nsys-rep[1/1] [======34%                   ] nsys_rank0.nsys-rep[1/1] [=======37%                  ] nsys_rank0.nsys-rep[1/1] [=======38%                  ] nsys_rank0.nsys-rep[1/1] [=======39%                  ] nsys_rank0.nsys-rep[1/1] [========40%                 ] nsys_rank0.nsys-rep[1/1] [========41%                 ] nsys_rank0.nsys-rep[1/1] [========42%                 ] nsys_rank0.nsys-rep[1/1] [=========43%                ] nsys_rank0.nsys-rep[1/1] [=========44%                ] nsys_rank0.nsys-rep[1/1] [=========45%                ] nsys_rank0.nsys-rep[1/1] [=========46%                ] nsys_rank0.nsys-rep[1/1] [==========47%               ] nsys_rank0.nsys-rep[1/1] [==========48%               ] nsys_rank0.nsys-rep[1/1] [==========49%               ] nsys_rank0.nsys-rep[1/1] [===========50%              ] nsys_rank0.nsys-rep[1/1] [===========51%              ] nsys_rank0.nsys-rep[1/1] [===========52%              ] nsys_rank0.nsys-rep[1/1] [===========53%              ] nsys_rank0.nsys-rep[1/1] [============54%             ] nsys_rank0.nsys-rep[1/1] [============55%             ] nsys_rank0.nsys-rep[1/1] [============56%             ] nsys_rank0.nsys-rep[1/1] [============57%             ] nsys_rank0.nsys-rep[1/1] [=============58%            ] nsys_rank0.nsys-rep[1/1] [=============59%            ] nsys_rank0.nsys-rep[1/1] [=============60%            ] nsys_rank0.nsys-rep[1/1] [==============61%           ] nsys_rank0.nsys-rep[1/1] [==============62%           ] nsys_rank0.nsys-rep[1/1] [==============63%           ] nsys_rank0.nsys-rep[1/1] [==============64%           ] nsys_rank0.nsys-rep[1/1] [===============65%          ] nsys_rank0.nsys-rep[1/1] [===============66%          ] nsys_rank0.nsys-rep[1/1] [===============67%          ] nsys_rank0.nsys-rep[1/1] [================68%         ] nsys_rank0.nsys-rep[1/1] [================69%         ] nsys_rank0.nsys-rep[1/1] [================70%         ] nsys_rank0.nsys-rep[1/1] [================71%         ] nsys_rank0.nsys-rep[1/1] [=================72%        ] nsys_rank0.nsys-rep[1/1] [=================73%        ] nsys_rank0.nsys-rep[1/1] [=================74%        ] nsys_rank0.nsys-rep[1/1] [==================75%       ] nsys_rank0.nsys-rep[1/1] [==================76%       ] nsys_rank0.nsys-rep[1/1] [===================80%      ] nsys_rank0.nsys-rep[1/1] [====================83%     ] nsys_rank0.nsys-rep[1/1] [=====================87%    ] nsys_rank0.nsys-rep[1/1] [======================90%   ] nsys_rank0.nsys-rep[1/1] [======================92%   ] nsys_rank0.nsys-rep[1/1] [=======================93%  ] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep
-Generated:
-    /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.nsys-rep
-sparta exit status: 0
--rw-rw-r-- 1 nnoventa hpc-cfd-students 5.8M Sep 21 14:00 /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.nsys-rep
-
-=============== SPARTA timing ===============
-Loop time of 58.2199 on 1 procs for 200 steps with 115498682 particles
-Performance: 3.435 timesteps/s, 396.767 Mparticle-step/s
-
-MPI task timing breakdown:
-Section |  min time  |  avg time  |  max time  |%varavg| %total
----------------------------------------------------------------
-Move    | 43.517     | 43.517     | 43.517     |   0.0 | 74.75
-Coll    | 5.1249     | 5.1249     | 5.1249     |   0.0 |  8.80
-Sort    | 4.1897     | 4.1897     | 4.1897     |   0.0 |  7.20
-Comm    | 0.079314   | 0.079314   | 0.079314   |   0.0 |  0.14
-Modify  | 0.53352    | 0.53352    | 0.53352    |   0.0 |  0.92
-Output  | 4.7643     | 4.7643     | 4.7643     |   0.0 |  8.18
-MPI Sync| 0.010751   | 0.010751   | 0.010751   |   0.0 |  0.02
-Other   |            | 4.686e-05  |            |       |  0.00
-
-
-=============== SPARTA counters ===============
-Particle moves    = 23571307185 (23.6B)
-Cells touched     = 26359337662 (26.4B)
-SurfColl checks   = 17651430204 (17.7B)
-SurfColl occurs   = 70742499 (70.7M)
-Collide attempts  = 343850515 (344M)
-Collide occurs    = 186431801 (186M)
-Cell-touches/particle/step: 1.11828
-Surface-checks/particle/step: 0.748852
-Surface-collisions/particle/step: 0.00300121
-Surf-reactions/particle/step: 0
-Collision-attempts/particle/step: 0.0145877
-Collisions/particle/step: 0.00790927
-Reactions/particle/step: 0
-
-=============== top GPU kernels ===============
-Generating SQLite file /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite from /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.nsys-rep
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_kern_sum.py]... 
-
- ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)                                                   Name                                                
- --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  ----------------------------------------------------------------------------------------------------
-     81.2   43,329,647,717        200  216,648,238.6  217,337,029.0  209,002,217  218,402,895   1,703,997.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::UpdateKok…
-      8.9    4,759,151,382        200   23,795,756.9   24,195,183.5   16,230,191   24,427,424   1,015,133.8  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CollideVS…
-      7.9    4,231,118,785        203   20,842,949.7   19,947,977.0   18,976,263   29,843,814   2,165,042.6  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
-      1.2      616,506,755         79    7,803,883.0    1,298,363.0       11,872   56,196,469  13,157,307.9  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewCo…
-      0.6      311,560,752        400      778,901.9      764,206.0      523,038    1,194,236     142,252.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
-      0.1       47,610,235          3   15,870,078.3   15,857,716.0   15,551,896   16,200,623     324,540.1  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
-      0.0       15,032,848        400       37,582.1       37,360.0       24,768       43,616       1,895.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
-      0.0        9,027,374      1,600        5,642.1        5,440.0        3,424       10,688       1,449.8  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelScan<SPARTA_NS::ExclScan…
-      0.0        8,695,467        400       21,738.7       21,152.0       11,264       26,176       2,367.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
-      0.0        4,403,156        200       22,015.8       22,000.0       19,232       24,736       1,037.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
-      0.0        2,660,438        400        6,651.1        6,576.0        4,832       10,464         982.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
-      0.0        2,258,620        200       11,293.1       11,343.5       10,304       12,288         411.1  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CommKokko…
-      0.0        2,109,405        400        5,273.5        5,280.0        3,936        6,240         325.2  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
-      0.0           44,128          1       44,128.0       44,128.0       44,128       44,128           0.0  desul::<unnamed>::init_lock_arrays_cuda_kernel()                                                    
-      0.0           33,088         10        3,308.8        1,360.0        1,344       10,944       3,935.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewFi…
-      0.0           18,112          1       18,112.0       18,112.0       18,112       18,112           0.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CollideVS…
-      0.0            1,856          1        1,856.0        1,856.0        1,856        1,856           0.0  Kokkos::Impl::<unnamed>::query_cuda_kernel_arch(int *)                                              
-
-
-=============== memcpy time by direction ===============
-
-NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite
-        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.nsys-rep
-        Consider using --force-export=true if needed.
-
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
-
- ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
-
- Time (%)  Total Time (ns)  Count    Avg (ns)    Med (ns)  Min (ns)    Max (ns)      StdDev (ns)            Operation          
- --------  ---------------  -----  ------------  --------  --------  -------------  -------------  ----------------------------
-     63.2   56,468,444,768  3,487  16,193,990.5   1,536.0     1,312  4,789,500,580  198,567,266.6  [CUDA memcpy Device-to-Host]
-     36.8   32,839,006,280  4,600   7,138,914.4   1,280.0     1,216  2,740,926,611  104,564,609.4  [CUDA memcpy Host-to-Device]
-      0.0        6,518,891  2,266       2,876.8   1,376.0     1,184        580,286       12,645.1  [CUDA memset]               
-
-
-=============== memcpy volume by direction ===============
-
-NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite
-        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.nsys-rep
-        Consider using --force-export=true if needed.
-
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_size_sum.py]... 
-
- ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
-
- Total (MB)   Count  Avg (MB)  Med (MB)  Min (MB)   Max (MB)   StdDev (MB)           Operation          
- -----------  -----  --------  --------  --------  ----------  -----------  ----------------------------
- 161,445.766  3,487    46.299     0.000     0.000  12,421.386      584.293  [CUDA memcpy Device-to-Host]
- 149,269.364  4,600    32.450     0.000     0.000  12,421.386      475.188  [CUDA memcpy Host-to-Device]
-   2,080.844  2,266     0.918     0.012     0.000     517.558       11.107  [CUDA memset]               
-
-
-=============== GPU utilisation / power ===============
-samples 180   util avg 46.8% max 100%   power avg 87 W max 148 W
-
-artifacts in /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209335:
-total 178M
--rw-r--r-- 1 nnoventa hpc-cfd-students  11K Sep 21 14:00 gpu_metrics.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  21K Sep 21 14:00 job.out
--rw-rw-rw- 1 nnoventa hpc-cfd-students  11K Sep 21 14:00 log.sparta
--rw-r--r-- 1 nnoventa hpc-cfd-students  463 Sep 21 13:57 meta.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 2.2K Sep 21 14:00 nsys_available_reports.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 2.0K Sep 21 14:00 nsys_rank0_cuda_api_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 3.5K Sep 21 14:00 nsys_rank0_cuda_api_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 5.7K Sep 21 14:00 nsys_rank0_cuda_gpu_kern_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 4.5K Sep 21 14:00 nsys_rank0_cuda_gpu_kern_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  886 Sep 21 14:00 nsys_rank0_cuda_gpu_mem_size_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.2K Sep 21 14:00 nsys_rank0_cuda_gpu_mem_size_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  933 Sep 21 14:00 nsys_rank0_cuda_gpu_mem_time_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.3K Sep 21 14:00 nsys_rank0_cuda_gpu_mem_time_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.5K Sep 21 14:00 nsys_rank0_mpi_event_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 2.4K Sep 21 14:00 nsys_rank0_mpi_event_sum.txt
--rw-rw-r-- 1 nnoventa hpc-cfd-students 5.8M Sep 21 14:00 nsys_rank0.nsys-rep
--rw-r--r-- 1 nnoventa hpc-cfd-students  572 Sep 21 14:00 nsys_rank0_nvtx_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  665 Sep 21 14:00 nsys_rank0_nvtx_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 3.6K Sep 21 14:00 nsys_rank0_osrt_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 8.4K Sep 21 14:00 nsys_rank0_osrt_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 189M Sep 21 14:00 nsys_rank0.sqlite
--rw-r--r-- 1 nnoventa hpc-cfd-students 8.5K Sep 21 14:00 summary.txt

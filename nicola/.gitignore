@@ -1,3 +1,6 @@
 *.ncu-rep
 *.nsys-rep
 *.sqlite
+
+# PBS stdout: duplicated into results/<job>/job.out
+*.o[0-9]*

@@ -56,27 +56,6 @@ enum{PERAUTO,PERCELL,PERSURF};                  // several files
 enum{NOFIELD,CFIELD,PFIELD,GFIELD};             // several files
 enum{BCSTD,BCWRAP,BCMIRROR,BCEXIT};             // Update::bcopt values
 
-// Register cap for the GPU move kernel.
-// With surfaces, TagUpdateMove compiles to ~252 registers per thread, which on
-// a 64K-register SM leaves room for only 8 resident warps (12.5% occupancy).
-// Building with -DSPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256
-// threads per SM, so the compiler caps registers at 65536/(256*N) per thread:
-//   N=2 -> 128 registers, N=3 -> ~80 registers
-// Measured on V100 (30M particles, 3D with surfaces), N=2 made the kernel 20%
-// slower: the stack grew from 288 to 784 bytes per thread, i.e. the cap turned
-// into spills. Default 0 keeps LaunchBounds<>, which is what Kokkos uses when
-// no bounds are given, i.e. the upstream kernel.
-
-#ifndef SPARTA_KK_MOVE_MINBLOCKS
-#define SPARTA_KK_MOVE_MINBLOCKS 0
-#endif
-
-#if SPARTA_KK_MOVE_MINBLOCKS > 0
-using MoveLaunchBounds = Kokkos::LaunchBounds<256,SPARTA_KK_MOVE_MINBLOCKS>;
-#else
-using MoveLaunchBounds = Kokkos::LaunchBounds<>;
-#endif
-
 #define MAXSTUCK 20
 #define EPSPARAM 1.0e-7
 
@@ -798,9 +777,9 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
 
 #if defined SPARTA_KOKKOS_GPU
   #if SPARTA_KOKKOS_REDUCE_ARCH
-      Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, MoveLaunchBounds, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
+      Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
   #else
-      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, MoveLaunchBounds, TagUpdateMove<DIM,SURF,REACT,OPT,1> >(pstart,pstop),*this);
+      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,1> >(pstart,pstop),*this);
   #endif
 #elif defined KOKKOS_ENABLE_SERIAL
       if constexpr(std::is_same<DeviceType,Kokkos::Serial>::value)
