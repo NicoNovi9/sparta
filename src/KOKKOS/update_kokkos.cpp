@@ -56,16 +56,20 @@ enum{PERAUTO,PERCELL,PERSURF};                  // several files
 enum{NOFIELD,CFIELD,PFIELD,GFIELD};             // several files
 enum{BCSTD,BCWRAP,BCMIRROR,BCEXIT};             // Update::bcopt values
 
-// Optional register cap for the GPU move kernel.
+// Register cap for the GPU move kernel.
 // With surfaces, TagUpdateMove compiles to ~252 registers per thread, which on
 // a 64K-register SM leaves room for only 8 resident warps (12.5% occupancy).
-// Building with -DSPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256
-// threads per SM, so the compiler caps registers at 65536/(256*N) per thread:
-//   N=2 -> 128 registers, N=3 -> ~80 registers
-// Left undefined, LaunchBounds<> sets no bounds, which is what Kokkos uses when
-// no launch bounds are given: the generated kernel is unchanged.
+// SPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256 threads per SM,
+// so the compiler caps registers at 65536/(256*N) per thread:
+//   N=2 -> 128 registers (default here), N=3 -> ~80 registers
+// Build with -DSPARTA_KK_MOVE_MINBLOCKS=0 to drop the bound: LaunchBounds<> is
+// what Kokkos uses when no bounds are given, i.e. the upstream kernel.
 
-#ifdef SPARTA_KK_MOVE_MINBLOCKS
+#ifndef SPARTA_KK_MOVE_MINBLOCKS
+#define SPARTA_KK_MOVE_MINBLOCKS 2
+#endif
+
+#if SPARTA_KK_MOVE_MINBLOCKS > 0
 using MoveLaunchBounds = Kokkos::LaunchBounds<256,SPARTA_KK_MOVE_MINBLOCKS>;
 #else
 using MoveLaunchBounds = Kokkos::LaunchBounds<>;
