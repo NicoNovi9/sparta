@@ -29,6 +29,11 @@ CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_w
 SPARTA_EXE="${SPARTA_EXE:-$CASE_DIR/spa_kokkos_cuda_volta}"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
+# Deck knobs, forwarded with -var. Defaults match the deck.
+#   qsub -v NPART=30000000,REORDER=100 submit_gpu_nsys.sh
+NPART="${NPART:-120000000}"
+REORDER="${REORDER:-0}"
+
 NRANKS="${NRANKS:-1}"
 NGPUS="${NGPUS:-1}"
 
@@ -39,7 +44,8 @@ NGPUS="${NGPUS:-1}"
 NSYS_DELAY="${NSYS_DELAY:-0}"
 NSYS_DURATION="${NSYS_DURATION:-0}"
 
-RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}"
+# The knobs go in the directory name so A/B runs are told apart at a glance.
+RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}_np${NPART}_ro${REORDER}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -88,6 +94,8 @@ export OMP_PLACES=threads
     echo "input      $INPUT_FILE"
     echo "ranks      $NRANKS"
     echo "gpus       $NGPUS"
+    echo "npart      $NPART"
+    echo "reorder    $REORDER"
     echo "nsys delay $NSYS_DELAY  duration $NSYS_DURATION"
 } | tee "$RUNDIR/meta.txt"
 
@@ -124,6 +132,8 @@ mpirun \
     -k on g "$NGPUS" \
     -sf kk \
     -in "$INPUT_FILE" \
+    -var npart "$NPART" \
+    -var reorder "$REORDER" \
     -log "$RUNDIR/log.sparta"
 
 SPARTA_STATUS=$?

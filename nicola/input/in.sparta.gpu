@@ -33,6 +33,10 @@ variable        nP equal 1.8339e+08     # no of mols per DSMC particle
 
 variable        dt equal 3e-09         #time step
 
+# Benchmark knobs. index-style, so -var on the command line overrides them.
+variable        npart   index 120000000    # particles created
+variable        reorder index 0            # particle/reorder period, 0 = off
+
 ############################################################ SYSTEM
 
 create_grid     ${nX} ${nY} ${nZ}
@@ -113,7 +117,7 @@ fix                 X_out emit/surf H2 outlet subsonic ${po} NULL
 
 ############################################################ RUN INIT
 
-create_particles  H2 n 120000000
+create_particles  H2 n ${npart}
 
 compute         temp temp
 #compute         total_mom momentum
@@ -131,6 +135,8 @@ dump            presdump grid all 10000 output/pres.*.grid id f_presavg[*]
 stats           100
 
 stats_style     step cpu tpcpu spcpu dt np nattempt ncoll nbound nexit c_temp #v_mass_flow_x
+
+global          particle/reorder ${reorder}
 
 timestep        ${dt}
 run             200
