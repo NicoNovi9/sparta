@@ -20,13 +20,14 @@
 NICOLA="${PBS_O_WORKDIR:-$PWD}"
 REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 
-# The binary and the input deck live in the ASML case directory, which is a
-# sibling checkout of this repository, not part of it. Override if it moved:
+# The binary and the files the deck reads (species, collision model, geometry)
+# live in the ASML case directory, a sibling checkout of this repository.
+# The deck itself is versioned here, in nicola/input/. Override if it moved:
 #   qsub -v CASE_DIR=/path/to/case submit_gpu_nsys.sh
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 
 SPARTA_EXE="${SPARTA_EXE:-$CASE_DIR/spa_kokkos_cuda_volta}"
-INPUT_FILE="${INPUT_FILE:-$CASE_DIR/GPU_files/in.sparta.gpu}"
+INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
 NRANKS="${NRANKS:-1}"
 NGPUS="${NGPUS:-1}"
