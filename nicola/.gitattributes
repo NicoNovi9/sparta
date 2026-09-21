@@ -1,0 +1,4 @@
+# These scripts are edited on Windows and executed on a Linux cluster.
+# Without this, a clone can deliver CRLF and PBS fails with
+#   bad interpreter: /bin/bash^M
+*.sh text eol=lf

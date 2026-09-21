@@ -5,11 +5,43 @@
 #PBS -l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:cpu_type=skylake:gpu_type=v100
 #PBS -l walltime=01:00:00
 #PBS -j oe
-#PBS -o output_gpu/
 
-cd "$PBS_O_WORKDIR"
+# ---------------------------------------------------------------- paths ----
+# Submit from inside this directory:   cd nicola && qsub submit_gpu.sh
+# PBS copies the script to a spool directory, so $0 points nowhere useful.
+# $PBS_O_WORKDIR is the directory qsub was run from, i.e. nicola/.
+NICOLA="${PBS_O_WORKDIR:-$PWD}"
+REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 
-mkdir -p output_gpu
+# The binary and the input deck live in the ASML case directory, which is a
+# sibling checkout of this repository, not part of it. Override if it moved:
+#   qsub -v CASE_DIR=/path/to/case submit_gpu.sh
+CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
+
+SPARTA_EXE="${SPARTA_EXE:-$CASE_DIR/spa_kokkos_cuda_volta}"
+INPUT_FILE="${INPUT_FILE:-$CASE_DIR/GPU_files/in.sparta.gpu}"
+
+# Results land under nicola/, so a commit brings them back with git.
+RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}"
+mkdir -p "$RUNDIR"
+
+# Capture everything this script prints into the run directory too,
+# independently of where PBS drops its own copy of stdout.
+exec > >(tee "$RUNDIR/job.out") 2>&1
+
+# Fail loudly rather than letting mpirun report a confusing error.
+for p in "$CASE_DIR" "$SPARTA_EXE" "$INPUT_FILE"; do
+    if [ ! -e "$p" ]; then
+        echo "MISSING: $p" >&2
+        echo "override with:  qsub -v CASE_DIR=...,SPARTA_EXE=...,INPUT_FILE=... submit_gpu.sh" >&2
+        exit 1
+    fi
+done
+CASE_DIR="$(cd "$CASE_DIR" && pwd)"
+
+# Run from the case directory: the paths written inside the deck are relative
+# to it, exactly as when this was submitted by hand from there.
+cd "$CASE_DIR" || exit 1
 
 module purge
 module load gcc/13.1.0
@@ -19,11 +51,17 @@ module load cuda12.8/toolkit/12.8.1
 export OMP_NUM_THREADS=1
 
 echo "HOST=$(hostname)"
+echo "COMMIT=$(git -C "$REPO_ROOT" rev-parse --short HEAD 2>/dev/null)"
+echo "EXE=$SPARTA_EXE"
+echo "INPUT=$INPUT_FILE"
+echo "RUNDIR=$RUNDIR"
+
+nvidia-smi -L
 
 nvidia-smi \
 --query-gpu=timestamp,index,utilization.gpu,utilization.memory,memory.used,memory.total,power.draw \
 --format=csv \
--l 1 > output_gpu/gpu_metrics_$PBS_JOBID.csv &
+-l 1 > "$RUNDIR/gpu_metrics.csv" &
 
 SMI_PID=$!
 
@@ -32,9 +70,10 @@ mpirun \
   --bind-to core \
   --map-by ppr:1:node \
   -np 1 \
-  ./spa_kokkos_cuda_volta \
+  "$SPARTA_EXE" \
   -k on g 1 \
   -sf kk \
-  -in GPU_files/in.sparta.gpu
+  -in "$INPUT_FILE" \
+  -log "$RUNDIR/log.sparta"
 
-  kill ${SMI_PID}
+kill ${SMI_PID}
