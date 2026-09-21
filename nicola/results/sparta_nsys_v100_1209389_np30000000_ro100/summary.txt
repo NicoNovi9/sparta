@@ -1,0 +1,95 @@
+=============== SPARTA timing ===============
+Loop time of 14.0146 on 1 procs for 200 steps with 29854685 particles
+Performance: 14.271 timesteps/s, 426.053 Mparticle-step/s
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Move    | 11.015     | 11.015     | 11.015     |   0.0 | 78.60
+Coll    | 0.50144    | 0.50144    | 0.50144    |   0.0 |  3.58
+Sort    | 1.0023     | 1.0023     | 1.0023     |   0.0 |  7.15
+Comm    | 0.037956   | 0.037956   | 0.037956   |   0.0 |  0.27
+Modify  | 0.2968     | 0.2968     | 0.2968     |   0.0 |  2.12
+Output  | 1.147      | 1.147      | 1.147      |   0.0 |  8.18
+MPI Sync| 0.014152   | 0.014152   | 0.014152   |   0.0 |  0.10
+Other   |            | 3.398e-05  |            |       |  0.00
+
+
+=============== SPARTA counters ===============
+Particle moves    = 5987862241 (5.99B)
+Cells touched     = 6696586221 (6.7B)
+SurfColl checks   = 4702588600 (4.7B)
+SurfColl occurs   = 17779128 (17.8M)
+Collide attempts  = 18398453 (18.4M)
+Collide occurs    = 11811233 (11.8M)
+Cell-touches/particle/step: 1.11836
+Surface-checks/particle/step: 0.785354
+Surface-collisions/particle/step: 0.00296919
+Surf-reactions/particle/step: 0
+Collision-attempts/particle/step: 0.00307262
+Collisions/particle/step: 0.00197253
+Reactions/particle/step: 0
+
+=============== top GPU kernels ===============
+Generating SQLite file /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite from /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.nsys-rep
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)      Med (ns)     Min (ns)    Max (ns)   StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  ------------  ------------  ----------  ----------  -----------  ----------------------------------------------------------------------------------------------------
+     86.9   10,900,706,711        200  54,503,533.6  54,570,173.5  51,806,628  55,838,016    776,187.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::UpdateKok…
+      7.2      898,211,336        201   4,468,713.1   4,491,004.0   4,207,934   4,684,123    108,821.6  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      2.7      344,814,435        200   1,724,072.2   1,751,922.5     682,075   2,447,373    160,737.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CollideVS…
+      1.1      143,192,088         64   2,237,376.4     642,683.0      13,056  13,616,658  3,300,395.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewCo…
+      0.9      114,428,614        400     286,071.5     287,053.5     193,535     324,286     15,096.2  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.5       68,867,614          2  34,433,807.0  34,433,807.0  33,851,381  35,016,233    823,674.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      0.1       15,230,928        400      38,077.3      38,271.5      25,376      42,752      1,803.9  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
+      0.1       12,081,183          3   4,027,061.0   4,026,655.0   3,996,160   4,058,368     31,106.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
+      0.1        9,099,481          2   4,549,740.5   4,549,740.5   4,527,613   4,571,868     31,293.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      0.1        8,956,276      1,600       5,597.7       5,344.0       3,616       9,760      1,453.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelScan<SPARTA_NS::ExclScan…
+      0.1        8,409,056        400      21,022.6      20,959.0      11,296      25,920      2,362.8  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.1        8,216,095          4   2,054,023.8   2,029,408.0      39,872   4,117,407  2,325,141.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelScan<SPARTA_NS::Particle…
+      0.0        3,205,158        400       8,012.9       8,064.0       4,928       9,664        799.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.0        2,174,031        400       5,435.1       5,408.0       4,544       6,240        291.9  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.0          968,055        200       4,840.3       4,800.0       4,320       5,440        240.6  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CommKokko…
+      0.0          949,116        200       4,745.6       4,704.0       4,544       5,728        162.8  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      0.0           44,031          1      44,031.0      44,031.0      44,031      44,031          0.0  desul::<unnamed>::init_lock_arrays_cuda_kernel()                                                    
+      0.0           33,536         10       3,353.6       1,424.0       1,376      10,816      3,894.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewFi…
+
+=============== memcpy time by direction ===============
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
+
+ Time (%)  Total Time (ns)  Count   Avg (ns)     Med (ns)    Min (ns)     Max (ns)     StdDev (ns)             Operation           
+ --------  ---------------  -----  -----------  -----------  ---------  -------------  ------------  ------------------------------
+     62.5   13,233,349,174  3,472  3,811,448.5      1,504.0      1,312  1,117,115,490  47,008,879.0  [CUDA memcpy Device-to-Host]  
+     37.5    7,935,710,915  4,801  1,652,928.7      1,280.0      1,215    660,006,184  24,632,959.5  [CUDA memcpy Host-to-Device]  
+      0.1       14,514,220      2  7,257,110.0  7,257,110.0  7,256,422      7,257,798         973.0  [CUDA memcpy Device-to-Device]
+      0.0        5,418,327  2,500      2,167.3      1,408.0      1,216        140,543       3,823.8  [CUDA memset]                 
+
+=============== memcpy volume by direction ===============
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209389_np30000000_ro100/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_size_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
+
+ Total (MB)  Count  Avg (MB)   Med (MB)   Min (MB)   Max (MB)   StdDev (MB)            Operation           
+ ----------  -----  ---------  ---------  ---------  ---------  -----------  ------------------------------
+ 38,592.826  3,472     11.115      0.000      0.000  2,973.581      140.176  [CUDA memcpy Device-to-Host]  
+ 35,864.147  4,801      7.470      0.000      0.000  2,973.581      111.372  [CUDA memcpy Host-to-Device]  
+  5,947.163      2  2,973.581  2,973.581  2,973.581  2,973.581        0.000  [CUDA memcpy Device-to-Device]
+  1,692.848  2,500      0.677      0.012      0.000    123.899        3.328  [CUDA memset]                 
+
+=============== GPU utilisation / power ===============
+samples 51   util avg 39.6% max 99%   power avg 80 W max 138 W

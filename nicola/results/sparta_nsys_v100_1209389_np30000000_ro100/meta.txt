@@ -1,0 +1,11 @@
+job        1209389.pbs60
+host       an5012
+date       2026-09-21T14:22:13+02:00
+commit     221cbeabb3df677d85b6ebe6d85cc7c22ce0ba91
+exe        /hpc/data/cfd-students/nnoventa/sparta/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest/spa_kokkos_cuda_volta
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+ranks      1
+gpus       1
+npart      30000000
+reorder    100
+nsys delay 0  duration 0
