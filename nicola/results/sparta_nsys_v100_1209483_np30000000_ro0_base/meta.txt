@@ -1,0 +1,13 @@
+job        1209483.pbs60
+host       an5006
+date       2026-09-21T15:25:04+02:00
+commit     cd9fbc34f4569411138d4b8c6bebf05573f4188a
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+build      arch    v100 commit  cd9fbc34f4569411138d4b8c6bebf05573f4188a date    2026-09-21T15:24:13+02:00 
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+ranks      1
+gpus       1
+npart      30000000
+reorder    0
+label      base
+nsys delay 0  duration 0

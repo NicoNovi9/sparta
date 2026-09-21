@@ -1,0 +1,19 @@
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/mpi_event_sum.py]... 
+Time (%),Total Time (ns),Instances,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Source,Name
+82.8,603854280,1,603854280.0,603854280.0,603854280,603854280,0.0,other,MPI_Init
+14.0,101969374,1,101969374.0,101969374.0,101969374,101969374,0.0,other,MPI_Finalize
+2.4,17549740,774,22674.1,5105.0,1816,198691,31945.6,collectives,MPI_Allreduce
+0.3,2451835,1,2451835.0,2451835.0,2451835,2451835,0.0,collectives,MPI_Alltoallv
+0.3,2107351,3,702450.3,3258.0,1676,2102417,1212407.0,collectives,MPI_Allgatherv
+0.1,640987,240,2670.8,658.5,189,94306,11230.5,collectives,MPI_Barrier
+0.1,483079,10,48307.9,42378.5,1807,104671,37911.8,collectives,MPI_Reduce_scatter
+0.1,451336,335,1347.3,283.0,145,313779,17127.4,collectives,MPI_Bcast
+0.0,162689,1,162689.0,162689.0,162689,162689,0.0,collectives,MPI_Scan
+0.0,25663,4,6415.8,6576.0,3306,9205,2525.6,collectives,MPI_Allgather
+0.0,9479,1,9479.0,9479.0,9479,9479,0.0,collectives,MPI_Alltoall
+

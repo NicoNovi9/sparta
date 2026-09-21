@@ -1,0 +1,11 @@
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
+Time (%),Total Time (ns),Count,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Operation
+62.9,13296546703,3473,3828547.9,1504.0,1312,1130563359,47265348.9,[CUDA memcpy Device-to-Host]
+37.1,7839149125,4808,1630438.7,1280.0,1215,651001988,24325901.7,[CUDA memcpy Host-to-Device]
+0.0,5444100,2511,2168.1,1408.0,1216,141855,3839.1,[CUDA memset]
+

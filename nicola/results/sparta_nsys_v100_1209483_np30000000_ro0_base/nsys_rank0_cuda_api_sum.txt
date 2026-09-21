@@ -1,0 +1,31 @@
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_api_sum.py]... 
+
+ ** CUDA API Summary (cuda_api_sum):
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)    Med (ns)   Min (ns)    Max (ns)     StdDev (ns)                 Name               
+ --------  ---------------  ---------  -----------  ---------  --------  -------------  ------------  ---------------------------------
+     61.8   21,215,780,431      5,379  3,944,186.7   11,339.0     3,140  1,130,847,539  44,384,211.6  cudaMemcpy                       
+     37.0   12,683,123,450     17,033    744,620.6    1,251.0       952     57,559,107   5,996,599.1  cudaDeviceSynchronize            
+      0.4      153,886,141      2,862     53,768.7    6,643.0     1,865     10,320,964     270,293.9  cudaMalloc                       
+      0.4      138,154,868      2,862     48,272.1    5,911.5     4,058      1,419,606     122,751.4  cudaFree                         
+      0.2       53,714,383      4,701     11,426.2    5,714.0       877      4,086,994     102,456.2  cudaStreamSynchronize            
+      0.1       32,579,720      4,684      6,955.5    5,383.5     2,999      2,330,908      46,858.2  cudaLaunchKernel                 
+      0.1       24,592,438      2,884      8,527.2    3,643.5     2,310      1,698,997      65,055.7  cudaMemcpyAsync                  
+      0.0       13,560,315      2,509      5,404.7    5,382.0     1,943         35,150       2,875.3  cudaMemsetAsync                  
+      0.0          949,782          2    474,891.0  474,891.0     3,957        945,825     666,001.2  cudaHostAlloc                    
+      0.0          543,628         18     30,201.6   11,799.5     5,466        220,797      54,419.8  cudaMemcpyToSymbol               
+      0.0          456,419          3    152,139.7   73,249.0     5,742        377,428     198,003.6  cudaFreeHost                     
+      0.0          155,530          1    155,530.0  155,530.0   155,530        155,530           0.0  cudaGetDeviceProperties_v2_v12000
+      0.0           52,973          2     26,486.5   26,486.5    17,085         35,888      13,295.7  cudaStreamCreate                 
+      0.0           15,646          2      7,823.0    7,823.0     4,308         11,338       4,971.0  cudaMemset                       
+      0.0           10,315          2      5,157.5    5,157.5     5,027          5,288         184.6  cudaStreamDestroy                
+      0.0            8,402          1      8,402.0    8,402.0     8,402          8,402           0.0  cudaMallocHost                   
+      0.0            4,534          1      4,534.0    4,534.0     4,534          4,534           0.0  cudaEventCreateWithFlags         
+      0.0            2,172          1      2,172.0    2,172.0     2,172          2,172           0.0  cudaEventDestroy                 
+      0.0              987          1        987.0      987.0       987            987           0.0  cuModuleGetLoadingMode           
+

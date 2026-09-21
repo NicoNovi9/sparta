@@ -1,0 +1,27 @@
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209483_np30000000_ro0_base/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_api_sum.py]... 
+Time (%),Total Time (ns),Num Calls,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+61.8,21215780431,5379,3944186.7,11339.0,3140,1130847539,44384211.6,cudaMemcpy
+37.0,12683123450,17033,744620.6,1251.0,952,57559107,5996599.1,cudaDeviceSynchronize
+0.4,153886141,2862,53768.7,6643.0,1865,10320964,270293.9,cudaMalloc
+0.4,138154868,2862,48272.1,5911.5,4058,1419606,122751.4,cudaFree
+0.2,53714383,4701,11426.2,5714.0,877,4086994,102456.2,cudaStreamSynchronize
+0.1,32579720,4684,6955.5,5383.5,2999,2330908,46858.2,cudaLaunchKernel
+0.1,24592438,2884,8527.2,3643.5,2310,1698997,65055.7,cudaMemcpyAsync
+0.0,13560315,2509,5404.7,5382.0,1943,35150,2875.3,cudaMemsetAsync
+0.0,949782,2,474891.0,474891.0,3957,945825,666001.2,cudaHostAlloc
+0.0,543628,18,30201.6,11799.5,5466,220797,54419.8,cudaMemcpyToSymbol
+0.0,456419,3,152139.7,73249.0,5742,377428,198003.6,cudaFreeHost
+0.0,155530,1,155530.0,155530.0,155530,155530,0.0,cudaGetDeviceProperties_v2_v12000
+0.0,52973,2,26486.5,26486.5,17085,35888,13295.7,cudaStreamCreate
+0.0,15646,2,7823.0,7823.0,4308,11338,4971.0,cudaMemset
+0.0,10315,2,5157.5,5157.5,5027,5288,184.6,cudaStreamDestroy
+0.0,8402,1,8402.0,8402.0,8402,8402,0.0,cudaMallocHost
+0.0,4534,1,4534.0,4534.0,4534,4534,0.0,cudaEventCreateWithFlags
+0.0,2172,1,2172.0,2172.0,2172,2172,0.0,cudaEventDestroy
+0.0,987,1,987.0,987.0,987,987,0.0,cuModuleGetLoadingMode
+
