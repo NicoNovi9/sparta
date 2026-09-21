@@ -59,14 +59,16 @@ enum{BCSTD,BCWRAP,BCMIRROR,BCEXIT};             // Update::bcopt values
 // Register cap for the GPU move kernel.
 // With surfaces, TagUpdateMove compiles to ~252 registers per thread, which on
 // a 64K-register SM leaves room for only 8 resident warps (12.5% occupancy).
-// SPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256 threads per SM,
-// so the compiler caps registers at 65536/(256*N) per thread:
-//   N=2 -> 128 registers (default here), N=3 -> ~80 registers
-// Build with -DSPARTA_KK_MOVE_MINBLOCKS=0 to drop the bound: LaunchBounds<> is
-// what Kokkos uses when no bounds are given, i.e. the upstream kernel.
+// Building with -DSPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256
+// threads per SM, so the compiler caps registers at 65536/(256*N) per thread:
+//   N=2 -> 128 registers, N=3 -> ~80 registers
+// Measured on V100 (30M particles, 3D with surfaces), N=2 made the kernel 20%
+// slower: the stack grew from 288 to 784 bytes per thread, i.e. the cap turned
+// into spills. Default 0 keeps LaunchBounds<>, which is what Kokkos uses when
+// no bounds are given, i.e. the upstream kernel.
 
 #ifndef SPARTA_KK_MOVE_MINBLOCKS
-#define SPARTA_KK_MOVE_MINBLOCKS 2
+#define SPARTA_KK_MOVE_MINBLOCKS 0
 #endif
 
 #if SPARTA_KK_MOVE_MINBLOCKS > 0
