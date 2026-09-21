@@ -79,7 +79,11 @@ cd "${BUILD_DIR}"
 # change to the options below; only the sources that changed get recompiled.
 info "Configuring for ${ARCH}"
 
-cmake \
+# CMAKE_DISABLE_FIND_PACKAGE_Git: SPARTA's CMakeLists turns the current commit
+# hash into a compile definition on every source file, so each pull changes
+# the flags of all objects and forces a full rebuild. The commit is recorded
+# in BUILD_INFO below instead.
+cmake   -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
   -DCMAKE_C_COMPILER=mpicc \
