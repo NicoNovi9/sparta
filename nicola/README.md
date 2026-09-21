@@ -1,42 +1,42 @@
 # nicola/ — memo
 
-Tutti i comandi vanno lanciati sul cluster, dentro `/hpc/data/cfd-students/nnoventa/sparta`.
-`sparta-dsmc-asml` serve solo per i file del caso (species, vhs, geom).
+Run everything on the cluster, from `/hpc/data/cfd-students/nnoventa/sparta`.
+`sparta-dsmc-asml` is only used for the case files (species, vhs, geom).
 
-## 1. Aggiornare
+## 1. Update
 ```
 module load bitbucket
 git pull
 ```
 
-## 2. Compilare (login node)
+## 2. Build (login node)
 ```
 cd nicola/compile
-./compile_sparta_cuda.sh v100          # oppure h200
-./compile_sparta_cuda.sh v100 clean    # da zero, se qualcosa non va
+./compile_sparta_cuda.sh v100          # or h200
+./compile_sparta_cuda.sh v100 clean    # from scratch, if something breaks
 ```
-Binario: `install_v100/bin/spa_kokkos_cuda`. Ricompilare dopo ogni pull che tocca `src/`.
+Binary: `install_v100/bin/spa_kokkos_cuda`. Rebuild after every pull that touches `src/`.
 
-## 3. Lanciare (da `nicola/`)
-| Cosa | Comando |
+## 3. Run (from `nicola/`)
+| What | Command |
 |---|---|
-| run normale | `qsub submit_gpu.sh` |
-| profilo nsys | `qsub submit_gpu_nsys.sh` |
-| ncu (serve permesso IT) | `qsub submit_gpu_profiling.sh` |
-| registri per kernel | `./res_usage.sh` (niente qsub) |
+| plain run | `qsub submit_gpu.sh` |
+| nsys profile | `qsub submit_gpu_nsys.sh` |
+| ncu (needs IT permission) | `qsub submit_gpu_profiling.sh` |
+| registers per kernel | `./res_usage.sh` (no qsub) |
 
-Parametri utili, con `qsub -v`:
-`NPART=30000000`, `REORDER=100`, `LABEL=nome`, `GPU_ARCH=h200`.
-Per H200 aggiungere anche `-l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:gpu_type=h200`.
+Useful parameters, via `qsub -v`:
+`NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
+For H200 also add `-l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:gpu_type=h200`.
 
-Il deck è `input/in.sparta.gpu`.
+The deck is `input/in.sparta.gpu`.
 
-## 4. Mandare i risultati
+## 4. Send results back
 ```
 cd ..
 git add nicola/results
 git commit -m "..."
 git push
 ```
-Risultati in `results/<job>/`: da leggere per primo `summary.txt`.
-In `job.out`, `BUILD` e `COMMIT` devono coincidere, altrimenti non hai ricompilato.
+Results go to `results/<job>/`: read `summary.txt` first.
+In `job.out`, `BUILD` and `COMMIT` must match, otherwise you did not rebuild.
