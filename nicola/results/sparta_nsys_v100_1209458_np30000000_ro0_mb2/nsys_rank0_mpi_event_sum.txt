@@ -1,0 +1,23 @@
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209458_np30000000_ro0_mb2/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209458_np30000000_ro0_mb2/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1209458_np30000000_ro0_mb2/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/mpi_event_sum.py]... 
+
+ ** MPI Event Summary (mpi_event_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)    Source            Name       
+ --------  ---------------  ---------  -------------  -------------  -----------  -----------  -----------  -----------  ------------------
+     84.0      552,399,932          1  552,399,932.0  552,399,932.0  552,399,932  552,399,932          0.0  other        MPI_Init          
+     12.4       81,747,797          1   81,747,797.0   81,747,797.0   81,747,797   81,747,797          0.0  other        MPI_Finalize      
+      2.5       16,518,138        774       21,341.3        5,248.0        1,833      201,973     28,979.4  collectives  MPI_Allreduce     
+      0.5        3,116,498          1    3,116,498.0    3,116,498.0    3,116,498    3,116,498          0.0  collectives  MPI_Alltoallv     
+      0.3        2,104,457          3      701,485.7       11,457.0        1,544    2,091,456  1,203,759.8  collectives  MPI_Allgatherv    
+      0.1          696,729        240        2,903.0          663.0          225      130,877     13,034.0  collectives  MPI_Barrier       
+      0.1          601,034         10       60,103.4       49,373.0        1,678      157,642     52,415.1  collectives  MPI_Reduce_scatter
+      0.0          225,368        335          672.7          250.0          145      100,414      5,482.6  collectives  MPI_Bcast         
+      0.0          172,191          1      172,191.0      172,191.0      172,191      172,191          0.0  collectives  MPI_Scan          
+      0.0           25,536          4        6,384.0        6,595.5        2,750        9,595      3,600.5  collectives  MPI_Allgather     
+      0.0            9,233          1        9,233.0        9,233.0        9,233        9,233          0.0  collectives  MPI_Alltoall      
+

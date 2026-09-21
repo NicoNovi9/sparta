@@ -1,13 +1,4 @@
  REG  STACK  LOCAL  KERNEL
- 255   1024      0  TagUpdateMove<1, 1, 1, 0, 1>
- 255   1024      0  TagUpdateMove<3, 1, 1, 0, 1>
- 255    240      0  TagUpdateMove<1, 1, 0, 0, 1>
- 255    528      0  TagUpdateMove<2, 0, 1, 0, 1>
- 255    528      0  TagUpdateMove<3, 0, 1, 0, 1>
- 255    544      0  TagUpdateMove<1, 0, 1, 0, 1>
- 255    960      0  TagUpdateMove<2, 1, 1, 0, 1>
- 252    288      0  TagUpdateMove<3, 1, 0, 0, 1>
- 247    288      0  TagUpdateMove<2, 1, 0, 0, 1>
  191    160      0  TagCollideCollisionsOneSubcell<3, 1, 1>
  190    160      0  TagCollideCollisionsOneSubcell<3, 1, 0>
  188      0      0  TagComputeDistSurfGrid_surf_distance
@@ -55,14 +46,23 @@
  154    160      0  TagCollideCollisionsOne<1, 0, 1>
  153    160      0  TagCollideCollisionsOne<0, 0, 0>
  153    160      0  TagCollideCollisionsOne<1, 0, 0>
- 150    120      0  TagUpdateMove<1, 0, 0, 1, 1>
  148    160      0  TagCollideCollisionsOne<1, 0, -1>
- 146    120      0  TagUpdateMove<1, 0, 0, 0, 1>
- 146    120      0  TagUpdateMove<2, 0, 0, 0, 1>
- 146    120      0  TagUpdateMove<2, 0, 0, 1, 1>
- 146    120      0  TagUpdateMove<3, 0, 0, 0, 1>
- 146    120      0  TagUpdateMove<3, 0, 0, 1, 1>
  145    160      0  TagCollideCollisionsOne<0, 0, -1>
+ 128   1088      0  TagUpdateMove<1, 0, 1, 0, 1>
+ 128   1088      0  TagUpdateMove<2, 0, 1, 0, 1>
+ 128   1088      0  TagUpdateMove<3, 0, 1, 0, 1>
+ 128   1520      0  TagUpdateMove<2, 1, 1, 0, 1>
+ 128   1552      0  TagUpdateMove<1, 1, 1, 0, 1>
+ 128   1552      0  TagUpdateMove<3, 1, 1, 0, 1>
+ 128    184      0  TagUpdateMove<1, 0, 0, 0, 1>
+ 128    184      0  TagUpdateMove<3, 0, 0, 0, 1>
+ 128    184      0  TagUpdateMove<3, 0, 0, 1, 1>
+ 128    208      0  TagUpdateMove<2, 0, 0, 0, 1>
+ 128    208      0  TagUpdateMove<2, 0, 0, 1, 1>
+ 128    216      0  TagUpdateMove<1, 0, 0, 1, 1>
+ 128    752      0  TagUpdateMove<1, 1, 0, 0, 1>
+ 128    752      0  TagUpdateMove<2, 1, 0, 0, 1>
+ 128    784      0  TagUpdateMove<3, 1, 0, 0, 1>
  124    160      0  TagFixEmitSurf_perform_task
  102    112      0  TagFixEmitFaceFile_perform_task
   96    112      0  TagFixEmitFace_perform_task
