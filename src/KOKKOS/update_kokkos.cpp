@@ -56,6 +56,21 @@ enum{PERAUTO,PERCELL,PERSURF};                  // several files
 enum{NOFIELD,CFIELD,PFIELD,GFIELD};             // several files
 enum{BCSTD,BCWRAP,BCMIRROR,BCEXIT};             // Update::bcopt values
 
+// Optional register cap for the GPU move kernel.
+// With surfaces, TagUpdateMove compiles to ~252 registers per thread, which on
+// a 64K-register SM leaves room for only 8 resident warps (12.5% occupancy).
+// Building with -DSPARTA_KK_MOVE_MINBLOCKS=N requests N resident blocks of 256
+// threads per SM, so the compiler caps registers at 65536/(256*N) per thread:
+//   N=2 -> 128 registers, N=3 -> ~80 registers
+// Left undefined, LaunchBounds<> sets no bounds, which is what Kokkos uses when
+// no launch bounds are given: the generated kernel is unchanged.
+
+#ifdef SPARTA_KK_MOVE_MINBLOCKS
+using MoveLaunchBounds = Kokkos::LaunchBounds<256,SPARTA_KK_MOVE_MINBLOCKS>;
+#else
+using MoveLaunchBounds = Kokkos::LaunchBounds<>;
+#endif
+
 #define MAXSTUCK 20
 #define EPSPARAM 1.0e-7
 
@@ -777,9 +792,9 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
 
 #if defined SPARTA_KOKKOS_GPU
   #if SPARTA_KOKKOS_REDUCE_ARCH
-      Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
+      Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, MoveLaunchBounds, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
   #else
-      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,1> >(pstart,pstop),*this);
+      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, MoveLaunchBounds, TagUpdateMove<DIM,SURF,REACT,OPT,1> >(pstart,pstop),*this);
   #endif
 #elif defined KOKKOS_ENABLE_SERIAL
       if constexpr(std::is_same<DeviceType,Kokkos::Serial>::value)

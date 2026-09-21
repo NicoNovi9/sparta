@@ -34,6 +34,9 @@ INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 NPART="${NPART:-120000000}"
 REORDER="${REORDER:-0}"
 
+# Free-form tag for the build being profiled, e.g. LABEL=base or LABEL=mb2.
+LABEL="${LABEL:-}"
+
 NRANKS="${NRANKS:-1}"
 NGPUS="${NGPUS:-1}"
 
@@ -45,7 +48,7 @@ NSYS_DELAY="${NSYS_DELAY:-0}"
 NSYS_DURATION="${NSYS_DURATION:-0}"
 
 # The knobs go in the directory name so A/B runs are told apart at a glance.
-RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}_np${NPART}_ro${REORDER}"
+RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}_np${NPART}_ro${REORDER}${LABEL:+_$LABEL}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -96,6 +99,7 @@ export OMP_PLACES=threads
     echo "gpus       $NGPUS"
     echo "npart      $NPART"
     echo "reorder    $REORDER"
+    echo "label      $LABEL"
     echo "nsys delay $NSYS_DELAY  duration $NSYS_DURATION"
 } | tee "$RUNDIR/meta.txt"
 
