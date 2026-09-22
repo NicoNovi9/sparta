@@ -39,12 +39,27 @@ NSTEPS="${NSTEPS:-10000}"
 KP="${KP:-1}"
 KP_BIG_ALLOC_MB="${KP_BIG_ALLOC_MB:-100}"
 KP_LIB="$NICOLA/tools/kp_big_alloc.so"
+
+# MPI point-to-point layer. ucx is what every other run uses. PML=ob1 keeps
+# UCX out of the process entirely, to test whether its CUDA memory hooks
+# (registration cache on cudaMalloc/cudaFree) are behind the BadAlloc.
+# One rank, so only the self and shared-memory transports are needed.
+#   qsub -v PML=ob1 submit_gpu_h200.sh
+PML="${PML:-ucx}"
+MPI_PML=(--mca pml "$PML" --mca pml_base_verbose 10)
+KK_EXTRA=()
+if [ "$PML" = ob1 ]; then
+    MPI_PML+=(--mca btl self,vader --mca osc ^ucx)
+    # these transports cannot read GPU buffers; with one rank nothing should
+    # be sent, but make sure a crash cannot come from there
+    KK_EXTRA=(-pk kokkos gpu/aware off)
+fi
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
 # Results land under nicola/, so a commit brings them back with git.
-RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/${PBS_JOBNAME:-local}_${PBS_JOBID%%.*}$([ "${PML:-ucx}" != ucx ] && echo "_pml${PML}")"
 mkdir -p "$RUNDIR"
 
 # Capture everything this script prints into the run directory too,
@@ -102,7 +117,7 @@ echo "BUILD=$(tr '
 ' ' ' < "$BUILD_INFO" 2>/dev/null)"
 echo "INPUT=$INPUT_FILE"
 echo "RUNDIR=$RUNDIR"
-echo "NPART=$NPART NSTEPS=$NSTEPS KP=$KP (>= $KP_BIG_ALLOC_MB MB)"
+echo "NPART=$NPART NSTEPS=$NSTEPS KP=$KP (>= $KP_BIG_ALLOC_MB MB) PML=$PML"
 
 MPI_ENV=()
 if [ "$KP" = 1 ]; then
@@ -120,7 +135,7 @@ nvidia-smi \
 SMI_PID=$!
 
 mpirun \
-  --mca pml ucx \
+  "${MPI_PML[@]}" \
   --bind-to core \
   --map-by ppr:1:node \
   "${MPI_ENV[@]}" \
@@ -128,6 +143,7 @@ mpirun \
   "$SPARTA_EXE" \
   -k on g 1 \
   -sf kk \
+  "${KK_EXTRA[@]}" \
   -in "$INPUT_FILE" \
   -var npart "$NPART" \
   -var nsteps "$NSTEPS" \
