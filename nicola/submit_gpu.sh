@@ -82,6 +82,7 @@ echo "INPUT=$INPUT_FILE"
 echo "RUNDIR=$RUNDIR"
 
 nvidia-smi -L
+nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode"   # HMM/ATS or not
 
 nvidia-smi \
 --query-gpu=timestamp,index,utilization.gpu,utilization.memory,memory.used,memory.total,power.draw \

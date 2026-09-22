@@ -117,6 +117,7 @@ export OMP_PLACES=threads
 } | tee "$RUNDIR/meta.txt"
 
 nvidia-smi -L
+nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode"   # HMM/ATS or not
 nsys --version
 
 # --------------------------------------------------------- sample power ----

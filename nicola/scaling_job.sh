@@ -138,6 +138,7 @@ export OMP_NUM_THREADS=1
 SMI_PID=
 if [ "$ARCH" = gpu ]; then
     nvidia-smi -L
+    nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode"   # HMM/ATS or not
     nvidia-smi \
       --query-gpu=timestamp,index,utilization.gpu,utilization.memory,memory.used,power.draw \
       --format=csv -l 1 > "$RUNDIR/gpu_metrics.csv" &
