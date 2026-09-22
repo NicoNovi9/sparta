@@ -4,10 +4,12 @@
 #
 #   cd nicola && ./submit_scaling.sh          # every ARCH x NODES below
 #   cd nicola && ./submit_scaling.sh gpu 2    # a single run
+#   cd nicola && ./submit_scaling.sh cpu 1 4  # one arch, chosen node counts
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
 #   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
+#   NSTEPS=10000 WALLTIME=01:00:00 ./submit_scaling.sh cpu 1 4
 #
 # Results: nicola/results/scaling/<arch>_n<nodes>_<jobid>/ (summary.txt first).
 # Build both binaries first: compile/compile_sparta_cuda.sh v100 and
@@ -15,19 +17,19 @@
 
 ARCHS=(cpu gpu)
 NODE_COUNTS=(1 2 4)
-NSTEPS=1000
+NSTEPS="${NSTEPS:-1000}"
 NPART=120000000
-WALLTIME=00:30:00
+WALLTIME="${WALLTIME:-00:30:00}"
 # One chunk per host, and no other jobs on it: timings must not be shared.
 PLACE=scatter:excl
 
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1   # qsub from nicola/
 REPO_ROOT="$(cd .. && pwd)"
 
-if [ $# -eq 2 ]; then
-    ARCHS=("$1"); NODE_COUNTS=("$2")
-elif [ $# -ne 0 ]; then
-    echo "usage: $0 [cpu|gpu NODES]" >&2; exit 1
+if [ $# -ge 1 ]; then
+    case "$1" in cpu|gpu) ;; *) echo "usage: $0 [cpu|gpu [NODES...]]" >&2; exit 1 ;; esac
+    ARCHS=("$1")
+    [ $# -ge 2 ] && NODE_COUNTS=("${@:2}")
 fi
 
 git_head() {
@@ -66,8 +68,9 @@ for ARCH in "${ARCHS[@]}"; do
             cpu) QUEUE=amd
                  SELECT="select=${N}:ncpus=192:mpiprocs=192:mem=1400GB:cpu_type=genoaX" ;;
         esac
+        # job names stay under 15 characters, the limit on older PBS versions
         printf "%-4s %d node(s): " "$ARCH" "$N"
-        qsub -N "scal_${ARCH}_n${N}${BALANCE:+_b}" -q "$QUEUE" \
+        qsub -N "sc_${ARCH}${N}${BALANCE:+b}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
              -l "$SELECT" -l "place=$PLACE" -l "walltime=$WALLTIME" \
              -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}" \
              scaling_job.sh

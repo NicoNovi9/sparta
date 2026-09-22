@@ -46,7 +46,10 @@ esac
 NRANKS=$(( NODES * RANKS_PER_NODE ))
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
-RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}${BALANCE:+_bal$BALANCE}_${PBS_JOBID%%.*}"
+# Non-default step counts go in the name, so 1000-step and longer runs of the
+# same configuration are not mixed up.
+STEPS_TAG=; [ "$NSTEPS" != 1000 ] && STEPS_TAG="_s$NSTEPS"
+RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}${BALANCE:+_bal$BALANCE}${STEPS_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
