@@ -1,0 +1,43 @@
+job        1211010.pbs60
+date       2026-09-22T10:34:10+02:00
+arch       cpu
+nodes      8
+ranks      1536 (192 per node)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+balance    part
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/results/scaling/cpu_n8_balpart_1211010/in.deck
+commit     4e70c241cd24f712c2d1477854b733445a378520
+build      arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+hosts      pn6363.cm.cluster pn6367.cm.cluster pn6372.cm.cluster pn6373.cm.cluster pn6377.cm.cluster pn6382.cm.cluster pn6383.cm.cluster pn6395.cm.cluster 
+
+Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
+       0            0            0            0        3e-09 119999558        0        0        0        0    299.98144 
+     100    1.4230396 2.1081561e-07     70.27179        3e-09 117879248  1749281   929430        0        0    297.68643 
+     200    3.3924679 1.5232867e-07    50.776236        3e-09 115512501  1739047   895744        0        0    296.00087 
+     300    4.6784637 2.332818e-07    77.760553        3e-09 113119714  1703514   863476        0        0    294.60853 
+     400     5.906936 2.4420593e-07    81.402004        3e-09 110734824  1658159   829063        0        0    293.53505 
+     500    7.1109861 2.4915908e-07    83.053021        3e-09 108372632  1609735   798624        0        0    292.73588 
+     600    8.1116672 2.9979577e-07    99.931946        3e-09 106039635  1559874   767856        0        0     292.1974 
+     700    9.3628689 2.3976975e-07    79.923267        3e-09 103753204  1511469   739845        0        0     291.7792 
+     800    10.417793 2.843799e-07    94.793281        3e-09 101529109  1465424   713894        0        0    291.51358 
+     900    11.067115 4.6202117e-07    154.00709        3e-09 99381493  1422845   691268        0        0    291.30283 
+    1000    11.724917 4.5606421e-07    152.02139        3e-09 97327857  1383068   670437        0        0    291.16681 
+Loop time of 11.7251 on 1536 procs for 1000 steps with 97327857 particles
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Move    | 0.94949    | 1.653      | 3.5168     |  31.6 | 14.10
+Coll    | 0.15801    | 0.34611    | 0.51158    |  13.4 |  2.95
+Sort    | 0.18895    | 0.29686    | 0.37651    |   7.1 |  2.53
+Comm    | 0.6681     | 0.79903    | 1.2936     |  10.5 |  6.81
+Modify  | 0.78352    | 1.0171     | 1.3431     |  11.9 |  8.67
+Output  | 0.003461   | 0.0059179  | 0.0089245  |   1.6 |  0.05
+MPI Sync| 5.8378     | 7.6065     | 8.3777     |  14.9 | 64.87
+Other   |            | 0.000646   |            |       |  0.01
+
+Particle moves    = 108490203136 (108B)
+Particles: 63364.5 ave 79106 max 33829 min
+Cells:      562.5 ave 2344 max 194 min
