@@ -1,0 +1,13 @@
+job        1211770.pbs60
+host       an6006
+date       2026-09-22T13:24:29+02:00
+commit     30ab2532512dc7a58a3293d8bb37b4709eaef452
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda
+build      arch    h200 commit  13f59fe7a7d2a2bc3c1eeee7d4fc2228538af078 date    2026-09-22T13:09:48+02:00 
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+ranks      1
+gpus       1
+npart      30000000
+reorder    0
+label      h200
+nsys delay 0  duration 0
