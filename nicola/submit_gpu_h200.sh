@@ -38,6 +38,9 @@ NSTEPS="${NSTEPS:-10000}"
 # tools/build_kp_big_alloc.sh; KP=0 turns it off.
 KP="${KP:-1}"
 KP_BIG_ALLOC_MB="${KP_BIG_ALLOC_MB:-100}"
+# the library also reports jumps of the device free memory >= this, with the
+# Kokkos events around them
+KP_MEMWATCH_GB="${KP_MEMWATCH_GB:-1}"
 KP_LIB="$NICOLA/tools/kp_big_alloc.so"
 
 # MPI point-to-point layer. ucx is what every other run uses. PML=ob1 keeps
@@ -121,8 +124,8 @@ echo "NPART=$NPART NSTEPS=$NSTEPS KP=$KP (>= $KP_BIG_ALLOC_MB MB) PML=$PML"
 
 MPI_ENV=()
 if [ "$KP" = 1 ]; then
-    export KOKKOS_TOOLS_LIBS="$KP_LIB" KP_BIG_ALLOC_MB
-    MPI_ENV=(-x KOKKOS_TOOLS_LIBS -x KP_BIG_ALLOC_MB)
+    export KOKKOS_TOOLS_LIBS="$KP_LIB" KP_BIG_ALLOC_MB KP_MEMWATCH_GB
+    MPI_ENV=(-x KOKKOS_TOOLS_LIBS -x KP_BIG_ALLOC_MB -x KP_MEMWATCH_GB)
 fi
 
 nvidia-smi -L

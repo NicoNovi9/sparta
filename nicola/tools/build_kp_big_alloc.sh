@@ -11,5 +11,5 @@ if ! type module >/dev/null 2>&1; then
 fi
 module load gcc/13.1.0
 
-g++ -O2 -std=c++17 -shared -fPIC -o kp_big_alloc.so kp_big_alloc.cpp
+g++ -O2 -std=c++17 -shared -fPIC -o kp_big_alloc.so kp_big_alloc.cpp -ldl
 echo "built $(pwd)/kp_big_alloc.so"
