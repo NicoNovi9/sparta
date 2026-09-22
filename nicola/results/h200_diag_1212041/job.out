@@ -1,0 +1,94 @@
+built /hpc/data/cfd-students/nnoventa/sparta/nicola/tools/kp_big_alloc.so
+14:44:59.837 snapshot
+snapshot -> /hpc/data/cfd-students/nnoventa/sparta/nicola/results/h200_diag_1212041/node_start.txt
+14:45:02.076 idle
+GPU idle for 300s, SPARTA not running
+14:50:02.081 sparta
+SPARTA (27 Aug 2026)
+KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:50)
+  requested 1 GPU(s) per node
+  requested 1 thread(s) per MPI task
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:148)
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  cudaSetDevice(cuda_device_id) error( cudaErrorMemoryAllocation): out of memory /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:488
+[an6006:2215223] *** Process received signal ***
+[an6006:2215223] Signal: Aborted (6)
+[an6006:2215223] Signal code:  (-6)
+[an6006:2215223] [ 0] /lib64/libpthread.so.0(+0x12990)[0x15555235b990]
+[an6006:2215223] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x1555515b95af]
+[an6006:2215223] [ 2] /lib64/libc.so.6(abort+0x127)[0x15555158cee5]
+[an6006:2215223] [ 3] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xac93b)[0x155551f9393b]
+[an6006:2215223] [ 4] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc0ea)[0x155551fa30ea]
+[an6006:2215223] [ 5] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc155)[0x155551fa3155]
+[an6006:2215223] [ 6] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc3a8)[0x155551fa33a8]
+[an6006:2215223] [ 7] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x44e97b]
+[an6006:2215223] [ 8] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xc5f928]
+[an6006:2215223] [ 9] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xc624a8]
+[an6006:2215223] [10] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xc36cae]
+[an6006:2215223] [11] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xa39b81]
+[an6006:2215223] [12] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x4bb969]
+[an6006:2215223] [13] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x44fadf]
+[an6006:2215223] [14] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1555515a5865]
+[an6006:2215223] [15] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x479e4e]
+[an6006:2215223] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node an6006 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+14:50:07.972 post (sparta exit status 134)
+GPU monitored for 60s more, SPARTA gone
+14:51:07.975 end
+/cm/local/apps/pbspro/var/spool/mom_priv/jobs/1212041.pbs60.SC: line 132: 2202248 Terminated              ( while true; do
+    ts=$(now); out=$(nvidia-smi --query-compute-apps=pid,process_name,used_memory                          --format=csv,noheader,nounits 2>&1); if [ -z "$out" ]; then
+        echo "$ts, -, none, 0";
+    else
+        echo "$out" | sed "s/^/$ts, /";
+    fi; sleep 0.25;
+done ) > "$RUNDIR/gpu_apps.csv"  (wd: ~)
+snapshot -> /hpc/data/cfd-students/nnoventa/sparta/nicola/results/h200_diag_1212041/node_end.txt
+
+samples above 20000 MiB grouped into 4 episode(s)
+
+episode 1: 14:45:03.698 -> 14:45:04.448  max 143185 MiB  phase: idle
+    on GPU: 2202229 /hpc/shared/bin/cuda_memtest 143060 MiB
+    on GPU: - none 0 MiB
+episode 2: 14:45:07.292 -> 14:45:08.042  max 143185 MiB  phase: idle
+    on GPU: 2202341 /hpc/shared/bin/cuda_memtest 143060 MiB
+    on GPU: 2202341 [No data] 143060 MiB
+    on GPU: - none 0 MiB
+episode 3: 14:50:04.196 -> 14:50:04.946  max 143185 MiB  phase: sparta
+    on GPU: 2215201 /hpc/shared/bin/cuda_memtest 143060 MiB
+    on GPU: 2215201 [No data] 143060 MiB
+episode 4: 14:50:07.656 -> 14:50:08.407  max 143185 MiB  phase: sparta
+    on GPU: 2215329 /hpc/shared/bin/cuda_memtest 143060 MiB
+    on GPU: 2215329 [No data] 143060 MiB
+    on GPU: - none 0 MiB
+
+phases:
+  snapshot
+  idle
+  sparta
+  post
+  end
+
+phase times:
+14:44:59.837 snapshot
+14:45:02.076 idle
+14:50:02.081 sparta
+14:50:07.972 post (sparta exit status 134)
+14:51:07.975 end
+
+free-memory jumps seen inside SPARTA (kp):
+
+SPARTA end:
+  what():  cudaSetDevice(cuda_device_id) error( cudaErrorMemoryAllocation): out of memory /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:488

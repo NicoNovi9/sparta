@@ -1,0 +1,5 @@
+14:44:59.837 snapshot
+14:45:02.076 idle
+14:50:02.081 sparta
+14:50:07.972 post (sparta exit status 134)
+14:51:07.975 end

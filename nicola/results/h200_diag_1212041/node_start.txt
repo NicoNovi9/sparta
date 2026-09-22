@@ -1,0 +1,204 @@
+== start  2026-09-22T14:44:59+02:00  an6006
+CUDA_VISIBLE_DEVICES=GPU-f89eb344-d7ff-03d0-d27f-4895ffb9493b
+
+== nvidia-smi
+Tue Sep 22 14:44:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.28.03              Driver Version: 560.28.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H200                    Off |   00000000:03:00.0 Off |                    0 |
+| N/A   38C    P0             80W /  700W |     116MiB / 143771MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A     18544      G   /usr/libexec/Xorg                             106MiB |
++-----------------------------------------------------------------------------------------+
+
+== driver / modes
+Driver Version                            : 560.28.03
+CUDA Version                              : 12.6
+
+--
+    Persistence Mode                      : Disabled
+    Addressing Mode                       : None
+    MIG Mode
+        Current                           : Disabled
+--
+    Compute Mode                          : Default
+    Utilization
+
+== nvidia-smi -q -d PIDS,MEMORY
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Tue Sep 22 14:45:00 2026
+Driver Version                            : 560.28.03
+CUDA Version                              : 12.6
+
+Attached GPUs                             : 1
+GPU 00000000:03:00.0
+    FB Memory Usage
+        Total                             : 143771 MiB
+        Reserved                          : 585 MiB
+        Used                              : 116 MiB
+        Free                              : 143071 MiB
+    BAR1 Memory Usage
+        Total                             : 262144 MiB
+        Used                              : 2 MiB
+        Free                              : 262142 MiB
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Processes
+        GPU instance ID                   : N/A
+        Compute instance ID               : N/A
+        Process ID                        : 18544
+            Type                          : G
+            Name                          : /usr/libexec/Xorg
+            Used GPU Memory               : 106 MiB
+
+
+== GPU-related processes on the node (all users)
+root        1711       2 28-22:15:58 [mlx5_health0000]
+root        1845       2 28-22:15:58 [mlx5_health0000]
+root        1859       2 28-22:15:58 [mlx5_health0000]
+root        1873       2 28-22:15:57 [mlx5_health0000]
+root        1885       2 28-22:15:57 [mlx5_health0000]
+root        1897       2 28-22:15:57 [mlx5_health0000]
+root        1910       2 28-22:15:56 [mlx5_health0000]
+root        1919       2 28-22:15:56 [mlx5_health0000]
+root        1929       2 28-22:15:56 [mlx5_health0000]
+root        1938       2 28-22:15:55 [mlx5_health0000]
+root       14140       2 28-22:13:54 [irq/1391-nvidia]
+root       14141       2 28-22:13:54 [irq/1392-nvidia]
+root       14142       2 28-22:13:54 [irq/1393-nvidia]
+root       14143       2 28-22:13:54 [irq/1394-nvidia]
+root       14144       2 28-22:13:54 [irq/1395-nvidia]
+root       14145       2 28-22:13:54 [irq/1396-nvidia]
+root       14146       2 28-22:13:54 [irq/1397-nvidia]
+root       14147       2 28-22:13:54 [irq/1398-nvidia]
+root       14148       2 28-22:13:54 [nvidia]
+root       14150       2 28-22:13:54 [nvidia-modeset/]
+root       14151       2 28-22:13:54 [nvidia-modeset/]
+root       16615       2 28-22:13:51 [irq/1399-nvidia]
+root       16616       2 28-22:13:51 [irq/1400-nvidia]
+root       16617       2 28-22:13:51 [irq/1401-nvidia]
+root       16618       2 28-22:13:51 [irq/1402-nvidia]
+root       16619       2 28-22:13:51 [irq/1403-nvidia]
+root       16620       2 28-22:13:51 [irq/1404-nvidia]
+root       16621       2 28-22:13:51 [irq/1405-nvidia]
+root       16622       2 28-22:13:51 [irq/1406-nvidia]
+root       16623       2 28-22:13:51 [nvidia]
+root       16633       2 28-22:13:49 [irq/1407-nvidia]
+root       16634       2 28-22:13:49 [irq/1408-nvidia]
+root       16635       2 28-22:13:49 [irq/1409-nvidia]
+root       16636       2 28-22:13:49 [irq/1410-nvidia]
+root       16637       2 28-22:13:49 [irq/1411-nvidia]
+root       16638       2 28-22:13:49 [irq/1412-nvidia]
+root       16639       2 28-22:13:49 [irq/1413-nvidia]
+root       16640       2 28-22:13:49 [irq/1414-nvidia]
+root       16641       2 28-22:13:49 [nvidia]
+root       16643       2 28-22:13:49 [irq/1415-nvidia]
+root       16644       2 28-22:13:49 [irq/1416-nvidia]
+root       16645       2 28-22:13:49 [irq/1417-nvidia]
+root       16646       2 28-22:13:49 [irq/1418-nvidia]
+root       16647       2 28-22:13:49 [irq/1419-nvidia]
+root       16648       2 28-22:13:49 [irq/1420-nvidia]
+root       16649       2 28-22:13:49 [irq/1421-nvidia]
+root       16650       2 28-22:13:49 [irq/1422-nvidia]
+root       16651       2 28-22:13:49 [nvidia]
+root       16653       2 28-22:13:49 [irq/1423-nvidia]
+root       16654       2 28-22:13:49 [irq/1424-nvidia]
+root       16655       2 28-22:13:49 [irq/1425-nvidia]
+root       16656       2 28-22:13:49 [irq/1426-nvidia]
+root       16657       2 28-22:13:49 [irq/1427-nvidia]
+root       16658       2 28-22:13:49 [irq/1428-nvidia]
+root       16659       2 28-22:13:49 [irq/1429-nvidia]
+root       16660       2 28-22:13:49 [irq/1430-nvidia]
+root       16661       2 28-22:13:49 [nvidia]
+root       17499       2 28-22:13:47 [irq/1431-nvidia]
+root       17500       2 28-22:13:47 [irq/1432-nvidia]
+root       17501       2 28-22:13:47 [irq/1433-nvidia]
+root       17502       2 28-22:13:47 [irq/1434-nvidia]
+root       17503       2 28-22:13:47 [irq/1435-nvidia]
+root       17504       2 28-22:13:47 [irq/1436-nvidia]
+root       17505       2 28-22:13:47 [irq/1437-nvidia]
+root       17506       2 28-22:13:47 [irq/1438-nvidia]
+root       17507       2 28-22:13:47 [nvidia]
+root       17856       2 28-22:13:44 [irq/1439-nvidia]
+root       17857       2 28-22:13:44 [irq/1440-nvidia]
+root       17858       2 28-22:13:44 [irq/1441-nvidia]
+root       17859       2 28-22:13:44 [irq/1442-nvidia]
+root       17860       2 28-22:13:44 [irq/1443-nvidia]
+root       17861       2 28-22:13:44 [irq/1444-nvidia]
+root       17862       2 28-22:13:44 [irq/1445-nvidia]
+root       17863       2 28-22:13:44 [irq/1446-nvidia]
+root       17864       2 28-22:13:44 [nvidia]
+root       17865       2 28-22:13:44 [irq/1447-nvidia]
+root       17867       2 28-22:13:44 [irq/1448-nvidia]
+root       17868       2 28-22:13:44 [irq/1449-nvidia]
+root       17869       2 28-22:13:44 [irq/1450-nvidia]
+root       17870       2 28-22:13:44 [irq/1451-nvidia]
+root       17871       2 28-22:13:44 [irq/1452-nvidia]
+root       17872       2 28-22:13:44 [irq/1453-nvidia]
+root       17873       2 28-22:13:44 [irq/1454-nvidia]
+root       17874       2 28-22:13:44 [nvidia]
+root       18566       1 28-22:13:37 /usr/bin/nv-fabricmanager -c /usr/share/nvidia/nvswitch/fabricmanager.cfg
+root     1487918       2    03:08:55 [UVM GPU1 BH]
+root     1487919       2    03:08:55 [UVM GPU1 KC]
+root     1707634       2    02:20:05 [UVM GPU4 BH]
+root     1707635       2    02:20:05 [UVM GPU4 KC]
+root     2135141       2    01:01:53 [kworker/u256:3-mlx5_health0000:38:00.0]
+root     2135142       2    01:01:53 [kworker/u256:5-mlx5_health0000:f4:00.0]
+root     2135144       2    01:01:53 [kworker/u256:9-mlx5_health0000:e3:00.0]
+root     2166892       2       32:16 [kworker/u256:0-mlx5_health0000:13:00.0]
+root     2193166       2       08:36 [kworker/u256:1-mlx5_health0000:63:00.0]
+
+== jobs on this node
+     state = <various>
+     jobs = 1211205.pbs60/0, 1211205.pbs60/1, 1211205.pbs60/2, 1211205.pbs60/3, 1211205.pbs60/4, 1211205.pbs60/5, 1211205.pbs60/6, 1211205.pbs60/7, 1211205.pbs60/8, 1211205.pbs60/9, 1211205.pbs60/10, 1211205.pbs60/11, 1211205.pbs60/12, 1211205.pbs60/13, 1211205.pbs60/14, 1211205.pbs60/15, 1212041.pbs60/0, 1212041.pbs60/0, 1211540.pbs60/8, 1211540.pbs60/9, 1211540.pbs60/10, 1211540.pbs60/11, 1211540.pbs60/12, 1211540.pbs60/13, 1211540.pbs60/14, 1211540.pbs60/15, 1211540.pbs60/0, 1211540.pbs60/1, 1211540.pbs60/2, 1211540.pbs60/3, 1211540.pbs60/4, 1211540.pbs60/5, 1211540.pbs60/6, 1211540.pbs60/7, 1211540.pbs60/8, 1211540.pbs60/9, 1211540.pbs60/10, 1211540.pbs60/11, 1211540.pbs60/12, 1211540.pbs60/13, 1211540.pbs60/14, 1211540.pbs60/15
+     last_state_change_time = Thu Jan  1 01:00:00 1970
+     resources_available.ngpus = 8
+     resources_assigned.ngpus = 3
+
+== driver messages (Xid / NVRM)
+[Mon Aug 24 16:31:05 2026] NVRM: loading NVIDIA UNIX x86_64 Kernel Module  560.28.03  Thu Jul 18 19:32:18 UTC 2024
+[Tue Aug 25 05:19:07 2026] NVRM: GPU at PCI:0000:64:00: GPU-5cdf4ec2-50ed-c536-9ac4-f227914f577b
+[Tue Aug 25 05:19:07 2026] NVRM: GPU Board Serial Number: 1653425084870
+[Tue Aug 25 05:19:07 2026] NVRM: Xid (PCI:0000:64:00): 95, pid='<unknown>', name=<unknown>, Uncontained: FBHUB. RST: Yes, D-RST: No
+[Sat Sep  5 09:33:18 2026] NVRM: GPU at PCI:0000:03:00: GPU-f89eb344-d7ff-03d0-d27f-4895ffb9493b
+[Sat Sep  5 09:33:18 2026] NVRM: GPU Board Serial Number: 1653425084977
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid='<unknown>', name=<unknown>, Contained: CE User Channel (0xb). RST: No, D-RST: No
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 0000000c
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 0000000d
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 0000000e
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 0000000f
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 00000010
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 00000011
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 00000012
+[Sat Sep  5 09:33:18 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=3215292, name=python, Ch 00000013
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid='<unknown>', name=<unknown>, Contained: CE User Channel (0xb). RST: No, D-RST: No
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000020
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000021
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000022
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000023
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000024
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000025
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000026
+[Fri Sep 11 17:33:42 2026] NVRM: Xid (PCI:0000:03:00): 94, pid=2948682, name=python, Ch 00000027
+
+== load / host memory
+ 14:45:02 up 28 days, 22:16,  0 users,  load average: 2.83, 3.59, 3.73
+              total        used        free      shared  buff/cache   available
+Mem:           1511          49        1446           1          15        1453
+Swap:            15           0          15
