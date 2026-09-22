@@ -35,3 +35,7 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `sparta_nsys_h200_1211770_np30000000_ro0_h200` | 200 steps under nsys: completes; move only 1.09x faster than V100 |
 | `sparta_h200_1211776` | 10,000 steps: BadAlloc on `collide:nn_last_partner` at step ~3850; nvidia-smi sees the GPU full just before |
 | `sparta_h200_1211801` | same with the Kokkos allocation logger: 4557 alloc/free pairs of 711.9 MB, Kokkos live stays 4.9 GB |
+| `sparta_h200_1211844_pmlob1` | without UCX (ob1): still BadAlloc, at step ~5150 |
+| `sparta_h200_1211877` | device free-memory watch: GPU goes to 0 free during the move kernel |
+| `sparta_nsys_h200_1211918_..._h200` | nsys with unified-memory tracing: no UM activity, Addressing Mode None; GPU goes to 0 free during emit/surf |
+| **`../h200_diag_1212041`** | **cause found: `/hpc/shared/bin/cuda_memtest` takes the whole GPU (143 GB) for ~0.75 s, twice, every 5 minutes, also with SPARTA not running. Not a SPARTA bug.** |
