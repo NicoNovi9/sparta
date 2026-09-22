@@ -32,6 +32,13 @@ CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_w
 GPU_ARCH="${GPU_ARCH:-h200}"
 NPART="${NPART:-30000000}"
 NSTEPS="${NSTEPS:-10000}"
+
+# Log every Kokkos allocation >= KP_BIG_ALLOC_MB as it happens, to find what
+# fills the GPU right before the BadAlloc. Build it first with
+# tools/build_kp_big_alloc.sh; KP=0 turns it off.
+KP="${KP:-1}"
+KP_BIG_ALLOC_MB="${KP_BIG_ALLOC_MB:-100}"
+KP_LIB="$NICOLA/tools/kp_big_alloc.so"
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
@@ -47,6 +54,12 @@ exec > >(tee "$RUNDIR/job.out") 2>&1
 if [ ! -x "$SPARTA_EXE" ]; then
     echo "MISSING binary: $SPARTA_EXE" >&2
     echo "build it first:  nicola/compile/compile_sparta_cuda.sh $GPU_ARCH" >&2
+    exit 1
+fi
+
+if [ "$KP" = 1 ] && [ ! -f "$KP_LIB" ]; then
+    echo "MISSING: $KP_LIB" >&2
+    echo "build it first:  nicola/tools/build_kp_big_alloc.sh   (or KP=0)" >&2
     exit 1
 fi
 
@@ -89,14 +102,20 @@ echo "BUILD=$(tr '
 ' ' ' < "$BUILD_INFO" 2>/dev/null)"
 echo "INPUT=$INPUT_FILE"
 echo "RUNDIR=$RUNDIR"
-echo "NPART=$NPART NSTEPS=$NSTEPS"
+echo "NPART=$NPART NSTEPS=$NSTEPS KP=$KP (>= $KP_BIG_ALLOC_MB MB)"
+
+MPI_ENV=()
+if [ "$KP" = 1 ]; then
+    export KOKKOS_TOOLS_LIBS="$KP_LIB" KP_BIG_ALLOC_MB
+    MPI_ENV=(-x KOKKOS_TOOLS_LIBS -x KP_BIG_ALLOC_MB)
+fi
 
 nvidia-smi -L
 
 nvidia-smi \
 --query-gpu=timestamp,index,utilization.gpu,utilization.memory,memory.used,memory.total,power.draw \
 --format=csv \
--l 1 > "$RUNDIR/gpu_metrics.csv" &
+-lms 250 > "$RUNDIR/gpu_metrics.csv" &
 
 SMI_PID=$!
 
@@ -104,6 +123,7 @@ mpirun \
   --mca pml ucx \
   --bind-to core \
   --map-by ppr:1:node \
+  "${MPI_ENV[@]}" \
   -np 1 \
   "$SPARTA_EXE" \
   -k on g 1 \
