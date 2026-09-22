@@ -1,0 +1,96 @@
+SUBJECT: H200 jobs fail with CUDA "out of memory"; GPU memory observed fully used by /hpc/shared/bin/cuda_memtest
+
+This updates my earlier ticket on the same failures. Below are my observations;
+I have not determined the cause and would appreciate your investigation.
+
+
+1. THE FAILURE
+
+My application (SPARTA, a CUDA/Kokkos code, one MPI rank on one GPU) fails on
+the H200 nodes with a CUDA out-of-memory error, at different points of the run
+each time:
+
+  Kokkos ERROR: Cuda memory space failed to allocate 698.7 MiB
+                (label="collide:nn_last_partner")
+
+and, in the most recent job, at start-up:
+
+  cudaSetDevice(cuda_device_id) error( cudaErrorMemoryAllocation): out of memory
+
+Jobs: 1193024 (an6007), 1211776, 1211801, 1211844, 1211877, 1211918,
+1212041 (an6006). Submission: queue gpu,
+select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:cpu_type=turin:gpu_type=h200.
+
+The same input on a V100 node completes (e.g. job 1193114, an5008).
+
+In jobs 1211776, 1211801 and 1211844, nvidia-smi sampled during the run showed
+the GPU memory in use steady at 4.9-5.6 GB for several minutes, then at
+143,185 MiB (the whole GPU) for about one second, followed by the failure.
+
+
+2. DIAGNOSTIC JOB 1212041, NODE an6006
+
+Assigned GPU: CUDA_VISIBLE_DEVICES=GPU-f89eb344-d7ff-03d0-d27f-4895ffb9493b
+              (NVIDIA H200, Bus-Id 00000000:03:00.0)
+
+The job sampled, about four times a second throughout:
+  - nvidia-smi --query-gpu=timestamp,memory.used,memory.total,utilization.gpu
+  - nvidia-smi --query-compute-apps=pid,process_name,used_memory
+
+Phases of the job (times of day, 2026-09-22):
+  14:45:02.1  GPU idle, my application NOT started
+  14:50:02.1  my application started
+  14:50:08.0  my application exited (exit status 134, error above)
+  14:51:08.0  end of monitoring
+
+Samples in which the GPU memory in use exceeded 20 GB, with the process that
+nvidia-smi listed on the GPU at the same time:
+
+  memory.used (MiB)                compute apps listed
+  14:45:03.698  143185             14:45:03.626-14:45:04.443  PID 2202229  /hpc/shared/bin/cuda_memtest  143060 MiB
+  14:45:03.948  143185
+  14:45:04.198  143185
+  14:45:04.448  143185
+  14:45:07.292  143185             14:45:07.170-14:45:07.723  PID 2202341  /hpc/shared/bin/cuda_memtest  143060 MiB
+  14:45:07.542  143185
+  14:45:07.792  143185
+  14:45:08.042  143184
+  14:50:04.196  143185             14:50:04.153-14:50:04.728  PID 2215201  /hpc/shared/bin/cuda_memtest  143060 MiB
+  14:50:04.446  143185
+  14:50:04.696  143185
+  14:50:04.946  143185
+  14:50:07.656  143185             14:50:07.532-14:50:08.086  PID 2215329  /hpc/shared/bin/cuda_memtest  143060 MiB
+  14:50:07.906  143185
+  14:50:08.156  143185
+  14:50:08.407  143184
+
+The first two occurrences (14:45:03 and 14:45:07) happened while my
+application was not running. The occurrences are about 5 minutes apart
+(14:45:03 and 14:50:04), each time as two processes about 3.5 seconds apart.
+My application failed at 14:50:07, after starting at 14:50:02.
+
+Other observations on an6006 at the time of the job:
+  - Driver 560.28.03, CUDA 12.6 (the V100 node an5013 reported driver
+    575.57.08, CUDA 12.9)
+  - Compute Mode: Default; Persistence Mode: Disabled; Addressing Mode: None
+  - pbsnodes: 8 GPUs available, 3 assigned; other jobs on the node:
+    1211205, 1211540
+  - Kernel log (dmesg), entries for the GPU at PCI:0000:03:00
+    (GPU-f89eb344-d7ff-03d0-d27f-4895ffb9493b):
+      Sat Sep  5 09:33:18 2026  Xid 94 ... Contained: CE User Channel (0xb)
+      Fri Sep 11 17:33:42 2026  Xid 94 ... Contained: CE User Channel (0xb)
+    and for the GPU at PCI:0000:64:00:
+      Tue Aug 25 05:19:07 2026  Xid 95 ... Uncontained: FBHUB. RST: Yes
+
+
+3. QUESTIONS
+
+  - What is /hpc/shared/bin/cuda_memtest, and what starts it?
+  - Is it expected to run on a GPU that is allocated to a running job?
+  - Could it explain the out-of-memory failures of my jobs on the H200 nodes?
+
+
+The full data of job 1212041 (nvidia-smi samples, process list, node snapshots
+before and after, application log) is in
+/hpc/data/cfd-students/nnoventa/sparta/nicola/results/h200_diag_1212041/
+I can provide anything else that helps.
