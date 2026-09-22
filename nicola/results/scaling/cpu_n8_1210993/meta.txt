@@ -1,0 +1,12 @@
+job        1210993.pbs60
+date       2026-09-22T10:24:27+02:00
+arch       cpu
+nodes      8
+ranks      1536 (192 per node)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+commit     a48e71cacd8c28fecd8ac727a3af01e09992ff80
+build      arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+hosts      pn6334.cm.cluster pn6346.cm.cluster pn6349.cm.cluster pn6352.cm.cluster pn6372.cm.cluster pn6386.cm.cluster pn6391.cm.cluster pn6399.cm.cluster 
