@@ -81,6 +81,17 @@ case "$BALANCE" in
             echo "could not patch the deck for BALANCE=dyn" >&2; exit 1
         fi
         INPUT_FILE="$RUNDIR/in.deck" ;;
+    time)
+        # as "dyn", but rebalancing weighs each rank's cells by the compute
+        # time it measured (move+sort+collide+modify) since the last check,
+        # spread over its cells by particle count. The initial balance stays
+        # by particles: no timing exists yet at create_particles.
+        sed -e '/^create_particles/a balance_grid     rcb part'             -e "/^run /i fix              rebal balance $BAL_EVERY 1.1 rcb time"             "$INPUT_FILE" > "$RUNDIR/in.deck"
+        if [ "$(grep -c '^balance_grid     rcb part' "$RUNDIR/in.deck")" != 1 ] ||
+           [ "$(grep -c '^fix              rebal balance .* rcb time' "$RUNDIR/in.deck")" != 1 ]; then
+            echo "could not patch the deck for BALANCE=time" >&2; exit 1
+        fi
+        INPUT_FILE="$RUNDIR/in.deck" ;;
     *)  echo "unknown BALANCE=$BALANCE" >&2; exit 1 ;;
 esac
 
@@ -115,7 +126,7 @@ export OMP_NUM_THREADS=1
     echo "nsteps     $NSTEPS"
     echo "npart      $NPART"
     echo "gpu_aware  $GPU_AWARE"
-    echo "balance    ${BALANCE:-deck (rcb cell)}$([ "$BALANCE" = dyn ] && echo ", every $BAL_EVERY steps")"
+    echo "balance    ${BALANCE:-deck (rcb cell)}$(case "$BALANCE" in dyn|time) echo ", every $BAL_EVERY steps";; esac)"
     echo "input      $INPUT_FILE"
     echo "commit     $(git_head "$REPO_ROOT")"
     echo "build      $(tr '\n' ' ' < "$BUILD_INFO" 2>/dev/null)"

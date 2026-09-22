@@ -9,6 +9,7 @@
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
 #   BALANCE=dyn  ./submit_scaling.sh cpu 8  # same, plus rebalancing every 1000 steps
+#   BALANCE=time ./submit_scaling.sh cpu 8  # rebalancing by measured compute time
 #   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
 #   NSTEPS=10000 WALLTIME=01:00:00 ./submit_scaling.sh cpu 1 4
 #
