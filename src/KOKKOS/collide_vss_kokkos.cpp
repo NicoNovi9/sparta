@@ -969,7 +969,13 @@ template < int NEARCP, int GASTALLY > void CollideVSSKokkos::collisions_one(COLL
   if (vibstyle == DISCRETE) particle_kk->modify(Device,CUSTOM_MASK);
 
   d_particles = t_particle_1d(); // destroy reference to reduce memory use
-  d_nn_last_partner = {};
+  // d_nn_last_partner is kept: it is owned here, so releasing it freed and
+  //   reallocated it (nglocal x maxcellcount ints, 712 MB at 30M particles)
+  //   every step although the next step needs it again; keeping it costs
+  //   that memory between collision phases. The collision kernels zero the
+  //   entries of each cell before use, so no reinitialisation is lost. On
+  //   H200 the repeated cudaMalloc/cudaFree ended in BadAlloc after ~4500
+  //   steps.
   d_plist = {};
 }
 
@@ -1401,7 +1407,7 @@ template < int DIM, int GASTALLY > void CollideVSSKokkos::collisions_one_subcell
   if (vibstyle == DISCRETE) particle_kk->modify(Device,CUSTOM_MASK);
 
   d_particles = t_particle_1d(); // destroy reference to reduce memory use
-  d_nn_last_partner = {};
+  // d_nn_last_partner is kept across steps, see collisions_one()
   d_subcell_id = {};
   d_subcell_count = {};
   d_subcell_first = {};
