@@ -24,6 +24,7 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | plain run | `qsub submit_gpu.sh` |
 | plain run, CPU | `qsub submit_cpu.sh` |
 | nsys profile | `qsub submit_gpu_nsys.sh` |
+| nsys profile on H200 | `qsub submit_gpu_nsys_h200.sh` |
 | ncu (needs IT permission) | `qsub submit_gpu_profiling.sh` |
 | registers per kernel | `./res_usage.sh` (no qsub) |
 | scaling study, all runs | `./submit_scaling.sh` (no qsub, it calls it) |
