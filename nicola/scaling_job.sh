@@ -27,6 +27,11 @@ NPART="${NPART:-120000000}"
 # SPARTA assumes GPU-aware MPI by default and does not check. Set 0 if the
 # GPU runs crash inside MPI calls: buffers are then staged through the host.
 GPU_AWARE="${GPU_AWARE:-1}"
+# BALANCE=part rebalances the grid by particle count right after
+# create_particles. The deck only balances by cell count, before particles
+# exist, which leaves ranks that own only non-flow cells idle. The deck in
+# nicola/input is not modified: a patched copy is written to the run dir.
+BALANCE="${BALANCE:-}"
 
 case "$ARCH" in
     gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
@@ -41,7 +46,7 @@ esac
 NRANKS=$(( NODES * RANKS_PER_NODE ))
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
-RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}${BALANCE:+_bal$BALANCE}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -52,6 +57,17 @@ for p in "$CASE_DIR" "$SPARTA_EXE" "$INPUT_FILE"; do
     fi
 done
 CASE_DIR="$(cd "$CASE_DIR" && pwd)"
+
+case "$BALANCE" in
+    "") ;;
+    part)
+        sed '/^create_particles/a balance_grid     rcb part' "$INPUT_FILE" > "$RUNDIR/in.deck"
+        if [ "$(grep -c '^balance_grid     rcb part' "$RUNDIR/in.deck")" != 1 ]; then
+            echo "could not patch the deck for BALANCE=part" >&2; exit 1
+        fi
+        INPUT_FILE="$RUNDIR/in.deck" ;;
+    *)  echo "unknown BALANCE=$BALANCE" >&2; exit 1 ;;
+esac
 
 # module purge removes git (it comes from the bitbucket module), so read the
 # ref straight out of .git instead of shelling out to git.
@@ -84,6 +100,8 @@ export OMP_NUM_THREADS=1
     echo "nsteps     $NSTEPS"
     echo "npart      $NPART"
     echo "gpu_aware  $GPU_AWARE"
+    echo "balance    ${BALANCE:-deck (rcb cell)}"
+    echo "input      $INPUT_FILE"
     echo "commit     $(git_head "$REPO_ROOT")"
     echo "build      $(tr '\n' ' ' < "$BUILD_INFO" 2>/dev/null)"
     echo "exe        $SPARTA_EXE"

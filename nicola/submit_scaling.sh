@@ -5,6 +5,10 @@
 #   cd nicola && ./submit_scaling.sh          # every ARCH x NODES below
 #   cd nicola && ./submit_scaling.sh gpu 2    # a single run
 #
+# Optional, from the environment:
+#   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
+#   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
+#
 # Results: nicola/results/scaling/<arch>_n<nodes>_<jobid>/ (summary.txt first).
 # Build both binaries first: compile/compile_sparta_cuda.sh v100 and
 # compile/compile_sparta_mpi.sh.
@@ -63,9 +67,9 @@ for ARCH in "${ARCHS[@]}"; do
                  SELECT="select=${N}:ncpus=192:mpiprocs=192:mem=1400GB:cpu_type=genoaX" ;;
         esac
         printf "%-4s %d node(s): " "$ARCH" "$N"
-        qsub -N "scal_${ARCH}_n${N}" -q "$QUEUE" \
+        qsub -N "scal_${ARCH}_n${N}${BALANCE:+_b}" -q "$QUEUE" \
              -l "$SELECT" -l "place=$PLACE" -l "walltime=$WALLTIME" \
-             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}" \
+             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}" \
              scaling_job.sh
     done
 done
