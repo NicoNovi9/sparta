@@ -1,0 +1,14 @@
+job        1211165.pbs60
+date       2026-09-22T11:24:06+02:00
+arch       cpu
+nodes      1
+ranks      192 (192 per node)
+nsteps     10000
+npart      120000000
+gpu_aware  1
+balance    dyn, every 1000 steps
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/results/scaling/cpu_n1_baldyn_s10000_1211165/in.deck
+commit     745437a511f90034590e24e030316653e995f251
+build      arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+hosts      pn6382.cm.cluster 
