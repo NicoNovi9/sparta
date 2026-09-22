@@ -45,8 +45,3 @@ git push
 ```
 Results go to `results/<job>/` (scaling: `results/scaling/<arch>_n<nodes>_<job>/`): read `summary.txt` first.
 In `job.out`, `BUILD` and `COMMIT` must match, otherwise you did not rebuild.
-
-## 5. Report
-`report/` mirrors the Overleaf project: `main.tex` and `figures/`.
-Figures are regenerated from the results with `python report/scripts/<script>.py`
-(run on the PC, not on the cluster); only `main.tex` and `figures/` go to Overleaf.
