@@ -1,0 +1,9 @@
+# LaTeX build products, in case the report is compiled in place
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+main.pdf
