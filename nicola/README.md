@@ -14,13 +14,15 @@ git pull
 cd nicola/compile
 ./compile_sparta_cuda.sh v100          # or h200
 ./compile_sparta_cuda.sh v100 clean    # from scratch, if something breaks
+./compile_sparta_mpi.sh                # CPU build (genoaX / Zen4), also takes clean
 ```
-Binary: `install_v100/bin/spa_kokkos_cuda`. Rebuild after every pull that touches `src/`.
+Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_only`. Rebuild after every pull that touches `src/`.
 
 ## 3. Run (from `nicola/`)
 | What | Command |
 |---|---|
 | plain run | `qsub submit_gpu.sh` |
+| plain run, CPU | `qsub submit_cpu.sh` |
 | nsys profile | `qsub submit_gpu_nsys.sh` |
 | ncu (needs IT permission) | `qsub submit_gpu_profiling.sh` |
 | registers per kernel | `./res_usage.sh` (no qsub) |
