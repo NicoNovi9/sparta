@@ -1,0 +1,1497 @@
+job        1211918.pbs60
+host       an6006
+date       2026-09-22T14:34:24+02:00
+commit     fb72f17731e6352dcc5e5f31c9f04463a0a29b99
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda
+build      arch    h200 commit  45125d690e6b7979ea7b79e6885099c916b25e10 date    2026-09-22T13:58:48+02:00 
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+ranks      1
+gpus       1
+npart      30000000
+nsteps     10000
+reorder    0
+label      h200
+nsys delay 0  duration 0
+GPU 0: NVIDIA H200 (UUID: GPU-f89eb344-d7ff-03d0-d27f-4895ffb9493b)
+NVIDIA Nsight Systems version 2024.6.2.225-246235244400v0
+Driver Version                            : 560.28.03
+CUDA Version                              : 12.6
+    Addressing Mode                       : None
+uvm_disable_hmm: N
+Collecting data...
+SPARTA (27 Aug 2026)
+KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:50)
+  requested 1 GPU(s) per node
+  requested 1 thread(s) per MPI task
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:148)
+[kp] logging allocations >= 100 MB, watching device free memory for jumps >= 1.0 GB
+[kp] memory watch enabled
+[kp]     0.000s  device free 139.2 GB at start of watch
+Running on 1 MPI task(s)
+Created orthogonal box = (-0.002001 -1e-06 -1e-06) to (0.02801 0.003001 0.087501)
+Created 864000 child grid cells
+  CPU time = 0.15436 secs
+  create/ghost percent = 23.3225 76.6775
+Balance grid migrated 0 cells
+  CPU time = 0.104055 secs
+  reassign/sort/migrate/ghost percent = 13.8006 1.30773 4.02296 80.8688
+Reading surface file ...
+  80998 triangles
+  clipped to 80998 tris
+  -0.002 0.028 xlo xhi
+  0 0.003 ylo yhi
+  0 0.0875 zlo zhi
+  0.000245331 min triangle edge length
+  3.15715e-08 min triangle area
+  43848 0 = cells overlapping surfs, overlap cells with unmarked corner pts
+  25 tiny edges removed
+  269352 550800 43848 = cells outside/inside/overlapping surfs
+  43848 = surf cells with 1,2,etc splits
+  2.72343749998582e-06 2.7234375e-06 = cell-wise and global flow volume
+  CPU time = 0.745064 secs
+  read/check/sort/surf2grid/ghost/inout/particle percent = 3.29805 3.99429 1.77744 51.0199 39.9103 9.63857 0.00100394
+  surf2grid time = 0.380131 secs
+  map/comm1/comm2/comm3/comm4/split percent = 12.6872 1.29823 6.59466 1.57368 3.51935 71.3385
+0 = initial surface count in group inlet
+382 = final surface count in group inlet
+0 = initial surface count in group outlet
+690 = final surface count in group outlet
+0 = initial surface count in group yminus
+41336 = final surface count in group yminus
+0 = initial surface count in group yplus
+33810 = final surface count in group yplus
+0 = initial surface count in group yplus_inlet
+382 = final surface count in group yplus_inlet
+0 = initial surface count in group yplus_inlet_wall
+1314 = final surface count in group yplus_inlet_wall
+0 = initial surface count in group yplus_outlet
+718 = final surface count in group yplus_outlet
+0 = initial surface count in group yplus_outlet_wall
+1598 = final surface count in group yplus_outlet_wall
+0 = initial surface count in group zminus
+393 = final surface count in group zminus
+0 = initial surface count in group zplus
+375 = final surface count in group zplus
+Creating particles ...
+[kp]     1.371s  alloc        100.9 MB  Cuda     live      226.7 MB  "particle:particles"
+[kp]     1.372s  alloc        100.9 MB  Host     live      192.7 MB  "particle:particles_mirror"
+[kp]     1.394s  alloc        111.0 MB  Cuda     live      246.0 MB  "particle:particles"
+[kp]     1.394s  alloc        111.0 MB  Host     live      211.9 MB  "particle:particles_mirror"
+[kp]     1.394s  dealloc      100.9 MB  Host     live      111.0 MB  "particle:particles_mirror"
+[kp]     1.403s  dealloc      100.9 MB  Cuda     live      145.0 MB  "particle:particles"
+[kp]     1.418s  alloc        122.1 MB  Cuda     live      267.2 MB  "particle:particles"
+[kp]     1.419s  alloc        122.1 MB  Host     live      233.1 MB  "particle:particles_mirror"
+[kp]     1.419s  dealloc      111.0 MB  Host     live      122.1 MB  "particle:particles_mirror"
+[kp]     1.428s  dealloc      111.0 MB  Cuda     live      156.1 MB  "particle:particles"
+[kp]     1.445s  alloc        134.3 MB  Cuda     live      290.5 MB  "particle:particles"
+[kp]     1.445s  alloc        134.3 MB  Host     live      256.4 MB  "particle:particles_mirror"
+[kp]     1.445s  dealloc      122.1 MB  Host     live      134.3 MB  "particle:particles_mirror"
+[kp]     1.456s  dealloc      122.1 MB  Cuda     live      168.4 MB  "particle:particles"
+[kp]     1.478s  alloc        147.7 MB  Cuda     live      316.1 MB  "particle:particles"
+[kp]     1.478s  alloc        147.7 MB  Host     live      282.1 MB  "particle:particles_mirror"
+[kp]     1.478s  dealloc      134.3 MB  Host     live      147.8 MB  "particle:particles_mirror"
+[kp]     1.490s  dealloc      134.3 MB  Cuda     live      181.8 MB  "particle:particles"
+[kp]     1.512s  alloc        162.5 MB  Cuda     live      344.3 MB  "particle:particles"
+[kp]     1.512s  alloc        162.5 MB  Host     live      310.3 MB  "particle:particles_mirror"
+[kp]     1.512s  dealloc      147.7 MB  Host     live      162.5 MB  "particle:particles_mirror"
+[kp]     1.525s  dealloc      147.7 MB  Cuda     live      196.6 MB  "particle:particles"
+[kp]     1.547s  alloc        178.8 MB  Cuda     live      375.3 MB  "particle:particles"
+[kp]     1.548s  alloc        178.8 MB  Host     live      341.3 MB  "particle:particles_mirror"
+[kp]     1.548s  dealloc      162.5 MB  Host     live      178.8 MB  "particle:particles_mirror"
+[kp]     1.561s  dealloc      162.5 MB  Cuda     live      212.8 MB  "particle:particles"
+[kp]     1.589s  alloc        196.6 MB  Cuda     live      409.5 MB  "particle:particles"
+[kp]     1.590s  alloc        196.6 MB  Host     live      375.4 MB  "particle:particles_mirror"
+[kp]     1.590s  dealloc      178.8 MB  Host     live      196.7 MB  "particle:particles_mirror"
+[kp]     1.605s  dealloc      178.8 MB  Cuda     live      230.7 MB  "particle:particles"
+[kp]     1.634s  alloc        216.3 MB  Cuda     live      447.0 MB  "particle:particles"
+[kp]     1.634s  alloc        216.3 MB  Host     live      413.0 MB  "particle:particles_mirror"
+[kp]     1.634s  dealloc      196.6 MB  Host     live      216.3 MB  "particle:particles_mirror"
+[kp]     1.651s  dealloc      196.6 MB  Cuda     live      250.4 MB  "particle:particles"
+[kp]     1.698s  alloc        237.9 MB  Cuda     live      488.3 MB  "particle:particles"
+[kp]     1.703s  alloc        237.9 MB  Host     live      454.3 MB  "particle:particles_mirror"
+[kp]     1.703s  dealloc      216.3 MB  Host     live      237.9 MB  "particle:particles_mirror"
+[kp]     1.723s  dealloc      216.3 MB  Cuda     live      272.0 MB  "particle:particles"
+[kp]     1.759s  alloc        261.7 MB  Cuda     live      533.7 MB  "particle:particles"
+[kp]     1.760s  alloc        261.7 MB  Host     live      499.7 MB  "particle:particles_mirror"
+[kp]     1.760s  dealloc      237.9 MB  Host     live      261.7 MB  "particle:particles_mirror"
+[kp]     1.780s  dealloc      237.9 MB  Cuda     live      295.8 MB  "particle:particles"
+[kp]     1.818s  alloc        287.9 MB  Cuda     live      583.7 MB  "particle:particles"
+[kp]     1.819s  alloc        287.9 MB  Host     live      549.7 MB  "particle:particles_mirror"
+[kp]     1.819s  dealloc      261.7 MB  Host     live      287.9 MB  "particle:particles_mirror"
+[kp]     1.841s  dealloc      261.7 MB  Cuda     live      322.0 MB  "particle:particles"
+[kp]     1.884s  alloc        316.7 MB  Cuda     live      638.7 MB  "particle:particles"
+[kp]     1.884s  alloc        316.7 MB  Host     live      604.6 MB  "particle:particles_mirror"
+[kp]     1.884s  dealloc      287.9 MB  Host     live      316.7 MB  "particle:particles_mirror"
+[kp]     1.909s  dealloc      287.9 MB  Cuda     live      350.7 MB  "particle:particles"
+[kp]     1.956s  alloc        348.4 MB  Cuda     live      699.1 MB  "particle:particles"
+[kp]     1.956s  alloc        348.4 MB  Host     live      665.1 MB  "particle:particles_mirror"
+[kp]     1.956s  dealloc      316.7 MB  Host     live      348.4 MB  "particle:particles_mirror"
+[kp]     1.983s  dealloc      316.7 MB  Cuda     live      382.4 MB  "particle:particles"
+[kp]     2.033s  alloc        383.2 MB  Cuda     live      765.6 MB  "particle:particles"
+[kp]     2.033s  alloc        383.2 MB  Host     live      731.6 MB  "particle:particles_mirror"
+[kp]     2.033s  dealloc      348.4 MB  Host     live      383.2 MB  "particle:particles_mirror"
+[kp]     2.064s  dealloc      348.4 MB  Cuda     live      417.3 MB  "particle:particles"
+[kp]     2.121s  alloc        421.5 MB  Cuda     live      838.8 MB  "particle:particles"
+[kp]     2.122s  alloc        421.5 MB  Host     live      804.7 MB  "particle:particles_mirror"
+[kp]     2.122s  dealloc      383.2 MB  Host     live      421.5 MB  "particle:particles_mirror"
+[kp]     2.154s  dealloc      383.2 MB  Cuda     live      455.6 MB  "particle:particles"
+[kp]     2.236s  alloc        463.7 MB  Cuda     live      919.3 MB  "particle:particles"
+[kp] ==== device free 139.2 GB -> 138.2 GB, recent events:
+[kp]          2.154s  dealloc 383.2 MB Cuda "particle:particles"
+[kp]          2.201s  deep_copy 421.5 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          2.201s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          2.201s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          2.201s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          2.201s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          2.236s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          2.236s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          2.236s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          2.236s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          2.236s  end   deep_copy
+[kp]          2.236s  alloc 463.7 MB Cuda "particle:particles"
+[kp]     2.237s  alloc        463.7 MB  Host     live      885.2 MB  "particle:particles_mirror"
+[kp]     2.237s  dealloc      421.5 MB  Host     live      463.7 MB  "particle:particles_mirror"
+[kp]     2.275s  dealloc      421.5 MB  Cuda     live      497.7 MB  "particle:particles"
+[kp]     2.343s  alloc        510.0 MB  Cuda     live     1007.8 MB  "particle:particles"
+[kp]     2.344s  alloc        510.0 MB  Host     live      973.7 MB  "particle:particles_mirror"
+[kp]     2.344s  dealloc      463.7 MB  Host     live      510.1 MB  "particle:particles_mirror"
+[kp]     2.383s  dealloc      463.7 MB  Cuda     live      544.1 MB  "particle:particles"
+[kp]     2.458s  alloc        561.1 MB  Cuda     live     1105.1 MB  "particle:particles"
+[kp]     2.458s  alloc        561.1 MB  Host     live     1071.1 MB  "particle:particles_mirror"
+[kp]     2.458s  dealloc      510.0 MB  Host     live      561.1 MB  "particle:particles_mirror"
+[kp]     2.502s  dealloc      510.0 MB  Cuda     live      595.1 MB  "particle:particles"
+[kp]     2.585s  alloc        617.2 MB  Cuda     live     1212.3 MB  "particle:particles"
+[kp]     2.586s  alloc        617.2 MB  Host     live     1178.2 MB  "particle:particles_mirror"
+[kp]     2.586s  dealloc      561.1 MB  Host     live      617.2 MB  "particle:particles_mirror"
+[kp]     2.634s  dealloc      561.1 MB  Cuda     live      651.2 MB  "particle:particles"
+[kp]     2.723s  alloc        678.9 MB  Cuda     live     1330.1 MB  "particle:particles"
+[kp]     2.723s  alloc        678.9 MB  Host     live     1296.0 MB  "particle:particles_mirror"
+[kp]     2.723s  dealloc      617.2 MB  Host     live      678.9 MB  "particle:particles_mirror"
+[kp]     2.796s  dealloc      617.2 MB  Cuda     live      712.9 MB  "particle:particles"
+[kp]     2.897s  alloc        746.8 MB  Cuda     live     1459.7 MB  "particle:particles"
+[kp]     2.898s  alloc        746.8 MB  Host     live     1425.6 MB  "particle:particles_mirror"
+[kp]     2.898s  dealloc      678.9 MB  Host     live      746.8 MB  "particle:particles_mirror"
+[kp]     2.956s  dealloc      678.9 MB  Cuda     live      780.8 MB  "particle:particles"
+[kp]     3.065s  alloc        821.4 MB  Cuda     live     1602.2 MB  "particle:particles"
+[kp]     3.066s  alloc        821.4 MB  Host     live     1568.2 MB  "particle:particles_mirror"
+[kp]     3.066s  dealloc      746.8 MB  Host     live      821.4 MB  "particle:particles_mirror"
+[kp]     3.130s  dealloc      746.8 MB  Cuda     live      855.5 MB  "particle:particles"
+[kp]     3.251s  alloc        903.6 MB  Cuda     live     1759.1 MB  "particle:particles"
+[kp]     3.252s  alloc        903.6 MB  Host     live     1725.0 MB  "particle:particles_mirror"
+[kp]     3.252s  dealloc      821.4 MB  Host     live      903.6 MB  "particle:particles_mirror"
+[kp]     3.342s  dealloc      821.4 MB  Cuda     live      937.6 MB  "particle:particles"
+[kp]     3.474s  alloc        993.9 MB  Cuda     live     1931.6 MB  "particle:particles"
+[kp]     3.475s  alloc        993.9 MB  Host     live     1897.5 MB  "particle:particles_mirror"
+[kp]     3.475s  dealloc      903.6 MB  Host     live      993.9 MB  "particle:particles_mirror"
+[kp]     3.553s  dealloc      903.6 MB  Cuda     live     1028.0 MB  "particle:particles"
+[kp]     3.698s  alloc       1093.3 MB  Cuda     live     2121.3 MB  "particle:particles"
+[kp] ==== device free 138.2 GB -> 137.0 GB, recent events:
+[kp]          3.553s  dealloc 903.6 MB Cuda "particle:particles"
+[kp]          3.662s  deep_copy 993.9 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          3.662s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          3.662s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          3.662s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          3.662s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          3.697s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          3.697s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          3.697s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          3.697s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          3.697s  end   deep_copy
+[kp]          3.698s  alloc 1093.3 MB Cuda "particle:particles"
+[kp]     3.699s  alloc       1093.3 MB  Host     live     2087.3 MB  "particle:particles_mirror"
+[kp]     3.699s  dealloc      993.9 MB  Host     live     1093.3 MB  "particle:particles_mirror"
+[kp]     3.784s  dealloc      993.9 MB  Cuda     live     1127.4 MB  "particle:particles"
+[kp]     3.965s  alloc       1202.7 MB  Cuda     live     2330.1 MB  "particle:particles"
+[kp]     3.966s  alloc       1202.7 MB  Host     live     2296.0 MB  "particle:particles_mirror"
+[kp]     3.966s  dealloc     1093.3 MB  Host     live     1202.7 MB  "particle:particles_mirror"
+[kp]     4.059s  dealloc     1093.3 MB  Cuda     live     1236.7 MB  "particle:particles"
+[kp]     4.235s  alloc       1322.9 MB  Cuda     live     2559.7 MB  "particle:particles"
+[kp]     4.236s  alloc       1322.9 MB  Host     live     2525.6 MB  "particle:particles_mirror"
+[kp]     4.237s  dealloc     1202.7 MB  Host     live     1322.9 MB  "particle:particles_mirror"
+[kp]     4.360s  dealloc     1202.7 MB  Cuda     live     1357.0 MB  "particle:particles"
+[kp]     4.553s  alloc       1455.2 MB  Cuda     live     2812.2 MB  "particle:particles"
+[kp]     4.554s  alloc       1455.2 MB  Host     live     2778.2 MB  "particle:particles_mirror"
+[kp]     4.554s  dealloc     1322.9 MB  Host     live     1455.2 MB  "particle:particles_mirror"
+[kp]     4.667s  dealloc     1322.9 MB  Cuda     live     1489.3 MB  "particle:particles"
+[kp]     4.901s  alloc       1600.8 MB  Cuda     live     3090.0 MB  "particle:particles"
+[kp]     4.903s  alloc       1600.8 MB  Host     live     3056.0 MB  "particle:particles_mirror"
+[kp]     4.903s  dealloc     1455.2 MB  Host     live     1600.8 MB  "particle:particles_mirror"
+[kp]     5.028s  dealloc     1455.2 MB  Cuda     live     1634.8 MB  "particle:particles"
+[kp]     5.261s  alloc       1760.8 MB  Cuda     live     3395.6 MB  "particle:particles"
+[kp] ==== device free 137.0 GB -> 135.7 GB, recent events:
+[kp]          5.028s  dealloc 1455.2 MB Cuda "particle:particles"
+[kp]          5.204s  deep_copy 1600.8 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          5.204s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.204s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.204s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.204s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.260s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.261s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.261s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.261s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.261s  end   deep_copy
+[kp]          5.261s  alloc 1760.8 MB Cuda "particle:particles"
+[kp]     5.263s  alloc       1760.8 MB  Host     live     3361.6 MB  "particle:particles_mirror"
+[kp]     5.263s  dealloc     1600.8 MB  Host     live     1760.8 MB  "particle:particles_mirror"
+[kp]     5.422s  dealloc     1600.8 MB  Cuda     live     1794.9 MB  "particle:particles"
+[kp] ==== device free 135.7 GB -> 137.3 GB, recent events:
+[kp]          5.264s  deep_copy 1760.8 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          5.264s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.264s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.264s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.264s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.422s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.422s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.422s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.422s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.422s  end   deep_copy
+[kp]          5.422s  dealloc 1600.8 MB Cuda "particle:particles"
+[kp]          5.615s  deep_copy 1760.8 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]     5.677s  alloc       1936.9 MB  Cuda     live     3731.8 MB  "particle:particles"
+[kp] ==== device free 137.3 GB -> 135.4 GB, recent events:
+[kp]          5.422s  dealloc 1600.8 MB Cuda "particle:particles"
+[kp]          5.615s  deep_copy 1760.8 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          5.615s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.615s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.615s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.615s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.677s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.677s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.677s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.677s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.677s  end   deep_copy
+[kp]          5.678s  alloc 1936.9 MB Cuda "particle:particles"
+[kp]     5.679s  alloc       1936.9 MB  Host     live     3697.7 MB  "particle:particles_mirror"
+[kp]     5.679s  dealloc     1760.8 MB  Host     live     1936.9 MB  "particle:particles_mirror"
+[kp]     5.831s  dealloc     1760.8 MB  Cuda     live     1971.0 MB  "particle:particles"
+[kp] ==== device free 135.4 GB -> 137.1 GB, recent events:
+[kp]          5.681s  deep_copy 1936.9 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          5.681s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.681s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.681s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.681s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          5.831s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.831s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.831s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.831s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          5.831s  end   deep_copy
+[kp]          5.832s  dealloc 1760.8 MB Cuda "particle:particles"
+[kp]          6.066s  deep_copy 1936.9 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]     6.135s  alloc       2130.6 MB  Cuda     live     4101.6 MB  "particle:particles"
+[kp] ==== device free 137.1 GB -> 135.0 GB, recent events:
+[kp]          5.832s  dealloc 1760.8 MB Cuda "particle:particles"
+[kp]          6.066s  deep_copy 1936.9 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          6.066s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.066s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.066s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.066s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.134s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.135s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.135s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.135s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.135s  end   deep_copy
+[kp]          6.135s  alloc 2130.6 MB Cuda "particle:particles"
+[kp]     6.137s  alloc       2130.6 MB  Host     live     4067.5 MB  "particle:particles_mirror"
+[kp]     6.137s  dealloc     1936.9 MB  Host     live     2130.6 MB  "particle:particles_mirror"
+[kp]     6.304s  dealloc     1936.9 MB  Cuda     live     2164.6 MB  "particle:particles"
+[kp] ==== device free 135.0 GB -> 136.9 GB, recent events:
+[kp]          6.139s  deep_copy 2130.6 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          6.139s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.139s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.139s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.139s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.304s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.304s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.304s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.304s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.304s  end   deep_copy
+[kp]          6.304s  dealloc 1936.9 MB Cuda "particle:particles"
+[kp]          6.558s  deep_copy 2130.6 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]     6.634s  alloc       2343.7 MB  Cuda     live     4508.3 MB  "particle:particles"
+[kp] ==== device free 136.9 GB -> 134.6 GB, recent events:
+[kp]          6.304s  dealloc 1936.9 MB Cuda "particle:particles"
+[kp]          6.558s  deep_copy 2130.6 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          6.558s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.558s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.558s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.558s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.633s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.633s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.633s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.633s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.633s  end   deep_copy
+[kp]          6.634s  alloc 2343.7 MB Cuda "particle:particles"
+[kp]     6.636s  alloc       2343.7 MB  Host     live     4474.3 MB  "particle:particles_mirror"
+[kp]     6.636s  dealloc     2130.6 MB  Host     live     2343.7 MB  "particle:particles_mirror"
+[kp]     6.820s  dealloc     2130.6 MB  Cuda     live     2377.7 MB  "particle:particles"
+[kp] ==== device free 134.6 GB -> 136.7 GB, recent events:
+[kp]          6.638s  deep_copy 2343.7 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          6.638s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.638s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.638s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.638s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          6.820s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.820s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.820s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.820s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          6.820s  end   deep_copy
+[kp]          6.820s  dealloc 2130.6 MB Cuda "particle:particles"
+[kp]          7.099s  deep_copy 2343.7 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]     7.182s  alloc       2578.0 MB  Cuda     live     4955.7 MB  "particle:particles"
+[kp] ==== device free 136.7 GB -> 134.2 GB, recent events:
+[kp]          6.820s  dealloc 2130.6 MB Cuda "particle:particles"
+[kp]          7.099s  deep_copy 2343.7 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          7.099s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.099s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.099s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.099s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.181s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.181s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.181s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.181s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.181s  end   deep_copy
+[kp]          7.182s  alloc 2578.0 MB Cuda "particle:particles"
+[kp]     7.184s  alloc       2578.0 MB  Host     live     4921.7 MB  "particle:particles_mirror"
+[kp]     7.184s  dealloc     2343.7 MB  Host     live     2578.0 MB  "particle:particles_mirror"
+[kp]     7.384s  dealloc     2343.7 MB  Cuda     live     2612.1 MB  "particle:particles"
+[kp] ==== device free 134.2 GB -> 136.5 GB, recent events:
+[kp]          7.186s  deep_copy 2578.0 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          7.186s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.186s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.186s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.186s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.384s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.384s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.384s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.384s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.384s  end   deep_copy
+[kp]          7.384s  dealloc 2343.7 MB Cuda "particle:particles"
+[kp]          7.688s  deep_copy 2578.0 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]     7.779s  alloc       2835.8 MB  Cuda     live     5447.9 MB  "particle:particles"
+[kp] ==== device free 136.5 GB -> 133.7 GB, recent events:
+[kp]          7.384s  dealloc 2343.7 MB Cuda "particle:particles"
+[kp]          7.688s  deep_copy 2578.0 MB Cuda "particle:particles" <- Host "particle:particles_mirror"
+[kp]          7.688s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.688s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.688s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.688s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.778s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.778s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.778s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.778s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          7.778s  end   deep_copy
+[kp]          7.779s  alloc 2835.8 MB Cuda "particle:particles"
+[kp]     7.781s  alloc       2835.8 MB  Host     live     5413.9 MB  "particle:particles_mirror"
+[kp]     7.781s  dealloc     2578.0 MB  Host     live     2835.8 MB  "particle:particles_mirror"
+[kp]     8.004s  dealloc     2578.0 MB  Cuda     live     2869.9 MB  "particle:particles"
+WARNING: Created unexpected # of particles: 29999752 versus 30000000 (/hpc/data/cfd-students/nnoventa/sparta/src/create_particles.cpp:445)
+Created 29999752 particles
+  CPU time = 7.13199 secs
+[kp] ==== device free 133.7 GB -> 136.2 GB, recent events:
+[kp]          7.784s  deep_copy 2835.8 MB Host "particle:particles_mirror" <- Cuda "particle:particles"
+[kp]          7.784s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.784s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.784s  begin fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          7.784s  end   fence "Kokkos::deep_copy: copy between contiguous views, pre view equality check"
+[kp]          8.004s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          8.004s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          8.004s  begin fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          8.004s  end   fence "Kokkos::deep_copy: copy between contiguous views, post deep copy fence"
+[kp]          8.004s  end   deep_copy
+[kp]          8.004s  dealloc 2578.0 MB Cuda "particle:particles"
+[kp]          8.241s  alloc 1.0 MB Cuda "Kokkos::UniqueToken<Cuda>::m_locks"
+[kp]     8.628s  alloc        106.0 MB  Cuda     live     3232.6 MB  "grid:cells"
+[kp]     8.628s  alloc        106.0 MB  Host     live     3197.5 MB  "grid:cells_mirror"
+Memory usage per proc in Mbytes:
+  particles (ave,min,max) = 5789.82 5789.82 5789.82
+  grid      (ave,min,max) = 360.833 360.833 360.833
+  surf      (ave,min,max) = 20.309 20.309 20.309
+  modify    (ave,min,max) = 224.121 224.121 224.121
+  total     (ave,min,max) = 6395.08 6395.08 6395.08
+Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
+       0            0            0            0        3e-09 29999752        0        0        0        0    300.07997 
+[kp]     9.255s  alloc        296.6 MB  Cuda     live     3631.2 MB  "particle:plist"
+[kp]     9.257s  dealloc      296.6 MB  Cuda     live     3334.6 MB  "particle:plist"
+[kp]     9.258s  alloc        431.8 MB  Cuda     live     3766.3 MB  "particle:plist"
+[kp]     9.268s  alloc        118.2 MB  Cuda     live     3885.4 MB  "particle:mlist"
+[kp] ==== device free 136.2 GB -> 135.2 GB, recent events:
+[kp]          9.267s  alloc 0.0 MB Host "DualView::modified_flags"
+[kp]          9.267s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  begin for "Kokkos::View::initialization [DualView::modified_flags] via memset"
+[kp]          9.267s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]          9.267s  end   for "Kokkos::View::initialization [DualView::modified_flags] via memset"
+[kp]          9.268s  alloc 118.2 MB Cuda "particle:mlist"
+[kp]     9.268s  alloc        118.2 MB  Host     live     3378.7 MB  "particle:mlist_mirror"
+[kp]     9.338s  alloc        431.8 MB  Cuda     live     4317.8 MB  "collide:nn_last_partner"
+[kp]     9.339s  dealloc      431.8 MB  Cuda     live     3886.1 MB  "collide:nn_last_partner"
+[kp]     9.396s  alloc        431.8 MB  Cuda     live     4317.9 MB  "collide:nn_last_partner"
+[kp]     9.396s  dealloc      431.8 MB  Cuda     live     3886.1 MB  "collide:nn_last_partner"
+[kp]     9.452s  dealloc      431.8 MB  Cuda     live     3454.3 MB  "particle:plist"
+[kp]     9.454s  alloc        566.9 MB  Cuda     live     4021.2 MB  "particle:plist"
+[kp]     9.456s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.456s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.513s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.513s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.570s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.571s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.627s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.628s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.684s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.685s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.741s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.741s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.797s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.798s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.854s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.854s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.910s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.911s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]     9.966s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]     9.967s  dealloc      566.9 MB  Cuda     live     4021.2 MB  "collide:nn_last_partner"
+[kp]    10.023s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]    10.024s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.079s  alloc        566.9 MB  Cuda     live     4588.1 MB  "collide:nn_last_partner"
+[kp]    10.080s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.142s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.143s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.198s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.199s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.255s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.256s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.313s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.313s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.370s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.371s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.426s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.427s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.483s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.484s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.539s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.540s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.596s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.596s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.654s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.655s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.711s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.712s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.768s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.768s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.824s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.825s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.880s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.881s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.937s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.938s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    10.994s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    10.995s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.050s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.051s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.107s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.108s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.170s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.171s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.227s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.228s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.283s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.284s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.340s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.340s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.396s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.397s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.452s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.453s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.509s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.510s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.566s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.567s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.622s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.623s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.683s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.683s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.766s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.766s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.822s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.823s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.879s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.880s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.935s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.936s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    11.992s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    11.993s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.049s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.050s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.106s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.106s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.162s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.163s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.218s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.219s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.275s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.276s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.331s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.332s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.388s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.388s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.444s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.445s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.502s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.502s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.558s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.559s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.614s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.615s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.670s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.671s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.727s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.728s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.783s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.784s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.840s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.840s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.897s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.897s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    12.953s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    12.954s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.009s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.010s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.066s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.066s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.122s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.123s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.178s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.179s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.240s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.241s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.297s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.298s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.353s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.354s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.410s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.411s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.467s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.467s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.523s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.524s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.579s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.580s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.635s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.636s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.692s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.692s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.752s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.753s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.808s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.809s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.864s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.865s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.921s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.921s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    13.977s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    13.978s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.033s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.034s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.089s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.090s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.146s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.147s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.203s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.204s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.263s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.264s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.319s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.320s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.376s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.377s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.432s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.433s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.488s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.489s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.545s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.545s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.601s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.602s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.657s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.658s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.713s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.714s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.775s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.776s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.832s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.833s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.889s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.889s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    14.945s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    14.945s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.002s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.002s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+     100    5.8598119 5.1196176e-08     17.06539        3e-09 29934441    95266    60366        0        0    298.97477 
+[kp]    15.169s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.170s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.226s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.226s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.287s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.288s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.343s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.344s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.400s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.401s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.456s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.457s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.513s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.513s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.569s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.570s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.625s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.626s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.681s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.682s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.738s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.738s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.797s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.798s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.853s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.854s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.909s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.910s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    15.966s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    15.966s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.022s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.023s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.078s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.079s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.134s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.135s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.191s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.192s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.248s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.248s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.307s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.308s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.363s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.364s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.420s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.420s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.476s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.477s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.532s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.533s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.588s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.589s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.645s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.645s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.701s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.702s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.757s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.758s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.817s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.818s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.873s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.874s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.930s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.931s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    16.986s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    16.987s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.042s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.043s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.120s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.121s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.177s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.178s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.233s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.234s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.289s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.290s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.346s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.347s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.402s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.403s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.458s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.459s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.515s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.515s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.571s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.572s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.627s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.628s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.683s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.684s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.740s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.740s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.796s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.797s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.858s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.859s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.914s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.915s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    17.970s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    17.971s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.027s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.028s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.083s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.084s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.139s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.140s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.195s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.196s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.252s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.252s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.308s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.309s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.372s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.372s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.428s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.429s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.484s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.485s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.540s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.541s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.597s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.597s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.653s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.653s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.709s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.710s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.765s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.766s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.821s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.822s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.883s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.884s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.940s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.940s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    18.996s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    18.997s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.052s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.053s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.108s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.109s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.164s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.165s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.221s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.221s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.277s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.278s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.333s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.334s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.394s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.395s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.450s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.451s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.507s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.507s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.563s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.563s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.620s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.620s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.676s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.677s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.732s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.733s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.788s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.789s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.844s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.845s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.906s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.907s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    19.962s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    19.963s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.019s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.020s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.075s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.076s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.131s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.132s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.187s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.188s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.243s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.244s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.300s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.301s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.356s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.357s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.417s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.417s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.473s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.474s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.529s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.530s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.585s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.586s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.641s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.642s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.698s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.699s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.754s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.755s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    20.810s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.811s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+     200    11.679253 5.1551344e-08    17.183781        3e-09 29856867    99507    59638        0        0    298.12514 
+[kp]    20.989s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    20.990s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.045s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.046s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.101s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.102s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.157s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.158s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.214s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.215s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.270s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.271s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.326s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.327s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.382s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.383s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.439s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.440s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.495s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.496s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.551s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.552s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.608s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.608s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.664s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.665s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.720s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.721s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.776s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.777s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.832s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.833s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.888s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.889s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    21.949s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    21.950s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.006s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.007s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.062s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.063s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.118s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.119s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.174s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.175s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.230s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.231s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.287s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.287s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.343s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.343s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.399s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.400s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.460s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.461s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.516s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.517s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.572s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.573s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.655s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.656s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.711s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.712s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.767s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.768s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.824s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.825s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.880s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.881s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.936s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.937s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    22.992s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    22.993s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.048s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.049s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.104s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.105s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.161s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.161s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.217s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.217s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.273s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.273s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.329s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.330s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.385s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.386s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.441s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.442s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.506s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.508s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.563s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.564s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.620s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.620s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.676s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.676s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.732s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.733s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.788s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.789s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.844s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.845s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.901s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.901s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    23.957s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    23.957s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.023s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.024s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.079s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.080s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.135s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.136s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.191s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.192s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.247s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.248s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.304s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.304s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.360s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.360s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.416s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.417s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.472s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.473s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.535s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.536s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.591s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.592s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.647s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.648s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.704s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.704s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.760s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.760s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.816s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.817s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.872s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.873s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.928s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.929s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    24.984s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    24.985s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.048s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.048s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.104s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.105s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.160s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.161s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.216s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.217s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.272s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.273s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.328s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.329s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.384s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.385s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.440s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.441s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.496s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.497s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.559s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.559s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.615s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.616s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.671s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.672s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.727s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.728s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.783s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.784s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.839s  alloc        566.9 MB  Cuda     live     4588.2 MB  "collide:nn_last_partner"
+[kp]    25.840s  dealloc      566.9 MB  Cuda     live     4021.3 MB  "collide:nn_last_partner"
+[kp]    25.895s  dealloc      566.9 MB  Cuda     live     3454.4 MB  "particle:plist"
+[kp]    25.896s  alloc        698.7 MB  Cuda     live     4153.2 MB  "particle:plist"
+[kp]    25.898s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    25.899s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    25.954s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    25.955s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.010s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.011s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.073s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.074s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.130s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.131s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.186s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.187s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.242s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.243s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.298s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.299s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.354s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.355s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.410s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.411s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.466s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.467s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.522s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.523s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.589s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.590s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.645s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.646s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+     300    17.502966 5.1513529e-08    17.171176        3e-09 29768362   101752    59286        0        0    297.35982 
+[kp]    26.812s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.813s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.868s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.869s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.925s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.925s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    26.981s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    26.981s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.037s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.038s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.102s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.103s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.158s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.159s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.214s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.215s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.270s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.271s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.326s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.327s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.382s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.383s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.438s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.439s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.494s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.495s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.550s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.551s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.613s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.614s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.669s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.670s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.726s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.726s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.782s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.782s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.838s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.838s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.894s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.894s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    27.950s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    27.950s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.006s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.007s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.062s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.063s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.124s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.125s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.204s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.205s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.260s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.261s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.317s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.317s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.373s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.373s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.429s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.429s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.485s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.485s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.541s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.542s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.597s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.598s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.654s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.654s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.710s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.711s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.766s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.766s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.822s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.823s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.878s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.879s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.934s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.935s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    28.990s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    28.991s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.046s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.047s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.102s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.103s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.167s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.170s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.226s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.227s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.282s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.282s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.338s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.339s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.394s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.394s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.450s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.450s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.506s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.506s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.562s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.562s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.618s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.618s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.686s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.687s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.742s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.743s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.798s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.799s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.854s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.855s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.910s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.911s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    29.966s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    29.967s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.022s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.023s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.078s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.079s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.134s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.135s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.201s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.202s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.258s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.258s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.314s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.314s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.369s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.370s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.425s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.426s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.481s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.482s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.537s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.538s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.593s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.594s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.649s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.650s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.713s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.714s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.769s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.770s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.825s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.826s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.881s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.882s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.937s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.938s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    30.993s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    30.994s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.049s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.050s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.105s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.106s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.161s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.162s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.224s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.225s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.280s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.281s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.340s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.341s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.396s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.396s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.451s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.452s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.508s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.508s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.563s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.564s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.619s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.620s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.675s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.676s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.735s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.736s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.791s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.792s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.847s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.848s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.903s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.904s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    31.959s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    31.960s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.015s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.016s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.071s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.072s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.127s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.128s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.183s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.184s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.246s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.247s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.302s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.303s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.358s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.359s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.414s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.415s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.470s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.470s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+     400     23.32726 5.150839e-08    17.169464        3e-09 29671743   103517    59309        0        0    296.71836 
+[kp]    32.637s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.637s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.692s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.693s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.757s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.758s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.813s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.814s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.869s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.869s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.925s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.925s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    32.980s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    32.981s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.036s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.037s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.092s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.093s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.148s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.149s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.204s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.205s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.267s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.267s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.323s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.323s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.378s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.379s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.434s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.435s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.490s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.491s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.546s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.547s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.602s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.603s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.658s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.659s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.714s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.715s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.797s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.798s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.853s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.854s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.909s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.910s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    33.968s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    33.969s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.024s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.025s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.080s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.081s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.136s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.137s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.192s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.192s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.248s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.248s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.305s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.306s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.361s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.362s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.417s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.418s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.473s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.474s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.529s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.530s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.585s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.586s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.641s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.642s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.697s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.697s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.757s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.769s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    34.963s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    34.971s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    35.821s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    35.894s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    36.569s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    36.570s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    36.659s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    36.660s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    36.769s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp]    36.770s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp]    36.836s  alloc        698.7 MB  Cuda     live     4851.9 MB  "collide:nn_last_partner"
+[kp] ==== device free 135.2 GB -> 134.2 GB, recent events:
+[kp]         36.836s  end   for "SPARTA_NS::ParticleKokkos/SPARTA_NS::TagParticleSort<1, 0>"
+[kp]         36.836s  deep_copy 0.0 MB Host "particle:resize_mirror" <- Cuda "particle:resize"
+[kp]         36.836s  begin fence "Kokkos::deep_copy: scalar to scalar copy, pre copy fence"
+[kp]         36.836s  end   fence "Kokkos::deep_copy: scalar to scalar copy, pre copy fence"
+[kp]         36.836s  begin fence "Kokkos::deep_copy: scalar to scalar copy, pre copy fence"
+[kp]         36.836s  end   fence "Kokkos::deep_copy: scalar to scalar copy, pre copy fence"
+[kp]         36.836s  begin fence "Kokkos::deep_copy: scalar to scalar copy, post copy fence"
+[kp]         36.836s  end   fence "Kokkos::deep_copy: scalar to scalar copy, post copy fence"
+[kp]         36.836s  begin fence "Kokkos::deep_copy: scalar to scalar copy, post copy fence"
+[kp]         36.836s  end   fence "Kokkos::deep_copy: scalar to scalar copy, post copy fence"
+[kp]         36.836s  end   deep_copy
+[kp]         36.836s  alloc 698.7 MB Cuda "collide:nn_last_partner"
+[kp]    36.839s  dealloc      698.7 MB  Cuda     live     4153.2 MB  "collide:nn_last_partner"
+[kp] ==== device free 134.2 GB -> 0.0 GB, recent events:
+[kp]         36.842s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  begin for "SPARTA_NS::FixEmitSurfKokkos/SPARTA_NS::TagFixEmitSurf_ninsert"
+[kp]         36.842s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  begin fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  end   fence "Kokkos::Tools::invoke_kokkosp_callback: Kokkos Profile Tool Fence"
+[kp]         36.842s  end   for "SPARTA_NS::FixEmitSurfKokkos/SPARTA_NS::TagFixEmitSurf_ninsert"
+[kp]         36.842s  alloc 0.1 MB Cuda "ninsert_scan"
+[kp]         36.843s  begin fence "SharedAllocationRecord<Kokkos::CudaSpace, void>::SharedAllocationRecord(): fence after copying header from HostSpace"
+[kp]         36.843s  end   fence "SharedAllocationRecord<Kokkos::CudaSpace, void>::SharedAllocationRecord(): fence after copying header from HostSpace"
+[kp]         36.844s  alloc 0.0 MB Cuda "scan_total"
+terminate called after throwing an instance of 'Kokkos::Experimental::BadAlloc'
+  what():  Kokkos ERROR: Cuda memory space failed to allocate 698.7 MiB (label="collide:nn_last_partner").
+[an6006:2190555] *** Process received signal ***
+[an6006:2190555] Signal: Aborted (6)
+[an6006:2190555] Signal code:  (-6)
+[an6006:2190555] [ 0] /hpc/shared/apps/amd/hpcx/hpcx-v2.17.1-gcc-mlnx_ofed-redhat8-cuda12-x86_64-gcc-8.5.0/hpcx-ompi/lib/libopen-pal.so.40(+0x70dc0)[0x155550ce7dc0]
+[an6006:2190555] [ 1] /cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/target-linux-x64/libToolsInjection64.so(+0x4f4ef6)[0x15554fef6ef6]
+[an6006:2190555] [ 2] /lib64/libpthread.so.0(+0x12990)[0x15555222a990]
+[an6006:2190555] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x1555514885af]
+[an6006:2190555] [ 4] /lib64/libc.so.6(abort+0x127)[0x15555145bee5]
+[an6006:2190555] [ 5] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xac93b)[0x155551e6293b]
+[an6006:2190555] [ 6] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc0ea)[0x155551e720ea]
+[an6006:2190555] [ 7] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc155)[0x155551e72155]
+[an6006:2190555] [ 8] /cm/local/apps/gcc/13.1.0/lib64/libstdc++.so.6(+0xbc3a8)[0x155551e723a8]
+[an6006:2190555] [ 9] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x44ea77]
+[an6006:2190555] [10] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xc5a7b5]
+[an6006:2190555] [11] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xc5d608]
+[an6006:2190555] [12] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x668c10]
+[an6006:2190555] [13] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x66900c]
+[an6006:2190555] [14] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x6e10d9]
+[an6006:2190555] [15] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x659b29]
+[an6006:2190555] [16] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0xbc35ed]
+[an6006:2190555] [17] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x4b88d4]
+[an6006:2190555] [18] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x47f21c]
+[an6006:2190555] [19] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x47f8f0]
+[an6006:2190555] [20] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x44fae8]
+[an6006:2190555] [21] /lib64/libc.so.6(__libc_start_main+0xe5)[0x155551474865]
+[an6006:2190555] [22] /hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda[0x479e4e]
+[an6006:2190555] *** End of error message ***
+Generating '/var/tmp/pbs.1211918.pbs60/nsys-report-7494.qdstrm'
+[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [===22%                      ] nsys_rank0.nsys-rep[1/1] [===23%                      ] nsys_rank0.nsys-rep[1/1] [===24%                      ] nsys_rank0.nsys-rep[1/1] [====25%                     ] nsys_rank0.nsys-rep[1/1] [====26%                     ] nsys_rank0.nsys-rep[1/1] [====27%                     ] nsys_rank0.nsys-rep[1/1] [====28%                     ] nsys_rank0.nsys-rep[1/1] [=====29%                    ] nsys_rank0.nsys-rep[1/1] [=====30%                    ] nsys_rank0.nsys-rep[1/1] [=====31%                    ] nsys_rank0.nsys-rep[1/1] [=====32%                    ] nsys_rank0.nsys-rep[1/1] [======33%                   ] nsys_rank0.nsys-rep[1/1] [======34%                   ] nsys_rank0.nsys-rep[1/1] [8%                          ] nsys_rank0.nsys-rep[1/1] [=========46%                ] nsys_rank0.nsys-rep[1/1] [========42%                 ] nsys_rank0.nsys-rep[1/1] [======35%                   ] nsys_rank0.nsys-rep[1/1] [=====31%                    ] nsys_rank0.nsys-rep[1/1] [====27%                     ] nsys_rank0.nsys-rep[1/1] [===24%                      ] nsys_rank0.nsys-rep[1/1] [===22%                      ] nsys_rank0.nsys-rep[1/1] [==20%                       ] nsys_rank0.nsys-rep[1/1] [==18%                       ] nsys_rank0.nsys-rep[1/1] [=17%                        ] nsys_rank0.nsys-rep[1/1] [=15%                        ] nsys_rank0.nsys-rep[1/1] [14%                         ] nsys_rank0.nsys-rep[1/1] [13%                         ] nsys_rank0.nsys-rep[1/1] [12%                         ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [10%                         ] nsys_rank0.nsys-rep[1/1] [9%                          ] nsys_rank0.nsys-rep[1/1] [8%                          ] nsys_rank0.nsys-rep[1/1] [7%                          ] nsys_rank0.nsys-rep[1/1] [6%                          ] nsys_rank0.nsys-rep[1/1] [5%                          ] nsys_rank0.nsys-rep[1/1] [5%                          ] nsys_rank0.nsys-rep[1/1] [6%                          ] nsys_rank0.nsys-rep[1/1] [7%                          ] nsys_rank0.nsys-rep[1/1] [8%                          ] nsys_rank0.nsys-rep[1/1] [9%                          ] nsys_rank0.nsys-rep[1/1] [10%                         ] nsys_rank0.nsys-rep[1/1] [11%                         ] nsys_rank0.nsys-rep[1/1] [12%                         ] nsys_rank0.nsys-rep[1/1] [14%                         ] nsys_rank0.nsys-rep[1/1] [=15%                        ] nsys_rank0.nsys-rep[1/1] [=17%                        ] nsys_rank0.nsys-rep[1/1] [==19%                       ] nsys_rank0.nsys-rep[1/1] [==21%                       ] nsys_rank0.nsys-rep[1/1] [===22%                      ] nsys_rank0.nsys-rep[1/1] [===23%                      ] nsys_rank0.nsys-rep[1/1] [===24%                      ] nsys_rank0.nsys-rep[1/1] [====25%                     ] nsys_rank0.nsys-rep[1/1] [====27%                     ] nsys_rank0.nsys-rep[1/1] [=====29%                    ] nsys_rank0.nsys-rep[1/1] [=====30%                    ] nsys_rank0.nsys-rep[1/1] [=====32%                    ] nsys_rank0.nsys-rep[1/1] [======34%                   ] nsys_rank0.nsys-rep[1/1] [======35%                   ] nsys_rank0.nsys-rep[1/1] [=======36%                  ] nsys_rank0.nsys-rep[1/1] [=======37%                  ] nsys_rank0.nsys-rep[1/1] [=======38%                  ] nsys_rank0.nsys-rep[1/1] [========40%                 ] nsys_rank0.nsys-rep[1/1] [========42%                 ] nsys_rank0.nsys-rep[1/1] [=========43%                ] nsys_rank0.nsys-rep[1/1] [=========45%                ] nsys_rank0.nsys-rep[1/1] [==========47%               ] nsys_rank0.nsys-rep[1/1] [==========48%               ] nsys_rank0.nsys-rep[1/1] [==========49%               ] nsys_rank0.nsys-rep[1/1] [===========50%              ] nsys_rank0.nsys-rep[1/1] [===========51%              ] nsys_rank0.nsys-rep[1/1] [===========53%              ] nsys_rank0.nsys-rep[1/1] [============55%             ] nsys_rank0.nsys-rep[1/1] [============57%             ] nsys_rank0.nsys-rep[1/1] [=============58%            ] nsys_rank0.nsys-rep[1/1] [=============60%            ] nsys_rank0.nsys-rep[1/1] [==============62%           ] nsys_rank0.nsys-rep[1/1] [==============63%           ] nsys_rank0.nsys-rep[1/1] [==============64%           ] nsys_rank0.nsys-rep[1/1] [===============65%          ] nsys_rank0.nsys-rep[1/1] [===============66%          ] nsys_rank0.nsys-rep[1/1] [================68%         ] nsys_rank0.nsys-rep[1/1] [================70%         ] nsys_rank0.nsys-rep[1/1] [================71%         ] nsys_rank0.nsys-rep[1/1] [=================73%        ] nsys_rank0.nsys-rep[1/1] [==================75%       ] nsys_rank0.nsys-rep[1/1] [==================76%       ] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep
+Generated:
+    /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.nsys-rep
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[58825,1],0]
+  Exit code:    134
+--------------------------------------------------------------------------
+sparta exit status: 134
+-rw-rw-r-- 1 nnoventa hpc-cfd-students 14M Sep 22 14:35 /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.nsys-rep
+
+=============== SPARTA timing ===============
+
+=============== SPARTA counters ===============
+
+=============== top GPU kernels ===============
+Generating SQLite file /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite from /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.nsys-rep
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)      Med (ns)     Min (ns)    Max (ns)   StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  ------------  ------------  ----------  ----------  -----------  ----------------------------------------------------------------------------------------------------
+     95.3   21,290,759,972        420  50,692,285.6  50,722,981.0  50,432,763  51,118,644    114,849.2  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::UpdateKok…
+      2.7      602,573,971        424   1,421,165.0   1,381,025.0   1,360,257   1,902,946     98,223.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      1.1      235,242,134        420     560,100.3     565,504.5     147,136     630,305     36,550.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CollideVS…
+      0.6      135,814,289        842     161,299.6     157,872.0     121,760     192,960     17,888.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.1       25,536,410         64     399,006.4     118,416.0       3,200   2,310,403    572,466.7  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewCo…
+      0.1       16,062,930        842      19,077.1      19,072.0      17,312      22,912        850.1  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
+      0.1       12,282,829      3,366       3,649.1       3,744.0       2,752       5,216        608.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelScan<SPARTA_NS::ExclScan…
+      0.0        5,499,754        842       6,531.8       6,640.0       5,504       8,256        679.3  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.0        3,841,253        841       4,567.5       4,512.0       4,256       5,344        176.6  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.0        3,772,419        842       4,480.3       4,480.0       4,192       5,376        175.6  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::FixEmitSu…
+      0.0        3,375,396          5     675,079.2     672,448.0     668,865     683,649      6,478.9  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelReduce<Kokkos::Impl::Com…
+      0.0        1,376,224        420       3,276.7       3,264.0       3,136       3,616         68.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::ParticleK…
+      0.0        1,302,113        420       3,100.3       3,104.0       2,784       3,520         92.4  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CommKokko…
+      0.0           16,384         10       1,638.4       1,168.0       1,056       3,456        934.8  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewFi…
+      0.0           12,608          1      12,608.0      12,608.0      12,608      12,608          0.0  desul::<unnamed>::init_lock_arrays_cuda_kernel()                                                    
+      0.0            7,232          1       7,232.0       7,232.0       7,232       7,232          0.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<SPARTA_NS::CollideVS…
+      0.0            1,280          1       1,280.0       1,280.0       1,280       1,280          0.0  Kokkos::Impl::<unnamed>::query_cuda_kernel_arch(int *)                                              
+
+
+=============== memcpy time by direction ===============
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)  Min (ns)   Max (ns)    StdDev (ns)           Operation          
+ --------  ---------------  -----  ---------  --------  --------  -----------  -----------  ----------------------------
+     69.2    2,945,398,013  7,220  407,949.9   2,304.0     1,920  220,476,052  6,895,134.5  [CUDA memcpy Device-to-Host]
+     30.6    1,303,272,239  8,788  148,301.3     800.0       704  119,820,531  2,936,225.4  [CUDA memcpy Host-to-Device]
+      0.1        5,430,146  4,293    1,264.9   1,248.0       736       31,168        728.0  [CUDA memset]               
+
+
+=============== memcpy volume by direction ===============
+
+NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite
+        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_size_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)   StdDev (MB)           Operation          
+ ----------  -----  --------  --------  --------  ---------  -----------  ----------------------------
+ 44,551.585  7,220     6.171     0.000     0.000  2,973.581      109.173  [CUDA memcpy Device-to-Host]
+ 35,891.459  8,788     4.084     0.000     0.000  2,973.581       82.398  [CUDA memcpy Host-to-Device]
+  2,478.631  4,293     0.577     0.000     0.000    123.899        2.647  [CUDA memset]               
+
+
+=============== GPU utilisation / power ===============
+samples 51   util avg 52.8% max 97%   power avg 152 W max 192 W
+
+artifacts in /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_h200_1211918_np30000000_ro0_h200:
+total 22M
+-rw-r--r-- 1 nnoventa hpc-cfd-students 3.0K Sep 22 14:35 gpu_metrics.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 137K Sep 22 14:35 job.out
+-rw-rw-rw- 1 nnoventa hpc-cfd-students 8.0K Sep 22 14:34 log.sparta
+-rw-r--r-- 1 nnoventa hpc-cfd-students  688 Sep 22 14:34 meta.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 2.2K Sep 22 14:35 nsys_available_reports.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 1.9K Sep 22 14:35 nsys_rank0_cuda_api_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 3.2K Sep 22 14:35 nsys_rank0_cuda_api_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 5.7K Sep 22 14:35 nsys_rank0_cuda_gpu_kern_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 4.4K Sep 22 14:35 nsys_rank0_cuda_gpu_kern_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students  938 Sep 22 14:35 nsys_rank0_cuda_gpu_mem_size_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 1.2K Sep 22 14:35 nsys_rank0_cuda_gpu_mem_size_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students  976 Sep 22 14:35 nsys_rank0_cuda_gpu_mem_time_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 1.3K Sep 22 14:35 nsys_rank0_cuda_gpu_mem_time_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 1.5K Sep 22 14:35 nsys_rank0_mpi_event_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 2.4K Sep 22 14:35 nsys_rank0_mpi_event_sum.txt
+-rw-rw-r-- 1 nnoventa hpc-cfd-students  14M Sep 22 14:35 nsys_rank0.nsys-rep
+-rw-r--r-- 1 nnoventa hpc-cfd-students  632 Sep 22 14:35 nsys_rank0_nvtx_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students  725 Sep 22 14:35 nsys_rank0_nvtx_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 3.8K Sep 22 14:35 nsys_rank0_osrt_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students 8.5K Sep 22 14:35 nsys_rank0_osrt_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students  40M Sep 22 14:35 nsys_rank0.sqlite
+-rw-r--r-- 1 nnoventa hpc-cfd-students  832 Sep 22 14:35 nsys_rank0_um_cpu_page_faults_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students  832 Sep 22 14:35 nsys_rank0_um_cpu_page_faults_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students  816 Sep 22 14:35 nsys_rank0_um_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students  816 Sep 22 14:35 nsys_rank0_um_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students  822 Sep 22 14:35 nsys_rank0_um_total_sum.csv
+-rw-r--r-- 1 nnoventa hpc-cfd-students  822 Sep 22 14:35 nsys_rank0_um_total_sum.txt
+-rw-r--r-- 1 nnoventa hpc-cfd-students 7.3K Sep 22 14:35 summary.txt
