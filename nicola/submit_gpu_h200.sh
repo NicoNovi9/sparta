@@ -52,7 +52,7 @@ if [ "$PML" = ob1 ]; then
     MPI_PML+=(--mca btl self,vader --mca osc ^ucx)
     # these transports cannot read GPU buffers; with one rank nothing should
     # be sent, but make sure a crash cannot come from there
-    KK_EXTRA=(-pk kokkos gpu/aware off)
+    KK_EXTRA=(-pk kokkos gpu/aware no)
 fi
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"

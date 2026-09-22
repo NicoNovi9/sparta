@@ -39,7 +39,7 @@ case "$ARCH" in
     gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
          RANKS_PER_NODE=4
          KOKKOS_ARGS=(-k on g 4 -sf kk)
-         [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware off) ;;
+         [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
     cpu) SPARTA_EXE="$REPO_ROOT/install_cpu/bin/spa_kokkos_mpi_only"
          RANKS_PER_NODE=192
          KOKKOS_ARGS=(-k on -sf kk) ;;
