@@ -8,6 +8,7 @@
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
+#   BALANCE=dyn  ./submit_scaling.sh cpu 8  # same, plus rebalancing every 1000 steps
 #   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
 #   NSTEPS=10000 WALLTIME=01:00:00 ./submit_scaling.sh cpu 1 4
 #
@@ -70,9 +71,9 @@ for ARCH in "${ARCHS[@]}"; do
         esac
         # job names stay under 15 characters, the limit on older PBS versions
         printf "%-4s %d node(s): " "$ARCH" "$N"
-        qsub -N "sc_${ARCH}${N}${BALANCE:+b}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
+        qsub -N "sc_${ARCH}${N}${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
              -l "$SELECT" -l "place=$PLACE" -l "walltime=$WALLTIME" \
-             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}" \
+             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY}" \
              scaling_job.sh
     done
 done

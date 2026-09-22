@@ -32,6 +32,8 @@ GPU_AWARE="${GPU_AWARE:-1}"
 # exist, which leaves ranks that own only non-flow cells idle. The deck in
 # nicola/input is not modified: a patched copy is written to the run dir.
 BALANCE="${BALANCE:-}"
+# BALANCE=dyn also rebalances by particles every BAL_EVERY steps during the run.
+BAL_EVERY="${BAL_EVERY:-1000}"
 
 case "$ARCH" in
     gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
@@ -69,6 +71,16 @@ case "$BALANCE" in
             echo "could not patch the deck for BALANCE=part" >&2; exit 1
         fi
         INPUT_FILE="$RUNDIR/in.deck" ;;
+    dyn)
+        # as "part", plus periodic rebalancing during the run: every
+        # BAL_EVERY steps, if the busiest rank exceeds the average particle
+        # count by more than 10%
+        sed -e '/^create_particles/a balance_grid     rcb part'             -e "/^run /i fix              rebal balance $BAL_EVERY 1.1 rcb part"             "$INPUT_FILE" > "$RUNDIR/in.deck"
+        if [ "$(grep -c '^balance_grid     rcb part' "$RUNDIR/in.deck")" != 1 ] ||
+           [ "$(grep -c '^fix              rebal balance' "$RUNDIR/in.deck")" != 1 ]; then
+            echo "could not patch the deck for BALANCE=dyn" >&2; exit 1
+        fi
+        INPUT_FILE="$RUNDIR/in.deck" ;;
     *)  echo "unknown BALANCE=$BALANCE" >&2; exit 1 ;;
 esac
 
@@ -103,7 +115,7 @@ export OMP_NUM_THREADS=1
     echo "nsteps     $NSTEPS"
     echo "npart      $NPART"
     echo "gpu_aware  $GPU_AWARE"
-    echo "balance    ${BALANCE:-deck (rcb cell)}"
+    echo "balance    ${BALANCE:-deck (rcb cell)}$([ "$BALANCE" = dyn ] && echo ", every $BAL_EVERY steps")"
     echo "input      $INPUT_FILE"
     echo "commit     $(git_head "$REPO_ROOT")"
     echo "build      $(tr '\n' ' ' < "$BUILD_INFO" 2>/dev/null)"
