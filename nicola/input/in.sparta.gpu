@@ -36,6 +36,7 @@ variable        dt equal 3e-09         #time step
 # Benchmark knobs. index-style, so -var on the command line overrides them.
 variable        npart   index 120000000    # particles created
 variable        reorder index 0            # particle/reorder period, 0 = off
+variable        nsteps  index 200          # timesteps to run
 
 ############################################################ SYSTEM
 
@@ -139,7 +140,7 @@ stats_style     step cpu tpcpu spcpu dt np nattempt ncoll nbound nexit c_temp #v
 global          particle/reorder ${reorder}
 
 timestep        ${dt}
-run             200
+run             ${nsteps}
 
 ############################################################ RUN EQUIL
 #unfix X_in

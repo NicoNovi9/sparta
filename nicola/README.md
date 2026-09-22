@@ -26,9 +26,12 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | nsys profile | `qsub submit_gpu_nsys.sh` |
 | ncu (needs IT permission) | `qsub submit_gpu_profiling.sh` |
 | registers per kernel | `./res_usage.sh` (no qsub) |
+| scaling study, all runs | `./submit_scaling.sh` (no qsub, it calls it) |
+| scaling study, one run | `./submit_scaling.sh gpu 2` |
 
 Useful parameters, via `qsub -v`:
 `NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
+The deck also takes `nsteps` (default 200; the scaling runs use 1000).
 For H200 also add `-l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:gpu_type=h200`.
 
 The deck is `input/in.sparta.gpu`.
@@ -40,5 +43,5 @@ git add nicola/results
 git commit -m "..."
 git push
 ```
-Results go to `results/<job>/`: read `summary.txt` first.
+Results go to `results/<job>/` (scaling: `results/scaling/<arch>_n<nodes>_<job>/`): read `summary.txt` first.
 In `job.out`, `BUILD` and `COMMIT` must match, otherwise you did not rebuild.
