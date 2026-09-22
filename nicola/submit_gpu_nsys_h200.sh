@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N sparta_nsys_h200
-#PBS -q amd
+#PBS -q gpu
 #PBS -l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:cpu_type=turin:gpu_type=h200
 #PBS -l walltime=02:00:00
 #PBS -j oe
