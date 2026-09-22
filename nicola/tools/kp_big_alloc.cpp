@@ -20,6 +20,7 @@
 
 #include <chrono>
 #include <cmath>
+#include <ctime>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
@@ -64,6 +65,20 @@ double elapsed() {
   return std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
 }
 
+// wall-clock time of day, to line events up with nvidia-smi samples
+std::string clock_now() {
+  auto now = std::chrono::system_clock::now();
+  std::time_t tt = std::chrono::system_clock::to_time_t(now);
+  int ms = int(std::chrono::duration_cast<std::chrono::milliseconds>(
+                   now.time_since_epoch()).count() % 1000);
+  std::tm tmv;
+  localtime_r(&tt, &tmv);
+  char buf[32];
+  std::snprintf(buf, sizeof(buf), "%02d:%02d:%02d.%03d", tmv.tm_hour, tmv.tm_min,
+                tmv.tm_sec, ms);
+  return buf;
+}
+
 bool device_free_gb(double& free_gb) {
   if (!lookup_done) {
     lookup_done = true;
@@ -90,15 +105,15 @@ void event(const std::string& what) {
   double free_gb;
   if (!device_free_gb(free_gb)) return;
   if (last_free_gb < 0.0) {
-    std::fprintf(stderr, "[kp] %9.3fs  device free %.1f GB at start of watch\n",
-                 elapsed(), free_gb);
+    std::fprintf(stderr, "[kp] %9.3fs  %s  device free %.1f GB at start of watch\n",
+                 elapsed(), clock_now().c_str(), free_gb);
     last_free_gb = free_gb;
     return;
   }
   if (std::fabs(free_gb - last_free_gb) < watch_gb) return;
 
-  std::fprintf(stderr, "[kp] ==== device free %.1f GB -> %.1f GB, recent events:\n",
-               last_free_gb, free_gb);
+  std::fprintf(stderr, "[kp] ==== %s  device free %.1f GB -> %.1f GB, recent events:\n",
+               clock_now().c_str(), last_free_gb, free_gb);
   int first = nrecent > NRECENT ? nrecent - NRECENT : 0;
   for (int i = first; i < nrecent; i++)
     std::fprintf(stderr, "[kp]      %s\n", recent[i % NRECENT].c_str());
