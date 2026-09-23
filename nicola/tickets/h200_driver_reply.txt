@@ -1,9 +1,0 @@
-Hello,
-
-Sure. These are the versions reported by nvidia-smi inside my jobs:
-
-  H200 nodes (an6006, an6007):   driver 560.28.03, CUDA 12.6
-  V100 nodes (an5010, an5017):   driver 575.57.08, CUDA 12.9
-
-(an6006: jobs 1211770 and 1212041; an6007: jobs 1214925 and 1214944;
-an5010: job 1214902; an5017: job 1214725; all this week.)
