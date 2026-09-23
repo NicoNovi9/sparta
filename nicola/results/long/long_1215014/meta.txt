@@ -1,0 +1,12 @@
+job        1215014.pbs60
+date       2026-09-23T11:16:18+02:00
+host       an5017
+gpus       4, one rank each
+nsteps     100000
+npart      0 (from nrho and fnum)
+balance    rcb part, then rcb time every 1000 steps
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu (patched copy: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/long/long_1215014/in.deck)
+outdir     /hpc/data/cfd-students/nnoventa/long_runs/long_1215014
+commit     f42f93ac1f87fc03116a5893e0f287165bb6e95f
+build      arch    v100_reduce reduce  1 commit  a3a47b79f3fd8ea3ad1d15c9154c3d338b498a9f date    2026-09-23T10:11:00+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100_reduce/bin/spa_kokkos_cuda
