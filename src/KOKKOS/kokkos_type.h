@@ -69,11 +69,16 @@ typedef int crs_size_type;
 //   The two decisions must agree or the counters come from the wrong place, so
 //   the condition is spelled out once here instead of in both files.
 
+// It can also be set from the build (-DSPARTA_KOKKOS_REDUCE_ARCH=1) to try the
+//   reduction path on an architecture that defaults to atomics.
+
+#ifndef SPARTA_KOKKOS_REDUCE_ARCH
 #if defined(KOKKOS_ARCH_AMD_GFX940) || defined(KOKKOS_ARCH_AMD_GFX942) || \
     defined(KOKKOS_ARCH_AMD_GFX942_APU)
 #define SPARTA_KOKKOS_REDUCE_ARCH 1
 #else
 #define SPARTA_KOKKOS_REDUCE_ARCH 0
+#endif
 #endif
 
 // the active surf react models, as named by the eight classes that dispatch to

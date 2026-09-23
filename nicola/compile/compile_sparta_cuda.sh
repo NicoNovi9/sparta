@@ -5,6 +5,8 @@
 #   ./compile_sparta_cuda.sh v100          # incremental: only changed files
 #   ./compile_sparta_cuda.sh h200
 #   ./compile_sparta_cuda.sh v100 clean    # wipe the build and start over
+#   REDUCE=1 ./compile_sparta_cuda.sh v100 # counters by parallel_reduce, into
+#                                          # build_v100_reduce/install_v100_reduce
 #
 # Nothing is cloned and nothing outside this repository is touched.
 # Each architecture has its own build and install tree at the repo root:
@@ -37,8 +39,20 @@ GCC_MODULE="gcc/13.1.0"
 # ---------- Layout ----------
 # Anchored on this script's location, so it works from any directory.
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-BUILD_DIR="${REPO_ROOT}/build_${ARCH}"
-INSTALL_DIR="${REPO_ROOT}/install_${ARCH}"
+# REDUCE=1 builds the variant in which the move kernel collects its per-step
+# counters with a parallel_reduce instead of atomics on a few shared counters
+# (the path SPARTA uses on AMD MI300). It goes to its own trees, so the normal
+# build stays in place for comparison.
+REDUCE="${REDUCE:-0}"
+EXTRA_ARGS=()
+SUFFIX=""
+if [ "$REDUCE" = 1 ]; then
+    SUFFIX="_reduce"
+    EXTRA_ARGS=(-DCMAKE_CXX_FLAGS=-DSPARTA_KOKKOS_REDUCE_ARCH=1)
+fi
+
+BUILD_DIR="${REPO_ROOT}/build_${ARCH}${SUFFIX}"
+INSTALL_DIR="${REPO_ROOT}/install_${ARCH}${SUFFIX}"
 BIN="${INSTALL_DIR}/bin/spa_kokkos_cuda"
 
 info () { printf "\n[INFO] %s\n" "$*"; }
@@ -77,7 +91,7 @@ cd "${BUILD_DIR}"
 # ---------- Configure ----------
 # Re-running cmake on an existing tree is cheap and keeps it in sync with any
 # change to the options below; only the sources that changed get recompiled.
-info "Configuring for ${ARCH}"
+info "Configuring for ${ARCH}${SUFFIX}"
 
 # CMAKE_DISABLE_FIND_PACKAGE_Git: SPARTA's CMakeLists turns the current commit
 # hash into a compile definition on every source file, so each pull changes
@@ -96,6 +110,7 @@ cmake   -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON \
   -DKokkos_ENABLE_CUDA=ON \
   -DKokkos_ENABLE_CUDA_LAMBDA=ON \
   ${KOKKOS_ARCH} \
+  "${EXTRA_ARGS[@]}" \
   -DSPARTA_MACHINE=kokkos_cuda \
   "${REPO_ROOT}/cmake"
 
@@ -118,7 +133,8 @@ case "$HEAD_REF" in
     *)     COMMIT="$HEAD_REF" ;;
 esac
 {
-    echo "arch    ${ARCH}"
+    echo "arch    ${ARCH}${SUFFIX}"
+    echo "reduce  ${REDUCE}"
     echo "commit  ${COMMIT}"
     echo "date    $(date -Is)"
 } > "${INSTALL_DIR}/BUILD_INFO"
