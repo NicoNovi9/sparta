@@ -1,0 +1,157 @@
+HOST=an6006
+COMMIT=5c419f65eff410436e87b436d1e88383924b31cf
+EXE=/hpc/data/cfd-students/nnoventa/sparta/install_h200/bin/spa_kokkos_cuda
+BUILD=arch    h200 commit  45125d690e6b7979ea7b79e6885099c916b25e10 date    2026-09-22T13:58:48+02:00 
+INPUT=/hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+RUNDIR=/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_h200_1215697
+NPART=120000000 NSTEPS=1000 KP=0 (>= 100 MB) PML=ucx
+GPU 0: NVIDIA H200 (UUID: GPU-56888e0e-9f96-d14b-ddcc-e63c35511505)
+Driver Version                            : 560.28.03
+CUDA Version                              : 12.6
+    Addressing Mode                       : None
+[an6006:2517251] mca: base: components_register: registering framework pml components
+[an6006:2517251] mca: base: components_register: found loaded component ucx
+[an6006:2517251] mca: base: components_register: component ucx register function successful
+[an6006:2517251] mca: base: components_open: opening pml components
+[an6006:2517251] mca: base: components_open: found loaded component ucx
+[an6006:2517251] mca: base: components_open: component ucx open function successful
+[an6006:2517251] select: initializing pml component ucx
+[an6006:2517251] select: init returned priority 51
+[an6006:2517251] selected ucx best priority 51
+[an6006:2517251] select: component ucx selected
+SPARTA (27 Aug 2026)
+KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:50)
+  requested 1 GPU(s) per node
+  requested 1 thread(s) per MPI task
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:148)
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Running on 1 MPI task(s)
+Created orthogonal box = (-0.002001 -1e-06 -1e-06) to (0.02801 0.003001 0.087501)
+Created 864000 child grid cells
+  CPU time = 0.131759 secs
+  create/ghost percent = 27.7745 72.2255
+Balance grid migrated 0 cells
+  CPU time = 0.115004 secs
+  reassign/sort/migrate/ghost percent = 18.9502 1.16777 3.58133 76.3007
+Reading surface file ...
+  80998 triangles
+  clipped to 80998 tris
+  -0.002 0.028 xlo xhi
+  0 0.003 ylo yhi
+  0 0.0875 zlo zhi
+  0.000245331 min triangle edge length
+  3.15715e-08 min triangle area
+  43848 0 = cells overlapping surfs, overlap cells with unmarked corner pts
+  25 tiny edges removed
+  269352 550800 43848 = cells outside/inside/overlapping surfs
+  43848 = surf cells with 1,2,etc splits
+  2.72343749998582e-06 2.7234375e-06 = cell-wise and global flow volume
+  CPU time = 0.722365 secs
+  read/check/sort/surf2grid/ghost/inout/particle percent = 3.10313 4.09084 1.83402 52.08 38.8921 9.03148 0.000202114
+  surf2grid time = 0.376207 secs
+  map/comm1/comm2/comm3/comm4/split percent = 13.9539 1.42182 6.8195 2.18743 3.8336 68.7984
+0 = initial surface count in group inlet
+382 = final surface count in group inlet
+0 = initial surface count in group outlet
+690 = final surface count in group outlet
+0 = initial surface count in group yminus
+41336 = final surface count in group yminus
+0 = initial surface count in group yplus
+33810 = final surface count in group yplus
+0 = initial surface count in group yplus_inlet
+382 = final surface count in group yplus_inlet
+0 = initial surface count in group yplus_inlet_wall
+1314 = final surface count in group yplus_inlet_wall
+0 = initial surface count in group yplus_outlet
+718 = final surface count in group yplus_outlet
+0 = initial surface count in group yplus_outlet_wall
+1598 = final surface count in group yplus_outlet_wall
+0 = initial surface count in group zminus
+393 = final surface count in group zminus
+0 = initial surface count in group zplus
+375 = final surface count in group zplus
+Creating particles ...
+WARNING: Created unexpected # of particles: 119999532 versus 120000000 (/hpc/data/cfd-students/nnoventa/sparta/src/create_particles.cpp:445)
+Created 119999532 particles
+  CPU time = 28.3762 secs
+Memory usage per proc in Mbytes:
+  particles (ave,min,max) = 24185.5 24185.5 24185.5
+  grid      (ave,min,max) = 360.833 360.833 360.833
+  surf      (ave,min,max) = 20.309 20.309 20.309
+  modify    (ave,min,max) = 224.121 224.121 224.121
+  total     (ave,min,max) = 24790.8 24790.8 24790.8
+Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
+       0            0            0            0        3e-09 119999532        0        0        0        0    300.03038 
+     100    22.208338 1.3508439e-08    4.5028128        3e-09 117874781  1754942   934375        0        0    297.70076 
+     200    43.747068 1.3928398e-08    4.6427993        3e-09 115498836  1744287   898102        0        0    295.77506 
+     300    64.853242 1.421385e-08      4.73795        3e-09 113090909  1708053   864501        0        0    294.23665 
+     400    85.528797 1.4509889e-08    4.8366296        3e-09 110693680  1661974   831783        0        0     293.1373 
+     500    105.77547 1.481725e-08    4.9390833        3e-09 108321250  1611892   796924        0        0    292.43067 
+     600     125.6569 1.5089455e-08    5.0298183        3e-09 105987067  1562203   768717        0        0    291.95565 
+     700    145.19322 1.535602e-08    5.1186733        3e-09 103697159  1512992   738797        0        0    291.62646 
+     800    164.20745 1.5777654e-08     5.259218        3e-09 101471995  1466743   713232        0        0    291.41576 
+     900    182.86313 1.6080891e-08    5.3602972        3e-09 99325353  1423751   690022        0        0    291.28545 
+    1000     201.0973 1.6452631e-08    5.4842102        3e-09 97272970  1384192   668258        0        0    291.21636 
+Loop time of 201.097 on 1 procs for 1000 steps with 97272970 particles
+Performance: 4.973 timesteps/s, 483.711 Mparticle-step/s
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Move    | 184.33     | 184.33     | 184.33     |   0.0 | 91.66
+Coll    | 4.869      | 4.869      | 4.869      |   0.0 |  2.42
+Sort    | 5.8838     | 5.8838     | 5.8838     |   0.0 |  2.93
+Comm    | 0.14512    | 0.14512    | 0.14512    |   0.0 |  0.07
+Modify  | 1.0493     | 1.0493     | 1.0493     |   0.0 |  0.52
+Output  | 4.8244     | 4.8244     | 4.8244     |   0.0 |  2.40
+MPI Sync| 0.00010835 | 0.00010835 | 0.00010835 |   0.0 |  0.00
+Other   |            | 8.458e-05  |            |       |  0.00
+
+Particle moves    = 108475975020 (108B)
+Cells touched     = 121235745584 (121B)
+Particle comms    = 0 (0K)
+Boundary collides = 0 (0K)
+Boundary exits    = 0 (0K)
+SurfColl checks   = 81357153153 (81.4B)
+SurfColl occurs   = 337370159 (337M)
+Surf reactions    = 0 (0K)
+Collide attempts  = 1594784732 (1.59B)
+Collide occurs    = 805089006 (805M)
+Gas reactions     = 0 (0K)
+Particles stuck   = 0
+Axisymm bad moves = 0
+
+Particle-moves/CPUsec/proc: 5.3942e+08
+Particle-moves/step: 1.08476e+08
+Cell-touches/particle/step: 1.11763
+Particle comm iterations/step: 1
+Particle fraction communicated: 0
+Particle fraction colliding with boundary: 0
+Particle fraction exiting boundary: 0
+Surface-checks/particle/step: 0.750002
+Surface-collisions/particle/step: 0.00311009
+Surface-reactions/particle/step: 0
+Collision-attempts/particle/step: 0.0147017
+Collisions/particle/step: 0.00742182
+Gas-reactions/particle/step: 0
+
+Particles: 9.7273e+07 ave 9.7273e+07 max 9.7273e+07 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Cells:     864000 ave 864000 max 864000 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+GhostCell: 0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+EmptyCell: 0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Surfs:     80998 ave 80998 max 80998 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+GhostSurf: 0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+[an6006:2517251] mca: base: close: component ucx closed
+[an6006:2517251] mca: base: close: unloading component ucx
