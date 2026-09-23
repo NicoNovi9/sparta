@@ -27,6 +27,8 @@ NPART="${NPART:-120000000}"
 # SPARTA assumes GPU-aware MPI by default and does not check. Set 0 if the
 # GPU runs crash inside MPI calls: buffers are then staged through the host.
 GPU_AWARE="${GPU_AWARE:-1}"
+# MPI ranks per GPU (gpu runs only); 2 means two ranks share each GPU
+RANKS_PER_GPU="${RANKS_PER_GPU:-1}"
 # BALANCE=part rebalances the grid by particle count right after
 # create_particles. The deck only balances by cell count, before particles
 # exist, which leaves ranks that own only non-flow cells idle. The deck in
@@ -37,7 +39,9 @@ BAL_EVERY="${BAL_EVERY:-1000}"
 
 case "$ARCH" in
     gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
-         RANKS_PER_NODE=4
+         # 4 V100 per node. RANKS_PER_GPU > 1 oversubscribes each GPU: SPARTA
+         # assigns devices as local_rank % ngpus, so the extra ranks share.
+         RANKS_PER_NODE=$(( 4 * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g 4 -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
     cpu) SPARTA_EXE="$REPO_ROOT/install_cpu/bin/spa_kokkos_mpi_only"
@@ -51,7 +55,8 @@ BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 # Non-default step counts go in the name, so 1000-step and longer runs of the
 # same configuration are not mixed up.
 STEPS_TAG=; [ "$NSTEPS" != 1000 ] && STEPS_TAG="_s$NSTEPS"
-RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}${BALANCE:+_bal$BALANCE}${STEPS_TAG}_${PBS_JOBID%%.*}"
+RPG_TAG=; [ "$RANKS_PER_GPU" != 1 ] && RPG_TAG="_r$RANKS_PER_GPU"
+RUNDIR="$NICOLA/results/scaling/${ARCH}_n${NODES}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -122,7 +127,7 @@ export OMP_NUM_THREADS=1
     echo "date       $(date -Is)"
     echo "arch       $ARCH"
     echo "nodes      $NODES"
-    echo "ranks      $NRANKS ($RANKS_PER_NODE per node)"
+    echo "ranks      $NRANKS ($RANKS_PER_NODE per node$([ "$ARCH" = gpu ] && echo ", $RANKS_PER_GPU per GPU"))"
     echo "nsteps     $NSTEPS"
     echo "npart      $NPART"
     echo "gpu_aware  $GPU_AWARE"

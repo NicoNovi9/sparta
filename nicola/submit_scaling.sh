@@ -12,6 +12,7 @@
 #   BALANCE=time ./submit_scaling.sh cpu 8  # rebalancing by measured compute time
 #   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
 #   NSTEPS=10000 WALLTIME=01:00:00 ./submit_scaling.sh cpu 1 4
+#   RANKS_PER_GPU=2 ./submit_scaling.sh gpu 1   # two ranks share each GPU
 #
 # Results: nicola/results/scaling/<arch>_n<nodes>_<jobid>/ (summary.txt first).
 # Build both binaries first: compile/compile_sparta_cuda.sh v100 and
@@ -22,6 +23,8 @@ NODE_COUNTS=(1 2 4)
 NSTEPS="${NSTEPS:-1000}"
 NPART=120000000
 WALLTIME="${WALLTIME:-00:30:00}"
+# gpu runs: MPI ranks per GPU, 4 GPUs per node
+RANKS_PER_GPU="${RANKS_PER_GPU:-1}"
 # One chunk per host, and no other jobs on it: timings must not be shared.
 PLACE=scatter:excl
 
@@ -66,15 +69,16 @@ for ARCH in "${ARCHS[@]}"; do
     for N in "${NODE_COUNTS[@]}"; do
         case "$ARCH" in
             gpu) QUEUE=gpu
-                 SELECT="select=${N}:ncpus=4:mpiprocs=4:mem=250GB:ngpus=4:cpu_type=skylake:gpu_type=v100" ;;
+                 R=$(( 4 * RANKS_PER_GPU ))
+                 SELECT="select=${N}:ncpus=${R}:mpiprocs=${R}:mem=250GB:ngpus=4:cpu_type=skylake:gpu_type=v100" ;;
             cpu) QUEUE=amd
                  SELECT="select=${N}:ncpus=192:mpiprocs=192:mem=1400GB:cpu_type=genoaX" ;;
         esac
         # job names stay under 15 characters, the limit on older PBS versions
         printf "%-4s %d node(s): " "$ARCH" "$N"
-        qsub -N "sc_${ARCH}${N}${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
+        qsub -N "sc_${ARCH}${N}$([ "$RANKS_PER_GPU" != 1 ] && echo "r$RANKS_PER_GPU")${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
              -l "$SELECT" -l "place=$PLACE" -l "walltime=$WALLTIME" \
-             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY}" \
+             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY},RANKS_PER_GPU=$RANKS_PER_GPU" \
              scaling_job.sh
     done
 done
