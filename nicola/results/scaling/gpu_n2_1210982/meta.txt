@@ -1,0 +1,12 @@
+job        1210982.pbs60
+date       2026-09-22T18:56:13+02:00
+arch       gpu
+nodes      2
+ranks      8 (4 per node)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+commit     d13292f9f0cc71ba976e2b8a548acdcf83b8b866
+build      arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+hosts      an5017.cm.cluster an5018.cm.cluster 
