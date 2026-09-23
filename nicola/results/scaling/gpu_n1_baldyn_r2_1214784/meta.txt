@@ -1,0 +1,14 @@
+job        1214784.pbs60
+date       2026-09-23T09:56:22+02:00
+arch       gpu
+nodes      1
+ranks      8 (8 per node, 2 per GPU)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+balance    dyn, every 1000 steps
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/results/scaling/gpu_n1_baldyn_r2_1214784/in.deck
+commit     ddf0c4e6b775d5a5af470c0510c1966786c11281
+build      arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+hosts      an5017.cm.cluster 
