@@ -1,0 +1,14 @@
+job        1214725.pbs60
+date       2026-09-23T09:46:05+02:00
+arch       gpu
+nodes      1
+ranks      8 (8 per node, 2 per GPU)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+balance    deck (rcb cell)
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+commit     c70483788e864ae5b1c5204c5ecae1dbde44ba90
+build      arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+hosts      an5017.cm.cluster 
