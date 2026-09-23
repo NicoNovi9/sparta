@@ -1,0 +1,21 @@
+Hello,
+
+Thank you for explaining that cuda_memtest runs because of the ECC errors on
+the H200 GPUs.
+
+At the moment the test also runs on GPUs that are assigned to my jobs, about
+every 5 minutes, and my application fails with "out of memory" whenever the
+two overlap. In practice this means I can only run jobs on the H200 nodes
+that finish within a few minutes, while my simulations need from tens of
+minutes to a few hours.
+
+My supervisor asked me to check with you whether the H200 nodes can be used
+for longer jobs, for example:
+- is it possible to run the memory test only on GPUs that are not assigned
+  to a job, or between jobs?
+- if not, is there a set of H200 nodes or GPUs where the test does not run,
+  or a way to request one?
+- is a change planned, and if so, roughly when?
+
+Thank you,
+Nicola Noventa
