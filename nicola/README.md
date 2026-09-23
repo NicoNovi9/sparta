@@ -31,6 +31,8 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | scaling study, all runs | `./submit_scaling.sh` (no qsub, it calls it) |
 | scaling study, one run | `./submit_scaling.sh gpu 2` |
 | long run to steady state (4 V100, reduce build, 100k steps) | `qsub submit_long.sh` |
+| weak scaling, all runs (base builds, fnum / nodes) | `./submit_weak.sh` (no qsub, it calls it) |
+| weak scaling, one run | `./submit_weak.sh cpu 8` |
 
 Useful parameters, via `qsub -v`:
 `NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
