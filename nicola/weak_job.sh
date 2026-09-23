@@ -5,6 +5,7 @@
 #
 # Do not qsub this directly: submit_weak.sh builds the qsub line and passes
 # ARCH, NODES, NPART_PER_NODE, FNUM_1, WARMUP and NSTEPS with -v.
+# submit_saturation.sh uses the same body on 1 node, with SCALE and STUDY.
 #
 # With k nodes the deck runs with fnum = FNUM_1 / k, so the steady-state
 # particle count is k times the 1-node one (same gas, each particle stands for
@@ -40,8 +41,13 @@ NSTEPS="${NSTEPS:-1000}"
 # GPU runs crash inside MPI calls: buffers are then staged through the host.
 GPU_AWARE="${GPU_AWARE:-1}"
 
-NPART=$(( NPART_PER_NODE * NODES ))
-FNUM=$(awk -v f="$FNUM_1" -v k="$NODES" 'BEGIN { printf "%.6e", f / k }')
+# SCALE multiplies the work per node on top of that (submit_saturation.sh:
+# 1 node, 1..16 times the particles). The weak-scaling study keeps SCALE=1.
+SCALE="${SCALE:-1}"
+STUDY="${STUDY:-weak}"
+K=$(( NODES * SCALE ))
+NPART=$(( NPART_PER_NODE * K ))
+FNUM=$(awk -v f="$FNUM_1" -v k="$K" 'BEGIN { printf "%.6e", f / k }')
 
 case "$ARCH" in
     gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
@@ -56,7 +62,8 @@ esac
 NRANKS=$(( NODES * RANKS_PER_NODE ))
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
-RUNDIR="$NICOLA/results/weak/${ARCH}_n${NODES}_${PBS_JOBID%%.*}"
+SCALE_TAG=; [ "$SCALE" != 1 ] && SCALE_TAG="_x$SCALE"
+RUNDIR="$NICOLA/results/$STUDY/${ARCH}_n${NODES}${SCALE_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -73,7 +80,7 @@ CASE_DIR="$(cd "$CASE_DIR" && pwd)"
 # -var cannot override, so the copy gets the value written in. The warm-up run
 # goes right before the deck's own run.
 DECK="$RUNDIR/in.deck"
-sed -e "s/^variable        nP equal .*/variable        nP equal $FNUM     # fnum \/ $NODES (weak scaling)/" \
+sed -e "s/^variable        nP equal .*/variable        nP equal $FNUM     # fnum \/ $K ($STUDY)/" \
     -e "/^run /i run              $WARMUP" \
     "$INPUT_FILE" > "$DECK"
 if [ "$(grep -c "^variable        nP equal $FNUM " "$DECK")" != 1 ] ||
@@ -106,12 +113,13 @@ export OMP_NUM_THREADS=1
 {
     echo "job        $PBS_JOBID"
     echo "date       $(date -Is)"
-    echo "study      weak scaling"
+    echo "study      $STUDY"
+    echo "scale      $SCALE (work per node x $SCALE)"
     echo "arch       $ARCH"
     echo "nodes      $NODES"
     echo "ranks      $NRANKS ($RANKS_PER_NODE per node)"
-    echo "fnum       $FNUM (= $FNUM_1 / $NODES)"
-    echo "npart      $NPART ($NPART_PER_NODE per node)"
+    echo "fnum       $FNUM (= $FNUM_1 / $K)"
+    echo "npart      $NPART ($(( NPART / NODES )) per node)"
     echo "warmup     $WARMUP steps (not measured)"
     echo "nsteps     $NSTEPS (measured)"
     echo "gpu_aware  $GPU_AWARE"

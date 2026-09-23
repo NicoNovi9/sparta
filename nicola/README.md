@@ -33,6 +33,8 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | long run to steady state (4 V100, reduce build, 100k steps) | `qsub submit_long.sh` |
 | weak scaling, all runs (base builds, fnum / nodes) | `./submit_weak.sh` (no qsub, it calls it) |
 | weak scaling, one run | `./submit_weak.sh cpu 8` |
+| saturation, 1 node, 1..16x particles (CPU vs GPU) | `./submit_saturation.sh` (no qsub, it calls it) |
+| saturation, one run | `./submit_saturation.sh gpu 16` |
 
 Useful parameters, via `qsub -v`:
 `NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
