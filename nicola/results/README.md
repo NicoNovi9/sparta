@@ -28,14 +28,13 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `cpu_n{1,4}[_bal{part,dyn,time}]_s10000_<job>` | 10,000 steps: `time` best (4 nodes 65.6 s vs 143.5 s deck) |
 | `gpu_n1_1210981` | 4x V100, deck balance, 1000 steps: 78.9 s |
 
-## h200/ — H200 BadAlloc investigation, 30M particles
+## h200/ - H200 investigation, 30M particles (closed)
 
 | Run | What |
 |---|---|
-| `sparta_nsys_h200_1211770_np30000000_ro0_h200` | 200 steps under nsys: completes; move only 1.09x faster than V100 |
-| `sparta_h200_1211776` | 10,000 steps: BadAlloc on `collide:nn_last_partner` at step ~3850; nvidia-smi sees the GPU full just before |
-| `sparta_h200_1211801` | same with the Kokkos allocation logger: 4557 alloc/free pairs of 711.9 MB, Kokkos live stays 4.9 GB |
-| `sparta_h200_1211844_pmlob1` | without UCX (ob1): still BadAlloc, at step ~5150 |
-| `sparta_h200_1211877` | device free-memory watch: GPU goes to 0 free during the move kernel |
-| `sparta_nsys_h200_1211918_..._h200` | nsys with unified-memory tracing: no UM activity, Addressing Mode None; GPU goes to 0 free during emit/surf |
-| **`../h200_diag_1212041`** | **cause found: `/hpc/shared/bin/cuda_memtest` takes the whole GPU (143 GB) for ~0.75 s, twice, every 5 minutes, also with SPARTA not running. Not a SPARTA bug.** |
+| `h200_diag_1212041` | **the answer**: `/hpc/shared/bin/cuda_memtest` takes the whole GPU (143 GB) for ~0.75 s, twice, every 5 minutes, including while SPARTA is not running. The out-of-memory failures are not a SPARTA bug. Evidence for the IT ticket in `nicola/tickets/` |
+| `sparta_nsys_h200_1211770_np30000000_ro0_h200` | 200 steps under nsys, completed: the move kernel is only 1.09x faster than on V100, while sort and collide are ~3x faster |
+
+The runs that showed the failure itself (jobs 1211776, 1211801, 1211844,
+1211877, 1211918) were removed once the cause was known; they are in the git
+history.
