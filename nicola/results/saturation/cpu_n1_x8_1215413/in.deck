@@ -1,0 +1,152 @@
+############################################################
+#
+#               SPARTA INPUT FILE
+#
+############################################################
+
+
+seed            12345
+dimension       3 
+units           si
+
+global          surfmax 50000
+boundary        o o o
+create_box      -0.002001 0.02801    -0.000001 0.003001    -0.000001 0.087501     # xlo xhi ylo yhi zlo zhi 
+#create_box      -0.005 0.05    -0.003 0.003    -0.09 0.09     # xlo xhi ylo yhi zlo zhi 
+
+
+############################################################ INPUTS
+
+variable        T equal 300        # Temperature
+variable        S  equal 0.85       # TMAC
+variable        Sa equal 0.3       # TAC
+
+variable        pi equal 10.0       # pressure in
+variable        po equal 5.0        # pressure out
+
+variable        nX equal 120        # nCells in x
+variable        nY equal 120         # nCells in y
+variable        nZ equal 60         # nCells in z
+
+variable        rN equal 2.41446e+21     #number density of gas
+variable        nP equal 2.292375e+07     # fnum / 8 (saturation)
+
+variable        dt equal 3e-09         #time step
+
+# Benchmark knobs. index-style, so -var on the command line overrides them.
+variable        npart   index 120000000    # particles created
+variable        reorder index 0            # particle/reorder period, 0 = off
+variable        nsteps  index 200          # timesteps to run
+
+############################################################ SYSTEM
+
+create_grid     ${nX} ${nY} ${nZ}
+
+global          gridcut 0.0
+balance_grid 	rcb cell 
+global          nrho ${rN}
+global          fnum ${nP}  # number of molecules per particle
+
+species         h2.species H2   # read in information of H2 from file 
+mixture         H2 H2 vstream 0.0 0.0 0.0 temp $T
+
+
+collide         vss H2 h2.vhs 
+collide_modify  nearcp yes 20 rotate smooth 
+
+########################################################### BOUNDARIES
+
+#read_surf           rectangular_slit_reservoir.geom scale 0.001 0.001 0.001 trans 0.0200005 0.0 0.0 group wall invert particle none clip
+#read_surf           rectangular_slit_reservoir.geom trans 0.0000005 0.0000005 0.0000005 group wall invert particle none clip
+read_surf           rectangular_slit_reservoir_with_types.geom type group wall invert particle none clip
+
+############ Define boundaries group
+# Inlets and Outlets
+group   inlet  surf type 1
+group   outlet surf type 6
+# Bottom boundary
+group   yminus surf type 10
+# Upper Boundaries
+group   yplus surf type 4
+group   yplus_inlet surf type 5
+group   yplus_inlet_wall surf type 3
+group   yplus_outlet surf type 7
+group   yplus_outlet_wall surf type 8
+# Transverse Bounadaries
+group   zminus surf type 2
+group   zplus surf type 9
+
+
+## Geometry initialization for boundary condition selection. Can be commented for produciton
+#surf_collide    1 adiabatic_diffuse 300.0 ${sa} ${s}
+#surf_modify	 wall collide 1
+#compute         1 surf wall H2 n mflux press shx shy shz erot ke etot
+#fix             1 ave/surf all 5 200 1000 c_1[*] ave running
+#dump            1 surf wall 10000 surf.*.out id f_1[*]
+#run 1
+#quit
+
+# Define collisions types
+surf_collide        1 diffuse 300.0 ${S}
+surf_collide        2 vanish
+surf_collide        3 specular
+
+# Apply boundary conditions to selected surfaces
+
+surf_modify         inlet  collide 2
+surf_modify         outlet collide 2
+
+surf_modify         yminus collide 1
+surf_modify         yplus collide 1
+surf_modify         yplus_inlet collide 1
+surf_modify         yplus_inlet_wall collide 1
+surf_modify         yplus_outlet collide 1
+surf_modify         yplus_outlet_wall collide 1
+
+surf_modify         zminus collide 3
+surf_modify         zplus collide 3
+
+
+
+#fix                 X_in  emit/surf H2 inlet  
+fix                 X_in  emit/surf H2 inlet  subsonic ${pi} $T 
+fix                 X_out emit/surf H2 outlet subsonic ${po} NULL 
+#fix                 X_out emit/surf H2 outlet subsonic ${pi} $T
+
+#adapt_grid	    all refine surf wall 0.0001 iterate 1 file refinement.out
+
+
+############################################################ RUN INIT
+
+create_particles  H2 n ${npart}
+
+compute         temp temp
+#compute         total_mom momentum
+#variable        mass_flow_x equal "c_total_mom[1]*v_nP/lx" 
+
+compute         vel grid all H2 n nrho u v w temp
+fix             velavg ave/grid all 1 1000 10000 c_vel[*] ave one
+dump            veldump grid all 10000 output/out.*.grid id f_velavg[*]
+
+compute         pres thermal/grid all H2 temp press
+fix             presavg ave/grid all 1 1000 10000 c_pres[*] ave one
+dump            presdump grid all 10000 output/pres.*.grid id f_presavg[*]
+
+
+stats           100
+
+stats_style     step cpu tpcpu spcpu dt np nattempt ncoll nbound nexit c_temp #v_mass_flow_x
+
+global          particle/reorder ${reorder}
+
+timestep        ${dt}
+run              2000
+run             ${nsteps}
+
+############################################################ RUN EQUIL
+#unfix X_in
+
+#fix                 X_in  emit/surf H2 inlet  subsonic ${pi} $T 
+#fix                 X_out emit/surf H2 outlet subsonic ${po} NULL 
+#run             1000000
+

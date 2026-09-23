@@ -1,0 +1,17 @@
+job        1215351.pbs60
+date       2026-09-23T14:06:12+02:00
+study      weak scaling
+arch       cpu
+nodes      4
+ranks      768 (192 per node)
+fnum       4.584750e+07 (= 1.8339e+08 / 4)
+npart      102800000 (25700000 per node)
+warmup     2000 steps (not measured)
+nsteps     1000 (measured)
+gpu_aware  1
+balance    deck (rcb cell)
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu (patched copy: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/weak/cpu_n4_1215351/in.deck)
+commit     3b4f3081800502f8e08d74dff460b8f1de940327
+build      arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+hosts      pn6344.cm.cluster pn6346.cm.cluster pn6353.cm.cluster pn6382.cm.cluster 

@@ -1,0 +1,5 @@
+built /hpc/data/cfd-students/nnoventa/sparta/nicola/tools/kp_big_alloc.so
+14:19:16.755 snapshot
+snapshot -> /hpc/data/cfd-students/nnoventa/sparta/nicola/results/h200_diag_1215492/node_start.txt
+14:19:17.531 idle
+GPU idle for 300s, SPARTA not running

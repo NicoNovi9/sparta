@@ -1,0 +1,267 @@
+Loading hpcx/2.17.1-gcc-8.5.0
+  Loading requirement: zlib-ng/2.1.4-gcc-8.5.0 zstd/1.5.5-gcc-8.5.0
+    binutils/2.41-gcc-8.5.0
+job        1215416.pbs60
+date       2026-09-23T13:27:40+02:00
+study      saturation
+scale      2 (work per node x 2)
+arch       gpu
+nodes      1
+ranks      4 (4 per node)
+fnum       9.169500e+07 (= 1.8339e+08 / 2)
+npart      51400000 (51400000 per node)
+warmup     2000 steps (not measured)
+nsteps     1000 (measured)
+gpu_aware  1
+balance    deck (rcb cell)
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu (patched copy: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/saturation/gpu_n1_x2_1215416/in.deck)
+commit     3b4f3081800502f8e08d74dff460b8f1de940327
+build      arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+hosts      an5016.cm.cluster 
+GPU 0: Tesla V100-SXM2-32GB (UUID: GPU-95489ea8-7938-d5d7-25e9-234107e295b7)
+GPU 1: Tesla V100-SXM2-32GB (UUID: GPU-f4493545-b2db-23aa-cf15-4ef2a5c12921)
+GPU 2: Tesla V100-SXM2-32GB (UUID: GPU-b6d37c3f-bfdc-4c5b-8c23-1c809f47259e)
+GPU 3: Tesla V100-SXM2-32GB (UUID: GPU-45d21807-6730-e965-5ea2-a78b276aaf33)
+Driver Version                            : 575.57.08
+CUDA Version                              : 12.9
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+SPARTA (27 Aug 2026)
+KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:50)
+  requested 4 GPU(s) per node
+  requested 1 thread(s) per MPI task
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:148)
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+Running on 4 MPI task(s)
+Created orthogonal box = (-0.002001 -1e-06 -1e-06) to (0.02801 0.003001 0.087501)
+WARNING: Per-processor grid cell memory will be large because global gridcut < 0.0 (/hpc/data/cfd-students/nnoventa/sparta/src/grid.cpp:518)
+Created 864000 child grid cells
+  CPU time = 0.398536 secs
+  create/ghost percent = 8.73428 91.2657
+Balance grid migrated 648000 cells
+  CPU time = 0.191193 secs
+  reassign/sort/migrate/ghost percent = 17.0279 1.13311 28.7239 53.1151
+Reading surface file ...
+  80998 triangles
+  clipped to 80998 tris
+  -0.002 0.028 xlo xhi
+  0 0.003 ylo yhi
+  0 0.0875 zlo zhi
+  0.000245331 min triangle edge length
+  3.15715e-08 min triangle area
+  43848 0 = cells overlapping surfs, overlap cells with unmarked corner pts
+  25 tiny edges removed
+  269352 550800 43848 = cells outside/inside/overlapping surfs
+  43848 = surf cells with 1,2,etc splits
+  2.72343750000268e-06 2.7234375e-06 = cell-wise and global flow volume
+  CPU time = 0.624125 secs
+  read/check/sort/surf2grid/ghost/inout/particle percent = 6.41138 16.2114 3.03575 43.3881 30.9534 8.99314 0.000184418
+  surf2grid time = 0.270796 secs
+  map/comm1/comm2/comm3/comm4/split percent = 20.0504 2.15281 7.05497 2.91252 5.64801 58.0783
+0 = initial surface count in group inlet
+382 = final surface count in group inlet
+0 = initial surface count in group outlet
+690 = final surface count in group outlet
+0 = initial surface count in group yminus
+41336 = final surface count in group yminus
+0 = initial surface count in group yplus
+33810 = final surface count in group yplus
+0 = initial surface count in group yplus_inlet
+382 = final surface count in group yplus_inlet
+0 = initial surface count in group yplus_inlet_wall
+1314 = final surface count in group yplus_inlet_wall
+0 = initial surface count in group yplus_outlet
+718 = final surface count in group yplus_outlet
+0 = initial surface count in group yplus_outlet_wall
+1598 = final surface count in group yplus_outlet_wall
+0 = initial surface count in group zminus
+393 = final surface count in group zminus
+0 = initial surface count in group zplus
+375 = final surface count in group zplus
+Creating particles ...
+WARNING: Created unexpected # of particles: 51399718 versus 51400000 (/hpc/data/cfd-students/nnoventa/sparta/src/create_particles.cpp:445)
+Created 51399718 particles
+  CPU time = 10.4792 secs
+Memory usage per proc in Mbytes:
+  particles (ave,min,max) = 2455.45 2455.45 2455.45
+  grid      (ave,min,max) = 278.402 278.384 278.419
+  surf      (ave,min,max) = 20.309 20.309 20.309
+  modify    (ave,min,max) = 56.0303 56.0303 56.0303
+  total     (ave,min,max) = 2810.19 2810.17 2810.21
+Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
+       0            0            0            0        3e-09 51399718        0        0        0        0    300.01567 
+     100    3.3987085 8.8268763e-08    29.422912        3e-09 51499060   144699    88971        0        0    299.53609 
+     200    6.8405683 8.7162181e-08     29.05406        3e-09 51644598   152833    89238        0        0    299.58103 
+     300    10.358854 8.5268781e-08    28.422928        3e-09 51781731   158331    90102        0        0     299.5613 
+     400    13.947877 8.3588222e-08    27.862741        3e-09 51897461   161920    90610        0        0    299.40863 
+     500     17.58901 8.2391946e-08    27.463982        3e-09 51992827   165176    91322        0        0    299.14601 
+     600    21.274458 8.1401227e-08    27.133742        3e-09 52062778   167669    91880        0        0    298.85636 
+     700    25.074263 7.8951402e-08    26.317134        3e-09 52096187   169744    91962        0        0    298.59278 
+     800    28.858175 7.9283039e-08     26.42768        3e-09 52092639   171598    92525        0        0    298.24742 
+     900    32.670423 7.8693727e-08    26.231242        3e-09 52048822   173477    92903        0        0    297.91743 
+    1000    36.502587 7.8284706e-08    26.094902        3e-09 51968761   173676    92325        0        0    297.43756 
+    1100    40.351561 7.7942906e-08    25.980968        3e-09 51866078   174927    92353        0        0    297.11234 
+    1200    44.211124 7.7728999e-08    25.909667        3e-09 51744328   174672    92096        0        0    296.77965 
+    1300    48.086012 7.742159e-08    25.807197        3e-09 51615742   174812    91574        0        0    296.54505 
+    1400    51.965175 7.7336265e-08    25.778754        3e-09 51484133   174965    91642        0        0    296.36154 
+    1500    55.845746 7.7308222e-08    25.769409        3e-09 51356910   175249    91320        0        0    296.30415 
+    1600    59.741579 7.7005341e-08    25.668446        3e-09 51242333   175096    91106        0        0    296.27379 
+    1700    63.632288 7.7106758e-08    25.702252        3e-09 51134295   173869    90309        0        0    296.35213 
+    1800    67.529533 7.697747e-08    25.659158        3e-09 51040492   174023    90088        0        0    296.46828 
+    1900    71.439016 7.6736503e-08    25.578834        3e-09 50956769   174440    90044        0        0    296.58187 
+    2000    75.350605 7.669517e-08    25.565057        3e-09 50888749   174126    89908        0        0    296.70644 
+Loop time of 75.3506 on 4 procs for 2000 steps with 50888749 particles
+Performance: 26.543 timesteps/s, 1.351 Gparticle-step/s
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Move    | 51.607     | 52.091     | 52.609     |   6.4 | 69.13
+Coll    | 4.1173     | 4.3594     | 4.4847     |   6.9 |  5.79
+Sort    | 9.1296     | 9.16       | 9.1846     |   0.7 | 12.16
+Comm    | 0.67854    | 0.7921     | 0.8443     |   7.6 |  1.05
+Modify  | 2.575      | 2.7305     | 2.9756     |   9.0 |  3.62
+Output  | 5.5446     | 5.5458     | 5.5486     |   0.1 |  7.36
+MPI Sync| 0.10514    | 0.67205    | 1.2644     |  62.8 |  0.89
+Other   |            | 0.0003117  |            |       |  0.00
+
+Particle moves    = 103267770950 (103B)
+Cells touched     = 115496267383 (115B)
+Particle comms    = 9382979 (9.38M)
+Boundary collides = 0 (0K)
+Boundary exits    = 0 (0K)
+SurfColl checks   = 82549130402 (82.5B)
+SurfColl occurs   = 309632997 (310M)
+Surf reactions    = 0 (0K)
+Collide attempts  = 336241412 (336M)
+Collide occurs    = 182141606 (182M)
+Gas reactions     = 0 (0K)
+Particles stuck   = 0
+Axisymm bad moves = 0
+
+Particle-moves/CPUsec/proc: 3.42624e+08
+Particle-moves/step: 5.16339e+07
+Cell-touches/particle/step: 1.11842
+Particle comm iterations/step: 2.648
+Particle fraction communicated: 9.08607e-05
+Particle fraction colliding with boundary: 0
+Particle fraction exiting boundary: 0
+Surface-checks/particle/step: 0.79937
+Surface-collisions/particle/step: 0.00299835
+Surface-reactions/particle/step: 0
+Collision-attempts/particle/step: 0.00325602
+Collisions/particle/step: 0.00176378
+Gas-reactions/particle/step: 0
+
+Particles: 1.27222e+07 ave 1.27262e+07 max 1.27145e+07 min
+Histogram: 1 0 0 0 0 0 1 0 0 2
+Cells:     216000 ave 216000 max 216000 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+GhostCell: 21600 ave 28800 max 14400 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+EmptyCell: 21600 ave 28800 max 14400 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Surfs:     80998 ave 80998 max 80998 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+GhostSurf: 0 ave 0 max 0 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+Memory usage per proc in Mbytes:
+  particles (ave,min,max) = 2455.45 2455.45 2455.45
+  grid      (ave,min,max) = 585.539 582.445 592.353
+  surf      (ave,min,max) = 20.309 20.309 20.309
+  modify    (ave,min,max) = 56.0303 56.0303 56.0303
+  total     (ave,min,max) = 3117.33 3114.23 3124.14
+Step CPU T/CPU S/CPU Dt Np Natt Ncoll Nbound Nexit c_temp 
+    2000            0            0            0        3e-09 50888749   174126    89908        0        0    296.70644 
+    2100    3.9393712 7.6154254e-08    25.384744        3e-09 50835533   147109    89402        0        0    296.96424 
+    2200    7.8548513 7.6618948e-08    25.539651        3e-09 50790784   154018    89312        0        0    297.16338 
+    2300    11.773156 7.6563718e-08    25.521239        3e-09 50757641   157896    89606        0        0    297.30211 
+    2400    15.699052 7.6415685e-08    25.471894        3e-09 50733878   160669    89666        0        0     297.4815 
+    2500     19.62822 7.6352036e-08     25.45068        3e-09 50711713   162667    89745        0        0    297.71827 
+    2600    23.562207 7.6258502e-08      25.4195        3e-09 50692053   164002    89649        0        0    297.87071 
+    2700    27.511777 7.595765e-08    25.319217        3e-09 50676935   165311    89885        0        0    297.98737 
+    2800    31.457813 7.602565e-08    25.341883        3e-09 50665501   166349    89757        0        0    298.07445 
+    2900    35.420411 7.5707922e-08    25.235973        3e-09 50654388   167568    90083        0        0    298.22372 
+    3000    39.382132 7.5724662e-08    25.241555        3e-09 50641845   168266    89641        0        0    298.39027 
+Loop time of 39.3822 on 4 procs for 1000 steps with 50641845 particles
+Performance: 25.392 timesteps/s, 1.286 Gparticle-step/s
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Move    | 26.172     | 26.568     | 26.98      |   6.4 | 67.46
+Coll    | 2.0897     | 2.195      | 2.3046     |   5.9 |  5.57
+Sort    | 5.6205     | 5.6443     | 5.6809     |   1.0 | 14.33
+Comm    | 0.32931    | 0.38352    | 0.40812    |   5.2 |  0.97
+Modify  | 1.227      | 1.3396     | 1.4262     |   7.0 |  3.40
+Output  | 2.7679     | 2.7695     | 2.7707     |   0.1 |  7.03
+MPI Sync| 0.045654   | 0.48228    | 0.87559    |  50.6 |  1.22
+Other   |            | 0.0001534  |            |       |  0.00
+
+Particle moves    = 50727905721 (50.7B)
+Cells touched     = 56733427473 (56.7B)
+Particle comms    = 4618568 (4.62M)
+Boundary collides = 0 (0K)
+Boundary exits    = 0 (0K)
+SurfColl checks   = 40958407967 (41B)
+SurfColl occurs   = 153939246 (154M)
+Surf reactions    = 0 (0K)
+Collide attempts  = 159115083 (159M)
+Collide occurs    = 89393287 (89.4M)
+Gas reactions     = 0 (0K)
+Particles stuck   = 0
+Axisymm bad moves = 0
+
+Particle-moves/CPUsec/proc: 3.22023e+08
+Particle-moves/step: 5.07279e+07
+Cell-touches/particle/step: 1.11839
+Particle comm iterations/step: 2.633
+Particle fraction communicated: 9.10459e-05
+Particle fraction colliding with boundary: 0
+Particle fraction exiting boundary: 0
+Surface-checks/particle/step: 0.807414
+Surface-collisions/particle/step: 0.00303461
+Surface-reactions/particle/step: 0
+Collision-attempts/particle/step: 0.00313664
+Collisions/particle/step: 0.00176221
+Gas-reactions/particle/step: 0
+
+Particles: 1.26605e+07 ave 1.26676e+07 max 1.26535e+07 min
+Histogram: 1 0 1 0 0 0 1 0 0 1
+Cells:     216000 ave 216000 max 216000 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+GhostCell: 21600 ave 28800 max 14400 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+EmptyCell: 21600 ave 28800 max 14400 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Surfs:     80998 ave 80998 max 80998 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+GhostSurf: 0 ave 0 max 0 min
+Histogram: 4 0 0 0 0 0 0 0 0 0
+sparta exit status: 0

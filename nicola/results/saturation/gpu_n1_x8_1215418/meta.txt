@@ -1,0 +1,18 @@
+job        1215418.pbs60
+date       2026-09-23T13:29:33+02:00
+study      saturation
+scale      8 (work per node x 8)
+arch       gpu
+nodes      1
+ranks      4 (4 per node)
+fnum       2.292375e+07 (= 1.8339e+08 / 8)
+npart      205600000 (205600000 per node)
+warmup     2000 steps (not measured)
+nsteps     1000 (measured)
+gpu_aware  1
+balance    deck (rcb cell)
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu (patched copy: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/saturation/gpu_n1_x8_1215418/in.deck)
+commit     3b4f3081800502f8e08d74dff460b8f1de940327
+build      arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+hosts      an5017.cm.cluster 
