@@ -8,6 +8,7 @@
 # NPART (and optionally GPU_AWARE) with -v.
 #
 #   ARCH=gpu  4 ranks per node, one per V100, install_v100 binary
+#   ARCH=h200 8 ranks per node, one per H200, install_h200 binary
 #   ARCH=cpu  192 ranks per node (genoaX), install_cpu binary
 
 # ---------------------------------------------------------------- paths ----
@@ -43,6 +44,11 @@ case "$ARCH" in
          # assigns devices as local_rank % ngpus, so the extra ranks share.
          RANKS_PER_NODE=$(( 4 * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g 4 -sf kk)
+         [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
+    h200) SPARTA_EXE="$REPO_ROOT/install_h200/bin/spa_kokkos_cuda"
+         # 8 H200 per node, same device assignment as above
+         RANKS_PER_NODE=$(( 8 * RANKS_PER_GPU ))
+         KOKKOS_ARGS=(-k on g 8 -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
     cpu) SPARTA_EXE="$REPO_ROOT/install_cpu/bin/spa_kokkos_mpi_only"
          RANKS_PER_NODE=192
@@ -118,7 +124,7 @@ cd "$CASE_DIR" || exit 1
 module purge
 module load gcc/13.1.0
 module load hpcx/2.17.1-gcc-8.5.0
-[ "$ARCH" = gpu ] && module load cuda12.8/toolkit/12.8.1
+[ "$ARCH" != cpu ] && module load cuda12.8/toolkit/12.8.1
 
 export OMP_NUM_THREADS=1
 
@@ -127,7 +133,7 @@ export OMP_NUM_THREADS=1
     echo "date       $(date -Is)"
     echo "arch       $ARCH"
     echo "nodes      $NODES"
-    echo "ranks      $NRANKS ($RANKS_PER_NODE per node$([ "$ARCH" = gpu ] && echo ", $RANKS_PER_GPU per GPU"))"
+    echo "ranks      $NRANKS ($RANKS_PER_NODE per node$([ "$ARCH" != cpu ] && echo ", $RANKS_PER_GPU per GPU"))"
     echo "nsteps     $NSTEPS"
     echo "npart      $NPART"
     echo "gpu_aware  $GPU_AWARE"
@@ -141,7 +147,7 @@ export OMP_NUM_THREADS=1
 
 # GPU utilisation and power, sampled on the first node only.
 SMI_PID=
-if [ "$ARCH" = gpu ]; then
+if [ "$ARCH" != cpu ]; then
     nvidia-smi -L
     nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode"   # HMM/ATS or not
     nvidia-smi \

@@ -5,6 +5,7 @@
 #   cd nicola && ./submit_scaling.sh          # every ARCH x NODES below
 #   cd nicola && ./submit_scaling.sh gpu 2    # a single run
 #   cd nicola && ./submit_scaling.sh cpu 1 4  # one arch, chosen node counts
+#   cd nicola && ./submit_scaling.sh h200     # 8x H200 per node, base build
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
@@ -32,7 +33,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1   # qsub from nicola/
 REPO_ROOT="$(cd .. && pwd)"
 
 if [ $# -ge 1 ]; then
-    case "$1" in cpu|gpu) ;; *) echo "usage: $0 [cpu|gpu [NODES...]]" >&2; exit 1 ;; esac
+    case "$1" in cpu|gpu|h200) ;; *) echo "usage: $0 [cpu|gpu|h200 [NODES...]]" >&2; exit 1 ;; esac
     ARCHS=("$1")
     [ $# -ge 2 ] && NODE_COUNTS=("${@:2}")
 fi
@@ -52,11 +53,15 @@ HEAD_COMMIT="$(git_head "$REPO_ROOT")"
 for ARCH in "${ARCHS[@]}"; do
     case "$ARCH" in
         gpu) INSTALL="$REPO_ROOT/install_v100"; BUILD_CMD="compile/compile_sparta_cuda.sh v100" ;;
+        h200) INSTALL="$REPO_ROOT/install_h200"; BUILD_CMD="compile/compile_sparta_cuda.sh h200" ;;
         cpu) INSTALL="$REPO_ROOT/install_cpu";  BUILD_CMD="compile/compile_sparta_mpi.sh" ;;
         *)   echo "unknown arch: $ARCH" >&2; exit 1 ;;
     esac
     if [ ! -f "$INSTALL/BUILD_INFO" ]; then
         echo "no $ARCH build found, run: $BUILD_CMD" >&2; exit 1
+    fi
+    if grep -q "^reduce *1" "$INSTALL/BUILD_INFO"; then
+        echo "$INSTALL is a reduce build, the scaling study uses the base one" >&2; exit 1
     fi
     BUILT="$(awk '/^commit/{print $2}' "$INSTALL/BUILD_INFO")"
     if [ "$BUILT" != "$HEAD_COMMIT" ]; then
@@ -71,6 +76,9 @@ for ARCH in "${ARCHS[@]}"; do
             gpu) QUEUE=gpu
                  R=$(( 4 * RANKS_PER_GPU ))
                  SELECT="select=${N}:ncpus=${R}:mpiprocs=${R}:mem=250GB:ngpus=4:cpu_type=skylake:gpu_type=v100" ;;
+            h200) QUEUE=gpu
+                 R=$(( 8 * RANKS_PER_GPU ))
+                 SELECT="select=${N}:ncpus=${R}:mpiprocs=${R}:mem=250GB:ngpus=8:cpu_type=turin:gpu_type=h200" ;;
             cpu) QUEUE=amd
                  SELECT="select=${N}:ncpus=192:mpiprocs=192:mem=1400GB:cpu_type=genoaX" ;;
         esac
