@@ -41,6 +41,7 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `cpu_n{1,4}[_bal{part,dyn,time}]_s10000_<job>` | 10,000 steps: `time` best (4 nodes 65.6 s vs 143.5 s deck) |
 | `gpu_n{1,2,4}_<job>` | 4x V100 per node, deck balance, 1000 steps: 78.9 / 44.4 / 23.6 s |
 | `gpu_n1[_baldyn]_r2_<job>` | 2 ranks per V100: no gain (91.9 s balanced, 99.7 s not) |
+| `h200_g1_<job>` | a single H200 (`submit_gpu_h200.sh`, base build, `KP=0`): 201.1 s, move 92%; ~201 W of 700 W, 23.4 GB |
 
 ## long/ — steady state
 
