@@ -30,6 +30,7 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | registers per kernel | `./res_usage.sh` (no qsub) |
 | scaling study, all runs | `./submit_scaling.sh` (no qsub, it calls it) |
 | scaling study, one run | `./submit_scaling.sh gpu 2` |
+| long run to steady state (4 V100, reduce build, 100k steps) | `qsub submit_long.sh` |
 
 Useful parameters, via `qsub -v`:
 `NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
