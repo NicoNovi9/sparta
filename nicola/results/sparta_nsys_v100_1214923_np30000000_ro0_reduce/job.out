@@ -1,132 +1,0 @@
-Loading hpcx/2.17.1-gcc-8.5.0
-  Loading requirement: zlib-ng/2.1.4-gcc-8.5.0 zstd/1.5.5-gcc-8.5.0
-    binutils/2.41-gcc-8.5.0
-job        1214923.pbs60
-host       an5020
-date       2026-09-23T10:30:41+02:00
-commit     423f924c1db83cdee097469f592c852fc01effc8
-exe        /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda
-build      arch    h200_reduce reduce  1 commit  423f924c1db83cdee097469f592c852fc01effc8 date    2026-09-23T10:27:38+02:00 
-input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
-ranks      1
-gpus       1
-npart      30000000
-reorder    0
-label      reduce
-nsys delay 0  duration 0
-GPU 0: Tesla V100-SXM2-32GB (UUID: GPU-e0dedfcd-f448-a1ca-12c1-5766d0d5229b)
-Driver Version                            : 575.57.08
-CUDA Version                              : 12.9
-    Addressing Mode                       : N/A
-NVIDIA Nsight Systems version 2024.6.2.225-246235244400v0
-Collecting data...
-SPARTA (27 Aug 2026)
-KOKKOS mode is enabled (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:50)
-  requested 1 GPU(s) per node
-  requested 1 thread(s) per MPI task
-WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/kokkos.cpp:148)
-Kokkos::Cuda::initialize ERROR: likely mismatch of architecture
-
-Backtrace:
-[0x15554ce64b57] 
-[0xc5e633] 
-[0xc383b7] 
-[0xc69158] 
-[0xc3d93e] 
-[0xa397ef] 
-[0x4bb5d9] 
-[0x44f74f] 
-[0x15554df76865] __libc_start_main
-[0x479abe] 
-[an5020:906502] *** Process received signal ***
-[an5020:906502] Signal: Aborted (6)
-[an5020:906502] Signal code:  (-6)
-[an5020:906502] [ 0] /hpc/shared/apps/intel/hpcx/hpcx-v2.17.1-gcc-mlnx_ofed-redhat8-cuda12-x86_64-tm/ompi/2.17.1-gcc-8.5.0/lib/libopen-pal.so.40(+0x73a30)[0x15554dbe6a30]
-[an5020:906502] [ 1] /cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/target-linux-x64/libToolsInjection64.so(+0x4f4ef6)[0x15554cde4ef6]
-[an5020:906502] [ 2] /lib64/libpthread.so.0(+0x12990)[0x15554ed2c990]
-[an5020:906502] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x15554df8a5af]
-[an5020:906502] [ 4] /lib64/libc.so.6(abort+0x127)[0x15554df5dee5]
-[an5020:906502] [ 5] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0xc383c6]
-[an5020:906502] [ 6] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0xc69158]
-[an5020:906502] [ 7] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0xc3d93e]
-[an5020:906502] [ 8] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0xa397ef]
-[an5020:906502] [ 9] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0x4bb5d9]
-[an5020:906502] [10] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0x44f74f]
-[an5020:906502] [11] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15554df76865]
-[an5020:906502] [12] /hpc/data/cfd-students/nnoventa/sparta/install_h200_reduce/bin/spa_kokkos_cuda[0x479abe]
-[an5020:906502] *** End of error message ***
-Generating '/var/tmp/pbs.1214923.pbs60/nsys-report-b665.qdstrm'
-[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [0%                          ] nsys_rank0.nsys-rep[1/1] [====25%                     ] nsys_rank0.nsys-rep[1/1] [====26%                     ] nsys_rank0.nsys-rep[1/1] [=======38%                  ] nsys_rank0.nsys-rep[1/1] [===========50%              ] nsys_rank0.nsys-rep[1/1] [===========51%              ] nsys_rank0.nsys-rep[1/1] [===========52%              ] nsys_rank0.nsys-rep[1/1] [===========53%              ] nsys_rank0.nsys-rep[1/1] [=============59%            ] nsys_rank0.nsys-rep[1/1] [=============60%            ] nsys_rank0.nsys-rep[1/1] [==============61%           ] nsys_rank0.nsys-rep[1/1] [==============62%           ] nsys_rank0.nsys-rep[1/1] [==============63%           ] nsys_rank0.nsys-rep[1/1] [==============64%           ] nsys_rank0.nsys-rep[1/1] [===============65%          ] nsys_rank0.nsys-rep[1/1] [===============66%          ] nsys_rank0.nsys-rep[1/1] [================69%         ] nsys_rank0.nsys-rep[1/1] [================70%         ] nsys_rank0.nsys-rep[1/1] [================71%         ] nsys_rank0.nsys-rep[1/1] [=================72%        ] nsys_rank0.nsys-rep[1/1] [=================73%        ] nsys_rank0.nsys-rep[1/1] [=================74%        ] nsys_rank0.nsys-rep[1/1] [==================75%       ] nsys_rank0.nsys-rep[1/1] [==================78%       ] nsys_rank0.nsys-rep[1/1] [====================85%     ] nsys_rank0.nsys-rep[1/1] [=====================88%    ] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep[1/1] [========================100%] nsys_rank0.nsys-rep
-Generated:
-    /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.nsys-rep
---------------------------------------------------------------------------
-Primary job  terminated normally, but 1 process returned
-a non-zero exit code. Per user-direction, the job has been aborted.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-mpirun detected that one or more processes exited with non-zero status, thus causing
-the job to be terminated. The first process to do so was:
-
-  Process name: [[56375,1],0]
-  Exit code:    134
---------------------------------------------------------------------------
-sparta exit status: 134
--rw-rw-r-- 1 nnoventa hpc-cfd-students 384K Sep 23 10:30 /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.nsys-rep
-
-=============== SPARTA timing ===============
-
-=============== SPARTA counters ===============
-
-=============== top GPU kernels ===============
-Generating SQLite file /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite from /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.nsys-rep
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_kern_sum.py]... 
-SKIPPED: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite does not contain CUDA kernel data.
-
-
-=============== memcpy time by direction ===============
-
-NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite
-        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.nsys-rep
-        Consider using --force-export=true if needed.
-
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
-SKIPPED: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite does not contain GPU memory data.
-
-
-=============== memcpy volume by direction ===============
-
-NOTICE: Existing SQLite export found: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite
-        It is assumed file was previously exported from: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.nsys-rep
-        Consider using --force-export=true if needed.
-
-Processing [/hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite] with [/cm/shared/apps/cuda12.8/visual-tools/12.8.1/nsight-systems/2024.6.2/host-linux-x64/reports/cuda_gpu_mem_size_sum.py]... 
-SKIPPED: /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce/nsys_rank0.sqlite does not contain GPU memory data.
-
-
-=============== GPU utilisation / power ===============
-samples 8   util avg 0.0% max 0%   power avg 48 W max 61 W
-
-artifacts in /hpc/data/cfd-students/nnoventa/sparta/nicola/results/sparta_nsys_v100_1214923_np30000000_ro0_reduce:
-total 4.1M
--rw-r--r-- 1 nnoventa hpc-cfd-students  537 Sep 23 10:30 gpu_metrics.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 8.5K Sep 23 10:30 job.out
--rw-rw-rw- 1 nnoventa hpc-cfd-students    0 Sep 23 10:30 log.sparta
--rw-r--r-- 1 nnoventa hpc-cfd-students  526 Sep 23 10:30 meta.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 2.2K Sep 23 10:30 nsys_available_reports.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  877 Sep 23 10:30 nsys_rank0_cuda_api_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.2K Sep 23 10:30 nsys_rank0_cuda_api_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  811 Sep 23 10:30 nsys_rank0_cuda_gpu_kern_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  688 Sep 23 10:30 nsys_rank0_cuda_gpu_kern_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  814 Sep 23 10:30 nsys_rank0_cuda_gpu_mem_size_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  814 Sep 23 10:30 nsys_rank0_cuda_gpu_mem_size_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  814 Sep 23 10:30 nsys_rank0_cuda_gpu_mem_time_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  814 Sep 23 10:30 nsys_rank0_cuda_gpu_mem_time_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students  820 Sep 23 10:30 nsys_rank0_mpi_event_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.1K Sep 23 10:30 nsys_rank0_mpi_event_sum.txt
--rw-rw-r-- 1 nnoventa hpc-cfd-students 384K Sep 23 10:30 nsys_rank0.nsys-rep
--rw-r--r-- 1 nnoventa hpc-cfd-students  638 Sep 23 10:30 nsys_rank0_nvtx_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students  731 Sep 23 10:30 nsys_rank0_nvtx_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 3.1K Sep 23 10:30 nsys_rank0_osrt_sum.csv
--rw-r--r-- 1 nnoventa hpc-cfd-students 6.6K Sep 23 10:30 nsys_rank0_osrt_sum.txt
--rw-r--r-- 1 nnoventa hpc-cfd-students 1.4M Sep 23 10:30 nsys_rank0.sqlite
--rw-r--r-- 1 nnoventa hpc-cfd-students 2.7K Sep 23 10:30 summary.txt
