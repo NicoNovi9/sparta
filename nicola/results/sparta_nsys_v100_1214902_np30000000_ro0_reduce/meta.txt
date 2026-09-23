@@ -1,0 +1,13 @@
+job        1214902.pbs60
+host       an5010
+date       2026-09-23T10:14:32+02:00
+commit     a3a47b79f3fd8ea3ad1d15c9154c3d338b498a9f
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_v100_reduce/bin/spa_kokkos_cuda
+build      arch    v100_reduce reduce  1 commit  a3a47b79f3fd8ea3ad1d15c9154c3d338b498a9f date    2026-09-23T10:11:00+02:00 
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+ranks      1
+gpus       1
+npart      30000000
+reorder    0
+label      reduce
+nsys delay 0  duration 0
