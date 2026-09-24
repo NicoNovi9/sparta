@@ -1,0 +1,14 @@
+job        1217619.pbs60
+date       2026-09-24T14:50:48+02:00
+arch       cpu
+nodes      2
+ranks      384 (192 per node)
+nsteps     1000
+npart      120000000
+gpu_aware  1
+balance    deck (rcb cell)
+input      /hpc/data/cfd-students/nnoventa/sparta/nicola/input/in.sparta.gpu
+commit     7fb3c7bd2978d271a2f91575735b56617b7d84e2
+build      arch    cpu-zen4 branch  master commit  745ec74ccf7c1a0f6d892e3424065c54c64cec25 date    2026-09-24T14:31:41+02:00 
+exe        /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+hosts      pn6405.cm.cluster pn6407.cm.cluster 
