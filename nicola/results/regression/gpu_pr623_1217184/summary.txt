@@ -1,0 +1,151 @@
+deck                                                   ref vs ref            test vs ref
+ablate.axi.spherecone                      FAILED   21.53% Nscoll FAILED   12.50% Nscoll
+ablation.2d                                      passed    0.00%  passed    2.21% Nscoll
+ablation.3d                                      passed    0.00%        passed    0.00% 
+ablation.3d.reactions                      FAILED    9.81% Nsreac FAILED    8.30% Nsreac
+ablation.multi.inner.3d                          passed    0.00%        passed    0.00% 
+adapt.rotate                                     passed    0.00%        passed    0.00% 
+adapt.slide                                      passed    0.00%        passed    0.00% 
+adapt.static                                     passed    0.00%        passed    0.00% 
+adapt.static.paraview                            passed    0.00%        passed    0.00% 
+ambi                                             FAILED    0.00%        FAILED    0.00% 
+ambi.group                                  passed    3.23% Ncoll  FAILED    8.06% Ncoll  <--
+ambi.group.react                           FAILED  175.00% Nreact FAILED   87.50% Nreact
+ambi_3body                                 FAILED   34.44% Nreact FAILED   24.44% Nreact
+axi                                        FAILED   10.08% Nscoll FAILED   10.92% Nscoll
+beam.adiabatic                                 passed    0.13% Np     passed    0.36% Np
+beam.cll                                       passed    0.10% Np     passed    0.28% Np
+beam.diffuse                                   passed    0.12% Np     passed    0.34% Np
+beam.face.gs                                   passed    0.04% Np     passed    0.15% Np
+beam.face.gs_ps                                passed    1.13% Np     passed    1.46% Np
+beam.face.ps                                   passed    0.09% Np     passed    0.30% Np
+beam.impulsive                                 passed    0.15% Np     passed    0.46% Np
+beam.specular                                    passed    0.00%        passed    0.00% 
+beam.surf.gs                               passed    0.04% Nschec passed    0.17% Nschec
+beam.surf.gs_ps                            passed    0.93% Nschec passed    1.32% Nschec
+beam.surf.ps                               passed    0.15% Nschec passed    0.28% Nschec
+beam.td                                        passed    0.12% Np     passed    0.46% Np
+bfield                                      passed    2.29% Ncoll  passed    2.78% Ncoll
+bfield.grid                                 passed    2.15% Ncoll  passed    3.33% Ncoll
+chem                                       FAILED  133.33% Nreact FAILED  233.33% Nreact
+chem.gastally                              FAILED   84.62% Nreact FAILED   61.54% Nreact
+chem_rates                                  FAILED    7.57% Ncoll  FAILED    6.81% Ncoll
+circle                                           passed    0.00%        passed    0.00% 
+circle.adiabatic                           passed    2.00% Nscoll passed    3.55% Nscoll
+circle.adjust                              FAILED   27.64% Nscoll FAILED   29.27% Nscoll
+circle.cll                                 passed    2.15% Nscoll passed    2.70% Nscoll
+circle.constant                            FAILED   21.47% Nscoll FAILED   19.37% Nscoll
+circle.diffuse                             passed    3.37% Nscoll passed    4.35% Nscoll
+circle.distributed                               passed    0.00%        passed    0.00% 
+circle.gs                                  passed    0.94% Nschec passed    0.93% Nschec
+circle.gs_ps                               passed    3.92% Nscoll passed    2.92% Nscoll
+circle.impulsive                           passed    2.73% Nscoll FAILED    5.86% Nscoll  <--
+circle.paraview                                  passed    0.00%        passed    0.00% 
+circle.ps                                  passed    3.27% Nscoll passed    4.53% Nscoll
+circle.pyvar                                     FAILED    0.00%        FAILED    0.00% 
+circle.specular                                  passed    0.00%        passed    0.00% 
+circle.td                                  passed    3.69% Nscoll passed    2.68% Nscoll
+circle.transparent                               passed    0.00%        passed    0.00% 
+collide                                     passed    2.07% Ncoll   passed    1.75% Natt
+collide.group                               passed    4.60% Ncoll  passed    3.94% Ncoll
+collideInterspecies                         FAILED    5.19% Ncoll  passed    3.95% Ncoll
+collide_2D                                  passed    1.85% Ncoll  passed    1.33% Ncoll
+collide_2D_nn                               passed    1.92% Ncoll  passed    1.67% Ncoll
+collide_2D_sub                              passed    2.29% Ncoll  passed    1.48% Ncoll
+collide_3D                                  passed    0.48% Ncoll  passed    0.41% Ncoll
+collide_3D_nn                               passed    0.53% Ncoll  passed    0.50% Ncoll
+collide_3D_sub                              passed    0.90% Ncoll  passed    0.81% Ncoll
+custom.circle.file                               passed    0.00%        passed    0.00% 
+custom.circle.file.distributed                   passed    0.00%        passed    0.00% 
+custom.circle.file.fix                           passed    0.00%        passed    0.00% 
+custom.circle.file.fix.distributed               passed    0.00%        passed    0.00% 
+custom.circle.set                                passed    0.00%        passed    0.00% 
+custom.circle.set.distributed                    passed    0.00%        passed    0.00% 
+custom.circle.set.fix                            passed    0.00%        passed    0.00% 
+custom.circle.set.fix.distributed                passed    0.00%        passed    0.00% 
+custom.coarse.2d                                 passed    0.00%        passed    0.00% 
+custom.coarse.3d                                 passed    0.00%        passed    0.00% 
+custom.collide.create                            passed    0.00%        passed    0.00% 
+custom.cube.clip                                 passed    0.00%        passed    0.00% 
+custom.cube.read                                 passed    0.00%        passed    0.00% 
+custom.cube.read.restart                         FAILED    0.00%        FAILED    0.00% 
+custom.cube.reread                               passed    0.00%        passed    0.00% 
+custom.cube.set                                  passed    0.00%        passed    0.00% 
+custom.cube.set.restart                          FAILED    0.00%        FAILED    0.00% 
+custom.spiky.set                                 passed    0.00%        passed    0.00% 
+custom.step.clip                                 passed    0.00%        passed    0.00% 
+custom.step.read                                 passed    0.00%        passed    0.00% 
+custom.step.read.restart                         FAILED    0.00%        FAILED    0.00% 
+custom.step.set                                  passed    0.00%        passed    0.00% 
+custom.step.temp.read                            passed    0.00%        passed    0.00% 
+custom.step.temp.remove                          passed    0.00%        passed    0.00% 
+custom.step.temp.variable                        passed    0.00%        passed    0.00% 
+cylinder                                         FAILED    0.00%        FAILED    0.00% 
+emit.face                                        passed    0.00%        passed    0.00% 
+emit.face.region                                 passed    0.00%        passed    0.00% 
+emit.surf.boundary                               passed    0.00%        passed    0.00% 
+emit.surf.flow                                   passed    0.00%        passed    0.00% 
+emit.surf.flow.region                            passed    0.00%        passed    0.00% 
+emit.surf.mflow                                  FAILED    0.00%        FAILED    0.00% 
+emit.surf.mflow.single                           FAILED    0.00%        FAILED    0.00% 
+emit.surf.normal                                 passed    0.00%        passed    0.00% 
+emit.surf.normal.region                          passed    0.00%        passed    0.00% 
+emit.surf.subsonic                               passed    0.00%        passed    0.00% 
+exp2imp.axi.circle                               passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone                           passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone.readback                  passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone.readback2                 FAILED    0.00%  passed    2.22% Nscoll
+exp2imp.circle.2d                                passed    0.00%        passed    0.00% 
+exp2imp.sphere.3d                                passed    0.00%        passed    0.00% 
+fft.2d                                           FAILED    0.00%        FAILED    0.00% 
+fft.3d                                           FAILED    0.00%        FAILED    0.00% 
+flowfile                                         passed    0.00%        passed    0.00% 
+free                                             passed    0.00%        passed    0.00% 
+free.restart                                     passed    0.00%        passed    0.00% 
+gas.collision.tally                         passed    2.04% Ncoll  passed    2.40% Ncoll
+gas.reaction.tally                         FAILED   70.00% Nreact FAILED   75.00% Nreact
+implicit.2d                                      FAILED    0.00%        FAILED    0.00% 
+implicit.2d.rectangle                            FAILED    0.00%        FAILED    0.00% 
+implicit.3d.big                                  FAILED    0.00%        FAILED    0.00% 
+implicit.3d.small                                FAILED    0.00%        FAILED    0.00% 
+jagged.2d                                        passed    0.00%        passed    0.00% 
+jagged.2d.distributed                            passed    0.00%        passed    0.00% 
+jagged.3d                                        FAILED    0.00%        FAILED    0.00% 
+jagged.3d.distributed                            FAILED    0.00%        FAILED    0.00% 
+mfp_mct                                     FAILED    1.96% Ncoll  FAILED    1.81% Ncoll
+optmove                                     FAILED   10.39% Ncoll   passed    4.52% Natt
+optmove.axi                                 FAILED    9.82% Nexit  FAILED    5.89% Nexit
+optmove.flow                                     passed    0.00%        passed    0.00% 
+optmove.surf                               passed    2.51% Nbound passed    1.35% Nbound
+piston                                      FAILED    9.12% Ncoll  FAILED    6.86% Ncoll
+qk                                         FAILED   66.67% Nreact  FAILED    4.82% Ncoll
+regions                                      FAILED   22.73% Natt  FAILED   33.33% Ncoll
+relax_const                                      FAILED    0.00%        FAILED    0.00% 
+relax_variable                              passed    0.15% Ncoll  passed    0.16% Ncoll
+shocktube                                   passed    1.33% Ncoll  passed    1.21% Ncoll
+sphere                                           passed    0.00%        passed    0.00% 
+sphere.adjust                              FAILED   53.12% Nscoll FAILED   40.62% Nscoll
+sphere.constant                            FAILED   50.94% Nscoll FAILED   45.28% Nscoll
+sphere.distributed                               passed    0.00%        passed    0.00% 
+sphere.paraview                                  passed    0.00%        passed    0.00% 
+spiky                                            passed    0.00%        passed    0.00% 
+step                                             passed    0.00%        passed    0.00% 
+surf.add                                         passed    0.00%        passed    0.00% 
+surf.collision.tally                             passed    0.00%        passed    0.00% 
+surf.move                                        passed    0.00%        passed    0.00% 
+surf.reaction.tally                        passed    0.92% Nschec passed    0.80% Nschec
+surf.remove                                      passed    0.00%        passed    0.00% 
+surf.rotate                                      passed    0.00%        passed    0.00% 
+surf.slide                                       passed    0.00%        passed    0.00% 
+surf_react_heatflux                        FAILED  110.00% c_eche FAILED   76.92% Nscoll
+thermostat                                  passed    2.79% Ncoll  passed    3.57% Ncoll
+thermostat_ave                              passed    2.97% Ncoll  passed    3.11% Ncoll
+torque                                       passed    1.08% v_Cd   passed    1.66% v_Cd
+variable_dt                                 FAILED    5.02% Ncoll   passed    4.39% Natt
+vibrate                                      FAILED   19.49% c_Sv   FAILED   23.90% c_Sv
+vtk                                              FAILED    0.00%        FAILED    0.00% 
+vtk.3d                                           FAILED    0.00%        FAILED    0.00% 
+
+passed: reference 103/146, test 105/146
+<-- : passes against itself with the reference build, fails with the test build
+DRIVER : regression.py raised an exception on this deck, not compared

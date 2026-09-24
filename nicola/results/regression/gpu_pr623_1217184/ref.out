@@ -1,0 +1,3556 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:05:23 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ablation
+test = ablation.2d
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test ablation.2d ====
+==== comparing log.ab.ablation.2d with log.archive.24Sep26.ab.ablation.2d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_bal    error  0.0 wrt norm     1.0
+f_bal[2]  error  0.0 wrt norm     1.0
+f_ablate  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test ablation.2d passed
+elapsed time = 3.5930137634277344 s for test ablation.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ablation
+test = ablation.3d
+100 
+read 11 log entries
+100 
+read 11 log entries
+==== generating gold standard for test ablation.3d ====
+==== comparing log.ab.ablation.3d with log.archive.24Sep26.ab.ablation.3d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_ablate  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test ablation.3d passed
+elapsed time = 131.75388598442078 s for test ablation.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ablation
+test = ablation.3d.reactions
+200 
+read 21 log entries
+200 
+read 21 log entries
+==== generating gold standard for test ablation.3d.reactions ====
+==== comparing log.ab.ablation.3d.reactions with log.archive.24Sep26.ab.ablation.3d.reactions ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.024088093599449415 wrt norm     1.0
+Nscoll   error 0.044613194114855245 wrt norm     1.0
+Nsreact  error 0.09811320754716982 wrt norm     1.0
+f_ablate  error 1.2944701998250112e-05 wrt norm     1.0
+!!! test ablation.3d.reactions FAILED
+elapsed time = 40.6102774143219 s for test ablation.3d.reactions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ablation
+test = ablation.multi.inner.3d
+100 
+read 101 log entries
+100 
+read 101 log entries
+==== generating gold standard for test ablation.multi.inner.3d ====
+==== comparing log.ab.ablation.multi.inner.3d with log.archive.24Sep26.ab.ablation.multi.inner.3d ====
+Step     error  0.0 wrt norm     1.0
+c_1r     error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test ablation.multi.inner.3d passed
+elapsed time = 1.8246638774871826 s for test ablation.multi.inner.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:08:21 2026
+!!! 1 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ablation', 'ablation.3d.reactions']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:08:21 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adapt
+test = adapt.rotate
+400 10400 
+read 105 log entries
+400 10400 
+read 105 log entries
+==== generating gold standard for test adapt.rotate ====
+==== comparing log.ab.adapt.rotate with log.archive.24Sep26.ab.adapt.rotate ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test adapt.rotate passed
+elapsed time = 15.75704026222229 s for test adapt.rotate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adapt
+test = adapt.slide
+400 10400 12400 
+read 125 log entries
+400 10400 12400 
+read 125 log entries
+==== generating gold standard for test adapt.slide ====
+==== comparing log.ab.adapt.slide with log.archive.24Sep26.ab.adapt.slide ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test adapt.slide passed
+elapsed time = 18.579946756362915 s for test adapt.slide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adapt
+test = adapt.static
+500 2500 5500 
+read 56 log entries
+500 2500 5500 
+read 56 log entries
+==== generating gold standard for test adapt.static ====
+==== comparing log.ab.adapt.static with log.archive.24Sep26.ab.adapt.static ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test adapt.static passed
+elapsed time = 8.405765295028687 s for test adapt.static
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:09:03 2026
+3 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:09:03 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp
+test = circle.adjust
+2000 
+read 9 log entries
+2000 
+read 9 log entries
+==== generating gold standard for test circle.adjust ====
+==== comparing log.ab.circle.adjust with log.archive.24Sep26.ab.circle.adjust ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0025961984237366713 wrt norm     1.0
+Natt     error 0.03722261989978525 wrt norm     1.0
+Ncoll    error 0.08137254901960785 wrt norm     1.0
+Nscoll   error 0.2764227642276423 wrt norm     1.0
+Ngrid    error 0.01749933208656158 wrt norm     1.0
+Maxlevel  error  0.0 wrt norm     1.0
+!!! test circle.adjust FAILED
+elapsed time = 4.229663372039795 s for test circle.adjust
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp
+test = sphere.constant
+2000 
+read 9 log entries
+2000 
+read 9 log entries
+==== generating gold standard for test sphere.constant ====
+==== comparing log.ab.sphere.constant with log.archive.24Sep26.ab.sphere.constant ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0015200680486421776 wrt norm     1.0
+Natt     error 0.12268518518518519 wrt norm     1.0
+Ncoll    error 0.13836477987421383 wrt norm     1.0
+Nscoll   error 0.5094339622641509 wrt norm     1.0
+Ngrid    error 0.003365397218924496 wrt norm     1.0
+Maxlevel  error  0.0 wrt norm     1.0
+!!! test sphere.constant FAILED
+elapsed time = 23.443252086639404 s for test sphere.constant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp
+test = circle.constant
+2000 
+read 9 log entries
+2000 
+read 9 log entries
+==== generating gold standard for test circle.constant ====
+==== comparing log.ab.circle.constant with log.archive.24Sep26.ab.circle.constant ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0016587354165297028 wrt norm     1.0
+Natt     error 0.05291005291005291 wrt norm     1.0
+Ncoll    error 0.08489208633093524 wrt norm     1.0
+Nscoll   error 0.21465968586387435 wrt norm     1.0
+Ngrid    error 0.009958899778691117 wrt norm     1.0
+Maxlevel  error  0.0 wrt norm     1.0
+!!! test circle.constant FAILED
+elapsed time = 4.36633563041687 s for test circle.constant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp
+test = sphere.adjust
+2000 
+read 9 log entries
+2000 
+read 9 log entries
+==== generating gold standard for test sphere.adjust ====
+==== comparing log.ab.sphere.adjust with log.archive.24Sep26.ab.sphere.adjust ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0022013001924158083 wrt norm     1.0
+Natt     error 0.11475409836065574 wrt norm     1.0
+Ncoll    error 0.12992125984251968 wrt norm     1.0
+Nscoll   error 0.53125 wrt norm     1.0
+Ngrid    error 0.003130282231826256 wrt norm     1.0
+Maxlevel  error  0.0 wrt norm     1.0
+!!! test sphere.adjust FAILED
+elapsed time = 22.87472438812256 s for test sphere.adjust
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:09:58 2026
+!!! 4 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp', 'circle.adjust']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp', 'sphere.constant']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp', 'circle.constant']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/adjust_temp', 'sphere.adjust']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:09:58 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi
+test = ambi.group.react
+300 
+read 13 log entries
+300 
+read 13 log entries
+==== generating gold standard for test ambi.group.react ====
+==== comparing log.ab.ambi.group.react with log.archive.24Sep26.ab.ambi.group.react ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0006816528166047562 wrt norm     1.0
+Natt     error 0.004681207176107537 wrt norm     1.0
+Ncoll    error 0.02801828971689853 wrt norm     1.0
+Nreact   error 1.7499999999999998 wrt norm     1.0
+c_temp   error 0.0037283545637082386 wrt norm     1.0
+!!! test ambi.group.react FAILED
+elapsed time = 1.8554973602294922 s for test ambi.group.react
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi
+test = ambi
+==== generating gold standard for test ambi ====
+==== comparing log.ab.ambi with log.archive.24Sep26.ab.ambi ====
+ERROR on proc 0: Ran out of space in Kokkos collisions, increase react/extra or use react/retry (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/collide_vss_kokkos.cpp:2625)
+!!! test ambi FAILED
+elapsed time = 4.210167646408081 s for test ambi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi
+test = ambi.group
+300 
+read 7 log entries
+300 
+read 7 log entries
+==== generating gold standard for test ambi.group ====
+==== comparing log.ab.ambi.group with log.archive.24Sep26.ab.ambi.group ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0020920502092050207 wrt norm     1.0
+Ncoll    error 0.03225806451612903 wrt norm     1.0
+c_temp   error 6.049463973727852e-05 wrt norm     1.0
+
+WARNING: Only 2 out of 7 rows are identical
+*** test ambi.group passed
+elapsed time = 1.653301477432251 s for test ambi.group
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:06 2026
+!!! 2 of 3 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi', 'ambi.group.react']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi', 'ambi']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi', 'ambi.group']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:06 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi_3body
+test = ambi_3body
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test ambi_3body ====
+==== comparing log.ab.ambi_3body with log.archive.24Sep26.ab.ambi_3body ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0003437570783313125 wrt norm     1.0
+Natt     error 0.0007283556400430642 wrt norm     1.0
+Ncoll    error 0.010120077604740181 wrt norm     1.0
+Nreact   error 0.3444444444444445 wrt norm     1.0
+c_c[1]   error 0.000737332456917493 wrt norm     1.0
+c_c[2]   error 0.002030052115162181 wrt norm     1.0
+c_c[3]   error  0.0 wrt norm     1.0
+c_c[4]            error  0.0
+!!! test ambi_3body FAILED
+elapsed time = 7.5908522605896 s for test ambi_3body
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:14 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/ambi_3body', 'ambi_3body']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:14 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/axi
+test = axi
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test axi ====
+==== comparing log.ab.axi with log.archive.24Sep26.ab.axi ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.005166634435634629 wrt norm     1.0
+Natt     error 0.008458538823259547 wrt norm     1.0
+Ncoll    error 0.016025111514951264 wrt norm     1.0
+Nscoll   error 0.10084033613445378 wrt norm     1.0
+Nscheck  error 0.02779450293729964 wrt norm     1.0
+!!! test axi FAILED
+elapsed time = 4.124882698059082 s for test axi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:18 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/axi', 'axi']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:18 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/bfield
+test = bfield.grid
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test bfield.grid ====
+==== comparing log.ab.bfield.grid with log.archive.24Sep26.ab.bfield.grid ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.013146189581891865 wrt norm     1.0
+Ncoll    error 0.02149772209567198 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test bfield.grid passed
+elapsed time = 1.866966724395752 s for test bfield.grid
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/bfield
+test = bfield
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test bfield ====
+==== comparing log.ab.bfield with log.archive.24Sep26.ab.bfield ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.018316100443131464 wrt norm     1.0
+Ncoll    error 0.022853087295954578 wrt norm     1.0
+c_temp   error 5.3235723413530205e-05 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test bfield passed
+elapsed time = 10.902003765106201 s for test bfield
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:31 2026
+2 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/bfield', 'bfield.grid']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/bfield', 'bfield']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:31 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem
+test = chem.gastally
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test chem.gastally ====
+==== comparing log.ab.chem.gastally with log.archive.24Sep26.ab.chem.gastally ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0013131766062391902 wrt norm     1.0
+Natt     error 0.01668283220174588 wrt norm     1.0
+Ncoll    error 0.046801872074883 wrt norm     1.0
+Nreact   error 0.8461538461538461 wrt norm     1.0
+c_temp   error 0.004750876797108708 wrt norm     1.0
+c_sumcc  error 0.04334121355397951 wrt norm     1.0
+c_sumcr  error 0.8461538461538461 wrt norm     1.0
+!!! test chem.gastally FAILED
+elapsed time = 1.82509446144104 s for test chem.gastally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem
+test = chem
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test chem ====
+==== comparing log.ab.chem with log.archive.24Sep26.ab.chem ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.000977226376614548 wrt norm     1.0
+Natt     error 0.011093934709466218 wrt norm     1.0
+Ncoll    error 0.0652337858220211 wrt norm     1.0
+Nreact   error 1.3333333333333335 wrt norm     1.0
+c_temp   error 0.0057737356452743655 wrt norm     1.0
+!!! test chem FAILED
+elapsed time = 1.939056396484375 s for test chem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:34 2026
+!!! 2 of 2 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem', 'chem.gastally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem', 'chem']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:35 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem_rates
+test = chem_rates
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test chem_rates ====
+==== comparing log.ab.chem_rates with log.archive.24Sep26.ab.chem_rates ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.013080168776371307 wrt norm     1.0
+Ncoll    error 0.0757453666398066 wrt norm     1.0
+Nreact            error  0.0
+c_temp   error 0.0046953597890453105 wrt norm     1.0
+!!! test chem_rates FAILED
+elapsed time = 1.9621589183807373 s for test chem_rates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:36 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/chem_rates', 'chem_rates']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:37 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/circle
+test = circle.distributed
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.distributed ====
+==== comparing log.ab.circle.distributed with log.archive.24Sep26.ab.circle.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle.distributed passed
+elapsed time = 2.599437952041626 s for test circle.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/circle
+test = circle
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle ====
+==== comparing log.ab.circle with log.archive.24Sep26.ab.circle ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle passed
+elapsed time = 2.5807437896728516 s for test circle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/circle
+test = circle.transparent
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.transparent ====
+==== comparing log.ab.circle.transparent with log.archive.24Sep26.ab.circle.transparent ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+c_reduce[1]  error  0.0 wrt norm     1.0
+c_reduce[2]           error  0.0
+c_reduce[3]  error  0.0 wrt norm     1.0
+c_reduce[4]           error  0.0
+
+All rows are identical
+*** test circle.transparent passed
+elapsed time = 3.0403096675872803 s for test circle.transparent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:10:45 2026
+3 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:10:45 2026
+ntests: 9
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_3D
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_3D ====
+==== comparing log.ab.collide_3D with log.archive.24Sep26.ab.collide_3D ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0008603903455146492 wrt norm     1.0
+Ncoll    error 0.004774359291816269 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_3D passed
+elapsed time = 2.4350247383117676 s for test collide_3D
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide.group
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide.group ====
+==== comparing log.ab.collide.group with log.archive.24Sep26.ab.collide.group ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.015680784039201957 wrt norm     1.0
+Ncoll    error 0.04595924104005621 wrt norm     1.0
+c_temp   error 0.004589824289603913 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide.group passed
+elapsed time = 1.9036040306091309 s for test collide.group
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_2D_nn
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_2D_nn ====
+==== comparing log.ab.collide_2D_nn with log.archive.24Sep26.ab.collide_2D_nn ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0035688507498596524 wrt norm     1.0
+Ncoll    error 0.019237906717802795 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_2D_nn passed
+elapsed time = 3.348743438720703 s for test collide_2D_nn
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collideInterspecies
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collideInterspecies ====
+==== comparing log.ab.collideInterspecies with log.archive.24Sep26.ab.collideInterspecies ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.012441041766354502 wrt norm     1.0
+Ncoll    error 0.051913337084974684 wrt norm     1.0
+c_temp   error 0.005263630546793436 wrt norm     1.0
+!!! test collideInterspecies FAILED
+elapsed time = 1.9042706489562988 s for test collideInterspecies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_3D_sub
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_3D_sub ====
+==== comparing log.ab.collide_3D_sub with log.archive.24Sep26.ab.collide_3D_sub ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0006743258000070451 wrt norm     1.0
+Ncoll    error 0.008973831500011645 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_3D_sub passed
+elapsed time = 4.58040976524353 s for test collide_3D_sub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide ====
+==== comparing log.ab.collide with log.archive.24Sep26.ab.collide ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.015778708483490795 wrt norm     1.0
+Ncoll    error 0.020716685330347144 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide passed
+elapsed time = 1.8562233448028564 s for test collide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_2D_sub
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_2D_sub ====
+==== comparing log.ab.collide_2D_sub with log.archive.24Sep26.ab.collide_2D_sub ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.002965575281529275 wrt norm     1.0
+Ncoll    error 0.02293095988627233 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_2D_sub passed
+elapsed time = 2.9647433757781982 s for test collide_2D_sub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_2D
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_2D ====
+==== comparing log.ab.collide_2D with log.archive.24Sep26.ab.collide_2D ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.003673681268218664 wrt norm     1.0
+Ncoll    error 0.018516224919494676 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_2D passed
+elapsed time = 2.2143890857696533 s for test collide_2D
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide
+test = collide_3D_nn
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test collide_3D_nn ====
+==== comparing log.ab.collide_3D_nn with log.archive.24Sep26.ab.collide_3D_nn ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0009213017036529865 wrt norm     1.0
+Ncoll    error 0.005253559927055446 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test collide_3D_nn passed
+elapsed time = 4.871362924575806 s for test collide_3D_nn
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:11:11 2026
+!!! 1 of 9 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collideInterspecies']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_3D']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide.group']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_2D_nn']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_3D_sub']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_2D_sub']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_2D']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/collide', 'collide_3D_nn']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:11:11 2026
+ntests: 25
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.file.fix.distributed
+2000 
+read 21 log entries
+2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.file.fix.distributed ====
+==== comparing log.ab.custom.circle.file.fix.distributed with log.archive.24Sep26.ab.custom.circle.file.fix.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.file.fix.distributed passed
+elapsed time = 2.648329734802246 s for test custom.circle.file.fix.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.temp.variable
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test custom.step.temp.variable ====
+==== comparing log.ab.custom.step.temp.variable with log.archive.24Sep26.ab.custom.step.temp.variable ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.step.temp.variable passed
+elapsed time = 2.0477049350738525 s for test custom.step.temp.variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.set.fix.distributed
+2000 
+read 21 log entries
+2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.set.fix.distributed ====
+==== comparing log.ab.custom.circle.set.fix.distributed with log.archive.24Sep26.ab.custom.circle.set.fix.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.set.fix.distributed passed
+elapsed time = 2.6827733516693115 s for test custom.circle.set.fix.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.coarse.3d
+10 
+read 2 log entries
+10 
+read 2 log entries
+==== generating gold standard for test custom.coarse.3d ====
+==== comparing log.ab.custom.coarse.3d with log.archive.24Sep26.ab.custom.coarse.3d ====
+Step     error  0.0 wrt norm     1.0
+Np                error  0.0
+Natt              error  0.0
+Ncoll             error  0.0
+c_temp            error  0.0
+
+All rows are identical
+*** test custom.coarse.3d passed
+elapsed time = 1.416996955871582 s for test custom.coarse.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.set.distributed
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.set.distributed ====
+==== comparing log.ab.custom.circle.set.distributed with log.archive.24Sep26.ab.custom.circle.set.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.set.distributed passed
+elapsed time = 2.7029805183410645 s for test custom.circle.set.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.read.restart
+==== generating gold standard for test custom.cube.read.restart ====
+==== comparing log.ab.custom.cube.read.restart with log.archive.24Sep26.ab.custom.cube.read.restart ====
+ERROR on proc 0: Cannot open restart file tmp.cube.read.restart.base (/hpc/data/cfd-students/nnoventa/sparta/src/read_restart.cpp:114)
+!!! test custom.cube.read.restart FAILED
+elapsed time = 3.2151427268981934 s for test custom.cube.read.restart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.temp.remove
+500 1000 
+read 21 log entries
+500 1000 
+read 21 log entries
+==== generating gold standard for test custom.step.temp.remove ====
+==== comparing log.ab.custom.step.temp.remove with log.archive.24Sep26.ab.custom.step.temp.remove ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.step.temp.remove passed
+elapsed time = 2.664217233657837 s for test custom.step.temp.remove
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.temp.read
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test custom.step.temp.read ====
+==== comparing log.ab.custom.step.temp.read with log.archive.24Sep26.ab.custom.step.temp.read ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.step.temp.read passed
+elapsed time = 2.034332275390625 s for test custom.step.temp.read
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.clip
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test custom.step.clip ====
+==== comparing log.ab.custom.step.clip with log.archive.24Sep26.ab.custom.step.clip ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_1[1]   error  0.0 wrt norm     1.0
+f_1[2]   error  0.0 wrt norm     1.0
+f_1[3]            error  0.0
+
+All rows are identical
+*** test custom.step.clip passed
+elapsed time = 2.0972166061401367 s for test custom.step.clip
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.set.fix
+2000 
+read 21 log entries
+2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.set.fix ====
+==== comparing log.ab.custom.circle.set.fix with log.archive.24Sep26.ab.custom.circle.set.fix ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.set.fix passed
+elapsed time = 2.695777654647827 s for test custom.circle.set.fix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.read
+500 1000 1500 
+read 31 log entries
+500 1000 1500 
+read 31 log entries
+==== generating gold standard for test custom.step.read ====
+==== comparing log.ab.custom.step.read with log.archive.24Sep26.ab.custom.step.read ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_1[1]   error  0.0 wrt norm     1.0
+f_1[2]   error  0.0 wrt norm     1.0
+f_1[3]            error  0.0
+
+All rows are identical
+*** test custom.step.read passed
+elapsed time = 3.5660853385925293 s for test custom.step.read
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.file
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.file ====
+==== comparing log.ab.custom.circle.file with log.archive.24Sep26.ab.custom.circle.file ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.file passed
+elapsed time = 2.6927318572998047 s for test custom.circle.file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.coarse.2d
+10 
+read 2 log entries
+10 
+read 2 log entries
+==== generating gold standard for test custom.coarse.2d ====
+==== comparing log.ab.custom.coarse.2d with log.archive.24Sep26.ab.custom.coarse.2d ====
+Step     error  0.0 wrt norm     1.0
+Np                error  0.0
+Natt              error  0.0
+Ncoll             error  0.0
+c_temp            error  0.0
+
+All rows are identical
+*** test custom.coarse.2d passed
+elapsed time = 1.3780343532562256 s for test custom.coarse.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.read.restart
+==== generating gold standard for test custom.step.read.restart ====
+==== comparing log.ab.custom.step.read.restart with log.archive.24Sep26.ab.custom.step.read.restart ====
+Kokkos::DualView::modify_host ERROR: Concurrent modification of host and device views in DualView "grid:ivector"
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test custom.step.read.restart FAILED
+elapsed time = 7.863511323928833 s for test custom.step.read.restart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.spiky.set
+0 500 1000 
+read 21 log entries
+0 500 1000 
+read 21 log entries
+==== generating gold standard for test custom.spiky.set ====
+==== comparing log.ab.custom.spiky.set with log.archive.24Sep26.ab.custom.spiky.set ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.spiky.set passed
+elapsed time = 3.8858695030212402 s for test custom.spiky.set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.read
+500 1000 1500 
+read 31 log entries
+500 1000 1500 
+read 31 log entries
+==== generating gold standard for test custom.cube.read ====
+==== comparing log.ab.custom.cube.read with log.archive.24Sep26.ab.custom.cube.read ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_1[1]   error  0.0 wrt norm     1.0
+f_1[2]   error  0.0 wrt norm     1.0
+f_1[3]            error  0.0
+
+All rows are identical
+*** test custom.cube.read passed
+elapsed time = 3.688795804977417 s for test custom.cube.read
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.file.distributed
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.file.distributed ====
+==== comparing log.ab.custom.circle.file.distributed with log.archive.24Sep26.ab.custom.circle.file.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.file.distributed passed
+elapsed time = 2.7101187705993652 s for test custom.circle.file.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.set
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.set ====
+==== comparing log.ab.custom.circle.set with log.archive.24Sep26.ab.custom.circle.set ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.set passed
+elapsed time = 2.6822965145111084 s for test custom.circle.set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.collide.create
+0 1000 
+read 11 log entries
+0 1000 
+read 11 log entries
+==== generating gold standard for test custom.collide.create ====
+==== comparing log.ab.custom.collide.create with log.archive.24Sep26.ab.custom.collide.create ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.collide.create passed
+elapsed time = 1.8975086212158203 s for test custom.collide.create
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.step.set
+0 0 500 1000 1500 
+read 31 log entries
+0 0 500 1000 1500 
+read 31 log entries
+==== generating gold standard for test custom.step.set ====
+==== comparing log.ab.custom.step.set with log.archive.24Sep26.ab.custom.step.set ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.step.set passed
+elapsed time = 3.5687623023986816 s for test custom.step.set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.circle.file.fix
+2000 
+read 21 log entries
+2000 
+read 21 log entries
+==== generating gold standard for test custom.circle.file.fix ====
+==== comparing log.ab.custom.circle.file.fix with log.archive.24Sep26.ab.custom.circle.file.fix ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.circle.file.fix passed
+elapsed time = 2.702143907546997 s for test custom.circle.file.fix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.clip
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test custom.cube.clip ====
+==== comparing log.ab.custom.cube.clip with log.archive.24Sep26.ab.custom.cube.clip ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+f_1[1]   error  0.0 wrt norm     1.0
+f_1[2]   error  0.0 wrt norm     1.0
+f_1[3]            error  0.0
+
+All rows are identical
+*** test custom.cube.clip passed
+elapsed time = 2.086822032928467 s for test custom.cube.clip
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.reread
+50 
+read 6 log entries
+50 
+read 6 log entries
+==== generating gold standard for test custom.cube.reread ====
+==== comparing log.ab.custom.cube.reread with log.archive.24Sep26.ab.custom.cube.reread ====
+Step     error  0.0 wrt norm     1.0
+Np                error  0.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test custom.cube.reread passed
+elapsed time = 1.4490177631378174 s for test custom.cube.reread
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.set.restart
+==== generating gold standard for test custom.cube.set.restart ====
+==== comparing log.ab.custom.cube.set.restart with log.archive.24Sep26.ab.custom.cube.set.restart ====
+Kokkos::DualView::modify_host ERROR: Concurrent modification of host and device views in DualView "grid:ivector"
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test custom.cube.set.restart FAILED
+elapsed time = 7.838859796524048 s for test custom.cube.set.restart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom
+test = custom.cube.set
+0 0 500 1000 1500 
+read 31 log entries
+0 0 500 1000 1500 
+read 31 log entries
+==== generating gold standard for test custom.cube.set ====
+==== comparing log.ab.custom.cube.set with log.archive.24Sep26.ab.custom.cube.set ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test custom.cube.set passed
+elapsed time = 3.855781316757202 s for test custom.cube.set
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:12:27 2026
+!!! 3 of 25 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom', 'custom.cube.read.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom', 'custom.step.read.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/custom', 'custom.cube.set.restart']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:12:27 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/cylinder
+test = cylinder
+==== generating gold standard for test cylinder ====
+==== comparing log.ab.cylinder with log.archive.24Sep26.ab.cylinder ====
+  what():  Kokkos ERROR: Cuda memory space failed to allocate 16.94 GiB (label="particle:particles").
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test cylinder FAILED
+elapsed time = 338.7005183696747 s for test cylinder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:18:06 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/cylinder', 'cylinder']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:18:06 2026
+ntests: 10
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.subsonic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test emit.surf.subsonic ====
+==== comparing log.ab.emit.surf.subsonic with log.archive.24Sep26.ab.emit.surf.subsonic ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+f_in[1]  error  0.0 wrt norm     1.0
+f_in[2]  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.subsonic passed
+elapsed time = 3.5827157497406006 s for test emit.surf.subsonic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.normal.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.normal.region ====
+==== comparing log.ab.emit.surf.normal.region with log.archive.24Sep26.ab.emit.surf.normal.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.normal.region passed
+elapsed time = 1.833125352859497 s for test emit.surf.normal.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.normal
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.normal ====
+==== comparing log.ab.emit.surf.normal with log.archive.24Sep26.ab.emit.surf.normal ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+c_cs[1]  error  0.0 wrt norm     1.0
+c_cs[2]           error  0.0
+
+All rows are identical
+*** test emit.surf.normal passed
+elapsed time = 1.8778502941131592 s for test emit.surf.normal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.flow.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.flow.region ====
+==== comparing log.ab.emit.surf.flow.region with log.archive.24Sep26.ab.emit.surf.flow.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.flow.region passed
+elapsed time = 1.8076541423797607 s for test emit.surf.flow.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.mflow
+==== generating gold standard for test emit.surf.mflow ====
+==== comparing log.ab.emit.surf.mflow with log.archive.24Sep26.ab.emit.surf.mflow ====
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test emit.surf.mflow FAILED
+elapsed time = 7.6132025718688965 s for test emit.surf.mflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.flow
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.flow ====
+==== comparing log.ab.emit.surf.flow with log.archive.24Sep26.ab.emit.surf.flow ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.flow passed
+elapsed time = 1.8476200103759766 s for test emit.surf.flow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.boundary
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.boundary ====
+==== comparing log.ab.emit.surf.boundary with log.archive.24Sep26.ab.emit.surf.boundary ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.boundary passed
+elapsed time = 1.8138206005096436 s for test emit.surf.boundary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.face.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.face.region ====
+==== comparing log.ab.emit.face.region with log.archive.24Sep26.ab.emit.face.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.face.region passed
+elapsed time = 1.7968459129333496 s for test emit.face.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.face
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.face ====
+==== comparing log.ab.emit.face with log.archive.24Sep26.ab.emit.face ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.face passed
+elapsed time = 1.822951316833496 s for test emit.face
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit
+test = emit.surf.mflow.single
+==== generating gold standard for test emit.surf.mflow.single ====
+==== comparing log.ab.emit.surf.mflow.single with log.archive.24Sep26.ab.emit.surf.mflow.single ====
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test emit.surf.mflow.single FAILED
+elapsed time = 7.648741722106934 s for test emit.surf.mflow.single
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:18:37 2026
+!!! 2 of 10 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit', 'emit.surf.mflow']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/emit', 'emit.surf.mflow.single']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:18:37 2026
+ntests: 7
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.sphere.3d
+20 
+read 21 log entries
+20 
+read 21 log entries
+==== generating gold standard for test exp2imp.sphere.3d ====
+==== comparing log.ab.exp2imp.sphere.3d with log.archive.24Sep26.ab.exp2imp.sphere.3d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test exp2imp.sphere.3d passed
+elapsed time = 1.674715518951416 s for test exp2imp.sphere.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.axi.spherecone.readback2
+==== generating gold standard for test exp2imp.axi.spherecone.readback2 ====
+==== comparing log.ab.exp2imp.axi.spherecone.readback2 with log.archive.24Sep26.ab.exp2imp.axi.spherecone.readback2 ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file sc.corners.dat (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test exp2imp.axi.spherecone.readback2 FAILED
+elapsed time = 3.234574556350708 s for test exp2imp.axi.spherecone.readback2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.circle.2d
+10 
+read 3 log entries
+10 
+read 3 log entries
+==== generating gold standard for test exp2imp.circle.2d ====
+==== comparing log.ab.exp2imp.circle.2d with log.archive.24Sep26.ab.exp2imp.circle.2d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test exp2imp.circle.2d passed
+elapsed time = 1.5338797569274902 s for test exp2imp.circle.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.axi.circle
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.circle ====
+==== comparing log.ab.exp2imp.axi.circle with log.archive.24Sep26.ab.exp2imp.axi.circle ====
+Step              error  0.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test exp2imp.axi.circle passed
+elapsed time = 1.4592962265014648 s for test exp2imp.axi.circle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.axi.spherecone.readback
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.spherecone.readback ====
+==== comparing log.ab.exp2imp.axi.spherecone.readback with log.archive.24Sep26.ab.exp2imp.axi.spherecone.readback ====
+Step              error  0.0
+Np                error  0.0
+
+All rows are identical
+*** test exp2imp.axi.spherecone.readback passed
+elapsed time = 1.3899500370025635 s for test exp2imp.axi.spherecone.readback
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = ablate.axi.spherecone
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test ablate.axi.spherecone ====
+==== comparing log.ab.ablate.axi.spherecone with log.archive.24Sep26.ab.ablate.axi.spherecone ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0025595323573884324 wrt norm     1.0
+Nscoll   error 0.2152777777777778 wrt norm     1.0
+Nscheck  error 0.09488692232055065 wrt norm     1.0
+f_fablate  error 0.0019849884416601334 wrt norm     1.0
+!!! test ablate.axi.spherecone FAILED
+elapsed time = 2.8604485988616943 s for test ablate.axi.spherecone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit
+test = exp2imp.axi.spherecone
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.spherecone ====
+==== comparing log.ab.exp2imp.axi.spherecone with log.archive.24Sep26.ab.exp2imp.axi.spherecone ====
+Step              error  0.0
+Np       error  0.0 wrt norm     1.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test exp2imp.axi.spherecone passed
+elapsed time = 1.5711610317230225 s for test exp2imp.axi.spherecone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:18:51 2026
+!!! 2 of 7 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit', 'exp2imp.axi.spherecone.readback2']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/explicit2implicit', 'ablate.axi.spherecone']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:18:51 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/fft
+test = fft.3d
+==== generating gold standard for test fft.3d ====
+==== comparing log.ab.fft.3d with log.archive.24Sep26.ab.fft.3d ====
+ERROR: Unrecognized compute style (/hpc/data/cfd-students/nnoventa/sparta/src/modify.cpp:469)
+ERROR: Unrecognized compute style (/hpc/data/cfd-students/nnoventa/sparta/src/modify.cpp:469)
+!!! test fft.3d FAILED
+elapsed time = 5.49240255355835 s for test fft.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/fft
+test = fft.2d
+==== generating gold standard for test fft.2d ====
+==== comparing log.ab.fft.2d with log.archive.24Sep26.ab.fft.2d ====
+ERROR: Unrecognized compute style (/hpc/data/cfd-students/nnoventa/sparta/src/modify.cpp:469)
+ERROR: Unrecognized compute style (/hpc/data/cfd-students/nnoventa/sparta/src/modify.cpp:469)
+!!! test fft.2d FAILED
+elapsed time = 5.425864219665527 s for test fft.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:02 2026
+!!! 2 of 2 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/fft', 'fft.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/fft', 'fft.2d']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:02 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/flowfile
+test = flowfile
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test flowfile ====
+==== comparing log.ab.flowfile with log.archive.24Sep26.ab.flowfile ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+f_1      error  0.0 wrt norm     1.0
+f_1[1]   error  0.0 wrt norm     1.0
+f_1[2]   error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test flowfile passed
+elapsed time = 2.10614275932312 s for test flowfile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:04 2026
+1 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:04 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/free
+test = free.restart
+20 40 
+read 5 log entries
+20 40 
+read 5 log entries
+==== generating gold standard for test free.restart ====
+==== comparing log.ab.free.restart with log.archive.24Sep26.ab.free.restart ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test free.restart passed
+elapsed time = 1.401458740234375 s for test free.restart
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/free
+test = free
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test free ====
+==== comparing log.ab.free with log.archive.24Sep26.ab.free ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+c_temp   error  0.0 wrt norm     1.0
+c_bound[1][1]  error  0.0 wrt norm     1.0
+c_bound[1][3]  error  0.0 wrt norm     1.0
+c_bound[4][3]  error  0.0 wrt norm     1.0
+c_bound[6][3]  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test free passed
+elapsed time = 1.7191493511199951 s for test free
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:07 2026
+2 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:08 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit
+test = implicit.2d
+==== generating gold standard for test implicit.2d ====
+==== comparing log.ab.implicit.2d with log.archive.24Sep26.ab.implicit.2d ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file binary.101x101 (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test implicit.2d FAILED
+elapsed time = 3.2672312259674072 s for test implicit.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit
+test = implicit.3d.big
+==== generating gold standard for test implicit.3d.big ====
+==== comparing log.ab.implicit.3d.big with log.archive.24Sep26.ab.implicit.3d.big ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file binary.101x101x101 (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test implicit.3d.big FAILED
+elapsed time = 5.19560694694519 s for test implicit.3d.big
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit
+test = implicit.2d.rectangle
+==== generating gold standard for test implicit.2d.rectangle ====
+==== comparing log.ab.implicit.2d.rectangle with log.archive.24Sep26.ab.implicit.2d.rectangle ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file binary.51x101 (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test implicit.2d.rectangle FAILED
+elapsed time = 3.277979850769043 s for test implicit.2d.rectangle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit
+test = implicit.3d.small
+==== generating gold standard for test implicit.3d.small ====
+==== comparing log.ab.implicit.3d.small with log.archive.24Sep26.ab.implicit.3d.small ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file binary.21x21x21 (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test implicit.3d.small FAILED
+elapsed time = 3.249356269836426 s for test implicit.3d.small
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:23 2026
+!!! 4 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit', 'implicit.2d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit', 'implicit.3d.big']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit', 'implicit.2d.rectangle']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/implicit', 'implicit.3d.small']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:23 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged
+test = jagged.2d.distributed
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test jagged.2d.distributed ====
+==== comparing log.ab.jagged.2d.distributed with log.archive.24Sep26.ab.jagged.2d.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test jagged.2d.distributed passed
+elapsed time = 5.188121557235718 s for test jagged.2d.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged
+test = jagged.2d
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test jagged.2d ====
+==== comparing log.ab.jagged.2d with log.archive.24Sep26.ab.jagged.2d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test jagged.2d passed
+elapsed time = 5.182494640350342 s for test jagged.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged
+test = jagged.3d
+==== generating gold standard for test jagged.3d ====
+==== comparing log.ab.jagged.3d with log.archive.24Sep26.ab.jagged.3d ====
+ERROR on proc 0: Cannot open file sdata.20x20x10x10x10 (/hpc/data/cfd-students/nnoventa/sparta/src/read_surf.cpp:2264)
+!!! test jagged.3d FAILED
+elapsed time = 3.2740540504455566 s for test jagged.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged
+test = jagged.3d.distributed
+==== generating gold standard for test jagged.3d.distributed ====
+==== comparing log.ab.jagged.3d.distributed with log.archive.24Sep26.ab.jagged.3d.distributed ====
+ERROR on proc 0: Cannot open file sdata.20x20x10x10x10 (/hpc/data/cfd-students/nnoventa/sparta/src/read_surf.cpp:2264)
+!!! test jagged.3d.distributed FAILED
+elapsed time = 3.244311571121216 s for test jagged.3d.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:39 2026
+!!! 2 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged', 'jagged.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/jagged', 'jagged.3d.distributed']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:39 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/mfp_mct
+test = mfp_mct
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test mfp_mct ====
+==== comparing log.ab.mfp_mct with log.archive.24Sep26.ab.mfp_mct ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.014572698830890827 wrt norm     1.0
+Ncoll    error 0.01963224111710217 wrt norm     1.0
+c_temp   error 0.004798418613149812 wrt norm     1.0
+c_3c_reduced[1]  error  1.0 wrt norm     1.0
+c_3c_reduced[2]  error  1.0 wrt norm     1.0
+c_3c_reduced[3]  error  1.0 wrt norm     1.0
+c_3f_reduced[1]  error 2.8859900000000322e-27 wrt norm     1.0
+c_3f_reduced[2]  error 4.231479999999975e-30 wrt norm     1.0
+c_3f_reduced[3]  error 2.885990000000049e-27 wrt norm     1.0
+!!! test mfp_mct FAILED
+elapsed time = 2.0231986045837402 s for test mfp_mct
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:42 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/mfp_mct', 'mfp_mct']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:42 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove
+test = optmove.axi
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test optmove.axi ====
+==== comparing log.ab.optmove.axi with log.archive.24Sep26.ab.optmove.axi ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0021727971423146967 wrt norm     1.0
+Natt     error 0.009475032010243278 wrt norm     1.0
+Ncoll    error 0.02343417128248828 wrt norm     1.0
+Nbound            error  0.0
+Nexit    error 0.09815242494226327 wrt norm     1.0
+!!! test optmove.axi FAILED
+elapsed time = 2.1970162391662598 s for test optmove.axi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove
+test = optmove
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test optmove ====
+==== comparing log.ab.optmove with log.archive.24Sep26.ab.optmove ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.10174717368961973 wrt norm     1.0
+Ncoll    error 0.10391363022941971 wrt norm     1.0
+Nbound   error 0.015666636037857208 wrt norm     1.0
+!!! test optmove FAILED
+elapsed time = 1.6874876022338867 s for test optmove
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove
+test = optmove.surf
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test optmove.surf ====
+==== comparing log.ab.optmove.surf with log.archive.24Sep26.ab.optmove.surf ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Nbound   error 0.025147526100771676 wrt norm     1.0
+v_nsingle  error 0.025147526100771676 wrt norm     1.0
+v_ntotal  error 0.003976618512088728 wrt norm     1.0
+
+WARNING: Only 1 out of 6 rows are identical
+*** test optmove.surf passed
+elapsed time = 1.7447431087493896 s for test optmove.surf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove
+test = optmove.flow
+500 
+read 6 log entries
+500 
+read 6 log entries
+==== generating gold standard for test optmove.flow ====
+==== comparing log.ab.optmove.flow with log.archive.24Sep26.ab.optmove.flow ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Nbound            error  0.0
+Nexit    error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test optmove.flow passed
+elapsed time = 1.7508931159973145 s for test optmove.flow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:19:49 2026
+!!! 2 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove', 'optmove.axi']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove', 'optmove']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/optmove', 'optmove.surf']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:19:49 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/paraview
+test = sphere.paraview
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test sphere.paraview ====
+==== comparing log.ab.sphere.paraview with log.archive.24Sep26.ab.sphere.paraview ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test sphere.paraview passed
+elapsed time = 4.527061939239502 s for test sphere.paraview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/paraview
+test = circle.paraview
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.paraview ====
+==== comparing log.ab.circle.paraview with log.archive.24Sep26.ab.circle.paraview ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle.paraview passed
+elapsed time = 3.086117744445801 s for test circle.paraview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/paraview
+test = adapt.static.paraview
+500 2500 5500 
+read 56 log entries
+500 2500 5500 
+read 56 log entries
+==== generating gold standard for test adapt.static.paraview ====
+==== comparing log.ab.adapt.static.paraview with log.archive.24Sep26.ab.adapt.static.paraview ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test adapt.static.paraview passed
+elapsed time = 9.732353448867798 s for test adapt.static.paraview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:20:06 2026
+3 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:20:06 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/python
+test = circle.pyvar
+==== generating gold standard for test circle.pyvar ====
+==== comparing log.ab.circle.pyvar with log.archive.24Sep26.ab.circle.pyvar ====
+ERROR: SPARTA is not built with Python embedded (/hpc/data/cfd-students/nnoventa/sparta/src/variable.cpp:482)
+ERROR: SPARTA is not built with Python embedded (/hpc/data/cfd-students/nnoventa/sparta/src/variable.cpp:482)
+!!! test circle.pyvar FAILED
+elapsed time = 5.429224729537964 s for test circle.pyvar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:20:12 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/python', 'circle.pyvar']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:20:12 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/qk
+test = qk
+400 
+read 5 log entries
+400 
+read 5 log entries
+==== generating gold standard for test qk ====
+==== comparing log.ab.qk with log.archive.24Sep26.ab.qk ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.001576801784478117 wrt norm     1.0
+Natt     error 0.0289031035299692 wrt norm     1.0
+Ncoll    error 0.035398230088495575 wrt norm     1.0
+Nreact   error 0.6666666666666667 wrt norm     1.0
+c_temp   error 0.0042877831862265965 wrt norm     1.0
+!!! test qk FAILED
+elapsed time = 1.7117257118225098 s for test qk
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:20:14 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/qk', 'qk']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:20:14 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/regions
+test = regions
+200 
+read 5 log entries
+200 
+read 5 log entries
+==== generating gold standard for test regions ====
+==== comparing log.ab.regions with log.archive.24Sep26.ab.regions ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0001893740136770121 wrt norm     1.0
+Natt     error 0.22727272727272727 wrt norm     1.0
+Ncoll    error  0.5 wrt norm     1.0
+c_t      error 0.00013024408904619103 wrt norm     1.0
+c_n      error 0.0003985846013904036 wrt norm     1.0
+!!! test regions FAILED
+elapsed time = 1.6589672565460205 s for test regions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:20:15 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/regions', 'regions']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:20:15 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/relax_const
+test = relax_const
+==== generating gold standard for test relax_const ====
+==== comparing log.ab.relax_const with log.archive.24Sep26.ab.relax_const ====
+mpirun noticed that process rank 0 with PID 0 on node an5005 exited on signal 6 (Aborted).
+!!! test relax_const FAILED
+elapsed time = 10.652015447616577 s for test relax_const
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:20:26 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/relax_const', 'relax_const']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:20:26 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/relax_variable
+test = relax_variable
+200 
+read 201 log entries
+200 
+read 201 log entries
+==== generating gold standard for test relax_variable ====
+==== comparing log.ab.relax_variable with log.archive.24Sep26.ab.relax_variable ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 7.176855074001405e-06 wrt norm     1.0
+Ncoll    error 0.0015147582150495274 wrt norm     1.0
+c_Ttrans  error 0.0006985333237428073 wrt norm     1.0
+c_Trot   error 0.0012321679754882804 wrt norm     1.0
+
+WARNING: Only 1 out of 201 rows are identical
+*** test relax_variable passed
+elapsed time = 174.93144035339355 s for test relax_variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:23:21 2026
+1 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/relax_variable', 'relax_variable']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:23:21 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/shock_tube
+test = shocktube
+10000 
+read 101 log entries
+10000 
+read 101 log entries
+==== generating gold standard for test shocktube ====
+==== comparing log.ab.shocktube with log.archive.24Sep26.ab.shocktube ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.011882577597414515 wrt norm     1.0
+Ncoll    error 0.013260587349364285 wrt norm     1.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 1 out of 101 rows are identical
+*** test shocktube passed
+elapsed time = 15.427277565002441 s for test shocktube
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:23:36 2026
+1 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/shock_tube', 'shocktube']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:23:36 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/sphere
+test = sphere.distributed
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test sphere.distributed ====
+==== comparing log.ab.sphere.distributed with log.archive.24Sep26.ab.sphere.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test sphere.distributed passed
+elapsed time = 2.887805461883545 s for test sphere.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/sphere
+test = sphere
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test sphere ====
+==== comparing log.ab.sphere with log.archive.24Sep26.ab.sphere ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test sphere passed
+elapsed time = 2.8810806274414062 s for test sphere
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:23:42 2026
+2 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:23:42 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/spiky
+test = spiky
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test spiky ====
+==== comparing log.ab.spiky with log.archive.24Sep26.ab.spiky ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test spiky passed
+elapsed time = 2.671481132507324 s for test spiky
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:23:45 2026
+1 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:23:45 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/step
+test = step
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test step ====
+==== comparing log.ab.step with log.archive.24Sep26.ab.step ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test step passed
+elapsed time = 2.58400821685791 s for test step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:23:48 2026
+1 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:23:48 2026
+ntests: 5
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf
+test = surf.slide
+500 2500 3500 
+read 36 log entries
+500 2500 3500 
+read 36 log entries
+==== generating gold standard for test surf.slide ====
+==== comparing log.ab.surf.slide with log.archive.24Sep26.ab.surf.slide ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.slide passed
+elapsed time = 6.1328818798065186 s for test surf.slide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf
+test = surf.move
+500 1000 1500 2000 2500 
+read 26 log entries
+500 1000 1500 2000 2500 
+read 26 log entries
+==== generating gold standard for test surf.move ====
+==== comparing log.ab.surf.move with log.archive.24Sep26.ab.surf.move ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.move passed
+elapsed time = 4.533748149871826 s for test surf.move
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf
+test = surf.remove
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test surf.remove ====
+==== comparing log.ab.surf.remove with log.archive.24Sep26.ab.surf.remove ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.remove passed
+elapsed time = 3.804365873336792 s for test surf.remove
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf
+test = surf.add
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test surf.add ====
+==== comparing log.ab.surf.add with log.archive.24Sep26.ab.surf.add ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.add passed
+elapsed time = 3.8255069255828857 s for test surf.add
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf
+test = surf.rotate
+500 2500 3000 
+read 31 log entries
+500 2500 3000 
+read 31 log entries
+==== generating gold standard for test surf.rotate ====
+==== comparing log.ab.surf.rotate with log.archive.24Sep26.ab.surf.rotate ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.rotate passed
+elapsed time = 5.361177444458008 s for test surf.rotate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:24:11 2026
+5 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:24:11 2026
+ntests: 13
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.diffuse
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.diffuse ====
+==== comparing log.ab.circle.diffuse with log.archive.24Sep26.ab.circle.diffuse ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0016255638594132 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.033733562035448826 wrt norm     1.0
+Nscheck  error 0.0075995437710653455 wrt norm     1.0
+
+WARNING: Only 2 out of 11 rows are identical
+*** test circle.diffuse passed
+elapsed time = 2.596787214279175 s for test circle.diffuse
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.cll
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.cll ====
+==== comparing log.ab.beam.cll with log.archive.24Sep26.ab.beam.cll ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0009500637237863515 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 4 out of 11 rows are identical
+*** test beam.cll passed
+elapsed time = 1.883824110031128 s for test beam.cll
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.td
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.td ====
+==== comparing log.ab.circle.td with log.archive.24Sep26.ab.circle.td ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.00118532293122664 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.03691275167785235 wrt norm     1.0
+Nscheck  error 0.009608763693270735 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.td passed
+elapsed time = 2.587871789932251 s for test circle.td
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.specular
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.specular ====
+==== comparing log.ab.beam.specular with log.archive.24Sep26.ab.beam.specular ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test beam.specular passed
+elapsed time = 1.814225196838379 s for test beam.specular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.cll
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.cll ====
+==== comparing log.ab.circle.cll with log.archive.24Sep26.ab.circle.cll ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0016184965167697785 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.021499448732083794 wrt norm     1.0
+Nscheck  error 0.011777288295285265 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.cll passed
+elapsed time = 2.602109432220459 s for test circle.cll
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.impulsive
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.impulsive ====
+==== comparing log.ab.beam.impulsive with log.archive.24Sep26.ab.beam.impulsive ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0015442690459849004 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 4 out of 11 rows are identical
+*** test beam.impulsive passed
+elapsed time = 1.8834233283996582 s for test beam.impulsive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.td
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.td ====
+==== comparing log.ab.beam.td with log.archive.24Sep26.ab.beam.td ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0012040096320770567 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 4 out of 11 rows are identical
+*** test beam.td passed
+elapsed time = 1.8353850841522217 s for test beam.td
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.diffuse
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.diffuse ====
+==== comparing log.ab.beam.diffuse with log.archive.24Sep26.ab.beam.diffuse ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0011511393663501033 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 6 out of 11 rows are identical
+*** test beam.diffuse passed
+elapsed time = 1.840404748916626 s for test beam.diffuse
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = beam.adiabatic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test beam.adiabatic ====
+==== comparing log.ab.beam.adiabatic with log.archive.24Sep26.ab.beam.adiabatic ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0013428349076038027 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 4 out of 11 rows are identical
+*** test beam.adiabatic passed
+elapsed time = 1.8342640399932861 s for test beam.adiabatic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.impulsive
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.impulsive ====
+==== comparing log.ab.circle.impulsive with log.archive.24Sep26.ab.circle.impulsive ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.001232647957326242 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.027303754266211604 wrt norm     1.0
+Nscheck  error 0.009391790429400991 wrt norm     1.0
+
+WARNING: Only 2 out of 11 rows are identical
+*** test circle.impulsive passed
+elapsed time = 2.7306933403015137 s for test circle.impulsive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = piston
+300 
+read 7 log entries
+300 
+read 7 log entries
+==== generating gold standard for test piston ====
+==== comparing log.ab.piston with log.archive.24Sep26.ab.piston ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.006288474078003603 wrt norm     1.0
+Natt     error 0.0865265760197775 wrt norm     1.0
+Ncoll    error 0.09117647058823529 wrt norm     1.0
+c_t      error 0.0023303370389681924 wrt norm     1.0
+!!! test piston FAILED
+elapsed time = 1.6730403900146484 s for test piston
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.specular
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.specular ====
+==== comparing log.ab.circle.specular with log.archive.24Sep26.ab.circle.specular ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle.specular passed
+elapsed time = 2.536454200744629 s for test circle.specular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide
+test = circle.adiabatic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test circle.adiabatic ====
+==== comparing log.ab.circle.adiabatic with log.archive.24Sep26.ab.circle.adiabatic ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0013932736713022152 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.02003434459072696 wrt norm     1.0
+Nscheck  error 0.004709820559729088 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.adiabatic passed
+elapsed time = 2.5879034996032715 s for test circle.adiabatic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:24:40 2026
+!!! 1 of 13 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'piston']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'circle.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'beam.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'circle.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'circle.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'beam.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'beam.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'beam.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'beam.adiabatic']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'circle.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_collide', 'circle.adiabatic']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:24:40 2026
+ntests: 9
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.face.gs_ps
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.face.gs_ps ====
+==== comparing log.ab.beam.face.gs_ps with log.archive.24Sep26.ab.beam.face.gs_ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.011263799157407767 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 31 out of 101 rows are identical
+*** test beam.face.gs_ps passed
+elapsed time = 3.4583287239074707 s for test beam.face.gs_ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.face.gs
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.face.gs ====
+==== comparing log.ab.beam.face.gs with log.archive.24Sep26.ab.beam.face.gs ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.00044584941017140065 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 53 out of 101 rows are identical
+*** test beam.face.gs passed
+elapsed time = 2.1782915592193604 s for test beam.face.gs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.surf.ps
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.surf.ps ====
+==== comparing log.ab.beam.surf.ps with log.archive.24Sep26.ab.beam.surf.ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0006962081865944097 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error 0.0014541419127706186 wrt norm     1.0
+
+WARNING: Only 30 out of 101 rows are identical
+*** test beam.surf.ps passed
+elapsed time = 4.592086553573608 s for test beam.surf.ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = circle.ps
+500 
+read 51 log entries
+500 
+read 51 log entries
+==== generating gold standard for test circle.ps ====
+==== comparing log.ab.circle.ps with log.archive.24Sep26.ab.circle.ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0013510392956002004 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.0326569435637286 wrt norm     1.0
+Nscheck  error 0.011763030048581539 wrt norm     1.0
+
+WARNING: Only 16 out of 51 rows are identical
+*** test circle.ps passed
+elapsed time = 2.836101531982422 s for test circle.ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.face.ps
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.face.ps ====
+==== comparing log.ab.beam.face.ps with log.archive.24Sep26.ab.beam.face.ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0008618017955308948 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 39 out of 101 rows are identical
+*** test beam.face.ps passed
+elapsed time = 3.423480987548828 s for test beam.face.ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = circle.gs
+500 
+read 51 log entries
+500 
+read 51 log entries
+==== generating gold standard for test circle.gs ====
+==== comparing log.ab.circle.gs with log.archive.24Sep26.ab.circle.gs ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0009429104502564582 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.002573529411764706 wrt norm     1.0
+Nscheck  error 0.009374820268016334 wrt norm     1.0
+
+WARNING: Only 14 out of 51 rows are identical
+*** test circle.gs passed
+elapsed time = 2.050367832183838 s for test circle.gs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.surf.gs_ps
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.surf.gs_ps ====
+==== comparing log.ab.beam.surf.gs_ps with log.archive.24Sep26.ab.beam.surf.gs_ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.008117250972723424 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error 0.009282760626606922 wrt norm     1.0
+
+WARNING: Only 20 out of 101 rows are identical
+*** test beam.surf.gs_ps passed
+elapsed time = 4.667868137359619 s for test beam.surf.gs_ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = beam.surf.gs
+1000 
+read 101 log entries
+1000 
+read 101 log entries
+==== generating gold standard for test beam.surf.gs ====
+==== comparing log.ab.beam.surf.gs with log.archive.24Sep26.ab.beam.surf.gs ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.000244399637844173 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error 0.00043713495028430583 wrt norm     1.0
+
+WARNING: Only 41 out of 101 rows are identical
+*** test beam.surf.gs passed
+elapsed time = 2.603584051132202 s for test beam.surf.gs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb
+test = circle.gs_ps
+500 
+read 51 log entries
+500 
+read 51 log entries
+==== generating gold standard for test circle.gs_ps ====
+==== comparing log.ab.circle.gs_ps with log.archive.24Sep26.ab.circle.gs_ps ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0022150790556924723 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.03924857430392485 wrt norm     1.0
+Nscheck  error 0.015595087197867038 wrt norm     1.0
+
+WARNING: Only 14 out of 51 rows are identical
+*** test circle.gs_ps passed
+elapsed time = 2.8784613609313965 s for test circle.gs_ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:25:08 2026
+9 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.face.gs_ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.face.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.surf.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'circle.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.face.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'circle.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.surf.gs_ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'beam.surf.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_adsorb', 'circle.gs_ps']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:25:08 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_heatflux
+test = surf_react_heatflux
+3000 
+read 4 log entries
+3000 
+read 4 log entries
+==== generating gold standard for test surf_react_heatflux ====
+==== comparing log.ab.surf_react_heatflux with log.archive.24Sep26.ab.surf_react_heatflux ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.00022935779816513763 wrt norm     1.0
+Ncoll    error  0.0 wrt norm     1.0
+Nreact            error  0.0
+Nscoll   error 0.38461538461538464 wrt norm     1.0
+Nsreact           error  0.0
+Ngrid    error 0.0025008610749210057 wrt norm     1.0
+c_echem  error 1.1000005351298359 wrt norm     1.0
+Maxlevel  error  0.0 wrt norm     1.0
+!!! test surf_react_heatflux FAILED
+elapsed time = 7.363682270050049 s for test surf_react_heatflux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:25:16 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/surf_react_heatflux', 'surf_react_heatflux']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:25:16 2026
+ntests: 4
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes
+test = gas.reaction.tally
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test gas.reaction.tally ====
+==== comparing log.ab.gas.reaction.tally with log.archive.24Sep26.ab.gas.reaction.tally ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0013935861049268368 wrt norm     1.0
+Natt     error 0.01632208922742111 wrt norm     1.0
+Ncoll    error 0.036635514018691584 wrt norm     1.0
+Nreact   error 0.7000000000000001 wrt norm     1.0
+c_temp   error 0.0057717870787096165 wrt norm     1.0
+!!! test gas.reaction.tally FAILED
+elapsed time = 2.7916252613067627 s for test gas.reaction.tally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes
+test = gas.collision.tally
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test gas.collision.tally ====
+==== comparing log.ab.gas.collision.tally with log.archive.24Sep26.ab.gas.collision.tally ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.014296982843620588 wrt norm     1.0
+Ncoll    error 0.020413949532180325 wrt norm     1.0
+c_temp   error  0.0 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test gas.collision.tally passed
+elapsed time = 2.339895486831665 s for test gas.collision.tally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes
+test = surf.collision.tally
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test surf.collision.tally ====
+==== comparing log.ab.surf.collision.tally with log.archive.24Sep26.ab.surf.collision.tally ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test surf.collision.tally passed
+elapsed time = 2.7227425575256348 s for test surf.collision.tally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes
+test = surf.reaction.tally
+500 
+read 51 log entries
+500 
+read 51 log entries
+==== generating gold standard for test surf.reaction.tally ====
+==== comparing log.ab.surf.reaction.tally with log.archive.24Sep26.ab.surf.reaction.tally ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0018142671831607475 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.00697503671071953 wrt norm     1.0
+Nscheck  error 0.009248406186569084 wrt norm     1.0
+
+WARNING: Only 14 out of 51 rows are identical
+*** test surf.reaction.tally passed
+elapsed time = 2.0716400146484375 s for test surf.reaction.tally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:25:26 2026
+!!! 1 of 4 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes', 'gas.reaction.tally']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes', 'gas.collision.tally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/tally_computes', 'surf.reaction.tally']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:25:26 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/thermostat
+test = thermostat_ave
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test thermostat_ave ====
+==== comparing log.ab.thermostat_ave with log.archive.24Sep26.ab.thermostat_ave ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.017299228724563163 wrt norm     1.0
+Ncoll    error 0.029671879005383234 wrt norm     1.0
+c_temp   error 0.003016128494433677 wrt norm     1.0
+c_2      error 0.003584607429312226 wrt norm     1.0
+
+WARNING: Only 1 out of 21 rows are identical
+*** test thermostat_ave passed
+elapsed time = 2.305403709411621 s for test thermostat_ave
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/thermostat
+test = thermostat
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test thermostat ====
+==== comparing log.ab.thermostat with log.archive.24Sep26.ab.thermostat ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.013000656598818121 wrt norm     1.0
+Ncoll    error 0.027888702821074328 wrt norm     1.0
+c_temp   error 0.0018539440747209564 wrt norm     1.0
+c_2      error 0.002959378856674524 wrt norm     1.0
+
+WARNING: Only 1 out of 21 rows are identical
+*** test thermostat passed
+elapsed time = 2.262237071990967 s for test thermostat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:25:30 2026
+2 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/thermostat', 'thermostat_ave']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/thermostat', 'thermostat']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:25:30 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/torque
+test = torque
+9000 
+read 4 log entries
+9000 
+read 4 log entries
+==== generating gold standard for test torque ====
+==== comparing log.ab.torque with log.archive.24Sep26.ab.torque ====
+Step     error  0.0 wrt norm     1.0
+Time              error  0.0
+Np       error 0.005486572336124747 wrt norm     1.0
+v_Cd     error 0.010781300812837919 wrt norm     1.0
+v_Cy              error 0.0344273588825
+v_Cl              error 0.023360190750000003
+v_Cmx             error 0.006289004700000001
+v_Cmy             error 0.02558525405
+v_Cmz             error 0.020992764824999996
+v_Cmx2            error 0.006072241900000001
+v_Cmy2            error 0.0234935032
+v_Cmz2            error 0.020087843699999997
+
+WARNING: Only 1 out of 4 rows are identical
+*** test torque passed
+elapsed time = 84.14873266220093 s for test torque
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:26:55 2026
+1 tests passed
+*** no failures ***
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/torque', 'torque']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:26:55 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/variable_timestep
+test = variable_dt
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test variable_dt ====
+==== comparing log.ab.variable_dt with log.archive.24Sep26.ab.variable_dt ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.03924829536005322 wrt norm     1.0
+Ncoll    error 0.050165641268338855 wrt norm     1.0
+Time              error 2.1009945454545398e-08
+Dt                error 1.0417534545454561e-10
+!!! test variable_dt FAILED
+elapsed time = 1.9561076164245605 s for test variable_dt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:26:57 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/variable_timestep', 'variable_dt']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:26:57 2026
+ntests: 1
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vibrate
+test = vibrate
+100 
+read 11 log entries
+100 
+read 11 log entries
+==== generating gold standard for test vibrate ====
+==== comparing log.ab.vibrate with log.archive.24Sep26.ab.vibrate ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0367816091954023 wrt norm     1.0
+Ncoll    error 0.16053511705685616 wrt norm     1.0
+c_St     error 0.030975675218142772 wrt norm     1.0
+c_Sr     error 0.025278156466738543 wrt norm     1.0
+c_Srv    error 0.11894910997609429 wrt norm     1.0
+c_Sv     error 0.19492899379928255 wrt norm     1.0
+!!! test vibrate FAILED
+elapsed time = 1.5460553169250488 s for test vibrate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:26:58 2026
+!!! 1 of 1 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vibrate', 'vibrate']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 12:26:58 2026
+ntests: 2
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vtk
+test = vtk.3d
+==== generating gold standard for test vtk.3d ====
+==== comparing log.ab.vtk.3d with log.archive.24Sep26.ab.vtk.3d ====
+ERROR: Unrecognized dump style (/hpc/data/cfd-students/nnoventa/sparta/src/output.cpp:547)
+ERROR: Unrecognized dump style (/hpc/data/cfd-students/nnoventa/sparta/src/output.cpp:547)
+!!! test vtk.3d FAILED
+elapsed time = 5.43378210067749 s for test vtk.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vtk
+test = vtk
+==== generating gold standard for test vtk ====
+==== comparing log.ab.vtk with log.archive.24Sep26.ab.vtk ====
+ERROR: Unrecognized dump style (/hpc/data/cfd-students/nnoventa/sparta/src/output.cpp:547)
+ERROR: Unrecognized dump style (/hpc/data/cfd-students/nnoventa/sparta/src/output.cpp:547)
+!!! test vtk FAILED
+elapsed time = 5.390293836593628 s for test vtk
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:27:09 2026
+!!! 2 of 2 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vtk', 'vtk.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217184/examples/vtk', 'vtk']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -2401,3 +2401,524 @@ elapsed time = 4.240158796310425 s for test axi
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/cylinder
 test = cylinder
+==== generating gold standard for test cylinder ====
+==== comparing log.ab.cylinder with log.archive.24Sep26.ab.cylinder ====
+  what():  Kokkos ERROR: Cuda memory space failed to allocate 16.94 GiB (label="particle:particles").
+mpirun noticed that process rank 0 with PID 0 on node an5007 exited on signal 6 (Aborted).
+!!! test cylinder FAILED
+elapsed time = 343.29145646095276 s for test cylinder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.sphere.3d
+20 
+read 21 log entries
+20 
+read 21 log entries
+==== generating gold standard for test exp2imp.sphere.3d ====
+==== comparing log.ab.exp2imp.sphere.3d with log.archive.24Sep26.ab.exp2imp.sphere.3d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test exp2imp.sphere.3d passed
+elapsed time = 1.7676634788513184 s for test exp2imp.sphere.3d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.axi.spherecone.readback2
+==== generating gold standard for test exp2imp.axi.spherecone.readback2 ====
+==== comparing log.ab.exp2imp.axi.spherecone.readback2 with log.archive.24Sep26.ab.exp2imp.axi.spherecone.readback2 ====
+ERROR on proc 0: Cannot open read_isurf grid corner point file sc.corners.dat (/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp:302)
+!!! test exp2imp.axi.spherecone.readback2 FAILED
+elapsed time = 3.312222957611084 s for test exp2imp.axi.spherecone.readback2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.circle.2d
+10 
+read 3 log entries
+10 
+read 3 log entries
+==== generating gold standard for test exp2imp.circle.2d ====
+==== comparing log.ab.exp2imp.circle.2d with log.archive.24Sep26.ab.exp2imp.circle.2d ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test exp2imp.circle.2d passed
+elapsed time = 1.6058664321899414 s for test exp2imp.circle.2d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.axi.circle
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.circle ====
+==== comparing log.ab.exp2imp.axi.circle with log.archive.24Sep26.ab.exp2imp.axi.circle ====
+Step              error  0.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test exp2imp.axi.circle passed
+elapsed time = 1.4779181480407715 s for test exp2imp.axi.circle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.axi.spherecone.readback
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.spherecone.readback ====
+==== comparing log.ab.exp2imp.axi.spherecone.readback with log.archive.24Sep26.ab.exp2imp.axi.spherecone.readback ====
+Step              error  0.0
+Np                error  0.0
+
+All rows are identical
+*** test exp2imp.axi.spherecone.readback passed
+elapsed time = 1.4701545238494873 s for test exp2imp.axi.spherecone.readback
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = ablate.axi.spherecone
+500 
+read 11 log entries
+500 
+read 11 log entries
+==== generating gold standard for test ablate.axi.spherecone ====
+==== comparing log.ab.ablate.axi.spherecone with log.archive.24Sep26.ab.ablate.axi.spherecone ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0021520803443328554 wrt norm     1.0
+Nscoll   error 0.16071428571428573 wrt norm     1.0
+Nscheck  error 0.08417338709677419 wrt norm     1.0
+f_fablate  error 0.0009693352538792171 wrt norm     1.0
+!!! test ablate.axi.spherecone FAILED
+elapsed time = 2.892683506011963 s for test ablate.axi.spherecone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit
+test = exp2imp.axi.spherecone
+0 
+read 1 log entries
+0 
+read 1 log entries
+==== generating gold standard for test exp2imp.axi.spherecone ====
+==== comparing log.ab.exp2imp.axi.spherecone with log.archive.24Sep26.ab.exp2imp.axi.spherecone ====
+Step              error  0.0
+Np       error  0.0 wrt norm     1.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test exp2imp.axi.spherecone passed
+elapsed time = 1.5132286548614502 s for test exp2imp.axi.spherecone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.subsonic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test emit.surf.subsonic ====
+==== comparing log.ab.emit.surf.subsonic with log.archive.24Sep26.ab.emit.surf.subsonic ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+f_in[1]  error  0.0 wrt norm     1.0
+f_in[2]  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.subsonic passed
+elapsed time = 3.705716133117676 s for test emit.surf.subsonic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.normal.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.normal.region ====
+==== comparing log.ab.emit.surf.normal.region with log.archive.24Sep26.ab.emit.surf.normal.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.normal.region passed
+elapsed time = 1.8673763275146484 s for test emit.surf.normal.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.normal
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.normal ====
+==== comparing log.ab.emit.surf.normal with log.archive.24Sep26.ab.emit.surf.normal ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+c_cs[1]  error  0.0 wrt norm     1.0
+c_cs[2]           error  0.0
+
+All rows are identical
+*** test emit.surf.normal passed
+elapsed time = 1.9922618865966797 s for test emit.surf.normal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.flow.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.flow.region ====
+==== comparing log.ab.emit.surf.flow.region with log.archive.24Sep26.ab.emit.surf.flow.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.flow.region passed
+elapsed time = 1.8599722385406494 s for test emit.surf.flow.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.mflow
+==== generating gold standard for test emit.surf.mflow ====
+==== comparing log.ab.emit.surf.mflow with log.archive.24Sep26.ab.emit.surf.mflow ====
+mpirun noticed that process rank 0 with PID 0 on node an5007 exited on signal 6 (Aborted).
+!!! test emit.surf.mflow FAILED
+elapsed time = 7.674214124679565 s for test emit.surf.mflow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.flow
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.flow ====
+==== comparing log.ab.emit.surf.flow with log.archive.24Sep26.ab.emit.surf.flow ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.flow passed
+elapsed time = 1.9010286331176758 s for test emit.surf.flow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.boundary
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.surf.boundary ====
+==== comparing log.ab.emit.surf.boundary with log.archive.24Sep26.ab.emit.surf.boundary ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.surf.boundary passed
+elapsed time = 1.8546531200408936 s for test emit.surf.boundary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.face.region
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.face.region ====
+==== comparing log.ab.emit.face.region with log.archive.24Sep26.ab.emit.face.region ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.face.region passed
+elapsed time = 1.8779971599578857 s for test emit.face.region
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.face
+300 
+read 4 log entries
+300 
+read 4 log entries
+==== generating gold standard for test emit.face ====
+==== comparing log.ab.emit.face with log.archive.24Sep26.ab.emit.face ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test emit.face passed
+elapsed time = 1.8591399192810059 s for test emit.face
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit
+test = emit.surf.mflow.single
+==== generating gold standard for test emit.surf.mflow.single ====
+==== comparing log.ab.emit.surf.mflow.single with log.archive.24Sep26.ab.emit.surf.mflow.single ====
+mpirun noticed that process rank 0 with PID 0 on node an5007 exited on signal 6 (Aborted).
+!!! test emit.surf.mflow.single FAILED
+elapsed time = 7.805321455001831 s for test emit.surf.mflow.single
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/mfp_mct
+test = mfp_mct
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test mfp_mct ====
+==== comparing log.ab.mfp_mct with log.archive.24Sep26.ab.mfp_mct ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.011005256241787121 wrt norm     1.0
+Ncoll    error 0.031693537274355796 wrt norm     1.0
+c_temp   error 0.005987334187264196 wrt norm     1.0
+c_3c_reduced[1]           error 3.014544545454549e-07
+c_3c_reduced[2]           error 6.334450909090909e-10
+c_3c_reduced[3]  error 0.011364386829011667 wrt norm     1.0
+c_3f_reduced[1]  error 3.1389000000004384e-28 wrt norm     1.0
+c_3f_reduced[2]  error 1.2115199999998714e-30 wrt norm     1.0
+c_3f_reduced[3]  error 3.1388999999997223e-28 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test mfp_mct passed
+elapsed time = 2.1354262828826904 s for test mfp_mct
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/thermostat
+test = thermostat_ave
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test thermostat_ave ====
+==== comparing log.ab.thermostat_ave with log.archive.24Sep26.ab.thermostat_ave ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.013568757067060972 wrt norm     1.0
+Ncoll    error 0.022783012779140313 wrt norm     1.0
+c_temp   error 0.003651188465549394 wrt norm     1.0
+c_2      error 0.00402569687947651 wrt norm     1.0
+
+WARNING: Only 1 out of 21 rows are identical
+*** test thermostat_ave passed
+elapsed time = 2.411850690841675 s for test thermostat_ave
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/thermostat
+test = thermostat
+1000 2000 
+read 21 log entries
+1000 2000 
+read 21 log entries
+==== generating gold standard for test thermostat ====
+==== comparing log.ab.thermostat with log.archive.24Sep26.ab.thermostat ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.015283555944821548 wrt norm     1.0
+Ncoll    error 0.02630555915511209 wrt norm     1.0
+c_temp   error 0.002370191073141796 wrt norm     1.0
+c_2      error 0.0032906400442623894 wrt norm     1.0
+
+WARNING: Only 1 out of 21 rows are identical
+*** test thermostat passed
+elapsed time = 2.482663631439209 s for test thermostat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/sphere
+test = sphere.distributed
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test sphere.distributed ====
+==== comparing log.ab.sphere.distributed with log.archive.24Sep26.ab.sphere.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test sphere.distributed passed
+elapsed time = 3.1144778728485107 s for test sphere.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/sphere
+test = sphere
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== generating gold standard for test sphere ====
+==== comparing log.ab.sphere with log.archive.24Sep26.ab.sphere ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test sphere passed
+elapsed time = 2.9953060150146484 s for test sphere
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 12:04:15 2026
+!!! 42 of 147 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/optmove', 'optmove.axi']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/optmove', 'optmove']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/tally_computes', 'gas.reaction.tally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_heatflux', 'surf_react_heatflux']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/relax_const', 'relax_const']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/chem_rates', 'chem_rates']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/fft', 'fft.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/fft', 'fft.2d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/regions', 'regions']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/python', 'circle.pyvar']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/qk', 'qk']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/adjust_temp', 'circle.adjust']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/adjust_temp', 'sphere.constant']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/adjust_temp', 'circle.constant']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/adjust_temp', 'sphere.adjust']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/vibrate', 'vibrate']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'piston']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/vtk', 'vtk.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/vtk', 'vtk']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/jagged', 'jagged.3d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/jagged', 'jagged.3d.distributed']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/ambi', 'ambi.group.react']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/ambi', 'ambi']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/ambi', 'ambi.group']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/chem', 'chem.gastally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/chem', 'chem']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/implicit', 'implicit.2d']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/implicit', 'implicit.3d.big']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/implicit', 'implicit.2d.rectangle']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/implicit', 'implicit.3d.small']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/ambi_3body', 'ambi_3body']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/custom', 'custom.cube.read.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/custom', 'custom.step.set.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/custom', 'custom.step.read.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/custom', 'custom.cube.set.restart']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/ablation', 'ablation.3d.reactions']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/axi', 'axi']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/cylinder', 'cylinder']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit', 'exp2imp.axi.spherecone.readback2']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/explicit2implicit', 'ablate.axi.spherecone']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit', 'emit.surf.mflow']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/emit', 'emit.surf.mflow.single']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/optmove', 'optmove.surf']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/tally_computes', 'gas.collision.tally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/tally_computes', 'surf.reaction.tally']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/bfield', 'bfield.grid']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/bfield', 'bfield']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/shock_tube', 'shocktube']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_3D']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide.group']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_2D_nn']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collideInterspecies']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_3D_sub']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_2D_sub']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_2D']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/collide', 'collide_3D_nn']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.face.gs_ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.face.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.surf.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'circle.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.face.ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'circle.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.surf.gs_ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'beam.surf.gs']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_react_adsorb', 'circle.gs_ps']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'circle.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'beam.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'circle.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'circle.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'beam.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'beam.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'beam.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'beam.adiabatic']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'circle.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/surf_collide', 'circle.adiabatic']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/torque', 'torque']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/variable_timestep', 'variable_dt']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/relax_variable', 'relax_variable']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/mfp_mct', 'mfp_mct']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/thermostat', 'thermostat_ave']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217022/examples/thermostat', 'thermostat']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
