@@ -8,6 +8,7 @@
 #   cd nicola && ./submit_scaling.sh h200     # 8x H200 per node, base build
 #   cd nicola && ./submit_scaling.sh h200g 1 2  # 1 node, 1 and 2 H200 (numbers = GPUs)
 #   BUILD=pr623 ./submit_scaling.sh h200g 1 4   # same with install_h200_pr623
+#   BUILD=pr623 ./submit_scaling.sh cpu 1       # any arch: install_<arch>_pr623
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
@@ -54,9 +55,9 @@ HEAD_COMMIT="$(git_head "$REPO_ROOT")"
 # only show up once the jobs start.
 for ARCH in "${ARCHS[@]}"; do
     case "$ARCH" in
-        gpu) INSTALL="$REPO_ROOT/install_v100"; BUILD_CMD="compile/compile_sparta_cuda.sh v100" ;;
+        gpu) INSTALL="$REPO_ROOT/install_v100${BUILD:+_$BUILD}"; BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_cuda.sh v100" ;;
         h200|h200g) INSTALL="$REPO_ROOT/install_h200${BUILD:+_$BUILD}"; BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_cuda.sh h200" ;;
-        cpu) INSTALL="$REPO_ROOT/install_cpu";  BUILD_CMD="compile/compile_sparta_mpi.sh" ;;
+        cpu) INSTALL="$REPO_ROOT/install_cpu${BUILD:+_$BUILD}";  BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_mpi.sh" ;;
         *)   echo "unknown arch: $ARCH" >&2; exit 1 ;;
     esac
     if [ ! -f "$INSTALL/BUILD_INFO" ]; then
