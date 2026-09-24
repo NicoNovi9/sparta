@@ -41,7 +41,7 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `cpu_n{1,4}[_bal{part,dyn,time}]_s10000_<job>` | 10,000 steps: `time` best (4 nodes 65.6 s vs 143.5 s deck) |
 | `gpu_n{1,2,4}_<job>` | 4x V100 per node, deck balance, 1000 steps: 78.9 / 44.4 / 23.6 s |
 | `gpu_n1[_baldyn]_r2_<job>` | 2 ranks per V100: no gain (91.9 s balanced, 99.7 s not) |
-| `h200_g1_<job>` | a single H200 (`submit_gpu_h200.sh`, base build, `KP=0`): 201.1 s, move 92%; ~201 W of 700 W, 23.4 GB |
+| `h200_g{1,2}_<job>` | 1 and 2 H200 of a shared node (`submit_scaling.sh h200g`), base build: 199.0 / 105.0 s, efficiency 0.95. `h200_g1_1215697` is the same point from `submit_gpu_h200.sh` (`KP=0`): 201.1 s; ~201 W of 700 W, 23.4 GB |
 
 ## long/ — steady state
 
@@ -57,7 +57,7 @@ Base builds, deck balance.
 | Runs | What |
 |---|---|
 | `cpu_n{1,2,4}_<job>` | 16.3 / 21.7 / 28.5 s: efficiency 0.75, 0.57 |
-| `gpu_n{1,2}_<job>` | 20.9 / 20.9 s: efficiency 1.00 |
+| `gpu_n{1,2,4}_<job>` | 20.9 / 20.9 / 21.1 s: efficiency 1.00, 0.99 |
 
 ## saturation/ — one node, 1..16x the steady-state particles (fnum / s)
 
