@@ -8,6 +8,7 @@
    DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains
    certain rights in this software.  This software is distributed under
    the GNU General Public License.
+   Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 
    See the README file in the top-level SPARTA directory.
 ------------------------------------------------------------------------- */
@@ -77,6 +78,9 @@ struct TagCollideCollisionsGroup{};
 
 template < int GASTALLY, int ATOMIC_REDUCTION >
 struct TagCollideCollisionsGroupAmbipolar{};
+
+template<int NEARCP>
+struct TagCountAttempts{};
 
 class CollideVSSKokkos : public CollideVSS {
  public:
@@ -162,6 +166,10 @@ class CollideVSSKokkos : public CollideVSS {
   KOKKOS_INLINE_FUNCTION
   void operator()(TagCollideCollisionsGroupAmbipolar< GASTALLY, ATOMIC_REDUCTION >, const int&, COLLIDE_REDUCE&) const;
 
+  template<int NEARCP>
+  KOKKOS_INLINE_FUNCTION
+  void operator()(TagCountAttempts<NEARCP>, const int) const;
+
   typedef Kokkos::
     DualView<Params**, Kokkos::LayoutRight, DeviceType> tdual_params_2d;
   typedef tdual_params_2d::t_dev t_params_2d;
@@ -229,9 +237,12 @@ class CollideVSSKokkos : public CollideVSS {
   void finish_gas_tally();
   void clear_gas_tally();
 
+  DAT::t_int_1d d_nattempt;
+  DAT::t_int_1d d_active_cells;
+  DAT::t_int_1d num_active_cells;
   t_particle_1d d_particles;
   t_species_1d_const d_species;
-  DAT::t_int_2d d_plist;
+  DAT::t_int_2d_lr d_plist;
 
   // group collision scratch (ngroups > 1)
   DAT::t_int_1d d_species2group;
@@ -368,7 +379,7 @@ class CollideVSSKokkos : public CollideVSS {
 
   DAT::t_float_2d d_recomb_ijflag;
 
-  DAT::t_int_2d d_nn_last_partner;
+  DAT::t_int_2d_lr d_nn_last_partner;
 
   template < int NEARCP, int GASTALLY > void collisions_one(COLLIDE_REDUCE&);
   template < int DIM, int GASTALLY > void collisions_one_subcell(COLLIDE_REDUCE&);
@@ -459,10 +470,10 @@ class CollideVSSKokkos : public CollideVSS {
   void restore();
 
   t_particle_1d d_particles_backup;
-  DAT::t_int_2d d_plist_backup;
+  DAT::t_int_2d_lr d_plist_backup;
   DAT::t_float_3d d_vremax_backup;
   DAT::t_float_3d d_remain_backup;
-  DAT::t_int_2d d_nn_last_partner_backup;
+  DAT::t_int_2d_lr d_nn_last_partner_backup;
   DAT::t_int_1d d_ionambi_backup;
   DAT::t_float_2d_lr d_velambi_backup;
   RanKnuth* random_backup;
