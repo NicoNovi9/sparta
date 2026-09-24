@@ -1,14 +1,15 @@
 # results/
 
 New runs land at this level; move them into the matching folder once read.
-**Code version:** every run in `scaling/`, `weak/`, `saturation/`, `long/`, `h200/`
-and `v100_profile/` was made before upstream PR #623 was merged into master
-(2026-09-24, merge 9e9aa6da); `pr623/` holds the runs that validated it.
+**Code version.** `pre623/` holds every study run with the code before upstream PR #623
+was merged into master (2026-09-24, merge 9e9aa6da); binaries kept on the cluster as
+`install_<arch>_pre623` (`BUILD=pre623`). `pr623/` holds the runs that validated the PR.
+New runs, with the current code, land in `scaling/`, `weak/`, `saturation/`, ... again.
 
 `summary.txt` is the file to open first where it exists (`log.sparta` is
 git-ignored upstream).
 
-## v100_profile/ — single V100, Nsight Systems, 200 steps
+## pre623/v100_profile/ — single V100, Nsight Systems, 200 steps
 
 | Run | What |
 |---|---|
@@ -20,7 +21,7 @@ git-ignored upstream).
 | `..._1214902_np30000000_ro0_reduce` | 30M, counters by `parallel_reduce` instead of atomics (`REDUCE=1` build): move 45.8 ms, loop 14.1 -> 12.3 s |
 | `res_usage/` | registers/stack per kernel of the V100 build (`TagUpdateMove<3,1,0,0,1>`: 252 regs) |
 
-## h200/ — H200, 30M particles
+## pre623/h200/ — H200, 30M particles
 
 | Run | What |
 |---|---|
@@ -33,7 +34,7 @@ The runs that showed the failure itself (jobs 1211776, 1211801, 1211844,
 1211877, 1211918, and 1214925 with the reduce build) were removed once the
 cause was known; they are in the git history.
 
-## scaling/ — strong scaling, 120M particles at start (draining transient)
+## pre623/scaling/ — strong scaling, 120M particles at start (draining transient)
 
 Name: `<arch>_n<nodes>[_bal<mode>][_s<steps>][_r<ranks per GPU>]_<job>`; no `_s` means 1000 steps.
 Balance modes: none = deck (`rcb cell`), `part` = once by particles,
@@ -48,13 +49,13 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `gpu_n1[_baldyn]_r2_<job>` | 2 ranks per V100: no gain (91.9 s balanced, 99.7 s not) |
 | `h200_g{1,2,4}_<job>` | 1, 2 and 4 H200 of a shared node (`submit_scaling.sh h200g`), base build: 199.0 / 105.0 / 82.0 s (91.3 s in a repeat). On 4 GPUs Output takes 30–40 s (whole particle array copied to the host at every stats output); without it 194.4 / 100.7 / 51.6 s. Full node projected linearly: ~25 s. `h200_g1_1215697` is the same point from the former `submit_gpu_h200.sh` (`KP=0`): 201.1 s; ~201 W of 700 W, 23.4 GB |
 
-## long/ — steady state
+## pre623/long/ — steady state
 
 | Run | What |
 |---|---|
 | `long_1215014` | 100k steps, 4 V100, reduce build, particles from `nrho` (35.9M): steady state 25.7M, within 1% after 67k steps. Restart and grid dumps are outside the repo, in `long_runs/long_1215014/` |
 
-## weak/ — weak scaling, 25.7M particles per node (fnum / nodes)
+## pre623/weak/ — weak scaling, 25.7M particles per node (fnum / nodes)
 
 Name: `<arch>_n<nodes>_<job>`. 2000 warm-up steps, then 1000 measured (the last `Loop time`).
 Base builds, deck balance.
@@ -64,7 +65,7 @@ Base builds, deck balance.
 | `cpu_n{1,2,4}_<job>` | 16.3 / 21.7 / 28.5 s: efficiency 0.75, 0.57 |
 | `gpu_n{1,2,4}_<job>` | 20.9 / 20.9 / 21.1 s: efficiency 1.00, 0.99 |
 
-## saturation/ — one node, 1..16x the steady-state particles (fnum / s)
+## pre623/saturation/ — one node, 1..16x the steady-state particles (fnum / s)
 
 Name: `<arch>_n1[_x<s>]_<job>`. Same protocol as weak/.
 
