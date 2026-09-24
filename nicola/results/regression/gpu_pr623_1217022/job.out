@@ -1,0 +1,17 @@
+Loading hpcx/2.17.1-gcc-8.5.0
+  Loading requirement: zlib-ng/2.1.4-gcc-8.5.0 zstd/1.5.5-gcc-8.5.0
+    binutils/2.41-gcc-8.5.0
+job        1217022.pbs60
+date       2026-09-24T11:41:40+02:00
+host       an5007
+arch       gpu (-np 1, -k on g 1 -sf kk)
+reference  /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+           arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+test       /hpc/data/cfd-students/nnoventa/sparta/install_v100_pr623/bin/spa_kokkos_cuda
+           arch    v100_pr623 reduce  0 branch  try-pr623 commit  15368f052514be7014cdf1d1e08a20dc87c772ce date    2026-09-24T11:39:59+02:00 
+tolerance  0.05 relative, L1 norm per stats column
+only       all examples
+commit     1166e78707c207164ba9f0d056dd960a763a9c04
+work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/gpu_pr623_1217022/examples
+GPU 0: Tesla V100-SXM2-32GB (UUID: GPU-5c464cf3-f5d2-af70-7483-d5c7e9c6b279)
+==== pass ref: /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
