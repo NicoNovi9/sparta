@@ -48,98 +48,41 @@ Build cuda_12.8.r12.8/compiler.35583870_0
 -- Using bundled desul_atomics copy (desul/desul@83d26f34db50b4fefe30ed4db38b10e04c7a9384)
 -- Using bundled mdspan copy (kokkos/mdspan@5d4eb209c77f4744980c0b0c2af44636cc81b08b)
 -- Kokkos Backends: OPENMP;CUDA
--- Configuring done (4.1s)
--- Generating done (0.2s)
+-- Configuring done (3.7s)
+-- Generating done (0.1s)
 -- Build files have been written to: /hpc/data/cfd-students/nnoventa/sparta/build_h200_pr623
 
 [INFO] Building
 [  0%] Built target Kokkos_AlwaysCheckGit
 [  0%] Built target impl_git_version
 [  7%] Built target kokkoscore
-[  7%] Built target sparta_kokkos_cuda_PRE_BUILD
 [  8%] Built target kokkossimd
 [  9%] Built target kokkosalgorithms
 [ 10%] Built target kokkoscontainers
+[ 10%] Built target sparta_kokkos_cuda_PRE_BUILD
 [ 10%] Building CXX object src/KOKKOS/CMakeFiles/pkg_kokkos.dir/collide_vss_kokkos.cpp.o
 [ 10%] Building CXX object src/KOKKOS/CMakeFiles/pkg_kokkos.dir/update_kokkos.cpp.o
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=3, <unnamed>=1, <unnamed>=1, <unnamed>=0]" at line 258
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Kokkos::Impl::ViewMapping<std::enable_if_t<<expression>, void>, SrcTraits, Args...>::assign(Kokkos::Impl::ViewMapping<DstTraits, void> &, const Kokkos::Impl::ViewMapping<SrcTraits, void> &, Args...) [with SrcTraits=Kokkos::ViewTraits<int *, Kokkos::Cuda::array_layout, DeviceType>, Args=<std::pair<int, int>>, DstTraits=Kokkos::ViewTraits<int *, Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::CudaSpace::execution_space, Kokkos::CudaSpace::memory_space>, Kokkos::MemoryTraits<0U>>]" at line 1033 of /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp
+            instantiation of "Kokkos::View<DataType, Properties...>::View(const Kokkos::View<RT, RP...> &, Arg0, Args...) [with DataType=int *, Properties=<Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::CudaSpace::execution_space, Kokkos::CudaSpace::memory_space>, Kokkos::MemoryTraits<0U>>, RT=int *, RP=<Kokkos::Cuda::array_layout, DeviceType>, Arg0=std::pair<int, int>, Args=<>]" at line 1495 of /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=3, <unnamed>=1, <unnamed>=0, <unnamed>=0]" at line 259
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=3, <unnamed>=0, <unnamed>=1, <unnamed>=0]" at line 261
+Warning #20014-D: calling a __host__ function from a __host__ __device__ function is not allowed
+          detected during:
+            instantiation of "void Kokkos::Impl::ViewMapping<std::enable_if_t<<expression>, void>, SrcTraits, Args...>::assign(Kokkos::Impl::ViewMapping<DstTraits, void> &, const Kokkos::Impl::ViewMapping<SrcTraits, void> &, Args...) [with SrcTraits=Kokkos::ViewTraits<int *, Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::HostSpace::execution_space, Kokkos::HostSpace::memory_space>>, Args=<std::pair<int, int>>, DstTraits=Kokkos::ViewTraits<int *, Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::HostSpace::execution_space, Kokkos::HostSpace::memory_space>, Kokkos::MemoryTraits<0U>>]" at line 1033 of /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp
+            instantiation of "Kokkos::View<DataType, Properties...>::View(const Kokkos::View<RT, RP...> &, Arg0, Args...) [with DataType=int *, Properties=<Kokkos::LayoutLeft, Kokkos::Device<Kokkos::HostSpace::execution_space, Kokkos::HostSpace::memory_space>, Kokkos::MemoryTraits<0U>>, RT=int *, RP=<Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::HostSpace::execution_space, Kokkos::HostSpace::memory_space>>, Arg0=std::pair<int, int>, Args=<>]" at line 292 of /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/containers/src/Kokkos_DualView.hpp
+            instantiation of "Kokkos::DualView<DataType, Properties...>::DualView(const Kokkos::DualView<DT, DP...> &, const Arg0 &, Args...) [with DataType=int *, Properties=<Kokkos::Cuda::array_layout, Kokkos::Device<Kokkos::CudaSpace::execution_space, Kokkos::CudaSpace::memory_space>, Kokkos::MemoryTraits<0U>>, DT=int *, DP=<Kokkos::Cuda::array_layout, DeviceType>, Arg0=std::pair<int, int>, Args=<>]" at line 1166 of /hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/containers/src/Kokkos_DualView.hpp
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=3, <unnamed>=0, <unnamed>=0, <unnamed>=1]" at line 262
+/hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp(3219): warning #20011-D: calling a __host__ function("Kokkos::Impl::SubviewExtents<(unsigned int)1u, (unsigned int)1u> ::SubviewExtents<(unsigned long)0ul ,     ::std::pair<int, int>  > (const  ::Kokkos::Impl::ViewDimension<T1 >  &, T2...)") from a __host__ __device__ function("Kokkos::Impl::ViewMapping<void,  ::Kokkos::ViewTraits<int *,  ::Kokkos::LayoutLeft,  ::Kokkos::Cuda > ,     ::std::pair<int, int>  > ::assign< ::Kokkos::ViewTraits<int *,  ::Kokkos::LayoutLeft,  ::Kokkos::Device< ::Kokkos::Cuda,  ::Kokkos::CudaSpace> ,  ::Kokkos::MemoryTraits<(unsigned int)0u>  > > ") is not allowed
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=3, <unnamed>=0, <unnamed>=0, <unnamed>=0]" at line 263
+/hpc/data/cfd-students/nnoventa/sparta/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp(3219): warning #20011-D: calling a __host__ function("Kokkos::Impl::SubviewExtents<(unsigned int)1u, (unsigned int)1u> ::SubviewExtents<(unsigned long)0ul ,     ::std::pair<int, int>  > (const  ::Kokkos::Impl::ViewDimension<T1 >  &, T2...)") from a __host__ __device__ function("Kokkos::Impl::ViewMapping<void,  ::Kokkos::ViewTraits<int *,  ::Kokkos::LayoutLeft,  ::Kokkos::Device< ::Kokkos::OpenMP,  ::Kokkos::HostSpace>  > ,     ::std::pair<int, int>  > ::assign< ::Kokkos::ViewTraits<int *,  ::Kokkos::LayoutLeft,  ::Kokkos::Device< ::Kokkos::OpenMP,  ::Kokkos::HostSpace> ,  ::Kokkos::MemoryTraits<(unsigned int)0u>  > > ") is not allowed
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=1, <unnamed>=1, <unnamed>=1, <unnamed>=0]" at line 267
+/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.h(540): warning #20011-D: calling a __host__ function("SPARTA_NS::KKCopy< ::SPARTA_NS::GridKokkos> ::KKCopy(const SPARTA_NS::KKCopy< ::SPARTA_NS::GridKokkos> &)") from a __host__ __device__ function("SPARTA_NS::UpdateKokkos::UpdateKokkos") is not allowed
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=1, <unnamed>=1, <unnamed>=0, <unnamed>=0]" at line 268
+/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.h(540): warning #20011-D: calling a __host__ function("SPARTA_NS::KKCopy< ::SPARTA_NS::DomainKokkos> ::KKCopy(const SPARTA_NS::KKCopy< ::SPARTA_NS::DomainKokkos> &)") from a __host__ __device__ function("SPARTA_NS::UpdateKokkos::UpdateKokkos") is not allowed
 
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=1, <unnamed>=0, <unnamed>=1, <unnamed>=0]" at line 270
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=1, <unnamed>=0, <unnamed>=0, <unnamed>=1]" at line 271
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=1, <unnamed>=0, <unnamed>=0, <unnamed>=0]" at line 272
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=2, <unnamed>=1, <unnamed>=1, <unnamed>=0]" at line 276
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=2, <unnamed>=1, <unnamed>=0, <unnamed>=0]" at line 277
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=2, <unnamed>=0, <unnamed>=1, <unnamed>=0]" at line 279
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=2, <unnamed>=0, <unnamed>=0, <unnamed>=1]" at line 280
-
-/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp(802): error: a nonstatic member reference must be relative to a specific object
-        int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
-                                       ^
-          detected during instantiation of "void SPARTA_NS::UpdateKokkos::move<<unnamed>,<unnamed>,<unnamed>,<unnamed>>() [with <unnamed>=2, <unnamed>=0, <unnamed>=0, <unnamed>=0]" at line 281
-
-15 errors detected in the compilation of "/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/update_kokkos.cpp".
-make[2]: *** [src/KOKKOS/CMakeFiles/pkg_kokkos.dir/build.make:1266: src/KOKKOS/CMakeFiles/pkg_kokkos.dir/update_kokkos.cpp.o] Error 1
-make[2]: *** Waiting for unfinished jobs....
 /hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/collide_vss_kokkos.cpp(4731): warning #20011-D: calling a __host__ function("SPARTA_NS::KKCopy< ::SPARTA_NS::GridKokkos> ::KKCopy(const SPARTA_NS::KKCopy< ::SPARTA_NS::GridKokkos> &)") from a __host__ __device__ function("SPARTA_NS::CollideVSSKokkos::CollideVSSKokkos") is not allowed
 
 Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
