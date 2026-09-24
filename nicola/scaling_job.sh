@@ -33,6 +33,9 @@ RANKS_PER_GPU="${RANKS_PER_GPU:-1}"
 # H200 GPUs used per node (h200 only). Full H200 nodes are rarely free, so
 # submit_scaling.sh h200g runs 1 node with GPUS=1, 2, ... instead.
 GPUS="${GPUS:-8}"
+# BUILD selects another H200 build, install_h200_<BUILD> (compile with
+# TAG=<BUILD>), e.g. a test branch; the run directory is tagged with it.
+BUILD="${BUILD:-}"
 # BALANCE=part rebalances the grid by particle count right after
 # create_particles. The deck only balances by cell count, before particles
 # exist, which leaves ranks that own only non-flow cells idle. The deck in
@@ -48,7 +51,7 @@ case "$ARCH" in
          RANKS_PER_NODE=$(( 4 * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g 4 -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
-    h200) SPARTA_EXE="$REPO_ROOT/install_h200/bin/spa_kokkos_cuda"
+    h200) SPARTA_EXE="$REPO_ROOT/install_h200${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
          # up to 8 H200 per node, same device assignment as above
          RANKS_PER_NODE=$(( GPUS * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g "$GPUS" -sf kk)
@@ -67,7 +70,7 @@ STEPS_TAG=; [ "$NSTEPS" != 1000 ] && STEPS_TAG="_s$NSTEPS"
 RPG_TAG=; [ "$RANKS_PER_GPU" != 1 ] && RPG_TAG="_r$RANKS_PER_GPU"
 # a partial H200 node is named by its GPU count: h200_g2 = 2 H200 on 1 node
 NODE_TAG="n$NODES"; [ "$ARCH" = h200 ] && [ "$GPUS" != 8 ] && NODE_TAG="g$GPUS"
-RUNDIR="$NICOLA/results/scaling/${ARCH}_${NODE_TAG}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/scaling/${ARCH}${BUILD:+_$BUILD}_${NODE_TAG}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 

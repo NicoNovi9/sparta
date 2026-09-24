@@ -7,6 +7,7 @@
 #   cd nicola && ./submit_scaling.sh cpu 1 4  # one arch, chosen node counts
 #   cd nicola && ./submit_scaling.sh h200     # 8x H200 per node, base build
 #   cd nicola && ./submit_scaling.sh h200g 1 2  # 1 node, 1 and 2 H200 (numbers = GPUs)
+#   BUILD=pr623 ./submit_scaling.sh h200g 1 4   # same with install_h200_pr623
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
@@ -54,7 +55,7 @@ HEAD_COMMIT="$(git_head "$REPO_ROOT")"
 for ARCH in "${ARCHS[@]}"; do
     case "$ARCH" in
         gpu) INSTALL="$REPO_ROOT/install_v100"; BUILD_CMD="compile/compile_sparta_cuda.sh v100" ;;
-        h200|h200g) INSTALL="$REPO_ROOT/install_h200"; BUILD_CMD="compile/compile_sparta_cuda.sh h200" ;;
+        h200|h200g) INSTALL="$REPO_ROOT/install_h200${BUILD:+_$BUILD}"; BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_cuda.sh h200" ;;
         cpu) INSTALL="$REPO_ROOT/install_cpu";  BUILD_CMD="compile/compile_sparta_mpi.sh" ;;
         *)   echo "unknown arch: $ARCH" >&2; exit 1 ;;
     esac
@@ -90,9 +91,9 @@ for ARCH in "${ARCHS[@]}"; do
         esac
         # job names stay under 15 characters, the limit on older PBS versions
         printf "%-5s %d %s: " "$ARCH" "$N" "$([ "$ARCH" = h200g ] && echo "GPU(s), 1 node" || echo "node(s)")"
-        qsub -N "sc_${ARCH}${N}$([ "$RANKS_PER_GPU" != 1 ] && echo "r$RANKS_PER_GPU")${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
+        qsub -N "sc_${ARCH}${N}${BUILD:+_${BUILD:0:5}}$([ "$RANKS_PER_GPU" != 1 ] && echo "r$RANKS_PER_GPU")${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
              -l "$SELECT" -l "place=$JOB_PLACE" -l "walltime=$WALLTIME" \
-             -v "ARCH=$JOB_ARCH,NODES=$JOB_NODES$EXTRA,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY},RANKS_PER_GPU=$RANKS_PER_GPU" \
+             -v "ARCH=$JOB_ARCH,NODES=$JOB_NODES$EXTRA${BUILD:+,BUILD=$BUILD},NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY},RANKS_PER_GPU=$RANKS_PER_GPU" \
              scaling_job.sh
     done
 done

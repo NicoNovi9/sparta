@@ -7,6 +7,9 @@
 #   ./compile_sparta_cuda.sh v100 clean    # wipe the build and start over
 #   REDUCE=1 ./compile_sparta_cuda.sh v100 # counters by parallel_reduce, into
 #                                          # build_v100_reduce/install_v100_reduce
+#   TAG=pr623 ./compile_sparta_cuda.sh h200  # any other variant, e.g. a branch
+#                                          # checked out for testing, into
+#                                          # build_h200_pr623/install_h200_pr623
 #
 # Nothing is cloned and nothing outside this repository is touched.
 # Each architecture has its own build and install tree at the repo root:
@@ -50,6 +53,10 @@ if [ "$REDUCE" = 1 ]; then
     SUFFIX="_reduce"
     EXTRA_ARGS=(-DCMAKE_CXX_FLAGS=-DSPARTA_KOKKOS_REDUCE_ARCH=1)
 fi
+# TAG names a build of a different checkout (a test branch), so it gets its
+# own trees and never overwrites the build of master.
+TAG="${TAG:-}"
+SUFFIX="${SUFFIX}${TAG:+_$TAG}"
 
 BUILD_DIR="${REPO_ROOT}/build_${ARCH}${SUFFIX}"
 INSTALL_DIR="${REPO_ROOT}/install_${ARCH}${SUFFIX}"
@@ -135,6 +142,7 @@ esac
 {
     echo "arch    ${ARCH}${SUFFIX}"
     echo "reduce  ${REDUCE}"
+    echo "branch  $(sed 's#^ref: refs/heads/##' "${REPO_ROOT}/.git/HEAD")"
     echo "commit  ${COMMIT}"
     echo "date    $(date -Is)"
 } > "${INSTALL_DIR}/BUILD_INFO"
