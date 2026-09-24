@@ -722,10 +722,10 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
       pstart = 0;
       pstop = particle->nlocal;
 #if defined SPARTA_KOKKOS_GPU
-      if ( fstyle == NOFIELD && not_updated.extent(0) < (size_t)pstop ) {
+      if ( DIM != 1 && fstyle == NOFIELD && not_updated.extent(0) < (size_t)pstop ) {
         not_updated = DAT::t_int_1d("not_updated",(size_t)(pstop*1.05));
       }
-      if ( fstyle == NOFIELD && !not_updated_cnt.data() ) {
+      if ( DIM != 1 && fstyle == NOFIELD && !not_updated_cnt.data() ) {
         not_updated_cnt = DAT::t_int_1d("not_updated_cnt",1);
         h_not_updated_cnt = HAT::t_int_1d("h_not_updated_cnt",1);
       }
@@ -792,7 +792,10 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
   #if SPARTA_KOKKOS_REDUCE_ARCH
       Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
   #else
-    if ( fstyle == NOFIELD && niterate == 1 && !continue_loop_flag ) {
+    // not for the axisymmetric model (DIM = 1): its move is 2d with a remap
+    //   into the r-z plane, while the first pass would advance x only and
+    //   check the cell bounds in x only
+    if ( DIM != 1 && fstyle == NOFIELD && niterate == 1 && !continue_loop_flag ) {
       // on the first iteration, split the move on GPU: fast path for trivial
       // particles, indirect team-based path for complex ones
       Kokkos::deep_copy(not_updated_cnt,0);
