@@ -5,6 +5,8 @@
 #   cd nicola/compile
 #   ./compile_sparta_mpi.sh          # incremental: only changed files
 #   ./compile_sparta_mpi.sh clean    # wipe the build and start over
+#   TAG=pr623 ./compile_sparta_mpi.sh  # another checkout (a test branch), into
+#                                      # build_cpu_pr623/install_cpu_pr623
 #
 # Nothing is cloned and nothing outside this repository is touched.
 #
@@ -32,8 +34,11 @@ GCC_MODULE="gcc/13.1.0"
 # ---------- Layout ----------
 # Anchored on this script's location, so it works from any directory.
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-BUILD_DIR="${REPO_ROOT}/build_cpu"
-INSTALL_DIR="${REPO_ROOT}/install_cpu"
+# TAG names a build of a different checkout (a test branch), so it gets its
+# own trees and never overwrites the build of master.
+TAG="${TAG:-}"
+BUILD_DIR="${REPO_ROOT}/build_cpu${TAG:+_$TAG}"
+INSTALL_DIR="${REPO_ROOT}/install_cpu${TAG:+_$TAG}"
 BIN="${INSTALL_DIR}/bin/spa_kokkos_mpi_only"
 
 info () { printf "\n[INFO] %s\n" "$*"; }
@@ -106,7 +111,8 @@ case "$HEAD_REF" in
     *)     COMMIT="$HEAD_REF" ;;
 esac
 {
-    echo "arch    cpu-zen4"
+    echo "arch    cpu-zen4${TAG:+_$TAG}"
+    echo "branch  $(sed 's#^ref: refs/heads/##' "${REPO_ROOT}/.git/HEAD")"
     echo "commit  ${COMMIT}"
     echo "date    $(date -Is)"
 } > "${INSTALL_DIR}/BUILD_INFO"

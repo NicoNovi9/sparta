@@ -33,7 +33,7 @@ RANKS_PER_GPU="${RANKS_PER_GPU:-1}"
 # H200 GPUs used per node (h200 only). Full H200 nodes are rarely free, so
 # submit_scaling.sh h200g runs 1 node with GPUS=1, 2, ... instead.
 GPUS="${GPUS:-8}"
-# BUILD selects another H200 build, install_h200_<BUILD> (compile with
+# BUILD selects another build, install_<arch>_<BUILD> (compile with
 # TAG=<BUILD>), e.g. a test branch; the run directory is tagged with it.
 BUILD="${BUILD:-}"
 # BALANCE=part rebalances the grid by particle count right after
@@ -45,7 +45,7 @@ BALANCE="${BALANCE:-}"
 BAL_EVERY="${BAL_EVERY:-1000}"
 
 case "$ARCH" in
-    gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
+    gpu) SPARTA_EXE="$REPO_ROOT/install_v100${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
          # 4 V100 per node. RANKS_PER_GPU > 1 oversubscribes each GPU: SPARTA
          # assigns devices as local_rank % ngpus, so the extra ranks share.
          RANKS_PER_NODE=$(( 4 * RANKS_PER_GPU ))
@@ -56,7 +56,7 @@ case "$ARCH" in
          RANKS_PER_NODE=$(( GPUS * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g "$GPUS" -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
-    cpu) SPARTA_EXE="$REPO_ROOT/install_cpu/bin/spa_kokkos_mpi_only"
+    cpu) SPARTA_EXE="$REPO_ROOT/install_cpu${BUILD:+_$BUILD}/bin/spa_kokkos_mpi_only"
          RANKS_PER_NODE=192
          KOKKOS_ARGS=(-k on -sf kk) ;;
     *)   echo "unknown ARCH=$ARCH" >&2; exit 1 ;;
