@@ -9,6 +9,17 @@ New runs, with the current code, land in `scaling/`, `weak/`, `saturation/`, ...
 `summary.txt` is the file to open first where it exists (`log.sparta` is
 git-ignored upstream).
 
+## scaling/ — strong scaling with the current code (PR #623 merged)
+
+Name: `<arch>_{n<nodes>|g<gpus>}_<job>` (`submit_scaling.sh`). Deck as given, 1000 steps,
+deck balancing.
+
+| Runs | What |
+|---|---|
+| `v100_n{1,2,4}_<job>` | 53.5 / 28.1 / 14.4 s (before 78.9 / 44.4 / 23.6 s); MPI Sync 14% on 4 nodes |
+| `h200_g{1,2,4}_<job>` | 47.4 / 25.1 / 14.1 s (before 199.0 / 105.0 / 82.0 s) |
+| `cpu_n{1,2,4}_<job>` | 84.7 / 45.5 / 23.3 s (before 83.1 / 44.9 / 22.2 s) |
+
 ## pre623/v100_profile/ — single V100, Nsight Systems, 200 steps
 
 | Run | What |
