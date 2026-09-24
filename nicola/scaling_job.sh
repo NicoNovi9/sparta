@@ -67,10 +67,11 @@ BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 # Non-default step counts go in the name, so 1000-step and longer runs of the
 # same configuration are not mixed up.
 STEPS_TAG=; [ "$NSTEPS" != 1000 ] && STEPS_TAG="_s$NSTEPS"
+NP_TAG=; [ "$NPART" != 120000000 ] && NP_TAG="_np$(( NPART / 1000000 ))M"
 RPG_TAG=; [ "$RANKS_PER_GPU" != 1 ] && RPG_TAG="_r$RANKS_PER_GPU"
 # a partial H200 node is named by its GPU count: h200_g2 = 2 H200 on 1 node
 NODE_TAG="n$NODES"; [ "$ARCH" = h200 ] && [ "$GPUS" != 8 ] && NODE_TAG="g$GPUS"
-RUNDIR="$NICOLA/results/scaling/${ARCH}${BUILD:+_$BUILD}_${NODE_TAG}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/scaling/${ARCH}${BUILD:+_$BUILD}_${NODE_TAG}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${NP_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 

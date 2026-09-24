@@ -16,6 +16,7 @@
 #   BALANCE=time ./submit_scaling.sh cpu 8  # rebalancing by measured compute time
 #   GPU_AWARE=0  ./submit_scaling.sh gpu 1  # if GPU runs fail inside MPI
 #   NSTEPS=10000 WALLTIME=01:00:00 ./submit_scaling.sh cpu 1 4
+#   NPART=30000000 NSTEPS=200 ./submit_scaling.sh h200g 1   # a single quick run
 #   RANKS_PER_GPU=2 ./submit_scaling.sh gpu 1   # two ranks share each GPU
 #
 # Results: nicola/results/scaling/<arch>_n<nodes>_<jobid>/ (summary.txt first).
@@ -25,7 +26,7 @@
 ARCHS=(cpu gpu)
 NODE_COUNTS=(1 2 4)
 NSTEPS="${NSTEPS:-1000}"
-NPART=120000000
+NPART="${NPART:-120000000}"
 WALLTIME="${WALLTIME:-00:30:00}"
 # gpu runs: MPI ranks per GPU, 4 GPUs per node
 RANKS_PER_GPU="${RANKS_PER_GPU:-1}"

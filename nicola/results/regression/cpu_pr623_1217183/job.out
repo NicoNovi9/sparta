@@ -1,6 +1,6 @@
-job        1217021.pbs60
-date       2026-09-24T11:43:33+02:00
-host       pn6341
+job        1217183.pbs60
+date       2026-09-24T12:05:35+02:00
+host       pn6340
 arch       cpu (-np 4, -k on -sf kk)
 reference  /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
            arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
@@ -8,5 +8,7 @@ test       /hpc/data/cfd-students/nnoventa/sparta/install_cpu_pr623/bin/spa_kokk
            arch    cpu-zen4_pr623 branch  try-pr623 commit  15368f052514be7014cdf1d1e08a20dc87c772ce date    2026-09-24T11:32:06+02:00 
 tolerance  0.05 relative, L1 norm per stats column
 only       all examples
-commit     1166e78707c207164ba9f0d056dd960a763a9c04
-work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/cpu_pr623_1217021/examples
+skipped    custom.step.set.restart
+commit     fcdba8aca578bab1c78a3ab5ae7b7096d77b52a0
+work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/cpu_pr623_1217183/examples
+==== pass ref: /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only

@@ -6,10 +6,7 @@
 #PBS -j oe
 
 # Nsight Systems profile + post-processing in one job, on one H200.
-# Copy of submit_gpu_nsys_h200.sh with H200 resources and defaults: by default it
-# reruns the 30M-particle case that failed with BadAlloc on
-# collide:nn_last_partner, now built against Kokkos 5.2.2.
-# Build first: compile/compile_sparta_cuda.sh h200
+# Same as submit_gpu_nsys.sh (V100) but for the H200 resources and build.
 #
 # Unlike Nsight Compute, nsys does not need GPU performance-counter
 # permissions, so it works without the ERR_NVGPUCTRPERM fix from IT.
@@ -31,7 +28,8 @@ REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 #   qsub -v CASE_DIR=/path/to/case submit_gpu_nsys_h200.sh
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 
-# Binary built from this checkout: install_h200 (compile_sparta_cuda.sh h200).
+# Binary built from this checkout: install_h200 (compile_sparta_cuda.sh h200);
+# GPU_ARCH=h200_pr623 etc. for a tagged build.
 GPU_ARCH="${GPU_ARCH:-h200}"
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
@@ -39,20 +37,11 @@ INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
 # Deck knobs, forwarded with -var. Defaults match the deck.
 #   qsub -v NPART=30000000,REORDER=100 submit_gpu_nsys_h200.sh
-NPART="${NPART:-30000000}"
-# Long enough to reach the BadAlloc, which has come between steps ~950 and
-# ~5150; the run stops there.
-NSTEPS="${NSTEPS:-10000}"
-
-# Kokkos allocation log + device free-memory watch (tools/kp_big_alloc),
-# to line the nsys timeline up with the kernel that fills the GPU.
-# Build with tools/build_kp_big_alloc.sh; KP=0 turns it off.
-KP="${KP:-1}"
-KP_LIB="$NICOLA/tools/kp_big_alloc.so"
+NPART="${NPART:-120000000}"
 REORDER="${REORDER:-0}"
 
 # Free-form tag for the build being profiled, e.g. LABEL=base or LABEL=mb2.
-LABEL="${LABEL:-h200}"
+LABEL="${LABEL:-}"
 
 NRANKS="${NRANKS:-1}"
 NGPUS="${NGPUS:-1}"
@@ -123,29 +112,14 @@ export OMP_PLACES=threads
     echo "ranks      $NRANKS"
     echo "gpus       $NGPUS"
     echo "npart      $NPART"
-    echo "nsteps     $NSTEPS"
     echo "reorder    $REORDER"
     echo "label      $LABEL"
     echo "nsys delay $NSYS_DELAY  duration $NSYS_DURATION"
 } | tee "$RUNDIR/meta.txt"
 
 nvidia-smi -L
+nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode"   # HMM/ATS or not
 nsys --version
-
-# HMM/ATS let kernels touch ordinary host memory, which the driver then
-# migrates into GPU memory. Record whether this node has it.
-nvidia-smi -q | grep -iE "driver version|cuda version|addressing mode" | tee -a "$RUNDIR/meta.txt"
-cat /sys/module/nvidia_uvm/parameters/uvm_disable_hmm 2>/dev/null | sed "s/^/uvm_disable_hmm: /" | tee -a "$RUNDIR/meta.txt"
-
-MPI_ENV=()
-if [ "$KP" = 1 ]; then
-    if [ ! -f "$KP_LIB" ]; then
-        echo "MISSING: $KP_LIB (build it: nicola/tools/build_kp_big_alloc.sh, or KP=0)" >&2
-        exit 1
-    fi
-    export KOKKOS_TOOLS_LIBS="$KP_LIB" KP_BIG_ALLOC_MB=100 KP_MEMWATCH_GB=1
-    MPI_ENV=(-x KOKKOS_TOOLS_LIBS -x KP_BIG_ALLOC_MB -x KP_MEMWATCH_GB)
-fi
 
 # --------------------------------------------------------- sample power ----
 nvidia-smi \
@@ -159,10 +133,6 @@ NSYS_OPTS=(
     --trace=cuda,nvtx,mpi,osrt
     --sample=process-tree
     --cuda-memory-usage=true
-    # page faults and migrations of unified/system memory: shows HMM moving
-    # host pages into the GPU, if that is what fills it
-    --cuda-um-gpu-page-faults=true
-    --cuda-um-cpu-page-faults=true
     --force-overwrite=true
 )
 [ "$NSYS_DELAY"    -gt 0 ] && NSYS_OPTS+=(--delay "$NSYS_DELAY")
@@ -175,7 +145,6 @@ mpirun \
   --bind-to core \
   --map-by "ppr:${NRANKS}:node" \
   -np "$NRANKS" \
-  "${MPI_ENV[@]}" \
   nsys profile "${NSYS_OPTS[@]}" \
     -o "$RUNDIR/nsys_rank%q{OMPI_COMM_WORLD_RANK}" \
     "$SPARTA_EXE" \
@@ -183,7 +152,6 @@ mpirun \
     -sf kk \
     -in "$INPUT_FILE" \
     -var npart "$NPART" \
-    -var nsteps "$NSTEPS" \
     -var reorder "$REORDER" \
     -log "$RUNDIR/log.sparta"
 
@@ -204,9 +172,6 @@ REPORTS=(
     cuda_gpu_mem_size_sum   # memcpy volume by direction
     cuda_api_sum            # host-side CUDA API cost
     osrt_sum                # host blocking calls
-    um_total_sum            # unified/system memory migrations, totals
-    um_sum                  # ... by kind
-    um_cpu_page_faults_sum
     mpi_event_sum
     nvtx_sum
 )

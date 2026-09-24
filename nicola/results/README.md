@@ -21,6 +21,7 @@ git-ignored upstream).
 | Run | What |
 |---|---|
 | `h200_diag_1212041` | cause of the out-of-memory failures: `/hpc/shared/bin/cuda_memtest` takes the whole GPU (143 GB) for ~0.75 s, twice, every 5 minutes, also while SPARTA is not running. IT runs it because of ECC errors |
+| `h200_diag_1215492` | the same diagnosis after IT disabled `cuda_memtest`: GPU memory never above 6.2 GB, no foreign process, SPARTA runs past the failure point |
 | `sparta_nsys_h200_1211770_np30000000_ro0_h200` | 200 steps under nsys, atomics build: move only 1.09x faster than on V100, sort and collide ~3x |
 | `sparta_nsys_h200_1214944_np30000000_ro0_reduce` | same with the reduce build: move 50.8 -> 13.2 ms, loop 11.2 -> 3.8 s; counters match within 0.04% |
 
@@ -41,7 +42,7 @@ Balance modes: none = deck (`rcb cell`), `part` = once by particles,
 | `cpu_n{1,4}[_bal{part,dyn,time}]_s10000_<job>` | 10,000 steps: `time` best (4 nodes 65.6 s vs 143.5 s deck) |
 | `gpu_n{1,2,4}_<job>` | 4x V100 per node, deck balance, 1000 steps: 78.9 / 44.4 / 23.6 s |
 | `gpu_n1[_baldyn]_r2_<job>` | 2 ranks per V100: no gain (91.9 s balanced, 99.7 s not) |
-| `h200_g{1,2,4}_<job>` | 1, 2 and 4 H200 of a shared node (`submit_scaling.sh h200g`), base build: 199.0 / 105.0 / 82.0 s (91.3 s in a repeat). On 4 GPUs Output takes 30�40 s (whole particle array copied to the host at every stats output); without it 194.4 / 100.7 / 51.6 s. Full node projected linearly: ~25 s. `h200_g1_1215697` is the same point from `submit_gpu_h200.sh` (`KP=0`): 201.1 s; ~201 W of 700 W, 23.4 GB |
+| `h200_g{1,2,4}_<job>` | 1, 2 and 4 H200 of a shared node (`submit_scaling.sh h200g`), base build: 199.0 / 105.0 / 82.0 s (91.3 s in a repeat). On 4 GPUs Output takes 30–40 s (whole particle array copied to the host at every stats output); without it 194.4 / 100.7 / 51.6 s. Full node projected linearly: ~25 s. `h200_g1_1215697` is the same point from the former `submit_gpu_h200.sh` (`KP=0`): 201.1 s; ~201 W of 700 W, 23.4 GB |
 
 ## long/ — steady state
 
@@ -66,3 +67,24 @@ Name: `<arch>_n1[_x<s>]_<job>`. Same protocol as weak/.
 | Runs | What |
 |---|---|
 | `{cpu,gpu}_n1[_x{2,4,8,16}]_<job>` | GPU/CPU time 1.27 at 25M, 0.97–0.99 from 200M on; GPU saturated already at 6.4M per V100; 19.2 GB per V100 at 404M |
+
+## scaling/ — runs of the PR #623 test build (branch `try-pr623`)
+
+Name: `<arch>_pr623_<nodes or gpus>_<job>`, same protocol as the strong-scaling rows above.
+
+| Runs | What |
+|---|---|
+| `cpu_pr623_n1_<job>` | CPU node: 84.6 s (base 83.1 s), counters equal |
+| `gpu_pr623_n1_<job>` | 4x V100: 53.4 s (base 78.9 s); collide slower (9.7 vs 7.6 s) |
+| `h200_pr623_g{1,4}_<job>` | 1 and 4 H200: 47.2 / 18.9 s (base 199.0 / 82.0 s); no Output copy |
+
+## regression/ — SPARTA's regression.py on every example, reference build vs test build
+
+Name: `<arch>_<test build>_<job>`. `summary.txt`: one line per deck, the reference
+compared with itself and the test build compared with the reference; `ref.out` and
+`test.out` are the driver's full output; the run logs are in `../regression_runs/`.
+
+| Run | What |
+|---|---|
+| `gpu_pr623_1217184` | V100, 146 decks: pr623 vs master at the noise level (median ratio of the errors 0.99); `ambi.group` and `circle.impulsive` just above 5% |
+| `cpu_pr623_1217183` | CPU, 4 ranks |

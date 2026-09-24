@@ -27,8 +27,8 @@ REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 #   qsub -v CASE_DIR=/path/to/case submit_gpu_nsys.sh
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 
-# Binary built from this checkout. For the H200 build, ask PBS for an H200 too:
-#   qsub -v GPU_ARCH=h200 -l select=1:ncpus=1:mpiprocs=1:mem=250GB:ngpus=1:gpu_type=h200 submit_gpu_nsys.sh
+# Binary built from this checkout: install_v100 (compile_sparta_cuda.sh v100);
+# GPU_ARCH=v100_pr623 etc. for a tagged build. On an H200: submit_gpu_nsys_h200.sh
 GPU_ARCH="${GPU_ARCH:-v100}"
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"

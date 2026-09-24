@@ -11,7 +11,7 @@
 # Nothing is cloned and nothing outside this repository is touched.
 #
 #   build_cpu/                              cmake build tree
-#   install_cpu/bin/spa_kokkos_mpi_only     the binary submit_cpu.sh uses
+#   install_cpu/bin/spa_kokkos_mpi_only     the binary the cpu runs use
 #   install_cpu/BUILD_INFO                  commit and date of the build
 #
 # Tuned for the genoaX nodes (AMD EPYC 9684X, Zen4), as the CUDA build is tuned
@@ -103,7 +103,7 @@ make install
 
 [ -x "${BIN}" ] || die "Binary not found: ${BIN}"
 
-# Which commit the binary was built from; submit_cpu.sh prints it next to the
+# Which commit the binary was built from; the job scripts print it next to the
 # checkout commit. module purge removed git, so read the ref from .git.
 HEAD_REF="$(cat "${REPO_ROOT}/.git/HEAD")"
 case "$HEAD_REF" in
