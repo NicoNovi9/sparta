@@ -20,6 +20,7 @@
 #
 # Optional, from the environment:
 #   WARMUP=5000 NSTEPS=1000 WALLTIME=03:00:00 ./submit_saturation.sh gpu 16
+#   BUILD=pr623 ./submit_saturation.sh gpu 16   # with install_v100_pr623
 #
 # Results: nicola/results/saturation/<arch>_n1[_x<scale>]_<jobid>/ (summary.txt first).
 
@@ -53,8 +54,8 @@ HEAD_COMMIT="$(git_head "$REPO_ROOT")"
 # Check the binaries before queueing anything.
 for ARCH in "${ARCHS[@]}"; do
     case "$ARCH" in
-        gpu) INSTALL="$REPO_ROOT/install_v100"; BUILD_CMD="compile/compile_sparta_cuda.sh v100" ;;
-        cpu) INSTALL="$REPO_ROOT/install_cpu";  BUILD_CMD="compile/compile_sparta_mpi.sh" ;;
+        gpu) INSTALL="$REPO_ROOT/install_v100${BUILD:+_$BUILD}"; BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_cuda.sh v100" ;;
+        cpu) INSTALL="$REPO_ROOT/install_cpu${BUILD:+_$BUILD}";  BUILD_CMD="${BUILD:+TAG=$BUILD }compile/compile_sparta_mpi.sh" ;;
         *)   echo "unknown arch: $ARCH" >&2; exit 1 ;;
     esac
     if [ ! -f "$INSTALL/BUILD_INFO" ]; then
@@ -86,9 +87,9 @@ for ARCH in "${ARCHS[@]}"; do
             *)     WT=02:00:00 ;;
         esac
         printf "%-4s x%-2d %d particles: " "$ARCH" "$S" "$(( NPART_PER_NODE * S ))"
-        qsub -N "sat_${ARCH}${S}" -q "$QUEUE" \
+        qsub -N "sat_${ARCH}${S}${BUILD:+_${BUILD:0:5}}" -q "$QUEUE" \
              -l "$SELECT" -l "place=$PLACE" -l "walltime=${WALLTIME:-$WT}" \
-             -v "ARCH=$ARCH,NODES=1,SCALE=$S,STUDY=saturation,NPART_PER_NODE=$NPART_PER_NODE,FNUM_1=$FNUM_1,WARMUP=$WARMUP,NSTEPS=$NSTEPS${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}" \
+             -v "ARCH=$ARCH,NODES=1,SCALE=$S,STUDY=saturation,NPART_PER_NODE=$NPART_PER_NODE,FNUM_1=$FNUM_1,WARMUP=$WARMUP,NSTEPS=$NSTEPS${BUILD:+,BUILD=$BUILD}${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}" \
              weak_job.sh
     done
 done

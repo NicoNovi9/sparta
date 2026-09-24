@@ -44,17 +44,19 @@ GPU_AWARE="${GPU_AWARE:-1}"
 # SCALE multiplies the work per node on top of that (submit_saturation.sh:
 # 1 node, 1..16 times the particles). The weak-scaling study keeps SCALE=1.
 SCALE="${SCALE:-1}"
+# BUILD selects another build, install_<arch>_<BUILD> (e.g. a test branch).
+BUILD="${BUILD:-}"
 STUDY="${STUDY:-weak}"
 K=$(( NODES * SCALE ))
 NPART=$(( NPART_PER_NODE * K ))
 FNUM=$(awk -v f="$FNUM_1" -v k="$K" 'BEGIN { printf "%.6e", f / k }')
 
 case "$ARCH" in
-    gpu) SPARTA_EXE="$REPO_ROOT/install_v100/bin/spa_kokkos_cuda"
+    gpu) SPARTA_EXE="$REPO_ROOT/install_v100${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
          RANKS_PER_NODE=4
          KOKKOS_ARGS=(-k on g 4 -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
-    cpu) SPARTA_EXE="$REPO_ROOT/install_cpu/bin/spa_kokkos_mpi_only"
+    cpu) SPARTA_EXE="$REPO_ROOT/install_cpu${BUILD:+_$BUILD}/bin/spa_kokkos_mpi_only"
          RANKS_PER_NODE=192
          KOKKOS_ARGS=(-k on -sf kk) ;;
     *)   echo "unknown ARCH=$ARCH" >&2; exit 1 ;;
@@ -63,7 +65,7 @@ NRANKS=$(( NODES * RANKS_PER_NODE ))
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
 SCALE_TAG=; [ "$SCALE" != 1 ] && SCALE_TAG="_x$SCALE"
-RUNDIR="$NICOLA/results/$STUDY/${ARCH}_n${NODES}${SCALE_TAG}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/$STUDY/${ARCH}${BUILD:+_$BUILD}_n${NODES}${SCALE_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
