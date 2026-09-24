@@ -6,6 +6,7 @@
 #   cd nicola && ./submit_scaling.sh gpu 2    # a single run
 #   cd nicola && ./submit_scaling.sh cpu 1 4  # one arch, chosen node counts
 #   cd nicola && ./submit_scaling.sh h200     # 8x H200 per node, base build
+#   cd nicola && ./submit_scaling.sh h200g 1 2  # 1 node, 1 and 2 H200 (numbers = GPUs)
 #
 # Optional, from the environment:
 #   BALANCE=part ./submit_scaling.sh cpu 8  # rebalance by particles
@@ -33,7 +34,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1   # qsub from nicola/
 REPO_ROOT="$(cd .. && pwd)"
 
 if [ $# -ge 1 ]; then
-    case "$1" in cpu|gpu|h200) ;; *) echo "usage: $0 [cpu|gpu|h200 [NODES...]]" >&2; exit 1 ;; esac
+    case "$1" in cpu|gpu|h200|h200g) ;; *) echo "usage: $0 [cpu|gpu|h200 [NODES...] | h200g [GPUS...]]" >&2; exit 1 ;; esac
     ARCHS=("$1")
     [ $# -ge 2 ] && NODE_COUNTS=("${@:2}")
 fi
@@ -53,7 +54,7 @@ HEAD_COMMIT="$(git_head "$REPO_ROOT")"
 for ARCH in "${ARCHS[@]}"; do
     case "$ARCH" in
         gpu) INSTALL="$REPO_ROOT/install_v100"; BUILD_CMD="compile/compile_sparta_cuda.sh v100" ;;
-        h200) INSTALL="$REPO_ROOT/install_h200"; BUILD_CMD="compile/compile_sparta_cuda.sh h200" ;;
+        h200|h200g) INSTALL="$REPO_ROOT/install_h200"; BUILD_CMD="compile/compile_sparta_cuda.sh h200" ;;
         cpu) INSTALL="$REPO_ROOT/install_cpu";  BUILD_CMD="compile/compile_sparta_mpi.sh" ;;
         *)   echo "unknown arch: $ARCH" >&2; exit 1 ;;
     esac
@@ -72,6 +73,7 @@ done
 
 for ARCH in "${ARCHS[@]}"; do
     for N in "${NODE_COUNTS[@]}"; do
+        JOB_ARCH=$ARCH; JOB_NODES=$N; EXTRA=; JOB_PLACE=$PLACE
         case "$ARCH" in
             gpu) QUEUE=gpu
                  R=$(( 4 * RANKS_PER_GPU ))
@@ -79,14 +81,18 @@ for ARCH in "${ARCHS[@]}"; do
             h200) QUEUE=gpu
                  R=$(( 8 * RANKS_PER_GPU ))
                  SELECT="select=${N}:ncpus=${R}:mpiprocs=${R}:mem=250GB:ngpus=8:cpu_type=turin:gpu_type=h200" ;;
+            h200g) QUEUE=gpu   # N = H200 GPUs on one node, which other jobs share
+                 R=$(( N * RANKS_PER_GPU ))
+                 SELECT="select=1:ncpus=${R}:mpiprocs=${R}:mem=250GB:ngpus=${N}:cpu_type=turin:gpu_type=h200"
+                 JOB_ARCH=h200; JOB_NODES=1; EXTRA=",GPUS=$N"; JOB_PLACE=pack ;;
             cpu) QUEUE=amd
                  SELECT="select=${N}:ncpus=192:mpiprocs=192:mem=1400GB:cpu_type=genoaX" ;;
         esac
         # job names stay under 15 characters, the limit on older PBS versions
-        printf "%-4s %d node(s): " "$ARCH" "$N"
+        printf "%-5s %d %s: " "$ARCH" "$N" "$([ "$ARCH" = h200g ] && echo "GPU(s), 1 node" || echo "node(s)")"
         qsub -N "sc_${ARCH}${N}$([ "$RANKS_PER_GPU" != 1 ] && echo "r$RANKS_PER_GPU")${BALANCE:+${BALANCE:0:1}}$([ "$NSTEPS" != 1000 ] && echo "_$((NSTEPS/1000))k")" -q "$QUEUE" \
-             -l "$SELECT" -l "place=$PLACE" -l "walltime=$WALLTIME" \
-             -v "ARCH=$ARCH,NODES=$N,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY},RANKS_PER_GPU=$RANKS_PER_GPU" \
+             -l "$SELECT" -l "place=$JOB_PLACE" -l "walltime=$WALLTIME" \
+             -v "ARCH=$JOB_ARCH,NODES=$JOB_NODES$EXTRA,NSTEPS=$NSTEPS,NPART=$NPART${GPU_AWARE:+,GPU_AWARE=$GPU_AWARE}${BALANCE:+,BALANCE=$BALANCE}${BAL_EVERY:+,BAL_EVERY=$BAL_EVERY},RANKS_PER_GPU=$RANKS_PER_GPU" \
              scaling_job.sh
     done
 done
