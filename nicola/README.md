@@ -35,6 +35,7 @@ Binaries: `install_v100/bin/spa_kokkos_cuda`, `install_cpu/bin/spa_kokkos_mpi_on
 | weak scaling, one run | `./submit_weak.sh cpu 8` |
 | saturation, 1 node, 1..16x particles (CPU vs GPU) | `./submit_saturation.sh` (no qsub, it calls it) |
 | saturation, one run | `./submit_saturation.sh gpu 16` |
+| regression check of a test build vs master's (SPARTA's regression.py, all examples) | `./submit_regression.sh` (no qsub, it calls it) |
 
 Useful parameters, via `qsub -v`:
 `NPART=30000000`, `REORDER=100`, `LABEL=name`, `GPU_ARCH=h200`.
