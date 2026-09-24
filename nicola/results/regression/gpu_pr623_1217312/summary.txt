@@ -1,0 +1,11 @@
+deck                                                   ref vs ref            test vs ref
+ambi                                             FAILED    0.00%        FAILED    0.00% 
+ambi.group                                  passed    4.95% Ncoll  FAILED    7.14% Ncoll  <--
+ambi.group.react                           FAILED   66.67% Nreact FAILED  316.67% Nreact
+circle                                           passed    0.00%        passed    0.00% 
+circle.distributed                               passed    0.00%        passed    0.00% 
+circle.transparent                               passed    0.00%        passed    0.00% 
+
+passed: reference 4/6, test 3/6
+<-- : passes against itself with the reference build, fails with the test build
+DRIVER : regression.py raised an exception on this deck, not compared

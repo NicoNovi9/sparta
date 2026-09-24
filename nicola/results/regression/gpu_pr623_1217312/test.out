@@ -1,0 +1,148 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 13:43:30 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi
+test = ambi.group.react
+gold standard = log.archive.24Sep26.ab.ambi.group.react
+300 
+read 13 log entries
+300 
+read 13 log entries
+==== comparing log.ab.ambi.group.react with log.archive.24Sep26.ab.ambi.group.react ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0004062111991661173 wrt norm     1.0
+Natt     error 0.003646092909791989 wrt norm     1.0
+Ncoll    error 0.03432228039557882 wrt norm     1.0
+Nreact   error 3.1666666666666665 wrt norm     1.0
+c_temp   error 0.002951096934583086 wrt norm     1.0
+!!! test ambi.group.react FAILED
+elapsed time = 1.0014078617095947 s for test ambi.group.react
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi
+test = ambi
+==== generating gold standard for test ambi ====
+==== comparing log.ab.ambi with log.archive.24Sep26.ab.ambi ====
+ERROR on proc 0: Ran out of space in Kokkos collisions, increase react/extra or use react/retry (/hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/collide_vss_kokkos.cpp:2675)
+!!! test ambi FAILED
+elapsed time = 4.959419250488281 s for test ambi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi
+test = ambi.group
+gold standard = log.archive.24Sep26.ab.ambi.group
+300 
+read 7 log entries
+300 
+read 7 log entries
+==== comparing log.ab.ambi.group with log.archive.24Sep26.ab.ambi.group ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt     error 0.0020964360587002098 wrt norm     1.0
+Ncoll    error 0.07142857142857142 wrt norm     1.0
+c_temp   error 0.00011387254677430783 wrt norm     1.0
+!!! test ambi.group FAILED
+elapsed time = 0.8851525783538818 s for test ambi.group
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 13:43:37 2026
+!!! 3 of 3 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi', 'ambi.group.react']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi', 'ambi']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/ambi', 'ambi.group']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 13:43:37 2026
+ntests: 3
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/circle
+test = circle.distributed
+gold standard = log.archive.24Sep26.ab.circle.distributed
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.distributed with log.archive.24Sep26.ab.circle.distributed ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle.distributed passed
+elapsed time = 1.3374114036560059 s for test circle.distributed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/circle
+test = circle
+gold standard = log.archive.24Sep26.ab.circle
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle with log.archive.24Sep26.ab.circle ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle passed
+elapsed time = 1.321425437927246 s for test circle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217312/examples/circle
+test = circle.transparent
+gold standard = log.archive.24Sep26.ab.circle.transparent
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.transparent with log.archive.24Sep26.ab.circle.transparent ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+c_reduce[1]  error  0.0 wrt norm     1.0
+c_reduce[2]           error  0.0
+c_reduce[3]  error  0.0 wrt norm     1.0
+c_reduce[4]           error  0.0
+
+All rows are identical
+*** test circle.transparent passed
+elapsed time = 1.6177585124969482 s for test circle.transparent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 13:43:41 2026
+3 tests passed
+*** no failures ***
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
