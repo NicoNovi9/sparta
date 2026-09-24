@@ -93,3 +93,1026 @@ Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
 
 /hpc/data/cfd-students/nnoventa/sparta/src/KOKKOS/collide_vss_kokkos.cpp(4731): warning #20011-D: calling a __host__ function("SPARTA_NS::KKCopy< ::SPARTA_NS::ReactTCEQKKokkos> ::KKCopy(const SPARTA_NS::KKCopy< ::SPARTA_NS::ReactTCEQKKokkos> &)") from a __host__ __device__ function("SPARTA_NS::CollideVSSKokkos::CollideVSSKokkos") is not allowed
 
+[ 10%] Linking CXX static library libpkg_kokkos.a
+[ 42%] Built target pkg_kokkos
+[ 42%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/adapt_grid.cpp.o
+[ 43%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/collide_vss.cpp.o
+[ 43%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/comm.cpp.o
+[ 44%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_boundary.cpp.o
+[ 44%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute.cpp.o
+[ 45%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_count.cpp.o
+[ 45%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_dt_grid.cpp.o
+[ 45%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_gas_collision_grid.cpp.o
+[ 46%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_eflux_grid.cpp.o
+[ 46%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_gas_collision_tally.cpp.o
+[ 46%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/collide.cpp.o
+[ 47%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_grid.cpp.o
+[ 47%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_gas_reaction_grid.cpp.o
+[ 47%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_gas_reaction_tally.cpp.o
+[ 48%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_isurf_grid.cpp.o
+[ 48%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_pflux_grid.cpp.o
+[ 48%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_distsurf_grid.cpp.o
+[ 48%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_ke_particle.cpp.o
+[ 49%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_lambda_grid.cpp.o
+[ 49%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_reduce.cpp.o
+[ 49%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_react_isurf_grid.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_property_surf.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_sonine_grid.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_react_boundary.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_thermal_grid.cpp.o
+[ 51%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_temp.cpp.o
+[ 51%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/balance_grid.cpp.o
+[ 51%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/create_particles.cpp.o
+[ 51%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/create_grid.cpp.o
+[ 52%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/create_isurf.cpp.o
+[ 52%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/domain.cpp.o
+[ 53%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/cut2d.cpp.o
+[ 53%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/custom.cpp.o
+[ 53%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_grid.cpp.o
+[ 53%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/create_box.cpp.o
+[ 53%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/cut3d.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_image.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ave_surf.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ave_histo.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_particle.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_dt_reset.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_surf.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_surf_reaction_tally.cpp.o
+[ 57%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_movie.cpp.o
+[ 57%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_tvib_grid.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_balance.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/error.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_surf_collision_tally.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/finish.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ave_grid.cpp.o
+[ 60%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ablate.cpp.o
+[ 60%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_custom.cpp.o
+[ 60%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ambipolar.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_controller.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ablate_multi_inner.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump_tally.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ave_time.cpp.o
+[ 62%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_property_grid.cpp.o
+[ 62%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_adapt.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_surf.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/compute_react_surf.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/dump.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_ave_histo_weight.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/comm.cpp(794): warning #177-D: variable "irregular1_bytes" was declared but never referenced
+    bigint irregular1_bytes = 0;
+           ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/comm.cpp(830): warning #177-D: variable "irregular2_bytes" was declared but never referenced
+    bigint irregular2_bytes = 0;
+           ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/comm.cpp(864): warning #550-D: variable "all2all1_bytes" was set but never used
+    bigint all2all1_bytes,all2all2_bytes;
+           ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/comm.cpp(864): warning #550-D: variable "all2all2_bytes" was set but never used
+    bigint all2all1_bytes,all2all2_bytes;
+                          ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/collide.cpp(1422): warning #177-D: variable "ispecies" was declared but never referenced
+    int i,j,k,m,n,ip,np,nelectron,nptotal,ispecies,jspecies,tmp;
+                                          ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/collide.cpp(1730): warning #177-D: variable "tmp" was declared but never referenced
+    int pindex,ipair,igroup,jgroup,newgroup,ispecies,jspecies,tmp;
+                                                              ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/collide.cpp(1732): warning #177-D: variable "tmpvec" was declared but never referenced
+    int *ni,*nj,*ilist,*jlist,*tmpvec;
+                               ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/create_particles.cpp(368): warning #550-D: variable "custom_any" was set but never used
+    int custom_any = 0;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/custom.cpp(614): warning #177-D: variable "filestyle" was declared but never referenced
+        int filestyle = actions[i].filestyle;
+            ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/collide_vss.cpp(281): warning #177-D: variable "m" was declared but never referenced
+    int m,reaction,kspecies;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/custom.cpp(1511): warning #177-D: variable "distsq" was declared but never referenced
+    double distsq;
+           ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/custom.cpp(1806): warning #177-D: variable "maxleft" was declared but never referenced
+    int maxleft = 0;
+        ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/custom.cpp(1807): warning #177-D: variable "maxright" was declared but never referenced
+    int maxright = 0;
+        ^
+
+[ 65%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_emit.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_emit_face.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_emit_face_file.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_emit_surf.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_field_grid.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_field_particle.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_grid_check.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_halt.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_move_surf.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_print.cpp.o
+[ 69%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_surf_temp.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/fix_emit_face_file.cpp(723): warning #550-D: variable "tmp" was set but never used
+    char *word,*tmp;
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 69%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_temp_global_rescale.cpp.o
+[ 70%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_temp_rescale.cpp.o
+[ 70%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/geometry.cpp.o
+[ 70%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/fix_vibmode.cpp.o
+[ 71%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid.cpp.o
+[ 71%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_adapt.cpp.o
+[ 71%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_collate.cpp.o
+[ 72%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_comm.cpp.o
+[ 72%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_custom.cpp.o
+[ 72%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_id.cpp.o
+[ 73%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/grid_surf.cpp.o
+[ 73%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/hashlittle.cpp.o
+[ 74%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/irregular.cpp.o
+[ 74%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/input.cpp.o
+[ 74%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/image.cpp.o
+[ 75%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/library.cpp.o
+[ 75%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/main.cpp.o
+[ 75%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/marching_cubes.cpp.o
+[ 76%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/marching_squares.cpp.o
+[ 76%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/math_eigen.cpp.o
+[ 76%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/math_extra.cpp.o
+[ 77%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/memory.cpp.o
+[ 77%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/mixture.cpp.o
+[ 77%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/modify.cpp.o
+[ 78%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/move_surf.cpp.o
+[ 78%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/output.cpp.o
+[ 79%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/particle.cpp.o
+[ 79%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/particle_custom.cpp.o
+[ 79%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/random_knuth.cpp.o
+[ 80%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/random_mars.cpp.o
+[ 80%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/rcb.cpp.o
+[ 81%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/react_bird.cpp.o
+[ 81%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/react.cpp.o
+[ 81%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/react_qk.cpp.o
+[ 81%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/react_tce.cpp.o
+[ 82%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/react_tce_qk.cpp.o
+[ 82%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/read_grid.cpp.o
+[ 83%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/read_isurf.cpp.o
+[ 83%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/read_particles.cpp.o
+[ 83%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/read_restart.cpp.o
+[ 84%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/read_surf.cpp.o
+[ 84%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region.cpp.o
+[ 84%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_block.cpp.o
+[ 85%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_cylinder.cpp.o
+[ 85%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_intersect.cpp.o
+[ 85%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_plane.cpp.o
+[ 86%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_sphere.cpp.o
+[ 86%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/region_union.cpp.o
+[ 87%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/remove_surf.cpp.o
+[ 87%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/run.cpp.o
+[ 87%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/scale_particles.cpp.o
+[ 88%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/spapython.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/hashlittle.cpp(142): warning #177-D: variable "k8" was declared but never referenced
+      const uint8_t *k8;
+                     ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 88%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/sparta.cpp.o
+[ 88%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/stats.cpp.o
+[ 89%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/read_grid.cpp(287): warning #186-D: pointless comparison of unsigned integer with zero
+        if (id < 0) error->one("/hpc/data/cfd-students/nnoventa/sparta/src/read_grid.cpp",287,"Invalid cell ID in grid file");
+               ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 89%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collate.cpp.o
+[ 89%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide.cpp.o
+[ 90%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_adiabatic.cpp.o
+[ 90%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_cll.cpp.o
+[ 91%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_diffuse.cpp.o
+[ 91%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_impulsive.cpp.o
+[ 91%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_piston.cpp.o
+[ 92%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_specular.cpp.o
+[ 92%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_td.cpp.o
+[ 92%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_transparent.cpp.o
+[ 93%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_collide_vanish.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/grid.cpp(2738): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/grid_custom.cpp(353): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/mixture.cpp(690): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/react_tce_qk.cpp(180): warning #550-D: variable "aspec" was set but never used
+    int mspec,aspec;
+              ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_grid.cpp(287): warning #186-D: pointless comparison of unsigned integer with zero
+        if (id < 0) error->one("/hpc/data/cfd-students/nnoventa/sparta/src/read_grid.cpp",287,"Invalid cell ID in grid file");
+               ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/particle_custom.cpp(362): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/react_qk.cpp(66): warning #550-D: variable "aspec" was set but never used
+    int mspec,aspec;
+              ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_restart.cpp(896): warning #550-D: variable "tmp" was set but never used
+    int tmp,n,flag;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_restart.cpp(1083): warning #550-D: variable "tmp" was set but never used
+    int tmp,n,flag;
+        ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_restart.cpp(1630): warning #550-D: variable "tmp" was set but never used
+    int tmp,n,flag;
+        ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_restart.cpp(2064): warning #550-D: variable "tmp" was set but never used
+    int n,tmp;
+          ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/particle.cpp(1454): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/particle.cpp(1494): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp(283): warning #550-D: variable "tmp" was set but never used
+    int nchunk,tmp;
+               ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp(456): warning #550-D: variable "tmp" was set but never used
+    int nchunk,tmp;
+               ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_isurf.cpp(551): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+/hpc/data/cfd-students/nnoventa/sparta/src/read_surf.cpp(1571): warning #177-D: variable "tmp" was declared but never referenced
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 93%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_comm.cpp.o
+[ 93%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_custom.cpp.o
+[ 94%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_react.cpp.o
+[ 94%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_react_adsorb.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/surf.cpp(2924): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 95%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_react_global.cpp.o
+[ 95%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/surf_react_prob.cpp.o
+[ 95%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/timer.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/surf_custom.cpp(537): warning #550-D: variable "tmp" was set but never used
+    int tmp;
+        ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 96%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/universe.cpp.o
+[ 96%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/update.cpp.o
+[ 96%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/utils.cpp.o
+[ 97%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/variable.cpp.o
+[ 97%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/write_grid.cpp.o
+[ 97%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/write_isurf.cpp.o
+[ 98%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/write_restart.cpp.o
+[ 98%] Building CXX object src/CMakeFiles/sparta_kokkos_cuda.dir/write_surf.cpp.o
+/hpc/data/cfd-students/nnoventa/sparta/src/variable.cpp(3936): warning #177-D: variable "nvec" was declared but never referenced
+      int index,nvec,nstride;
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/hpc/data/cfd-students/nnoventa/sparta/src/variable.cpp(3936): warning #177-D: variable "nstride" was declared but never referenced
+      int index,nvec,nstride;
+                     ^
+
+[ 99%] Linking CXX static library libsparta_kokkos_cuda.a
+[ 99%] Built target sparta_kokkos_cuda
+[ 99%] Building CXX object src/CMakeFiles/spa_kokkos_cuda.dir/main.cpp.o
+[100%] Linking CXX executable spa_kokkos_cuda
+   text	   data	    bss	    dec	    hex	filename
+61782332	  80040	8528608	70390980	43214c4	spa_kokkos_cuda
+[100%] Built target spa_kokkos_cuda
+
+[INFO] Installing
+[  7%] Built target kokkoscore
+[  8%] Built target kokkossimd
+[  8%] Built target sparta_kokkos_cuda_PRE_BUILD
+[  9%] Built target kokkoscontainers
+[ 10%] Built target kokkosalgorithms
+[ 42%] Built target pkg_kokkos
+[ 99%] Built target sparta_kokkos_cuda
+[100%] Built target spa_kokkos_cuda
+[100%] Built target Kokkos_AlwaysCheckGit
+[100%] Built target impl_git_version
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Graph.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Hooks
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Hooks/Kokkos_ViewHooks.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/MDSpan
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/MDSpan/Kokkos_MDSpan_Layout.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/MDSpan/Kokkos_MDSpan_Accessor.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/MDSpan/Kokkos_MDSpan_Header.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/MDSpan/Kokkos_MDSpan_Extents.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewCtor.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewAtomic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewAccessPreconditionsCheck.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewAlloc.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_BasicView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewTraits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewCommonType.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewTracker.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewUniformType.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewDataAnalysis.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewMapping.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/View/Kokkos_ViewLegacy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Graph_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Half.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Pair.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HPX
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HPX/Kokkos_HPX.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HPX/Kokkos_HPX_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HPX/Kokkos_HPX_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Parallel_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_KernelLaunch.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Half_Conversion.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_GraphNodeKernel.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Half_MathematicalFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Graph_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_BlockSize_Deduction.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_abort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Vectorization.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_CudaSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Error.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Parallel_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Parallel_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_ReduceScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_Half_Impl_Type.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_View.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Cuda/Kokkos_Cuda_GraphNode_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_IterationPatternTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_OccupancyControlTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_WorkTagTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_Traits_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_GraphKernelTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_PolicyTraitMatcher.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_IndexTypeTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_TeamHandleTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_ScheduleTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_ExecutionSpaceTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_LaunchBoundsTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_StaticBatchSizeTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_WorkItemPropertyTrait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/traits/Kokkos_PolicyTraitAdaptor.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_GraphNodeKernel.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelReduce_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_IsXnack.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Graph_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Error.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelFor_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Space.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelReduce_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Half_Conversion.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelScan_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_TeamPolicyInternal.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Half_Impl_Type.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelReduce_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Abort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Shuffle_Reduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_KernelLaunch.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_SharedAllocationRecord.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Vectorization.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ReduceScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelFor_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_BlockSize_Deduction.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_DeepCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_GraphNode_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_ParallelFor_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/HIP/Kokkos_HIP_Half_MathematicalFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Profiling_ProfileSection.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_Parallel_Scan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_Parallel_Reduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_Parallel_For.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenMP/Kokkos_OpenMP_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Tuners.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_OPENMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_THREADS.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_HPX.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_NEXTSILICON.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_OPENACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_SERIAL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/decl/Kokkos_Declare_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_Parallel_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_Parallel_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_Parallel_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Serial/Kokkos_Serial_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_GraphNode.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_CopyViews.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MathematicalSpecialFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_hwloc.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Complex.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Abort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_ReductionIdentity.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosExp_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_AnonymousSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphImpl_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_HostSharedPtr.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Half_FloatingPointWrapper.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_NvidiaGpuArchitectures.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Error.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphImpl_Utilities.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_SharedAlloc_timpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Default_GraphNodeKernel.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_StringManipulation.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_FunctorAnalysis.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Command_Line_Parsing.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_QuadPrecisionMath.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Profiling_Interface.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Volatile_Load.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_CStyleMemoryManagement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ScopeGuard.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_InitializationSettings.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ExecSpaceManager.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Utilities.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_CheckedIntegerOps.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/KokkosExp_Host_IterateTile.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/KokkosExp_IterateTileGPU.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Half_MathematicalFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_HostBarrier.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ClockTic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphNodeCustomization.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ZeroMemset_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Stacktrace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Default_Graph_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Default_Graph_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Profiling_DeviceInfo.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_TeamMDPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_CheckUsage.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphNodeImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_InitializeFinalize.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Profiling.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_DesulAtomicsConfig.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ConcurrentBitset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Tools_Generic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_DeviceHandle.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Tools.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Profiling_C_Interface.h
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphNodeThenImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_SharedAlloc.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Traits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_BuiltinReducers.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_ParseCommandLineArgumentsAndEnvironmentVariables.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Default_GraphNode_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_HostThreadTeam.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphNodeThenPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_DeviceManagement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_RandomAccessIterator.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_GraphNodeCtorProps.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_CPUDiscovery.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_HostSpace_deepcopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Half_ReductionIdentity.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_AnalyzePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_PartitionSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Combined_Reducer.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Half_NumericTraits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_EBO.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Extents.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Assert.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_DetectionIdiom.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_TypeInfo.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Half_Conversion.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelFor_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_TeamPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_DeepCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelReduce_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Abort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelFor_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Space.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelScan_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Half_Impl_Type.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Graph_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_WorkgroupReduction.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelFor_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelReduce_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_GraphNode_Impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_GraphNodeKernel.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_Half_MathematicalFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_ParallelReduce_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/SYCL/Kokkos_SYCL_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Profiling_ScopedRegion.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_ParallelFor_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSiliconSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_Intrinsics.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_HeapBuffer.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_ThreadSpaceGuard.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_PageAlignedData.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_SharedAllocationRecord.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_Printf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_DeepCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/NextSilicon/Kokkos_NextSilicon_Abort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Layout.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelFor_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_State.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelReduce_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelReduce_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelFor_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_Spinwait.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelReduce_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelFor_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ParallelScan_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_ZeroMemset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Threads/Kokkos_Threads_WorkGraphPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MemoryPool.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Core_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_NEXTSILICON.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_OPENACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_OPENMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_THREADS.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_SERIAL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_HPX.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/fwd/Kokkos_Fwd_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_UniqueToken.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Parallel_Reduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Macros.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Core.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_ExecPolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_ScratchSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Crs.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MathematicalConstants.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Vectorization.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Clamp.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MinMax.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MathematicalFunctions.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Timer.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Atomic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/setup
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/setup/Kokkos_Setup_Cuda.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/setup/Kokkos_Setup_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/setup/Kokkos_Setup_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Swap.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_MemoryTraits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelReduce_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelFor_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_DeepCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACCSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_Instance.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_Macros.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelReduce_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelScan_Range.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_FunctorAdapter.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelFor_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_Traits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelFor_Team.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_SharedAllocationRecord.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_MDRangePolicy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ScheduleType.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/OpenACC/Kokkos_OpenACC_ParallelReduce_MDRange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Atomics_Desul_Wrapper.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Array.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_HostSpace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_NumericTraits.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Parallel.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_View.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_AcquireUniqueTokenImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Concepts.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Printf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosExp_InterOp.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Rank.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_BitManipulation.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Iterator.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_MSVC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_ScopeCaller.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc9_asm_exchange_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_store_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc9_asm_exchange.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_memorder.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_fetch_op.inc_predicate
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_op.inc_isglobal
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_load_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_exchange_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_loadstore_memorder.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/CUDA_asm.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_loadstore.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_fetch_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/CUDA_asm_exchange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc9_asm_exchange_memorder.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_exchange.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/CUDA_asm_loadstore.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_fetch_op.inc_isglobal
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_atomic_op.inc_predicate
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/cuda/cuda_cc7_asm_exchange_memorder.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Common.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Adapt_CXX.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_MSVC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/openmp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/openmp/OpenMP_40.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/openmp/OpenMP_40_op.inc
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Array_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Fetch_Op.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Array_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Operator_Function_Objects.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Atomic_Ref.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_MSVC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Macros.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_ScopeCaller.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Generic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_MSVC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_ScopeCaller.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Array.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_Generic.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Adapt_GCC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_ScopeCaller.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op_Host.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Compare_Exchange_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Fetch_Op_OpenMP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Adapt_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Based_Fetch_Op_CUDA.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Adapt_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Free_Types_OpenACC.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence_SYCL.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Lock_Array_HIP.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Thread_Fence.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Load_And_Store_HIP.hpp
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/desul/atomics/Config.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/libkokkoscore.a
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/mdspan
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/mdspan/mdspan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/mdspan/mdarray.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p1684_bits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p1684_bits/mdarray.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2630_bits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2630_bits/submdspan_extents.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2630_bits/strided_slice.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2630_bits/submdspan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2630_bits/submdspan_mapping.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2642_bits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2642_bits/layout_padded_fwd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2642_bits/layout_padded.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/default_accessor.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/mdspan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/no_unique_address.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/macros.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/extents.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/trait_backports.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/type_list.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/layout_stride.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/layout_right.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/utility.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/dynamic_extent.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/config.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/compressed_pair.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/full_extent_t.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p0009_bits/layout_left.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2389_bits
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/experimental/__p2389_bits/dims.hpp
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Bitset_impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_UnorderedMap_impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Functional_impl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_DualView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_DynamicView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Bitset.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Functional.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_OffsetView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_ErrorReporter.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_ScatterView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_UnorderedMap.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_DynRankView.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/libkokkoscontainers.a
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_NestedSort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/Kokkos_BinSortPublicAPI.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/impl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/impl/Kokkos_SortByKeyImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/impl/Kokkos_NestedSortImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/impl/Kokkos_SortImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/impl/Kokkos_CopyOpsForBinSortImpl.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/Kokkos_SortByKeyPublicAPI.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/Kokkos_SortPublicAPI.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/Kokkos_NestedSortPublicAPI.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/sorting/Kokkos_BinOpsPublicAPI.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_StdAlgorithms.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Sort.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_GenerateN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_IsPartitioned.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Copy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_CopyBackward.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ForEach.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Find.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Equal.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_PartitionPoint.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_FindEnd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_PartitionCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_RemoveIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ReplaceCopyIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_NoneOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_IsSorted.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_FindIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_IsSortedUntil.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Reduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ForEachN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_AnyOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ReverseCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_FillN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Transform.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_IsPartitioned.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ForEachForEachN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_MinMaxMinmaxElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_CopyBackward.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Equal.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_PartitionPoint.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_FindEnd.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_PartitionCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Constraints.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ReplaceCopyIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_IsSorted.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_IsSortedUntil.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Reduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ReverseCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Transform.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_CopyCopyN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_FindIfOrNot.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Unique.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_CopyIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Rotate.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_IdentityReferenceUnaryFunctor.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_UniqueCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_TransformReduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_FillFillN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_SwapRanges.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Replace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Search.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ReplaceIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_LexicographicalCompare.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_TransformInclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ReducerWithArbitraryJoinerNoNeutralElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_SearchN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_FindFirstOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Reverse.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_InclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_AdjacentDifference.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_GenerateGenerateN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_MustUseKokkosSingleInTeam.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Move.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ShiftLeft.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ValueWrapperForNoNeutralElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_HelperPredicates.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ExclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ReplaceCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_MoveBackward.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_RemoveAllVariants.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_RotateCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_ShiftRight.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_Mismatch.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_AllOfAnyOfNoneOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_TransformExclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_FunctorsForExclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_AdjacentFind.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/impl/Kokkos_CountCountIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Unique.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_CopyIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Rotate.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_UniqueCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_IterSwap.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Remove.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_TransformReduce.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_SwapRanges.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Replace.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Count.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Search.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ReplaceIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_LexicographicalCompare.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_TransformInclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_CountIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_SearchN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_FindFirstOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Reverse.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_InclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_MinMaxElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_AdjacentDifference.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_FindIfNot.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Generate.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Fill.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_RemoveCopyIf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Move.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ShiftLeft.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ExclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ReplaceCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_RemoveCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_MoveBackward.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_RotateCopy.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_CopyN.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_AllOf.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_MaxElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_ShiftRight.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_Mismatch.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_TransformExclusiveScan.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_AdjacentFind.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/std_algorithms/Kokkos_MinElement.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_Random.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/libkokkosalgorithms.a
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_Scalar.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_AVX2.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD.hpp
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_Neon_SVE_bridge.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_SIMD_RangesCtorSupport.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/impl/Kokkos_SIMD_Impl_Macros.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_Common_Math.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_NEON.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_SVE.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_AVX512.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/Kokkos_SIMD_Common.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/libkokkossimd.a
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/cmake/Kokkos/KokkosConfig.cmake
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/cmake/Kokkos/KokkosConfigCommon.cmake
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/cmake/Kokkos/KokkosConfigVersion.cmake
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/cmake/Kokkos/KokkosTargets.cmake
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib64/cmake/Kokkos/KokkosTargets-release.cmake
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosCore_config.h
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/bin/nvcc_wrapper
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/bin/hpcbind
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/bin/kokkos_launch_compiler
+-- Up-to-date: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosCore_config.h
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosCore_Config_FwdBackend.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosCore_Config_SetupBackend.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/include/kokkos/KokkosCore_Config_DeclareBackend.hpp
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib/sparta/kokkos_cuda/pkgs/libpkg_kokkos.a
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib/libsparta_kokkos_cuda.a
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/lib/libsparta.a
+-- Installing: /hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/bin/spa_kokkos_cuda
+
+[INFO] Done
+arch    h200_pr623
+reduce  0
+branch  try-pr623
+commit  cc1f923ec08392e77ccf5a54dcfee8bdd01b4e46
+date    2026-09-24T10:07:12+02:00
+
+SPARTA binary:
+/hpc/data/cfd-students/nnoventa/sparta/install_h200_pr623/bin/spa_kokkos_cuda
