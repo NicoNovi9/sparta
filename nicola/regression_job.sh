@@ -29,10 +29,13 @@ REF_BUILD="${REF_BUILD:-}"          # "" = install_<arch>, the build of master
 TEST_BUILD="${TEST_BUILD:-pr623}"   # install_<arch>_<TEST_BUILD>
 ONLY="${ONLY:-}"                    # example dirs to restrict to, ":" separated
 TOL="${TOL:-0.05}"
-# decks left out, ":" separated: regression.py's log reader (olog.py) raises
-# on this one (stats blocks of different widths) and the exception ends the
-# whole pass, so it is removed from the copy of the examples
-SKIP="${SKIP:-custom.step.set.restart}"
+# decks left out, ":" separated, removed from the copy of the examples:
+# - custom.step.set.restart: regression.py's log reader (olog.py) raises on it
+#   (stats blocks of different widths)
+# - cylinder: a production-size case, not a test (7.2M cells, ~340M particles,
+#   run 10000000, no reference log); it never ends on 4 CPU cores and runs
+#   out of memory on one V100
+SKIP="${SKIP:-custom.step.set.restart:cylinder}"
 
 case "$ARCH" in
     gpu) EXE=spa_kokkos_cuda; INSTALL=install_v100
