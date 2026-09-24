@@ -29,6 +29,10 @@ REF_BUILD="${REF_BUILD:-}"          # "" = install_<arch>, the build of master
 TEST_BUILD="${TEST_BUILD:-pr623}"   # install_<arch>_<TEST_BUILD>
 ONLY="${ONLY:-}"                    # example dirs to restrict to, ":" separated
 TOL="${TOL:-0.05}"
+# decks left out, ":" separated: regression.py's log reader (olog.py) raises
+# on this one (stats blocks of different widths) and the exception ends the
+# whole pass, so it is removed from the copy of the examples
+SKIP="${SKIP:-custom.step.set.restart}"
 
 case "$ARCH" in
     gpu) EXE=spa_kokkos_cuda; INSTALL=install_v100
@@ -74,6 +78,9 @@ export OMP_NUM_THREADS=1
 # a fresh copy of the examples: the gold logs are made by pass 1 of this job
 rm -rf "$WORK/examples"
 cp -r "$REPO_ROOT/examples" "$WORK/examples"
+for deck in ${SKIP//:/ }; do
+    rm -f "$WORK"/examples/*/in."$deck"
+done
 
 {
     echo "job        $PBS_JOBID"
@@ -86,6 +93,7 @@ cp -r "$REPO_ROOT/examples" "$WORK/examples"
     echo "           $(build_info "$TEST_EXE")"
     echo "tolerance  $TOL relative, L1 norm per stats column"
     echo "only       ${ONLY:-all examples}"
+    echo "skipped    ${SKIP:-none}"
     echo "commit     $(git_head "$REPO_ROOT")"
     echo "work dir   $WORK/examples"
 } | tee "$RUNDIR/meta.txt"
@@ -93,13 +101,23 @@ cp -r "$REPO_ROOT/examples" "$WORK/examples"
 
 OPTS=(-logread "$REPO_ROOT/tools/testing" olog
       -error_norm L1 -relative_error True -tolerance "$TOL")
-[ -n "$ONLY" ] && OPTS+=(-only ${ONLY//:/ })
+# one example directory per call: an exception in the driver then costs that
+# directory only, not every directory after it
+if [ -n "$ONLY" ]; then
+    DIRS="${ONLY//:/ }"
+else
+    DIRS="$(cd "$WORK/examples" && ls -d */ | tr -d / | tr '\n' ' ')"
+fi
 
 run_pass() {  # name, executable
     echo "==== pass $1: $2"
-    python3 "$REPO_ROOT/tools/testing/regression.py" ab \
-        "mpirun $LAUNCH_ARGS --bind-to core $2 $KOKKOS_ARGS" \
-        "$WORK/examples" "${OPTS[@]}" > "$RUNDIR/$1.out" 2>&1
+    : > "$RUNDIR/$1.out"
+    for dir in $DIRS; do
+        ls "$WORK/examples/$dir"/in.* > /dev/null 2>&1 || continue
+        python3 "$REPO_ROOT/tools/testing/regression.py" ab \
+            "mpirun $LAUNCH_ARGS --bind-to core $2 $KOKKOS_ARGS" \
+            "$WORK/examples" "${OPTS[@]}" -only "$dir" >> "$RUNDIR/$1.out" 2>&1
+    done
     grep -cE "^\*\*\* test .* passed" "$RUNDIR/$1.out" | sed "s/^/passed: /"
     grep -cE "^!!! test .* FAILED" "$RUNDIR/$1.out" | sed "s/^/failed: /"
 }
@@ -127,6 +145,8 @@ def parse(path):
         m = re.match(r"(\*\*\*|!!!) test (\S+) (passed|FAILED)", line)
         if m:
             res[m.group(2)] = (m.group(3), worst)
+        if line.startswith("Traceback") and test and test not in res:
+            res[test] = ("DRIVER", (0.0, ""))   # regression.py itself raised
     return res
 
 ref, tst = parse(sys.argv[1]), parse(sys.argv[2])
@@ -139,5 +159,6 @@ nr = sum(1 for r in ref.values() if r[0] == "passed")
 nt = sum(1 for r in tst.values() if r[0] == "passed")
 print(f"\npassed: reference {nr}/{len(ref)}, test {nt}/{len(tst)}")
 print("<-- : passes against itself with the reference build, fails with the test build")
+print("DRIVER : regression.py raised an exception on this deck, not compared")
 EOF
 cat "$RUNDIR/summary.txt"
