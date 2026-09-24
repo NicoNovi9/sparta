@@ -1,0 +1,298 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+start:  Thu Sep 24 13:51:15 2026
+ntests: 13
+default descriptor: ab
+default norm: L1
+default tolerance: 0.05
+default relative error: True
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+subdirs = ['free', 'optmove', 'tally_computes', 'surf', 'circle', 'adapt', 'bfield', 'flowfile', 'surf_react_heatflux', 'relax_const', 'paraview', 'chem_rates', 'spiky', 'fft', 'regions', 'python', 'shock_tube', 'qk', 'collide', 'adjust_temp', 'step', 'vibrate', 'surf_react_adsorb', 'surf_collide', 'vtk', 'jagged', 'ambi', 'chem', 'torque', 'variable_timestep', 'implicit', 'ambi_3body', 'custom', 'ablation', 'relax_variable', 'axi', 'cylinder', 'explicit2implicit', 'emit', 'mfp_mct', 'thermostat', 'sphere']
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.diffuse
+gold standard = log.archive.24Sep26.ab.circle.diffuse
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.diffuse with log.archive.24Sep26.ab.circle.diffuse ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0011859368514407845 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.03440496333897349 wrt norm     1.0
+Nscheck  error 0.01336470949341996 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.diffuse passed
+elapsed time = 1.4199118614196777 s for test circle.diffuse
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.cll
+gold standard = log.archive.24Sep26.ab.beam.cll
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.cll with log.archive.24Sep26.ab.beam.cll ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0029198771797694224 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 3 out of 11 rows are identical
+*** test beam.cll passed
+elapsed time = 1.0417990684509277 s for test beam.cll
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.td
+gold standard = log.archive.24Sep26.ab.circle.td
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.td with log.archive.24Sep26.ab.circle.td ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0017401052686691738 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.02874859075535513 wrt norm     1.0
+Nscheck  error 0.011511739150891613 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.td passed
+elapsed time = 1.3574340343475342 s for test circle.td
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.specular
+gold standard = log.archive.24Sep26.ab.beam.specular
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.specular with log.archive.24Sep26.ab.beam.specular ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+All rows are identical
+*** test beam.specular passed
+elapsed time = 0.9799988269805908 s for test beam.specular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.cll
+gold standard = log.archive.24Sep26.ab.circle.cll
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.cll with log.archive.24Sep26.ab.circle.cll ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0016525150817661381 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.042012161415146486 wrt norm     1.0
+Nscheck  error 0.01251408955835639 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.cll passed
+elapsed time = 1.3650670051574707 s for test circle.cll
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.impulsive
+gold standard = log.archive.24Sep26.ab.beam.impulsive
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.impulsive with log.archive.24Sep26.ab.beam.impulsive ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.004860962184573593 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 3 out of 11 rows are identical
+*** test beam.impulsive passed
+elapsed time = 1.0058026313781738 s for test beam.impulsive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.td
+gold standard = log.archive.24Sep26.ab.beam.td
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.td with log.archive.24Sep26.ab.beam.td ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0048870653802528955 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 3 out of 11 rows are identical
+*** test beam.td passed
+elapsed time = 1.0025691986083984 s for test beam.td
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.diffuse
+gold standard = log.archive.24Sep26.ab.beam.diffuse
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.diffuse with log.archive.24Sep26.ab.beam.diffuse ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.002892670157068063 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 3 out of 11 rows are identical
+*** test beam.diffuse passed
+elapsed time = 1.0063035488128662 s for test beam.diffuse
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = beam.adiabatic
+gold standard = log.archive.24Sep26.ab.beam.adiabatic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.beam.adiabatic with log.archive.24Sep26.ab.beam.adiabatic ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.003245961597074063 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll            error  0.0
+Nscheck           error  0.0
+
+WARNING: Only 3 out of 11 rows are identical
+*** test beam.adiabatic passed
+elapsed time = 0.9975447654724121 s for test beam.adiabatic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.impulsive
+gold standard = log.archive.24Sep26.ab.circle.impulsive
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.impulsive with log.archive.24Sep26.ab.circle.impulsive ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0011359093805533896 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.04994388327721661 wrt norm     1.0
+Nscheck  error 0.009083824038794597 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.impulsive passed
+elapsed time = 1.4436936378479004 s for test circle.impulsive
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = piston
+gold standard = log.archive.24Sep26.ab.piston
+300 
+read 7 log entries
+300 
+read 7 log entries
+==== comparing log.ab.piston with log.archive.24Sep26.ab.piston ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0024667430182362788 wrt norm     1.0
+Natt     error 0.0695970695970696 wrt norm     1.0
+Ncoll    error 0.09990485252140818 wrt norm     1.0
+c_t      error 0.004911580407601614 wrt norm     1.0
+!!! test piston FAILED
+elapsed time = 0.9697210788726807 s for test piston
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.specular
+gold standard = log.archive.24Sep26.ab.circle.specular
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.specular with log.archive.24Sep26.ab.circle.specular ====
+Step     error  0.0 wrt norm     1.0
+Np       error  0.0 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error  0.0 wrt norm     1.0
+Nscheck  error  0.0 wrt norm     1.0
+
+All rows are identical
+*** test circle.specular passed
+elapsed time = 1.3747200965881348 s for test circle.specular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dir = /hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide
+test = circle.adiabatic
+gold standard = log.archive.24Sep26.ab.circle.adiabatic
+1000 
+read 11 log entries
+1000 
+read 11 log entries
+==== comparing log.ab.circle.adiabatic with log.archive.24Sep26.ab.circle.adiabatic ====
+Step     error  0.0 wrt norm     1.0
+Np       error 0.0017803023381478067 wrt norm     1.0
+Natt              error  0.0
+Ncoll             error  0.0
+Nscoll   error 0.022714366837024418 wrt norm     1.0
+Nscheck  error 0.008812171163465776 wrt norm     1.0
+
+WARNING: Only 1 out of 11 rows are identical
+*** test circle.adiabatic passed
+elapsed time = 1.383331298828125 s for test circle.adiabatic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end: Thu Sep 24 13:51:30 2026
+!!! 1 of 13 tests failed
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'piston']
+
+!!! Warnings were generated in the following tests
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'circle.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'beam.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'circle.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'circle.cll']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'beam.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'beam.td']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'beam.diffuse']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'beam.adiabatic']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'circle.impulsive']
+['/hpc/data/cfd-students/nnoventa/regression_runs/gpu_pr623_1217411/examples/surf_collide', 'circle.adiabatic']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

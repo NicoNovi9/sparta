@@ -1,0 +1,18 @@
+deck                                                   ref vs ref            test vs ref
+beam.adiabatic                                 passed    0.14% Np     passed    0.32% Np
+beam.cll                                       passed    0.05% Np     passed    0.29% Np
+beam.diffuse                                   passed    0.04% Np     passed    0.29% Np
+beam.impulsive                                 passed    0.14% Np     passed    0.49% Np
+beam.specular                                    passed    0.00%        passed    0.00% 
+beam.td                                        passed    0.09% Np     passed    0.49% Np
+circle.adiabatic                           passed    2.27% Nscoll passed    2.27% Nscoll
+circle.cll                                 passed    3.70% Nscoll passed    4.20% Nscoll
+circle.diffuse                             passed    2.99% Nscoll passed    3.44% Nscoll
+circle.impulsive                           passed    2.47% Nscoll passed    4.99% Nscoll
+circle.specular                                  passed    0.00%        passed    0.00% 
+circle.td                                  passed    2.93% Nscoll passed    2.87% Nscoll
+piston                                      FAILED    8.66% Ncoll  FAILED    9.99% Ncoll
+
+passed: reference 12/13, test 12/13
+<-- : passes against itself with the reference build, fails with the test build
+DRIVER : regression.py raised an exception on this deck, not compared

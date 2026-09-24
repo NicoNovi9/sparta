@@ -1,0 +1,158 @@
+job        1217483.pbs60
+date       2026-09-24T13:58:22+02:00
+host       pn6340
+arch       cpu (-np 4, -k on -sf kk)
+reference  /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+           arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+test       /hpc/data/cfd-students/nnoventa/sparta/install_cpu_pr623/bin/spa_kokkos_mpi_only
+           arch    cpu-zen4_pr623 branch  try-pr623 commit  15368f052514be7014cdf1d1e08a20dc87c772ce date    2026-09-24T11:32:06+02:00 
+tolerance  0.05 relative, L1 norm per stats column
+only       all examples
+skipped    custom.step.set.restart:cylinder
+commit     7c6f6ee8268577fdf2a7f3c930e1eb3909bb5650
+work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/cpu_pr623_1217483/examples
+==== pass ref: /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+passed: 119
+failed: 14
+==== pass test: /hpc/data/cfd-students/nnoventa/sparta/install_cpu_pr623/bin/spa_kokkos_mpi_only
+passed: 120
+failed: 13
+deck                                                   ref vs ref            test vs ref
+ablate.axi.spherecone                            passed    0.00%        passed    0.00% 
+ablation.2d                                      passed    0.00%        passed    0.00% 
+ablation.3d                                      passed    0.00%        passed    0.00% 
+ablation.3d.reactions                            passed    0.00%        passed    0.00% 
+ablation.multi.inner.3d                          passed    0.00%        passed    0.00% 
+adapt.rotate                                     passed    0.00%        passed    0.00% 
+adapt.slide                                      passed    0.00%        passed    0.00% 
+adapt.static                                     passed    0.00%        passed    0.00% 
+adapt.static.paraview                            passed    0.00%        passed    0.00% 
+ambi                                             FAILED    0.00%        FAILED    0.00% 
+ambi.group                                       passed    0.00%        passed    0.00% 
+ambi.group.react                                 passed    0.00%        passed    0.00% 
+ambi_3body                                       passed    0.00%        passed    0.00% 
+axi                                              passed    0.00%        passed    0.00% 
+beam.adiabatic                                   passed    0.00%        passed    0.00% 
+beam.cll                                         passed    0.00%        passed    0.00% 
+beam.diffuse                                     passed    0.00%        passed    0.00% 
+beam.face.gs                                     passed    0.00%        passed    0.00% 
+beam.face.gs_ps                                  passed    0.00%        passed    0.00% 
+beam.face.ps                                     passed    0.00%        passed    0.00% 
+beam.impulsive                                   passed    0.00%        passed    0.00% 
+beam.specular                                    passed    0.00%        passed    0.00% 
+beam.surf.gs                                     passed    0.00%        passed    0.00% 
+beam.surf.gs_ps                                  passed    0.00%        passed    0.00% 
+beam.surf.ps                                     passed    0.00%        passed    0.00% 
+beam.td                                          passed    0.00%        passed    0.00% 
+bfield                                           passed    0.00%        passed    0.00% 
+bfield.grid                                      passed    0.00%        passed    0.00% 
+chem                                             passed    0.00%        passed    0.00% 
+chem.gastally                                    passed    0.00%        passed    0.00% 
+chem_rates                                       passed    0.00%        passed    0.00% 
+circle                                           passed    0.00%        passed    0.00% 
+circle.adiabatic                                 passed    0.00%        passed    0.00% 
+circle.adjust                                    passed    0.00%        passed    0.00% 
+circle.cll                                       passed    0.00%        passed    0.00% 
+circle.constant                                  passed    0.00%        passed    0.00% 
+circle.diffuse                                   passed    0.00%        passed    0.00% 
+circle.distributed                               passed    0.00%        passed    0.00% 
+circle.gs                                        passed    0.00%        passed    0.00% 
+circle.gs_ps                                     passed    0.00%        passed    0.00% 
+circle.impulsive                                 passed    0.00%        passed    0.00% 
+circle.paraview                                  passed    0.00%        passed    0.00% 
+circle.ps                                        passed    0.00%        passed    0.00% 
+circle.pyvar                                     FAILED    0.00%        FAILED    0.00% 
+circle.specular                                  passed    0.00%        passed    0.00% 
+circle.td                                        passed    0.00%        passed    0.00% 
+circle.transparent                               passed    0.00%        passed    0.00% 
+collide                                          passed    0.00%        passed    0.00% 
+collide.group                                    passed    0.00%        passed    0.00% 
+collideInterspecies                              passed    0.00%        passed    0.00% 
+collide_2D                                       passed    0.00%        passed    0.00% 
+collide_2D_nn                                    passed    0.00%        passed    0.00% 
+collide_2D_sub                                   passed    0.00%        passed    0.00% 
+collide_3D                                       passed    0.00%        passed    0.00% 
+collide_3D_nn                                    passed    0.00%        passed    0.00% 
+collide_3D_sub                                   passed    0.00%        passed    0.00% 
+custom.circle.file                               passed    0.00%        passed    0.00% 
+custom.circle.file.fix.distributed               passed    0.00%        passed    0.00% 
+custom.circle.set.distributed                    passed    0.00%        passed    0.00% 
+custom.circle.set.fix                            passed    0.00%        passed    0.00% 
+custom.circle.set.fix.distributed                passed    0.00%        passed    0.00% 
+custom.coarse.2d                                 passed    0.00%        passed    0.00% 
+custom.coarse.3d                                 passed    0.00%        passed    0.00% 
+custom.cube.read.restart                         FAILED    0.00%        FAILED    0.00% 
+custom.step.clip                                 passed    0.00%        passed    0.00% 
+custom.step.read                                 passed    0.00%        passed    0.00% 
+custom.step.read.restart                         DRIVER    0.00%        DRIVER    0.00% 
+custom.step.temp.read                            passed    0.00%        passed    0.00% 
+custom.step.temp.remove                          passed    0.00%        passed    0.00% 
+custom.step.temp.variable                        passed    0.00%        passed    0.00% 
+emit.face                                        passed    0.00%        passed    0.00% 
+emit.face.region                                 passed    0.00%        passed    0.00% 
+emit.surf.boundary                               passed    0.00%        passed    0.00% 
+emit.surf.flow                                   passed    0.00%        passed    0.00% 
+emit.surf.flow.region                            passed    0.00%        passed    0.00% 
+emit.surf.mflow                                  passed    0.00%        passed    0.00% 
+emit.surf.mflow.single                           passed    0.00%        passed    0.00% 
+emit.surf.normal                                 passed    0.00%        passed    0.00% 
+emit.surf.normal.region                          passed    0.00%        passed    0.00% 
+emit.surf.subsonic                               passed    0.00%        passed    0.00% 
+exp2imp.axi.circle                               passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone                           passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone.readback                  passed    0.00%        passed    0.00% 
+exp2imp.axi.spherecone.readback2                 FAILED    0.00%        passed    0.00% 
+exp2imp.circle.2d                                passed    0.00%        passed    0.00% 
+exp2imp.sphere.3d                                passed    0.00%        passed    0.00% 
+fft.2d                                           FAILED    0.00%        FAILED    0.00% 
+fft.3d                                           FAILED    0.00%        FAILED    0.00% 
+flowfile                                         passed    0.00%        passed    0.00% 
+free                                             passed    0.00%        passed    0.00% 
+free.restart                                     passed    0.00%        passed    0.00% 
+gas.collision.tally                              passed    0.00%        passed    0.00% 
+gas.reaction.tally                               passed    0.00%        passed    0.00% 
+implicit.2d                                      FAILED    0.00%        FAILED    0.00% 
+implicit.2d.rectangle                            FAILED    0.00%        FAILED    0.00% 
+implicit.3d.big                                  FAILED    0.00%        FAILED    0.00% 
+implicit.3d.small                                FAILED    0.00%        FAILED    0.00% 
+jagged.2d                                        passed    0.00%        passed    0.00% 
+jagged.2d.distributed                            passed    0.00%        passed    0.00% 
+jagged.3d                                        FAILED    0.00%        FAILED    0.00% 
+jagged.3d.distributed                            FAILED    0.00%        FAILED    0.00% 
+mfp_mct                                          passed    0.00%        passed    0.00% 
+optmove                                          passed    0.00%        passed    0.00% 
+optmove.axi                                      passed    0.00%        passed    0.00% 
+optmove.flow                                     passed    0.00%        passed    0.00% 
+optmove.surf                                     passed    0.00%        passed    0.00% 
+piston                                           passed    0.00%        passed    0.00% 
+qk                                               passed    0.00%        passed    0.00% 
+regions                                          passed    0.00%        passed    0.00% 
+relax_const                                      passed    0.00%        passed    0.00% 
+relax_variable                                   passed    0.00%        passed    0.00% 
+shocktube                                        passed    0.00%        passed    0.00% 
+sphere                                           passed    0.00%        passed    0.00% 
+sphere.adjust                                    passed    0.00%        passed    0.00% 
+sphere.constant                                  passed    0.00%        passed    0.00% 
+sphere.distributed                               passed    0.00%        passed    0.00% 
+sphere.paraview                                  passed    0.00%        passed    0.00% 
+spiky                                            passed    0.00%        passed    0.00% 
+step                                             passed    0.00%        passed    0.00% 
+surf.add                                         passed    0.00%        passed    0.00% 
+surf.collision.tally                             passed    0.00%        passed    0.00% 
+surf.move                                        passed    0.00%        passed    0.00% 
+surf.reaction.tally                              passed    0.00%        passed    0.00% 
+surf.remove                                      passed    0.00%        passed    0.00% 
+surf.rotate                                      passed    0.00%        passed    0.00% 
+surf.slide                                       passed    0.00%        passed    0.00% 
+surf_react_heatflux                              passed    0.00%        passed    0.00% 
+thermostat                                       passed    0.00%        passed    0.00% 
+thermostat_ave                                   passed    0.00%        passed    0.00% 
+torque                                           passed    0.00%        passed    0.00% 
+variable_dt                                      passed    0.00%        passed    0.00% 
+vibrate                                          passed    0.00%        passed    0.00% 
+vtk                                              FAILED    0.00%        FAILED    0.00% 
+vtk.3d                                           FAILED    0.00%        FAILED    0.00% 
+
+passed: reference 119/134, test 120/134
+<-- : passes against itself with the reference build, fails with the test build
+DRIVER : regression.py raised an exception on this deck, not compared

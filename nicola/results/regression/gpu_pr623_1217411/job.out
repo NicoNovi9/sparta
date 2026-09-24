@@ -1,0 +1,41 @@
+Loading hpcx/2.17.1-gcc-8.5.0
+  Loading requirement: zlib-ng/2.1.4-gcc-8.5.0 zstd/1.5.5-gcc-8.5.0
+    binutils/2.41-gcc-8.5.0
+job        1217411.pbs60
+date       2026-09-24T13:50:45+02:00
+host       an5006
+arch       gpu (-np 1, -k on g 1 -sf kk)
+reference  /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+           arch    v100 commit  b7c3d8561f2539035449274b4d194c0b224d869a date    2026-09-22T10:16:03+02:00 
+test       /hpc/data/cfd-students/nnoventa/sparta/install_v100_pr623/bin/spa_kokkos_cuda
+           arch    v100_pr623 reduce  0 branch  try-pr623 commit  15368f052514be7014cdf1d1e08a20dc87c772ce date    2026-09-24T11:39:59+02:00 
+tolerance  0.05 relative, L1 norm per stats column
+only       surf_collide
+skipped    custom.step.set.restart
+commit     e1a105adf569e9da2a939a7178aa49fbff5fb93b
+work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/gpu_pr623_1217411/examples
+GPU 0: Tesla V100-SXM2-32GB (UUID: GPU-6ce92ca5-715f-0071-7b55-acd4042f0efe)
+==== pass ref: /hpc/data/cfd-students/nnoventa/sparta/install_v100/bin/spa_kokkos_cuda
+passed: 12
+failed: 1
+==== pass test: /hpc/data/cfd-students/nnoventa/sparta/install_v100_pr623/bin/spa_kokkos_cuda
+passed: 12
+failed: 1
+deck                                                   ref vs ref            test vs ref
+beam.adiabatic                                 passed    0.14% Np     passed    0.32% Np
+beam.cll                                       passed    0.05% Np     passed    0.29% Np
+beam.diffuse                                   passed    0.04% Np     passed    0.29% Np
+beam.impulsive                                 passed    0.14% Np     passed    0.49% Np
+beam.specular                                    passed    0.00%        passed    0.00% 
+beam.td                                        passed    0.09% Np     passed    0.49% Np
+circle.adiabatic                           passed    2.27% Nscoll passed    2.27% Nscoll
+circle.cll                                 passed    3.70% Nscoll passed    4.20% Nscoll
+circle.diffuse                             passed    2.99% Nscoll passed    3.44% Nscoll
+circle.impulsive                           passed    2.47% Nscoll passed    4.99% Nscoll
+circle.specular                                  passed    0.00%        passed    0.00% 
+circle.td                                  passed    2.93% Nscoll passed    2.87% Nscoll
+piston                                      FAILED    8.66% Ncoll  FAILED    9.99% Ncoll
+
+passed: reference 12/13, test 12/13
+<-- : passes against itself with the reference build, fails with the test build
+DRIVER : regression.py raised an exception on this deck, not compared

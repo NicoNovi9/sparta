@@ -1,0 +1,13 @@
+job        1217483.pbs60
+date       2026-09-24T13:58:22+02:00
+host       pn6340
+arch       cpu (-np 4, -k on -sf kk)
+reference  /hpc/data/cfd-students/nnoventa/sparta/install_cpu/bin/spa_kokkos_mpi_only
+           arch    cpu-zen4 commit  a93d3916c57c611b1ff0aea6dd1908d4951cbee7 date    2026-09-22T10:00:43+02:00 
+test       /hpc/data/cfd-students/nnoventa/sparta/install_cpu_pr623/bin/spa_kokkos_mpi_only
+           arch    cpu-zen4_pr623 branch  try-pr623 commit  15368f052514be7014cdf1d1e08a20dc87c772ce date    2026-09-24T11:32:06+02:00 
+tolerance  0.05 relative, L1 norm per stats column
+only       all examples
+skipped    custom.step.set.restart:cylinder
+commit     7c6f6ee8268577fdf2a7f3c930e1eb3909bb5650
+work dir   /hpc/data/cfd-students/nnoventa/sparta/../regression_runs/cpu_pr623_1217483/examples
