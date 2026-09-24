@@ -1,6 +1,10 @@
 # results/
 
 New runs land at this level; move them into the matching folder once read.
+**Code version:** every run in `scaling/`, `weak/`, `saturation/`, `long/`, `h200/`
+and `v100_profile/` was made before upstream PR #623 was merged into master
+(2026-09-24, merge 9e9aa6da); `pr623/` holds the runs that validated it.
+
 `summary.txt` is the file to open first where it exists (`log.sparta` is
 git-ignored upstream).
 
@@ -68,23 +72,21 @@ Name: `<arch>_n1[_x<s>]_<job>`. Same protocol as weak/.
 |---|---|
 | `{cpu,gpu}_n1[_x{2,4,8,16}]_<job>` | GPU/CPU time 1.27 at 25M, 0.97–0.99 from 200M on; GPU saturated already at 6.4M per V100; 19.2 GB per V100 at 404M |
 
-## scaling/ — runs of the PR #623 test build (branch `try-pr623`)
+## pr623/ — validation of upstream PR #623 before merging it into master
 
-Name: `<arch>_pr623_<nodes or gpus>_<job>`, same protocol as the strong-scaling rows above.
+Test build `install_<arch>_pr623` from branch `try-pr623`; reference: the builds of master
+at the time. See the merge commit 9e9aa6da for the summary.
 
 | Runs | What |
 |---|---|
-| `cpu_pr623_n1_<job>` | CPU node: 84.6 s (base 83.1 s), counters equal |
-| `gpu_pr623_n1_<job>` | 4x V100: 53.4 s (base 78.9 s); collide slower (9.7 vs 7.6 s) |
-| `h200_pr623_g{1,4}_<job>` | 1 and 4 H200: 47.2 / 18.9 s (base 199.0 / 82.0 s); no Output copy |
+| `scaling/cpu_pr623_n1_<job>` | CPU node, deck as given: 84.6 s (before 83.1 s), counters equal |
+| `scaling/gpu_pr623_n1_<job>` | 4x V100: 53.4 s (before 78.9 s); collide slower (9.7 vs 7.6 s) |
+| `scaling/h200_pr623_g{1,4}_<job>` | 1 and 4 H200: 47.2 / 18.9 s (before 199.0 / 82.0 s); no Output copy |
+| `saturation/gpu_pr623_n1_x16_<job>` | 4x V100, 404M particles: 223.0 s (before 307.5 s), peak memory unchanged (19.2 GB per GPU) |
+| `regression/cpu_pr623_1217483` | SPARTA's regression.py, every example, CPU 4 ranks: 120 decks bit-identical, 13 fail with both builds (missing packages or input files) |
+| `regression/gpu_pr623_1217184` | same on one V100, 146 decks: at the noise level of the build against itself (median error ratio 0.99) |
+| `regression/gpu_pr623_{1217312,1217411}` | repeats of `ambi`, `circle` and `surf_collide`: the two decks above 5% are within the noise |
 
-## regression/ — SPARTA's regression.py on every example, reference build vs test build
-
-Name: `<arch>_<test build>_<job>`. `summary.txt`: one line per deck, the reference
-compared with itself and the test build compared with the reference; `ref.out` and
-`test.out` are the driver's full output; the run logs are in `../regression_runs/`.
-
-| Run | What |
-|---|---|
-| `gpu_pr623_1217184` | V100, 146 decks: pr623 vs master at the noise level (median ratio of the errors 0.99); `ambi.group` and `circle.impulsive` just above 5% |
-| `cpu_pr623_1217183` | CPU, 4 ranks |
+`regression/` files: `summary.txt` (one line per deck: reference vs itself, test vs
+reference), `ref.out` / `test.out` (the driver's output); run logs in `../regression_runs/`.
+New regression runs land in `results/regression/`.
