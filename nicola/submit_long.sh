@@ -33,7 +33,7 @@ REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
-GPU_ARCH="${GPU_ARCH:-v100_reduce}"
+GPU_ARCH="${GPU_ARCH:-v100}"
 SPARTA_EXE="${SPARTA_EXE:-$REPO_ROOT/install_$GPU_ARCH/bin/spa_kokkos_cuda}"
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
@@ -52,7 +52,7 @@ for p in "$CASE_DIR" "$SPARTA_EXE" "$INPUT_FILE"; do
     if [ ! -e "$p" ]; then
         echo "MISSING: $p" >&2
         case "$p" in
-            "$SPARTA_EXE") echo "build it first:  REDUCE=1 nicola/compile/compile_sparta_cuda.sh v100" >&2 ;;
+            "$SPARTA_EXE") echo "build it first:  nicola/compile/compile_sparta_cuda.sh v100" >&2 ;;
         esac
         exit 1
     fi

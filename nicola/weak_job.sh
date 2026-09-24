@@ -1,25 +1,26 @@
 #!/bin/bash
 #PBS -j oe
 
-# Job body of the weak-scaling study: the work per node is kept constant.
+# Job body of the weak-scaling study: the work per unit (a node, or a GPU
+# with UNIT=gpu) is kept constant.
 #
 # Do not qsub this directly: submit_weak.sh builds the qsub line and passes
-# ARCH, NODES, NPART_PER_NODE, FNUM_1, WARMUP and NSTEPS with -v.
-# submit_saturation.sh uses the same body on 1 node, with SCALE and STUDY.
+# ARCH, NODES, GPUS, UNIT, NPART_PER_UNIT, FNUM_1, WARMUP and NSTEPS with -v.
+# submit_saturation.sh uses the same body on one node, with SCALE and STUDY.
 #
-# With k nodes the deck runs with fnum = FNUM_1 / k, so the steady-state
-# particle count is k times the 1-node one (same gas, each particle stands for
-# k times fewer molecules), and
-# creates NPART_PER_NODE * k particles: already the steady-state count, so the
-# particles only have to redistribute in space, not drain away.
-# The run is split in two: WARMUP steps (not measured), then NSTEPS steps whose
-# "Loop time" is the measurement.
+# With k units the deck runs with fnum = FNUM_1 / k, so the steady-state
+# particle count is k times the one-unit one (same gas, each particle stands
+# for k times fewer molecules), and creates NPART_PER_UNIT * k particles:
+# already the steady-state count, so the particles only have to redistribute
+# in space, not drain away. The run is split in two: WARMUP steps (not
+# measured), then NSTEPS steps whose "Loop time" is the measurement.
 #
-# Base versions only: the deck's own balancing (rcb cell), one rank per GPU
-# (install_v100, atomics), one rank per core (install_cpu).
+# The deck's own balancing (rcb cell), one rank per GPU or per core.
 #
-#   ARCH=gpu  4 ranks per node, one per V100
-#   ARCH=cpu  192 ranks per node (genoaX)
+#   ARCH=cpu  192 ranks per node (genoaX), install_cpu binary
+#   ARCH=v100 one rank per V100, 4 per node, install_v100 binary
+#   ARCH=h200 one rank per H200, 8 per node, install_h200 binary
+#   GPUS      GPUs used per node (default: all); fewer = part of one node
 
 # ---------------------------------------------------------------- paths ----
 # qsub is run from nicola/ by submit_weak.sh, so that is $PBS_O_WORKDIR.
@@ -31,9 +32,11 @@ REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
-ARCH="${ARCH:-gpu}"
+ARCH="${ARCH:-v100}"
 NODES="${NODES:-1}"
-NPART_PER_NODE="${NPART_PER_NODE:-25700000}"
+GPUS="${GPUS:-}"
+UNIT="${UNIT:-node}"                # node or gpu: what the work is constant per
+NPART_PER_UNIT="${NPART_PER_UNIT:-25700000}"
 FNUM_1="${FNUM_1:-1.8339e+08}"
 WARMUP="${WARMUP:-2000}"
 NSTEPS="${NSTEPS:-1000}"
@@ -41,20 +44,20 @@ NSTEPS="${NSTEPS:-1000}"
 # GPU runs crash inside MPI calls: buffers are then staged through the host.
 GPU_AWARE="${GPU_AWARE:-1}"
 
-# SCALE multiplies the work per node on top of that (submit_saturation.sh:
-# 1 node, 1..16 times the particles). The weak-scaling study keeps SCALE=1.
+# SCALE multiplies the work per unit on top of that (submit_saturation.sh:
+# one node, 1..16 times the particles). The weak-scaling study keeps SCALE=1.
 SCALE="${SCALE:-1}"
-# BUILD selects another build, install_<arch>_<BUILD> (e.g. a test branch).
+# BUILD selects another build, install_<arch>_<BUILD> (e.g. BUILD=pre623).
 BUILD="${BUILD:-}"
 STUDY="${STUDY:-weak}"
-K=$(( NODES * SCALE ))
-NPART=$(( NPART_PER_NODE * K ))
-FNUM=$(awk -v f="$FNUM_1" -v k="$K" 'BEGIN { printf "%.6e", f / k }')
 
 case "$ARCH" in
-    gpu) SPARTA_EXE="$REPO_ROOT/install_v100${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
-         RANKS_PER_NODE=4
-         KOKKOS_ARGS=(-k on g 4 -sf kk)
+    v100|h200)
+         SPARTA_EXE="$REPO_ROOT/install_${ARCH}${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
+         PER_NODE=$([ "$ARCH" = v100 ] && echo 4 || echo 8)
+         GPUS="${GPUS:-$PER_NODE}"
+         RANKS_PER_NODE=$GPUS
+         KOKKOS_ARGS=(-k on g "$GPUS" -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
     cpu) SPARTA_EXE="$REPO_ROOT/install_cpu${BUILD:+_$BUILD}/bin/spa_kokkos_mpi_only"
          RANKS_PER_NODE=192
@@ -64,8 +67,14 @@ esac
 NRANKS=$(( NODES * RANKS_PER_NODE ))
 BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 
+# k: the units the work is multiplied by
+if [ "$UNIT" = gpu ]; then UNITS=$GPUS; UNIT_TAG="g$GPUS"; else UNITS=$NODES; UNIT_TAG="n$NODES"; fi
+K=$(( UNITS * SCALE ))
+NPART=$(( NPART_PER_UNIT * K ))
+FNUM=$(awk -v f="$FNUM_1" -v k="$K" 'BEGIN { printf "%.6e", f / k }')
+
 SCALE_TAG=; [ "$SCALE" != 1 ] && SCALE_TAG="_x$SCALE"
-RUNDIR="$NICOLA/results/$STUDY/${ARCH}${BUILD:+_$BUILD}_n${NODES}${SCALE_TAG}_${PBS_JOBID%%.*}"
+RUNDIR="$NICOLA/results/$STUDY/${ARCH}${BUILD:+_$BUILD}_${UNIT_TAG}${SCALE_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -108,7 +117,7 @@ cd "$CASE_DIR" || exit 1
 module purge
 module load gcc/13.1.0
 module load hpcx/2.17.1-gcc-8.5.0
-[ "$ARCH" = gpu ] && module load cuda12.8/toolkit/12.8.1
+[ "$ARCH" != cpu ] && module load cuda12.8/toolkit/12.8.1
 
 export OMP_NUM_THREADS=1
 
@@ -116,12 +125,13 @@ export OMP_NUM_THREADS=1
     echo "job        $PBS_JOBID"
     echo "date       $(date -Is)"
     echo "study      $STUDY"
-    echo "scale      $SCALE (work per node x $SCALE)"
+    echo "scale      $SCALE (work per $UNIT x $SCALE)"
     echo "arch       $ARCH"
-    echo "nodes      $NODES"
+    echo "nodes      $NODES${GPUS:+, $GPUS GPUs per node}"
+    echo "unit       $UNIT (k = $K)"
     echo "ranks      $NRANKS ($RANKS_PER_NODE per node)"
     echo "fnum       $FNUM (= $FNUM_1 / $K)"
-    echo "npart      $NPART ($(( NPART / NODES )) per node)"
+    echo "npart      $NPART ($(( NPART / UNITS )) per $UNIT)"
     echo "warmup     $WARMUP steps (not measured)"
     echo "nsteps     $NSTEPS (measured)"
     echo "gpu_aware  $GPU_AWARE"
@@ -135,7 +145,7 @@ export OMP_NUM_THREADS=1
 
 # GPU utilisation and power, sampled on the first node only.
 SMI_PID=
-if [ "$ARCH" = gpu ]; then
+if [ "$ARCH" != cpu ]; then
     nvidia-smi -L
     nvidia-smi -q | grep -iE "driver version|cuda version"
     nvidia-smi \

@@ -5,8 +5,8 @@
 # (tools/testing/regression.py) on every examples/*/in.* deck, with a
 # reference build and a test build of the same architecture.
 #
-# Do not qsub this directly: submit_regression.sh passes ARCH, REF_BUILD,
-# TEST_BUILD, ONLY and TOL with -v.
+# Do not qsub this directly: submit_regression.sh passes ARCH, BUILD (the
+# build under test), REF_BUILD, ONLY, SKIP and TOL with -v.
 #
 # regression.py writes a gold-standard log the first time it meets a deck and
 # compares every later run with it, column by column of the stats output. So:
@@ -24,9 +24,9 @@
 NICOLA="${PBS_O_WORKDIR:-$PWD}"
 REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 
-ARCH="${ARCH:-gpu}"
-REF_BUILD="${REF_BUILD:-}"          # "" = install_<arch>, the build of master
-TEST_BUILD="${TEST_BUILD:-pr623}"   # install_<arch>_<TEST_BUILD>
+ARCH="${ARCH:-v100}"
+BUILD="${BUILD:-}"                  # under test: install_<arch>[_<BUILD>]
+REF_BUILD="${REF_BUILD-pre623}"     # reference: install_<arch>[_<REF_BUILD>]
 ONLY="${ONLY:-}"                    # example dirs to restrict to, ":" separated
 TOL="${TOL:-0.05}"
 # decks left out, ":" separated, removed from the copy of the examples:
@@ -38,18 +38,19 @@ TOL="${TOL:-0.05}"
 SKIP="${SKIP:-custom.step.set.restart:cylinder}"
 
 case "$ARCH" in
-    gpu) EXE=spa_kokkos_cuda; INSTALL=install_v100
+    v100|h200) EXE=spa_kokkos_cuda
          LAUNCH_ARGS="-np 1"; KOKKOS_ARGS="-k on g 1 -sf kk" ;;
-    cpu) EXE=spa_kokkos_mpi_only; INSTALL=install_cpu
+    cpu) EXE=spa_kokkos_mpi_only
          LAUNCH_ARGS="-np 4"; KOKKOS_ARGS="-k on -sf kk" ;;
     *)   echo "unknown ARCH=$ARCH" >&2; exit 1 ;;
 esac
-REF_EXE="$REPO_ROOT/${INSTALL}${REF_BUILD:+_$REF_BUILD}/bin/$EXE"
-TEST_EXE="$REPO_ROOT/${INSTALL}_${TEST_BUILD}/bin/$EXE"
+REF_EXE="$REPO_ROOT/install_${ARCH}${REF_BUILD:+_$REF_BUILD}/bin/$EXE"
+TEST_EXE="$REPO_ROOT/install_${ARCH}${BUILD:+_$BUILD}/bin/$EXE"
 
 JOB="${PBS_JOBID%%.*}"
-RUNDIR="$NICOLA/results/regression/${ARCH}_${TEST_BUILD}_${JOB:-local}"
-WORK="$REPO_ROOT/../regression_runs/${ARCH}_${TEST_BUILD}_${JOB:-local}"
+NAME="${ARCH}${BUILD:+_$BUILD}_vs_${REF_BUILD:-current}_${JOB:-local}"
+RUNDIR="$NICOLA/results/regression/$NAME"
+WORK="$REPO_ROOT/../regression_runs/$NAME"
 mkdir -p "$RUNDIR" "$WORK"
 exec > >(tee "$RUNDIR/job.out") 2>&1
 
@@ -75,7 +76,7 @@ build_info() { tr '\n' ' ' < "$(dirname "$1")/../BUILD_INFO" 2>/dev/null; }
 module purge
 module load gcc/13.1.0
 module load hpcx/2.17.1-gcc-8.5.0
-[ "$ARCH" = gpu ] && module load cuda12.8/toolkit/12.8.1
+[ "$ARCH" != cpu ] && module load cuda12.8/toolkit/12.8.1
 export OMP_NUM_THREADS=1
 
 # a fresh copy of the examples: the gold logs are made by pass 1 of this job
@@ -100,7 +101,7 @@ done
     echo "commit     $(git_head "$REPO_ROOT")"
     echo "work dir   $WORK/examples"
 } | tee "$RUNDIR/meta.txt"
-[ "$ARCH" = gpu ] && nvidia-smi -L
+[ "$ARCH" != cpu ] && nvidia-smi -L
 
 OPTS=(-logread "$REPO_ROOT/tools/testing" olog
       -error_norm L1 -relative_error True -tolerance "$TOL")

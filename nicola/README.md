@@ -23,22 +23,28 @@ Binaries: `install_<arch>[_<tag>]/bin/`, with `BUILD_INFO` (commit, branch, date
 Rebuild after every pull that touches `src/`.
 
 ## 3. Run (from `nicola/`)
-Launchers marked (L) call qsub themselves: run them directly, not with qsub.
+All launchers take the same arguments and call qsub themselves (run them directly):
+
+```
+./submit_<study>.sh <arch> [-g] ...
+  arch  cpu (genoaX node) | v100 (node of 4) | h200 (node of 8)
+  -g    count GPUs of one shared node instead of whole exclusive nodes
+```
 
 | What | Command |
 |---|---|
-| strong scaling, nodes (L) | `./submit_scaling.sh cpu 1 2 4 8` · `./submit_scaling.sh v100 1 2 4` |
-| strong scaling, GPUs of one node (L) | `./submit_scaling.sh h200 -g 1 2 4` · `./submit_scaling.sh v100 -g 1 2 4` |
-| single quick run (L) | `NPART=30000000 NSTEPS=200 ./submit_scaling.sh h200 -g 1` |
-| weak scaling (L) | `./submit_weak.sh` · one run: `./submit_weak.sh cpu 8` |
-| saturation, 1 node, 1..16x particles (L) | `./submit_saturation.sh` · one run: `./submit_saturation.sh gpu 16` |
-| long run to steady state | `qsub submit_long.sh` |
-| nsys profile, V100 / H200 | `qsub submit_gpu_nsys.sh` / `qsub submit_gpu_nsys_h200.sh` |
+| strong scaling | `./submit_scaling.sh cpu 1 2 4 8` · `./submit_scaling.sh v100 1 2 4` · `./submit_scaling.sh h200 -g 1 2 4` |
+| weak scaling (constant work per node, or per GPU with -g) | `./submit_weak.sh cpu 1 2 4` · `./submit_weak.sh h200 -g 1 2 4` |
+| saturation, 1..16x particles on one node (or G GPUs: `-g G`) | `./submit_saturation.sh v100 1 2 4 8 16` · `./submit_saturation.sh h200 -g 1 1 4 16` |
+| regression check, current build vs `pre623` | `./submit_regression.sh v100` |
+| quick single run | `NPART=30000000 NSTEPS=200 ./submit_scaling.sh h200 -g 1` |
+| long run to steady state (qsub) | `qsub submit_long.sh` |
+| nsys profile (qsub) | `qsub submit_gpu_nsys.sh` (V100) / `qsub submit_gpu_nsys_h200.sh` |
 | registers per kernel | `./res_usage.sh` |
-| regression check of a test build vs master's (L) | `./submit_regression.sh` |
 
-Environment knobs of the launchers: `NPART`, `NSTEPS`, `WALLTIME`, `BALANCE=part|dyn|time`,
-`BUILD=<tag>` (use `install_<arch>_<tag>`), `RANKS_PER_GPU`; see the header of each script.
+Common environment knobs: `BUILD=<tag>` (use `install_<arch>_<tag>`, e.g. `BUILD=pre623`
+for the code before PR #623), `NPART`, `NSTEPS`, `WALLTIME`, `BALANCE=part|dyn|time`,
+`RANKS_PER_GPU`; each script's header lists its own. Shared logic: `submit_common.sh`.
 The nsys scripts take `qsub -v NPART=...,REORDER=...,LABEL=...,GPU_ARCH=<build>`.
 
 ## 4. Send results back
