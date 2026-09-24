@@ -8,6 +8,7 @@
    DE-AC04-94AL85000 with Sandia Corporation, the U.S. Government retains
    certain rights in this software.  This software is distributed under
    the GNU General Public License.
+   Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 
    See the README file in the top-level SPARTA directory.
 ------------------------------------------------------------------------- */
@@ -524,7 +525,10 @@ void UpdateKokkos::run(int nsteps)
     // all output
 
     if (ntimestep == output->next) {
-      particle_kk->sync(Host,ALL_MASK);
+      unsigned int sync_mask = ALL_MASK;
+      if (output->next_dump_any != ntimestep && output->next_restart != ntimestep)
+        sync_mask &= ~PARTICLE_MASK;
+      particle_kk->sync(Host,sync_mask);
       output->write(ntimestep);
       timer->stamp(TIME_OUTPUT);
     }
@@ -717,6 +721,15 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
     if (niterate == 1 && !continue_loop_flag) {
       pstart = 0;
       pstop = particle->nlocal;
+#if defined SPARTA_KOKKOS_GPU
+      if ( fstyle == NOFIELD && not_updated.extent(0) < (size_t)pstop ) {
+        not_updated = DAT::t_int_1d("not_updated",(size_t)(pstop*1.05));
+      }
+      if ( fstyle == NOFIELD && !not_updated_cnt.data() ) {
+        not_updated_cnt = DAT::t_int_1d("not_updated_cnt",1);
+        h_not_updated_cnt = HAT::t_int_1d("h_not_updated_cnt",1);
+      }
+#endif
     }
 
     UPDATE_REDUCE reduce;
@@ -779,7 +792,18 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
   #if SPARTA_KOKKOS_REDUCE_ARCH
       Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
   #else
-      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,1> >(pstart,pstop),*this);
+    if ( fstyle == NOFIELD && niterate == 1 && !continue_loop_flag ) {
+      // on the first iteration, split the move on GPU: fast path for trivial
+      // particles, indirect team-based path for complex ones
+      Kokkos::deep_copy(not_updated_cnt,0);
+      Kokkos::parallel_for(Kokkos::RangePolicy<DeviceType, TagUpdateMoveFirstPass<DIM> >(pstart,pstop),*this);
+      Kokkos::deep_copy(h_not_updated_cnt,not_updated_cnt);
+      int team_size=128;
+      int num_teams = (std::min<int>(DeviceType::concurrency(),h_not_updated_cnt(0))-1)/team_size+1;
+      auto policy=Kokkos::TeamPolicy<DeviceType, TagUpdateMoveIndirect<DIM,SURF,REACT,OPT,-1> >(num_teams,team_size);
+      Kokkos::parallel_reduce(policy,*this,reduce);
+    } else
+      Kokkos::parallel_reduce(Kokkos::RangePolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,-1> >(pstart,pstop),*this,reduce);
   #endif
 #elif defined KOKKOS_ENABLE_SERIAL
       if constexpr(std::is_same<DeviceType,Kokkos::Serial>::value)
@@ -855,7 +879,19 @@ template < int DIM, int SURF, int REACT, int OPT > void UpdateKokkos::move()
 
     int error_flag;
 
-    if (!sparta->kokkos->need_atomics || sparta->kokkos->atomic_reduction) {
+    // on the GPU every variant of the move now launches ATOMIC_REDUCTION = -1
+    //   (the two-pass path and its fallback alike), so the counters are in
+    //   the reduction result whatever atomic_reduction says; reading the
+    //   device scalars there would report them as zero
+
+#if defined SPARTA_KOKKOS_GPU
+    const bool counters_in_scalars = false;
+#else
+    const bool counters_in_scalars =
+      !sparta->kokkos->need_atomics || sparta->kokkos->atomic_reduction;
+#endif
+
+    if (counters_in_scalars) {
       ntouch_one += h_ntouch_one();
       nexit_one += h_nexit_one();
       nboundary_one += h_nboundary_one();
@@ -1195,6 +1231,77 @@ void UpdateKokkos::operator()(TagUpdateMove<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>
 template<int DIM, int SURF, int REACT, int OPT, int ATOMIC_REDUCTION>
 KOKKOS_INLINE_FUNCTION
 void UpdateKokkos::operator()(TagUpdateMove<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>, const int &i, UPDATE_REDUCE &reduce) const {
+  moveOne<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>(i,reduce);
+}
+
+/*-----------------------------------------------------------------------------*/
+
+template<int DIM, int SURF, int REACT, int OPT, int ATOMIC_REDUCTION>
+KOKKOS_INLINE_FUNCTION
+void UpdateKokkos::operator()(TagUpdateMoveIndirect<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>,
+     const typename Kokkos::TeamPolicy<DeviceType, TagUpdateMove<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>>::member_type &team,
+     UPDATE_REDUCE &reduce) const {
+  int i = team.team_rank() + team.team_size()*team.league_rank();
+  for (; i<not_updated_cnt(0); i+= team.league_size()*team.team_size())
+    moveOne<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>(not_updated(i),reduce);
+}
+
+/*-----------------------------------------------------------------------------*/
+
+template<int DIM>
+KOKKOS_INLINE_FUNCTION
+void UpdateKokkos::operator()(TagUpdateMoveFirstPass<DIM>, const int i) const {
+  Particle::OnePart &particle_i = d_particles[i];
+
+  int &pflag = particle_i.flag;
+  double xnew[DIM];
+  double * x = particle_i.x;
+  int icell = particle_i.icell;
+  const double * const v = particle_i.v;
+  xnew[0] = x[0] + dt*v[0];
+  if constexpr (DIM > 1) xnew[1] = x[1] + dt*v[1];
+  if constexpr (DIM > 2) xnew[2] = x[2] + dt*v[2];
+  int nsurf = d_cells[icell].nsurf;
+
+  if (pflag != PKEEP) {
+    if (pflag == PDONE)
+      pflag = PKEEP;
+    else {
+      const int indx = Kokkos::atomic_fetch_add(&not_updated_cnt(0),1);
+      not_updated(indx) = i;
+      return;
+    }
+  }
+
+  if (nsurf) {
+    const int indx = Kokkos::atomic_fetch_add(&not_updated_cnt(0),1);
+    not_updated(indx) = i;
+    return;
+  }
+
+  const double* const lo = d_cells[icell].lo;
+  const double* const hi = d_cells[icell].hi;
+  bool leave = false;
+  if (xnew[0] < lo[0] || xnew[0] >= hi[0]) leave = true;
+  if (DIM>1 && (xnew[1] < lo[1] || xnew[1] >= hi[1])) leave = true;
+  if (DIM>2 && (xnew[2] < lo[2] || xnew[2] >= hi[2])) leave = true;
+
+  if (leave) {
+    const int indx = Kokkos::atomic_fetch_add(&not_updated_cnt(0),1);
+    not_updated(indx) = i;
+    return;
+  }
+
+  x[0] = xnew[0];
+  if constexpr (DIM > 1) x[1] = xnew[1];
+  if constexpr (DIM > 2) x[2] = xnew[2];
+}
+
+/*-----------------------------------------------------------------------------*/
+
+template<int DIM, int SURF, int REACT, int OPT, int ATOMIC_REDUCTION>
+KOKKOS_INLINE_FUNCTION
+void UpdateKokkos::moveOne(const int &i, UPDATE_REDUCE &reduce) const {
   if (d_error_flag() || d_retry()) return;
 
   // int m;
@@ -2278,7 +2385,7 @@ void UpdateKokkos::operator()(TagUpdateMove<DIM,SURF,REACT,OPT,ATOMIC_REDUCTION>
         reduce.ncomm_one++;
     }
   }
-} // end of Kokkos parallel_reduce
+} // end of moveOne
 
 /* ----------------------------------------------------------------------
    particle is entering split parent icell at x
