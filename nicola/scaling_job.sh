@@ -7,9 +7,10 @@
 # submit_scaling.sh builds the qsub line and passes ARCH, NODES, NSTEPS,
 # NPART (and optionally GPU_AWARE) with -v.
 #
-#   ARCH=gpu  4 ranks per node, one per V100, install_v100 binary
-#   ARCH=h200 8 ranks per node, one per H200, install_h200 binary
 #   ARCH=cpu  192 ranks per node (genoaX), install_cpu binary
+#   ARCH=v100 one rank per V100, 4 per node, install_v100 binary
+#   ARCH=h200 one rank per H200, 8 per node, install_h200 binary
+#   GPUS      GPUs used per node (default: all); fewer = part of one node
 
 # ---------------------------------------------------------------- paths ----
 # qsub is run from nicola/ by submit_scaling.sh, so that is $PBS_O_WORKDIR.
@@ -21,18 +22,18 @@ REPO_ROOT="$(cd "$NICOLA/.." && pwd)"
 CASE_DIR="${CASE_DIR:-$REPO_ROOT/../sparta-dsmc-asml/examples/rectangular_duct_with_reservoir_ztest}"
 INPUT_FILE="${INPUT_FILE:-$NICOLA/input/in.sparta.gpu}"
 
-ARCH="${ARCH:-gpu}"
+ARCH="${ARCH:-v100}"
 NODES="${NODES:-1}"
 NSTEPS="${NSTEPS:-1000}"
 NPART="${NPART:-120000000}"
 # SPARTA assumes GPU-aware MPI by default and does not check. Set 0 if the
 # GPU runs crash inside MPI calls: buffers are then staged through the host.
 GPU_AWARE="${GPU_AWARE:-1}"
-# MPI ranks per GPU (gpu runs only); 2 means two ranks share each GPU
+# MPI ranks per GPU (GPU runs only); 2 means two ranks share each GPU
 RANKS_PER_GPU="${RANKS_PER_GPU:-1}"
-# H200 GPUs used per node (h200 only). Full H200 nodes are rarely free, so
-# submit_scaling.sh h200g runs 1 node with GPUS=1, 2, ... instead.
-GPUS="${GPUS:-8}"
+# GPUs used per node (GPU runs only), default all of them. Whole H200 nodes
+# are rarely free, so submit_scaling.sh -g runs 1 node with GPUS=1, 2, ...
+GPUS="${GPUS:-}"
 # BUILD selects another build, install_<arch>_<BUILD> (compile with
 # TAG=<BUILD>), e.g. a test branch; the run directory is tagged with it.
 BUILD="${BUILD:-}"
@@ -45,14 +46,12 @@ BALANCE="${BALANCE:-}"
 BAL_EVERY="${BAL_EVERY:-1000}"
 
 case "$ARCH" in
-    gpu) SPARTA_EXE="$REPO_ROOT/install_v100${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
-         # 4 V100 per node. RANKS_PER_GPU > 1 oversubscribes each GPU: SPARTA
-         # assigns devices as local_rank % ngpus, so the extra ranks share.
-         RANKS_PER_NODE=$(( 4 * RANKS_PER_GPU ))
-         KOKKOS_ARGS=(-k on g 4 -sf kk)
-         [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
-    h200) SPARTA_EXE="$REPO_ROOT/install_h200${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
-         # up to 8 H200 per node, same device assignment as above
+    v100|h200)
+         SPARTA_EXE="$REPO_ROOT/install_${ARCH}${BUILD:+_$BUILD}/bin/spa_kokkos_cuda"
+         PER_NODE=$([ "$ARCH" = v100 ] && echo 4 || echo 8)
+         GPUS="${GPUS:-$PER_NODE}"
+         # RANKS_PER_GPU > 1 oversubscribes each GPU: SPARTA assigns devices
+         # as local_rank % ngpus, so the extra ranks share.
          RANKS_PER_NODE=$(( GPUS * RANKS_PER_GPU ))
          KOKKOS_ARGS=(-k on g "$GPUS" -sf kk)
          [ "$GPU_AWARE" = 0 ] && KOKKOS_ARGS+=(-pk kokkos gpu/aware no) ;;
@@ -69,8 +68,8 @@ BUILD_INFO="$(dirname "$SPARTA_EXE")/../BUILD_INFO"
 STEPS_TAG=; [ "$NSTEPS" != 1000 ] && STEPS_TAG="_s$NSTEPS"
 NP_TAG=; [ "$NPART" != 120000000 ] && NP_TAG="_np$(( NPART / 1000000 ))M"
 RPG_TAG=; [ "$RANKS_PER_GPU" != 1 ] && RPG_TAG="_r$RANKS_PER_GPU"
-# a partial H200 node is named by its GPU count: h200_g2 = 2 H200 on 1 node
-NODE_TAG="n$NODES"; [ "$ARCH" = h200 ] && [ "$GPUS" != 8 ] && NODE_TAG="g$GPUS"
+# part of a GPU node is named by its GPU count: h200_g2 = 2 H200 on 1 node
+NODE_TAG="n$NODES"; [ "$ARCH" != cpu ] && [ "$GPUS" != "$PER_NODE" ] && NODE_TAG="g$GPUS"
 RUNDIR="$NICOLA/results/scaling/${ARCH}${BUILD:+_$BUILD}_${NODE_TAG}${BALANCE:+_bal$BALANCE}${STEPS_TAG}${NP_TAG}${RPG_TAG}_${PBS_JOBID%%.*}"
 mkdir -p "$RUNDIR"
 exec > >(tee "$RUNDIR/job.out") 2>&1

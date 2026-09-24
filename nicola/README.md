@@ -27,9 +27,9 @@ Launchers marked (L) call qsub themselves: run them directly, not with qsub.
 
 | What | Command |
 |---|---|
-| strong scaling, CPU and V100 nodes (L) | `./submit_scaling.sh` · one run: `./submit_scaling.sh gpu 2` |
-| H200, 1..8 GPUs of one node (L) | `./submit_scaling.sh h200g 1 2 4` |
-| single quick run, any of the above (L) | `NPART=30000000 NSTEPS=200 ./submit_scaling.sh h200g 1` |
+| strong scaling, nodes (L) | `./submit_scaling.sh cpu 1 2 4 8` · `./submit_scaling.sh v100 1 2 4` |
+| strong scaling, GPUs of one node (L) | `./submit_scaling.sh h200 -g 1 2 4` · `./submit_scaling.sh v100 -g 1 2 4` |
+| single quick run (L) | `NPART=30000000 NSTEPS=200 ./submit_scaling.sh h200 -g 1` |
 | weak scaling (L) | `./submit_weak.sh` · one run: `./submit_weak.sh cpu 8` |
 | saturation, 1 node, 1..16x particles (L) | `./submit_saturation.sh` · one run: `./submit_saturation.sh gpu 16` |
 | long run to steady state | `qsub submit_long.sh` |
